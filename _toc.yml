@@ -1,0 +1,25 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro.md
+parts:
+  - caption: Introduction
+    chapters:
+    - file: intro2.md
+  - caption: Obtaining and Processing Data
+    chapters:
+    - file: notebooks/SL_Data_Wrangling.ipynb
+  - caption: Regional and Local Sea Level
+    chapters:
+    - file: notebooks/SL_magnitude.ipynb
+    - file: notebooks/SL_MMA.ipynb
+      sections:
+      - file: notebooks/SL_Extremes.rst
+      - file: notebooks/SL_Components.rst
+  - caption: Minor Flood Frequency and Duration
+    chapters:
+    - file: notebooks/FloodFrequency.ipynb
+    - file: notebooks/FloodDuration.rst
+      sections:
+      - file: SL_rankings.rst

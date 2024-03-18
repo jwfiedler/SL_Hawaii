@@ -1,0 +1,48 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Hawaii Sea Level Indicators
+author: Playground Coordinator
+logo: icons/chatgptmadethis.png
+copyright                   : "2024"  # Copyright year to be placed in the footer
+only_build_toc_files : true
+
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - SeaLevelIndicators.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/jwfiedler/SL_Indicators_Hawaii # Online location of your book
+  branch: main  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  announcement: "In development! Please post issues and suggestions to github."
+
+# Parse and render settings
+parse:
+  myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
+
+launch_buttons:
+  # Binder button
+  binderhub_url: "https://mybinder.org"  # The URL for your BinderHub deployment
+  binderhub_logo_url: "https://mybinder.org/static/images/logo.svg"  # Logo for your BinderHub deployment
+  binderhub_logo_inject: true  # Inject the logo defined above in the Binder button?
+  use_jupyter_lab: true  # Should the classic notebook interface be used, or JupyterLab?
+  thebe: true  # Should Binder/Thebe be enabled?
