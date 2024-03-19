@@ -36,7 +36,7 @@ File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/l
 [0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/juliafiedler/Documents/SL_Hawaii/notebooks/data/rsl_daily_hawaii.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '69dbe99d-a929-4b20-bdbc-6c9df59c74bb']
+[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/juliafiedler/Documents/SL_Hawaii/notebooks/regional_and_local/SL_Hawaii/data/rsl_daily_hawaii.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '3e4fd350-0991-4c13-939f-9b4ace84b1d3']
 
 During handling of the above exception, another exception occurred:
 
@@ -145,5 +145,5 @@ File [0;32msrc/netCDF4/_netCDF4.pyx:2469[0m, in [0;36mnetCDF4._netCDF4.Datase
 
 File [0;32msrc/netCDF4/_netCDF4.pyx:2028[0m, in [0;36mnetCDF4._netCDF4._ensure_nc_success[0;34m()[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/juliafiedler/Documents/SL_Hawaii/notebooks/data/rsl_daily_hawaii.nc'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/juliafiedler/Documents/SL_Hawaii/notebooks/regional_and_local/SL_Hawaii/data/rsl_daily_hawaii.nc'
 
