@@ -9,17 +9,18 @@ parts:
     - file: intro2.md
   - caption: Obtaining and Processing Data
     chapters:
-    - file: notebooks/SL_Data_Wrangling.ipynb
+    - file: notebooks/placeholder.md
+      - sections:
+        - file: notebooks/setup.ipynb
+        - file: notebooks/SL_Data_Wrangling.ipynb
   - caption: Regional and Local Sea Level
     chapters:
-    - file: notebooks/SL_magnitude.ipynb
-    - file: notebooks/SL_MMA.ipynb
-      sections:
-      - file: notebooks/SL_Extremes.rst
-      - file: notebooks/SL_Components.rst
+    - file: notebooks/regional_and_local/SL_magnitude.ipynb
+    - file: notebooks/regional_and_local/SL_MMA.ipynb
+    - file: notebooks/regional_and_local/SL_Extremes.ipynb
+    - file: notebooks/regional_and_local/SL_Components.ipynb
+    - file: notebooks/regional_and_local/SL_Rankings.ipynb
   - caption: Minor Flood Frequency and Duration
     chapters:
     - file: notebooks/FloodFrequency.ipynb
-    - file: notebooks/FloodDuration.rst
-      sections:
-      - file: SL_rankings.rst
+    - file: notebooks/FloodDuration.ipynb
