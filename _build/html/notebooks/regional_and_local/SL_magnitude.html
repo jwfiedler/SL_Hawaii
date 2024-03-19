@@ -1,0 +1,2292 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Sea Level Magnitude &#8212; Hawaii Sea Level Indicators</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/regional_and_local/SL_magnitude';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Monthly Mean Anomaly" href="SL_MMA.html" />
+    <link rel="prev" title="Data Wrangling" href="../SL_Data_Wrangling.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
+  </div>
+
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/trend_map.png" class="logo__image only-light" alt="Hawaii Sea Level Indicators - Home"/>
+    <script>document.write(`<img src="../../_static/trend_map.png" class="logo__image only-dark" alt="Hawaii Sea Level Indicators - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gettingStarted.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../SL_Data_Wrangling.html">Data Wrangling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regional and Local Sea Level</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Sea Level Magnitude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SL_MMA.html">Monthly Mean Anomaly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SL_Extremes.html">Extremes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SL_Components.html">Components of Sea Level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="SL_Rankings.html">Rankings</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Minor Flood Frequency and Duration</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../FloodFrequency.html">Minor Flood Frequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../FloodDuration.html">Flood Duration</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jwfiedler/Sea_Level_Hawaii/main?urlpath=tree/notebooks/regional_and_local/SL_magnitude.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jwfiedler/Sea_Level_Hawaii" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jwfiedler/Sea_Level_Hawaii/edit/main/notebooks/regional_and_local/SL_magnitude.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jwfiedler/Sea_Level_Hawaii/issues/new?title=Issue%20on%20page%20%2Fnotebooks/regional_and_local/SL_magnitude.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/notebooks/regional_and_local/SL_magnitude.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Sea Level Magnitude</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-data-sources">Retrieve Data Sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-timeseries">Plot the timeseries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-change">Calculate change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-map">Plot a map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-time-series">Plot time series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-rate-and-magnitude-of-change">Calculate rate and magnitude of change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rsltimeseries">Plot time series</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-both-sources">Combining both sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-table">Create a Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-map">Create a Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-time-series-plot">Create a Time series plot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="sea-level-magnitude">
+<h1>Sea Level Magnitude<a class="headerlink" href="#sea-level-magnitude" title="Permalink to this heading">#</a></h1>
+<figure class="align-right">
+<a class="reference internal image-reference" href="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png"><img alt="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" src="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" style="width: 369.5px; height: 356.0px;" /></a>
+</figure>
+<p>In this notebook, we’ll be creating a <a class="reference internal" href="#sl-magnitude-results"><span class="std std-ref">table</span></a>, a <a class="reference internal" href="#fig-mag"><span class="std std-ref">map</span></a>, and a time series <a class="reference internal" href="#trend-fig"><span class="std std-ref">plot</span></a> of absolute and regional sea level change at Hawaiian Islands tide gauge stations from 1993-2022. Absolute sea level, typically measured by satellite altimetry, refers to the height of the sea surface relative to a reference ellipsoid. Here, we’ll use the global ocean gridded L4 Sea Level Anomalies (SLA) available from Copernicus <span id="id1">CLS (France) [<a class="reference internal" href="#id7" title="CLS (France). Global Ocean Gridded L 4 Sea Surface Heights And Derived Variables Reprocessed 1993 Ongoing. URL: https://data.marine.copernicus.eu/product/SEALEVEL_GLO_PHY_L4_MY_008_047/description, doi:10.48670/moi-00148.">CLSFrance</a>]</span>, which is the sea surface height (SSH) minus the mean sea surface (MSS), where the MSS is the temporal mean of SSH over a given period. Relative sea level is measured by a tide gauge, and is the sea level relative to land at that location. Differences between the two measurements can arise from vertical land motion, regional oceanographic conditions like currents, and changes to the gravitational field (affecting the geoid).</p>
+<p>Download Files:
+<span class="xref myst">Map</span> |
+<span class="xref myst">Time Series Plot</span> |
+<span class="xref myst">Table</span></p>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
+<p>First, we need to import all the necessary libraries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##First, we need to import all the necessary libraries.</span>
+<span class="c1"># import necessary libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># data retrieval libraries</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span> <span class="c1">#used for downloading files</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">copernicusmarine</span>
+
+<span class="c1"># data processing libraries</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
+<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span> <span class="c1">#used for figure numbering when exporting to LaTeX</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we’ll establish our directory for saving and reading data, and our output files.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span><span class="p">)</span> 
+<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../output&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we’ll establish some basic plotting rules for this notebook to keep everything looking uniform.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># Set a default figure size for the notebook</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Set default resolution for inline figures</span>
+
+<span class="c1"># Set the default font size for axes labels, titles and ticks</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlesize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>  <span class="c1"># Set the font size for axes titles</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>  <span class="c1"># Set the font size for x and y labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># Set the font size for x-axis tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># Set the font size for y-axis tick labels</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1"># Set the font size for the text in the figure (can affect legend)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="retrieve-data-sources">
+<h2>Retrieve Data Sources<a class="headerlink" href="#retrieve-data-sources" title="Permalink to this heading">#</a></h2>
+<p>Please see the Data Wrangling notebook, where we source everything from UHSLC and CMEMS. In this notebook, we saved three xarray datasets: a sea level altimetry product for the area around the Hawaiian Islands (asl_hawaii.nc), an hourly tide gauge record for the stations in that region (rsl_hawaii.nc), and a de-meaned daily average tide gauge record (rsl_daily_hawaii.nc).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Next, let&#39;s establish a period of record from 1993-2022.</span>
+<span class="c1"># establish the time period of interest</span>
+<span class="n">start_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1993</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+
+<span class="c1"># Normalize the data relative to the 1993-2012 epoch</span>
+<span class="n">epoch_start</span><span class="p">,</span> <span class="n">epoch_end</span> <span class="o">=</span> <span class="n">start_date</span><span class="p">,</span> <span class="s1">&#39;2012-01-01&#39;</span>
+<span class="c1">#</span>
+<span class="c1"># also save them as strings, for plotting</span>
+<span class="n">start_date_str</span> <span class="o">=</span> <span class="n">start_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">end_date_str</span> <span class="o">=</span> <span class="n">end_date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import datasets</span>
+<span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="n">sla_tg</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;asl_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="n">sla</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;cmems_L4_SSH_0.25deg_1993_2023.nc&#39;</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">sla</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;record_id&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Use g.axs to iterate over the axes in the FacetGrid</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">rid</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">record_id</span><span class="p">):</span>
+    <span class="c1"># Accessing the station_name coordinate for the current record_id directly</span>
+    <span class="n">station_name</span> <span class="o">=</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">station_name</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/juliafiedler/Documents/SL_Hawaii/notebooks/data/rsl_daily_hawaii.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;50131091-42c9-43a2-a33a-6151ca266575&#39;]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#import datasets</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">sla_tg</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;asl_hawaii.nc&#39;</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:572,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">560</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">561</span>     <span class="n">decode_cf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">571</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">572</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:593,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">573</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">590</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">593</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">594</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">595</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">597</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">599</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">600</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">601</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">602</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">603</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">605</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">606</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:400,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">394</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">395</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
+<span class="g g-Whitespace">    </span><span class="mi">396</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">397</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">400</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:347,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+<span class="ne">--&gt; </span><span class="mi">347</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
+<span class="g g-Whitespace">    </span><span class="mi">348</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">349</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">409</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:403,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">403</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>     <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/juliafiedler/Documents/SL_Hawaii/notebooks/data/rsl_daily_hawaii.nc&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">g</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">sea_level</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;record_id&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+
+<span class="c1"># Use g.axs to iterate over the axes in the FacetGrid</span>
+<span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">rid</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">g</span><span class="o">.</span><span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">,</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="p">):</span>
+    <span class="c1"># Accessing the station_name coordinate for the current record_id directly</span>
+    <span class="n">station_name</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">station_name</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8cfe0f07b195855d3404ea20830d90f0cbdf99cccad36953eea12c4e933580c0.png" src="../../_images/8cfe0f07b195855d3404ea20830d90f0cbdf99cccad36953eea12c4e933580c0.png" />
+</div>
+</div>
+<p>How many nan values are there in rsl[‘sea_level’]?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first we&#39;ll truncate the data to the period of record</span>
+<span class="n">sla_epoch</span> <span class="o">=</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">epoch_start</span><span class="p">,</span> <span class="n">epoch_end</span><span class="p">))</span>
+
+<span class="c1"># #print(&#39;Number of NaN values in the tide gauge data: &#39;, tide_gauge_data_POR.isnull().sum().values)</span>
+<span class="c1">#Run a quick check to see if the Ab SL from CMEMS is in fact zeroed about the 1993-2012 epoch. Curse the details.</span>
+<span class="c1"># Extract the data for the period of record (POR)</span>
+<span class="c1">#check if the mean is zero</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The mean for the [1993,2012] epoch of the SLA is&#39;</span><span class="p">,</span> <span class="n">sla_epoch</span><span class="o">.</span><span class="n">sla</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;m. Re-check source data to make sure this is correct.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean for the [1993,2012] epoch of the SLA is [0.02437027 0.03177435 0.02551141 0.02586268 0.0257112  0.02474964
+ 0.02533481 0.02586268 0.02476223 0.02406369 0.02167478] m. Re-check source data to make sure this is correct.
+</pre></div>
+</div>
+</div>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>OLD NOTE FROM PALAU, UPDATE TO HI:
+It should be noted that the coordinates from <a class="reference external" href="https://ccar.colorado.edu/altimetry/">https://ccar.colorado.edu/altimetry/</a> for the altimetry product are: Lat: 7.2500°N, Lon: 134.4167°E, using <a class="reference external" href="https://podaac.jpl.nasa.gov/dataset/SEA_SURFACE_HEIGHT_ALT_GRIDS_L4_2SATS_5DAY_6THDEG_V_JPL1812">https://podaac.jpl.nasa.gov/dataset/SEA_SURFACE_HEIGHT_ALT_GRIDS_L4_2SATS_5DAY_6THDEG_V_JPL1812</a> as their data source. This data is gridded at 1/6th of a degree as supposed to 1/4th of a degree in the source we are using.</p>
+</aside>
+<p>Let’s make a map to determine exactly where these points are in space. First we’ll define a function to prettify the map, which we’ll use for the rest of the notebook.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_zebra_frame</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">segment_length</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()):</span>
+    <span class="c1"># Get the current extent of the map</span>
+    <span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">bot</span><span class="p">,</span> <span class="n">top</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_extent</span><span class="p">(</span><span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the nearest 0 or 0.5 degree mark within the current extent</span>
+    <span class="n">left_start</span> <span class="o">=</span> <span class="n">left</span> <span class="o">-</span> <span class="n">left</span> <span class="o">%</span> <span class="n">segment_length</span>
+    <span class="n">bot_start</span> <span class="o">=</span> <span class="n">bot</span> <span class="o">-</span> <span class="n">bot</span> <span class="o">%</span> <span class="n">segment_length</span>
+
+    <span class="c1"># Adjust the start if it does not align with the desired segment start</span>
+    <span class="k">if</span> <span class="n">left</span> <span class="o">%</span> <span class="n">segment_length</span> <span class="o">&gt;=</span> <span class="n">segment_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">left_start</span> <span class="o">+=</span> <span class="n">segment_length</span>
+    <span class="k">if</span> <span class="n">bot</span> <span class="o">%</span> <span class="n">segment_length</span> <span class="o">&gt;=</span> <span class="n">segment_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="n">bot_start</span> <span class="o">+=</span> <span class="n">segment_length</span>
+
+    <span class="c1"># Extend the frame slightly beyond the map extent to ensure full coverage</span>
+    <span class="n">right_end</span> <span class="o">=</span> <span class="n">right</span> <span class="o">+</span> <span class="p">(</span><span class="n">segment_length</span> <span class="o">-</span> <span class="n">right</span> <span class="o">%</span> <span class="n">segment_length</span><span class="p">)</span>
+    <span class="n">top_end</span> <span class="o">=</span> <span class="n">top</span> <span class="o">+</span> <span class="p">(</span><span class="n">segment_length</span> <span class="o">-</span> <span class="n">top</span> <span class="o">%</span> <span class="n">segment_length</span><span class="p">)</span>
+
+    <span class="c1"># Calculate the number of segments needed for each side</span>
+    <span class="n">num_segments_x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">right_end</span> <span class="o">-</span> <span class="n">left_start</span><span class="p">)</span> <span class="o">/</span> <span class="n">segment_length</span><span class="p">))</span>
+    <span class="n">num_segments_y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">top_end</span> <span class="o">-</span> <span class="n">bot_start</span><span class="p">)</span> <span class="o">/</span> <span class="n">segment_length</span><span class="p">))</span>
+
+    <span class="c1"># Draw horizontal stripes at the top and bottom</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_segments_x</span><span class="p">):</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">left_start</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">segment_length</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">segment_length</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;white&#39;</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">left_start</span> <span class="o">+</span> <span class="n">i</span> <span class="o">*</span> <span class="n">segment_length</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">start_x</span> <span class="o">+</span> <span class="n">segment_length</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">hlines</span><span class="p">([</span><span class="n">bot</span><span class="p">,</span> <span class="n">top</span><span class="p">],</span> <span class="n">start_x</span><span class="p">,</span> <span class="n">end_x</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+    <span class="c1"># Draw vertical stripes on the left and right</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_segments_y</span><span class="p">):</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span> <span class="k">if</span> <span class="p">(</span><span class="n">bot_start</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">segment_length</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">segment_length</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;white&#39;</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">bot_start</span> <span class="o">+</span> <span class="n">j</span> <span class="o">*</span> <span class="n">segment_length</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">start_y</span> <span class="o">+</span> <span class="n">segment_length</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">],</span> <span class="n">start_y</span><span class="p">,</span> <span class="n">end_y</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set up the map projection</span>
+<span class="n">crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+
+<span class="c1"># Set up the figure and axis</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">crs</span><span class="p">})</span>
+<span class="c1"># Set map limits</span>
+
+<span class="c1">##get min and max longitude and latitude from sla</span>
+<span class="n">minlon</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">longitude</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">maxlon</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">longitude</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">minlat</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">latitude</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="n">maxlat</span> <span class="o">=</span> <span class="n">sla</span><span class="o">.</span><span class="n">latitude</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">.</span><span class="n">values</span>
+<span class="c1">#</span>
+<span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span> <span class="o">=</span> <span class="n">minlon</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">maxlon</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">minlat</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">maxlat</span><span class="o">+</span><span class="mi">2</span>
+
+<span class="k">if</span> <span class="n">xmin</span><span class="o">&lt;-</span><span class="mi">180</span><span class="p">:</span>
+    <span class="n">xmin</span> <span class="o">=</span> <span class="o">-</span><span class="mi">180</span>
+
+
+<span class="c1">#ax.set_xlim([xmin, xmax])</span>
+<span class="c1">#ax.set_ylim([ymin, ymax])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_extent</span><span class="p">([</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">],</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1">#</span>
+<span class="c1">## add the land and ocean features</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAND</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">)</span>
+<span class="c1">#</span>
+<span class="c1"># Add the tide gauge location</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># Add the altimetry grid point</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sla_tg</span><span class="o">.</span><span class="n">longitude</span><span class="o">-</span><span class="mi">360</span><span class="p">,</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
+        <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># Create 2D arrays of the longitude and latitude values</span>
+<span class="c1">#lon2d, lat2d = np.meshgrid(ds[&#39;sla&#39;].longitude, ds[&#39;sla&#39;].latitude)</span>
+
+<span class="c1"># plot the latitude and longitude values</span>
+<span class="c1">#ax.scatter(lon2d, lat2d, transform=crs)</span>
+
+<span class="c1"># Set custom ticks for the zebra frame</span>
+<span class="n">degree_interval</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">xmin</span><span class="p">,</span><span class="n">xmax</span><span class="p">,</span><span class="n">degree_interval</span><span class="p">),</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ymin</span><span class="p">,</span><span class="n">ymax</span><span class="p">,</span><span class="n">degree_interval</span><span class="p">),</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([]),</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
+
+<span class="c1"># Call the function to add the zebra frame</span>
+<span class="n">add_zebra_frame</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">segment_length</span><span class="o">=</span><span class="mf">2.5</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="c1"># add map grid</span>
+<span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">draw_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                  <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">xlocs</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span><span class="n">ylocs</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">())</span>
+
+<span class="c1"># Add the tide gauge location with callout text</span>
+<span class="c1">#tide_gauge_label = &quot;Tide Gauge&quot;</span>
+<span class="c1">#ax.text(rsl[&#39;lon&#39;]+0.05, rsl[&#39;lat&#39;]-0.05, tide_gauge_label, </span>
+<span class="c1">#        transform=crs, ha=&#39;left&#39;,va = &#39;top&#39;, fontsize=12)</span>
+<span class="c1">#</span>
+<span class="c1"># Add the altimetry grid point with callout text</span>
+<span class="c1">#altimetry_label = &quot;Nearest Altimetry \n Grid Point&quot;</span>
+<span class="c1">#ax.text(sla_nearest_lon, sla_nearest_lat+0.05, altimetry_label, </span>
+<span class="c1">#        transform=crs, ha=&#39;center&#39;, va = &#39;bottom&#39;, fontsize=12)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/c1563a728a5e179b6a725880918d0a69f3812c4195de0fb5c8f965e93ad42086.png" src="../../_images/c1563a728a5e179b6a725880918d0a69f3812c4195de0fb5c8f965e93ad42086.png" />
+</div>
+</div>
+<section id="plot-the-timeseries">
+<h3>Plot the timeseries<a class="headerlink" href="#plot-the-timeseries" title="Permalink to this heading">#</a></h3>
+<p>Here, we’ll plot the time series of the altimetry data at the nearest location to the tide gauge (aka ‘sla_tg’). The units of sla_tg are in meters, so we’ll multiply by 100 to plot in centimeters.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#make a new variable in sla_tg for cm instead of m</span>
+<span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;sla_cm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;sla&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;sla_cm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;cm&#39;</span>
+<span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;sla_cm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Sea Level Anomaly&#39;</span>
+
+<span class="c1">#plot the timeseries in sla_tg</span>
+
+<span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;sla_cm&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="n">sla_tg</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1">#put the legend outside the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+
+<span class="c1"># set xlimits</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">])</span>
+
+<span class="c1"># set title </span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Altimetry (1993-2023)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Altimetry (1993-2023)&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/c92e2f709d99f7d9e7aadf00f32d12963679b53121ac2d7ae4265cb9b6c32db6.png" src="../../_images/c92e2f709d99f7d9e7aadf00f32d12963679b53121ac2d7ae4265cb9b6c32db6.png" />
+</div>
+</div>
+</section>
+<section id="calculate-change">
+<h3>Calculate change<a class="headerlink" href="#calculate-change" title="Permalink to this heading">#</a></h3>
+<p>Now we have all of our data sources, we’ll calculate the absolute and relative sea level change (magnitude in cm) at this location for the Period of Record (1993-2022).</p>
+<p>To do this, we’ll first define a function that calculates the sea level change magnitude.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">process_trend_with_nan</span><span class="p">(</span><span class="n">sea_level_anomaly</span><span class="p">):</span>
+    <span class="c1"># Flatten the data and get a time index</span>
+    <span class="c1"># first ensure time is the first dimension regardless of other dimensions</span>
+    <span class="n">sea_level_anomaly</span> <span class="o">=</span> <span class="n">sea_level_anomaly</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+    <span class="n">sla_flat</span> <span class="o">=</span> <span class="n">sea_level_anomaly</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sea_level_anomaly</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">time_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_anomaly</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">to_julian_date</span><span class="p">()</span>
+
+    <span class="n">detrended_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">sla_flat</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+    <span class="c1"># Loop over each grid point</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sla_flat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+        <span class="c1"># Get the time series for this grid point</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">sla_flat</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+            <span class="n">time_masked</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+            <span class="n">y_masked</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+            <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">time_masked</span><span class="p">,</span> <span class="n">y_masked</span><span class="p">)</span>
+            <span class="n">trend</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">time_index</span> <span class="o">+</span> <span class="n">intercept</span>
+
+            <span class="n">detrended_flat</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">trend</span>
+
+    <span class="n">detrended</span> <span class="o">=</span> <span class="n">detrended_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sea_level_anomaly</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+
+    <span class="c1"># Calculate trend magnitude</span>
+    <span class="n">sea_level_trend</span> <span class="o">=</span> <span class="n">sea_level_anomaly</span> <span class="o">-</span> <span class="n">detrended</span>
+    <span class="n">trend_mag</span> <span class="o">=</span> <span class="n">sea_level_trend</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">sea_level_trend</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_anomaly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="n">time_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">days</span><span class="o">/</span><span class="mf">365.25</span> <span class="c1"># in years</span>
+
+    <span class="n">trend_rate</span> <span class="o">=</span> <span class="n">trend_mag</span> <span class="o">/</span> <span class="n">time_mag</span>
+
+    <span class="k">return</span> <span class="n">trend_mag</span><span class="p">,</span> <span class="n">sea_level_trend</span><span class="p">,</span> <span class="n">trend_rate</span>  
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we’ll run that function for every grid point in our dataset, and make special variables for our proxy tide gauge location.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trend_mag_cmems</span><span class="p">,</span> <span class="n">trend_line_cmems</span><span class="p">,</span> <span class="n">trend_rate_cmems</span> <span class="o">=</span> <span class="n">process_trend_with_nan</span><span class="p">(</span><span class="n">sla</span><span class="o">.</span><span class="n">sla</span><span class="p">)</span>
+<span class="n">trend_mag_asl</span><span class="p">,</span> <span class="n">trend_line_asl</span><span class="p">,</span> <span class="n">trend_rate_asl</span> <span class="o">=</span> <span class="n">process_trend_with_nan</span><span class="p">(</span><span class="n">sla_tg</span><span class="o">.</span><span class="n">sla</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Calculate the weighted mean for the region of interest.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the area weights as cosine of latitude</span>
+<span class="c1"># For a rectangular grid, this is equivalent to multiplying by the grid cell area</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">sla</span><span class="o">.</span><span class="n">latitude</span><span class="p">))</span>
+<span class="n">weights</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;weights&quot;</span>
+
+<span class="c1"># apply weights to the trend data</span>
+<span class="n">trend_mag_weighted</span> <span class="o">=</span> <span class="n">trend_mag_cmems</span><span class="o">.</span><span class="n">weighted</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+
+<span class="c1"># calculate the regional mean</span>
+<span class="n">trend_mag_regional</span> <span class="o">=</span> <span class="n">trend_mag_weighted</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">))</span>
+
+<span class="c1"># prepare the output string</span>
+<span class="n">output</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s1">&#39;The regional magnitude of sea level change is </span><span class="si">{:.2f}</span><span class="s1"> cm for the time &#39;</span>
+    <span class="s1">&#39;period bounded by </span><span class="si">{}</span><span class="s1"> and </span><span class="si">{}</span><span class="s1">.&#39;</span>
+<span class="p">)</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_mag_regional</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">start_date_str</span><span class="p">,</span> <span class="n">end_date_str</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The regional magnitude of sea level change is 7.39 cm for the time period bounded by 1993-01-01 and 2022-12-31.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="plot-a-map">
+<h3>Plot a map<a class="headerlink" href="#plot-a-map" title="Permalink to this heading">#</a></h3>
+<p>Plot the Results – MAP</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_map</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">xlims</span><span class="p">,</span> <span class="n">ylims</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a map of the magnitude of sea level change.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    vmin (float): Minimum value for the color scale.</span>
+<span class="sd">    vmax (float): Maximum value for the color scale.</span>
+<span class="sd">    xlims (tuple): Tuple of min and max values for the x-axis limits.</span>
+<span class="sd">    ylims (tuple): Tuple of min and max values for the y-axis limits.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    fig (matplotlib.figure.Figure): The matplotlib figure object.</span>
+<span class="sd">    ax (matplotlib.axes._subplots.AxesSubplot): The matplotlib axes object.</span>
+<span class="sd">    crs (cartopy.crs.Projection): The cartopy projection object.</span>
+<span class="sd">    cmap (matplotlib.colors.Colormap): The colormap used for the plot.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">crs</span> <span class="o">=</span> <span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="n">subplot_kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;projection&#39;</span><span class="p">:</span> <span class="n">crs</span><span class="p">})</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlims</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">ylims</span><span class="p">)</span>
+
+    <span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="n">as_cmap</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">palette</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">coastlines</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">LAND</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightgrey&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span> <span class="n">cmap</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_zebra_frame</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">segment_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">()):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Plot a zebra frame on the given axes.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">    - ax: The axes object on which to plot the zebra frame.</span>
+<span class="sd">    - lw: The line width of the zebra frame. Default is 5.</span>
+<span class="sd">    - segment_length: The length of each segment in the zebra frame. Default is 2.</span>
+<span class="sd">    - crs: The coordinate reference system of the axes. Default is ccrs.PlateCarree().</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Call the function to add the zebra frame</span>
+    <span class="n">add_zebra_frame</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">,</span> <span class="n">segment_length</span><span class="o">=</span><span class="n">segment_length</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+    <span class="c1"># add map grid</span>
+    <span class="n">gl</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">gridlines</span><span class="p">(</span><span class="n">draw_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span>
+                      <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span><span class="n">xlocs</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xticks</span><span class="p">(),</span><span class="n">ylocs</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">get_yticks</span><span class="p">())</span>
+    <span class="c1">#remove labels from top and right axes</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">top_labels</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">gl</span><span class="o">.</span><span class="n">right_labels</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xlims</span> <span class="o">=</span> <span class="p">[</span><span class="n">minlon</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">]</span>
+<span class="n">ylims</span> <span class="o">=</span> <span class="p">[</span><span class="n">minlat</span><span class="p">,</span><span class="n">maxlat</span><span class="p">]</span>
+<span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">15</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span><span class="n">cmap</span> <span class="o">=</span> <span class="n">plot_map</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span><span class="n">vmax</span><span class="p">,</span><span class="n">xlims</span><span class="p">,</span><span class="n">ylims</span><span class="p">)</span>
+
+<span class="c1"># plot the trend*100 for centimeters</span>
+<span class="n">trend_mag_cmems_cm</span> <span class="o">=</span> <span class="n">trend_mag_cmems</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># plot a map of the magnitude of SL change in centimeters</span>
+<span class="n">trend_mag_cmems_cm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+                         <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Δ Sea Level (cm, 1993-2022)&#39;</span><span class="p">},</span>
+<span class="p">)</span>
+
+<span class="c1"># Call the function to add the zebra frame</span>
+<span class="n">plot_zebra_frame</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">segment_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/42ef8ff4c830d3b8ce0845bdf2ddeeea3d584022b2db65acb1f5b280b2eb7195.png" src="../../_images/42ef8ff4c830d3b8ce0845bdf2ddeeea3d584022b2db65acb1f5b280b2eb7195.png" />
+</div>
+</div>
+</section>
+<section id="plot-time-series">
+<span id="asltimeseries"></span><h3>Plot time series<a class="headerlink" href="#plot-time-series" title="Permalink to this heading">#</a></h3>
+<p>Now we’ll plot a time series that includes a trend line, the Absolute Sea Level Change (magnitude in cm) within area/s in proximity to the Tide Station/s. For now, we’ll plot only one station at a time. The possible list of stations are:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#make a dataframe with station_name and record_id</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;station_name&#39;</span><span class="p">:</span><span class="n">sla_tg</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;record_id&#39;</span><span class="p">:</span><span class="n">sla_tg</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">})</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>station_name</th>
+      <th>record_id</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>French Frigate</td>
+      <td>140</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Midway</td>
+      <td>500</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Johnston</td>
+      <td>520</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Honolulu, Hawaii</td>
+      <td>570</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nawiliwili</td>
+      <td>580</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Kahului</td>
+      <td>590</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Hilo, Hawaii</td>
+      <td>600</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Mokuoloe</td>
+      <td>610</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Barbers Point, HI</td>
+      <td>5470</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Kaumalapau, HI</td>
+      <td>5480</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Kawaihae</td>
+      <td>5520</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Select which station you’d like to plot here:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># EDIT THIS CELL</span>
+<span class="n">recordID</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the style of the plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a color palette</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the timeseries</span>
+<span class="c1"># Create the figure and the axes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># plot altimetry data from sla_tg, using the first record_id</span>
+
+
+<span class="n">sla_tg</span><span class="o">.</span><span class="n">sla</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span> <span class="o">=</span> <span class="n">recordID</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Altimetry&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">trend_line_asl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span> <span class="o">=</span> <span class="n">recordID</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Altimetry Trend&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Set the title and labels</span>
+<span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Altimetry at </span><span class="si">{</span><span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">recordID</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">start_date_str</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">end_date_str</span><span class="si">}</span><span class="s2">)&quot;</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Height (cm)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the x limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">])</span>
+
+<span class="c1"># Add a legend</span>
+<span class="n">trendmag_str</span> <span class="o">=</span> <span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Δ Sea Level: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_mag_asl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm, &#39;</span>
+                <span class="sa">f</span><span class="s1">&#39;Trend: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_rate_asl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm/year&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add text in a white box to bottom right of plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">trendmag_str</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> 
+        <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> 
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 6.38 cm, Trend: 0.21 cm/year&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/420594fbeec415fc4fb524aaa5b62e4ab2469d2f95dacc962eb23fe510bb9872.png" src="../../_images/420594fbeec415fc4fb524aaa5b62e4ab2469d2f95dacc962eb23fe510bb9872.png" />
+</div>
+</div>
+</section>
+<section id="calculate-rate-and-magnitude-of-change">
+<h3>Calculate rate and magnitude of change<a class="headerlink" href="#calculate-rate-and-magnitude-of-change" title="Permalink to this heading">#</a></h3>
+<p>Calculate values for both the Trend (rate of change) and Magnitude of Change</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsl_daily</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:       (record_id: 11, time: 10957)
+Coordinates:
+  * record_id     (record_id) int16 140 500 520 570 580 ... 610 5470 5480 5520
+  * time          (time) datetime64[ns] 1993-01-01 1993-01-02 ... 2022-12-31
+    station_name  (record_id) &lt;U17 ...
+    lat           (record_id) float32 ...
+    lon           (record_id) float32 ...
+Data variables:
+    sea_level     (record_id, time) float32 ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-14ac6ae5-ad56-44a0-8657-60a0aa6e6086' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-14ac6ae5-ad56-44a0-8657-60a0aa6e6086' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-5bbe326b-5a3d-4cd9-b633-6698f10b2be8' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5bbe326b-5a3d-4cd9-b633-6698f10b2be8' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-fc4a3365-6871-4971-b6a1-a1e461781180' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fc4a3365-6871-4971-b6a1-a1e461781180' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-80ddc03b-46d3-4d29-9895-abfe1c3de7e2' class='xr-var-data-in' type='checkbox'><label for='data-80ddc03b-46d3-4d29-9895-abfe1c3de7e2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
+      dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-78da0eb7-8263-4ef1-9ee5-f1d853231c56' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-78da0eb7-8263-4ef1-9ee5-f1d853231c56' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c3b9d881-402d-4380-80f6-7e620d79e21b' class='xr-var-data-in' type='checkbox'><label for='data-c3b9d881-402d-4380-80f6-7e620d79e21b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
+       &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
+       &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-d3a38174-a5aa-4429-a5ea-7262d03f3d97' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d3a38174-a5aa-4429-a5ea-7262d03f3d97' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d13611fa-71c8-44c2-a184-0eb183241c7c' class='xr-var-data-in' type='checkbox'><label for='data-d13611fa-71c8-44c2-a184-0eb183241c7c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4f8313f7-8826-4d97-b184-e35c26743644' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4f8313f7-8826-4d97-b184-e35c26743644' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7513a184-70ad-40bd-b145-dddf1ab317ea' class='xr-var-data-in' type='checkbox'><label for='data-7513a184-70ad-40bd-b145-dddf1ab317ea' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e1f1a231-4b53-402b-bdd3-7a74ea5bfab0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e1f1a231-4b53-402b-bdd3-7a74ea5bfab0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7097cc31-3667-4a42-bc66-6e8179cfcc2c' class='xr-var-data-in' type='checkbox'><label for='data-7097cc31-3667-4a42-bc66-6e8179cfcc2c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-89d9bc5e-950f-42b7-8a2f-61e24a4fc17f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-89d9bc5e-950f-42b7-8a2f-61e24a4fc17f' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-d08297e2-1758-4231-87b6-19d7fa36d2e4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d08297e2-1758-4231-87b6-19d7fa36d2e4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bf4f3d82-df4c-431e-8c8b-e7a73b7302e0' class='xr-var-data-in' type='checkbox'><label for='data-bf4f3d82-df4c-431e-8c8b-e7a73b7302e0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a638dd31-182f-41d5-bc47-a5e426d47d93' class='xr-section-summary-in' type='checkbox'  ><label for='section-a638dd31-182f-41d5-bc47-a5e426d47d93' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-10228bff-b1e4-4239-87d8-47da07a1c4ce' class='xr-index-data-in' type='checkbox'/><label for='index-10228bff-b1e4-4239-87d8-47da07a1c4ce' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-146cfdf2-909d-427b-b855-724336a2630c' class='xr-index-data-in' type='checkbox'/><label for='index-146cfdf2-909d-427b-b855-724336a2630c' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
+               &#x27;1993-01-05&#x27;, &#x27;1993-01-06&#x27;, &#x27;1993-01-07&#x27;, &#x27;1993-01-08&#x27;,
+               &#x27;1993-01-09&#x27;, &#x27;1993-01-10&#x27;,
+               ...
+               &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
+               &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
+               &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1d550022-1002-4ac0-bd6c-2001260d6c44' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1d550022-1002-4ac0-bd6c-2001260d6c44' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate the rate of change for the tide gauge</span>
+<span class="n">trend_mag_rsl</span><span class="p">,</span> <span class="n">trend_line_rsl</span><span class="p">,</span> <span class="n">trend_rate_rsl</span> <span class="o">=</span> <span class="n">process_trend_with_nan</span><span class="p">(</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">sea_level</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The trend magnitude for the tide gauge is </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_mag_rsl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm.&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The trend rate for the tide gauge is </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_rate_rsl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm/year.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend magnitude for the tide gauge is 8.09 cm.
+The trend rate for the tide gauge is 0.27 cm/year.
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rsltimeseries">
+<span id="id2"></span><h3>Plot time series<a class="headerlink" href="#rsltimeseries" title="Permalink to this heading">#</a></h3>
+<p>Now we’ll combine our daily relative sea level time series, the monthly mean, and a trend line into the same plot. We will label it with the Relative Sea Level Sea Level Change (magnitude in cm) and rate of change (cm/yr) at the Tide Station. The “zero” line is referenced to the [1993,2012] period, following the altimetry.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make an rsl monthly mean for plotting</span>
+<span class="n">rsl_monthly</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+
+<span class="c1"># Set the style of the plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a color palette</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot the timeseries</span>
+<span class="c1"># Create the figure and the axes</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="c1"># plot data</span>
+
+<span class="n">rsl_daily</span><span class="o">.</span><span class="n">sea_level</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tide Gauge&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">trend_line_rsl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tide Gauge Trend&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot the monthly mean sea level</span>
+<span class="n">rsl_monthly</span><span class="o">.</span><span class="n">sea_level</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tide Gauge&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+
+
+<span class="c1"># Set the title and labels</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tide Gauge (</span><span class="si">{</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s1">) (</span><span class="si">{</span><span class="n">start_date_str</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_date_str</span><span class="si">}</span><span class="s1">)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Set the y limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.50</span><span class="p">,</span> <span class="mf">.50</span><span class="p">])</span>
+
+<span class="c1"># Set the x limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">])</span>
+
+<span class="c1"># Add a legend</span>
+<span class="n">trendmag_str</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Δ Sea Level: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_mag_rsl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm, Trend: </span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_rate_rsl</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">recordID</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm/year&#39;</span>
+<span class="c1"># Add text in a white box to bottom right of plot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="n">trendmag_str</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span> 
+        <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span>
+        <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 8.09 cm, Trend: 0.27 cm/year&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/050703aa4ea395961c8a37b15796f2814a2c977b6eafa67b0632652b5e6fd627.png" src="../../_images/050703aa4ea395961c8a37b15796f2814a2c977b6eafa67b0632652b5e6fd627.png" />
+</div>
+</div>
+</section>
+</section>
+<section id="combining-both-sources">
+<h2>Combining both sources<a class="headerlink" href="#combining-both-sources" title="Permalink to this heading">#</a></h2>
+<section id="create-a-table">
+<span id="sl-magnitude-results"></span><h3>Create a Table<a class="headerlink" href="#create-a-table" title="Permalink to this heading">#</a></h3>
+<p>That compares the results of sections <code class="xref std std-numref docutils literal notranslate"><span class="pre">ASLtimeseries</span></code> and <code class="xref std std-numref docutils literal notranslate"><span class="pre">RSLtimeseries</span></code>– TABLE</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Constants</span>
+<span class="n">DATA_SOURCE_ALTIMETRY</span> <span class="o">=</span> <span class="s1">&#39;CMEMS SSH L4 0.25 deg (SLA)&#39;</span>
+<span class="n">DATA_SOURCE_TIDE_GAUGE</span> <span class="o">=</span> <span class="s1">&#39;UHSLC RQDS&#39;</span>
+<span class="n">TIME_PERIOD</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">start_date_str</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_date_str</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="c1"># Calculated values </span>
+<span class="n">trend_mmyr_altimetry</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">trend_rate_asl</span><span class="o">.</span><span class="n">values</span>
+<span class="n">trend_mmyr_tide_gauge</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">*</span> <span class="n">trend_rate_rsl</span><span class="o">.</span><span class="n">values</span>
+<span class="n">delta_sea_level_altimetry</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">trend_mag_asl</span><span class="o">.</span><span class="n">values</span>
+<span class="n">delta_sea_level_tide_gauge</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">*</span> <span class="n">trend_mag_rsl</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize DataFrame with station names and calculate UHSLC_ID directly</span>
+<span class="n">SL_magnitude_results</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+        <span class="s1">&#39;Station_Name&#39;</span><span class="p">:</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s1">&#39;UHSLC_ID&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">/</span> <span class="mi">10</span><span class="p">),</span>
+        <span class="s1">&#39;Trend ASL (mm/yr)&#39;</span><span class="p">:</span> <span class="n">trend_mmyr_altimetry</span><span class="p">,</span>
+        <span class="s1">&#39;Trend RSL (mm/yr)&#39;</span><span class="p">:</span> <span class="n">trend_mmyr_tide_gauge</span><span class="p">,</span>
+        <span class="s1">&#39;Δ Sea Level ASL (cm)&#39;</span><span class="p">:</span> <span class="n">delta_sea_level_altimetry</span><span class="p">,</span>
+        <span class="s1">&#39;Δ Sea Level RSL (cm)&#39;</span><span class="p">:</span> <span class="n">delta_sea_level_tide_gauge</span><span class="p">,</span>
+        <span class="s1">&#39;Latitude ASL&#39;</span><span class="p">:</span> <span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s1">&#39;Latitude RSL&#39;</span><span class="p">:</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s1">&#39;Longitude ASL&#39;</span><span class="p">:</span> <span class="n">sla_tg</span><span class="p">[</span><span class="s1">&#39;longitude&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s1">&#39;Longitude RSL&#39;</span><span class="p">:</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="s1">&#39;Time_Period&#39;</span><span class="p">:</span> <span class="n">TIME_PERIOD</span><span class="p">,</span>
+        <span class="s1">&#39;Data_Source ASL&#39;</span><span class="p">:</span> <span class="n">DATA_SOURCE_ALTIMETRY</span><span class="p">,</span>
+        <span class="s1">&#39;Data_Source RSL&#39;</span><span class="p">:</span> <span class="n">DATA_SOURCE_TIDE_GAUGE</span>
+    <span class="p">})</span>
+<span class="p">)</span>
+<span class="c1"># if Longitude is greater than 180, subtract 360</span>
+<span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude ASL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude ASL&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">,</span> <span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude ASL&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">360</span><span class="p">,</span> <span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude ASL&#39;</span><span class="p">])</span>
+<span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude RSL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude RSL&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">180</span><span class="p">,</span> <span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude RSL&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">360</span><span class="p">,</span> <span class="n">SL_magnitude_results</span><span class="p">[</span><span class="s1">&#39;Longitude RSL&#39;</span><span class="p">])</span>
+
+<span class="n">SL_magnitude_results</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Station_Name</th>
+      <th>UHSLC_ID</th>
+      <th>Trend ASL (mm/yr)</th>
+      <th>Trend RSL (mm/yr)</th>
+      <th>Δ Sea Level ASL (cm)</th>
+      <th>Δ Sea Level RSL (cm)</th>
+      <th>Latitude ASL</th>
+      <th>Latitude RSL</th>
+      <th>Longitude ASL</th>
+      <th>Longitude RSL</th>
+      <th>Time_Period</th>
+      <th>Data_Source ASL</th>
+      <th>Data_Source RSL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>French Frigate</td>
+      <td>14</td>
+      <td>1.871329</td>
+      <td>NaN</td>
+      <td>5.674700</td>
+      <td>NaN</td>
+      <td>23.875</td>
+      <td>23.867001</td>
+      <td>-166.375000</td>
+      <td>-166.289993</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Midway</td>
+      <td>50</td>
+      <td>4.215143</td>
+      <td>3.780650</td>
+      <td>12.782183</td>
+      <td>11.340399</td>
+      <td>28.125</td>
+      <td>28.216999</td>
+      <td>-177.375000</td>
+      <td>-177.367004</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Johnston</td>
+      <td>52</td>
+      <td>2.292586</td>
+      <td>1.802460</td>
+      <td>6.952137</td>
+      <td>5.406640</td>
+      <td>16.875</td>
+      <td>16.750000</td>
+      <td>-169.625000</td>
+      <td>-169.516998</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Honolulu, Hawaii</td>
+      <td>57</td>
+      <td>2.103058</td>
+      <td>2.696540</td>
+      <td>6.377406</td>
+      <td>8.088512</td>
+      <td>21.375</td>
+      <td>21.306999</td>
+      <td>-157.875000</td>
+      <td>-157.867004</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Nawiliwili</td>
+      <td>58</td>
+      <td>2.263410</td>
+      <td>3.062466</td>
+      <td>6.863662</td>
+      <td>9.186140</td>
+      <td>21.875</td>
+      <td>21.966999</td>
+      <td>-159.375000</td>
+      <td>-159.350006</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Kahului</td>
+      <td>59</td>
+      <td>2.105416</td>
+      <td>2.527900</td>
+      <td>6.384556</td>
+      <td>7.582662</td>
+      <td>20.875</td>
+      <td>20.900000</td>
+      <td>-156.375000</td>
+      <td>-156.466995</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Hilo, Hawaii</td>
+      <td>60</td>
+      <td>1.975387</td>
+      <td>3.298495</td>
+      <td>5.990249</td>
+      <td>9.894130</td>
+      <td>19.733</td>
+      <td>19.733000</td>
+      <td>-155.067001</td>
+      <td>-155.067001</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Mokuoloe</td>
+      <td>61</td>
+      <td>2.103058</td>
+      <td>2.933727</td>
+      <td>6.377406</td>
+      <td>8.799976</td>
+      <td>21.375</td>
+      <td>21.433001</td>
+      <td>-157.875000</td>
+      <td>-157.800003</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Barbers Point, HI</td>
+      <td>547</td>
+      <td>2.228920</td>
+      <td>NaN</td>
+      <td>6.759073</td>
+      <td>NaN</td>
+      <td>21.375</td>
+      <td>21.322001</td>
+      <td>-158.125000</td>
+      <td>-158.119995</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Kaumalapau, HI</td>
+      <td>548</td>
+      <td>2.183053</td>
+      <td>NaN</td>
+      <td>6.619986</td>
+      <td>NaN</td>
+      <td>20.875</td>
+      <td>20.783001</td>
+      <td>-156.875000</td>
+      <td>-157.000000</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Kawaihae</td>
+      <td>552</td>
+      <td>2.750707</td>
+      <td>NaN</td>
+      <td>8.341365</td>
+      <td>NaN</td>
+      <td>20.125</td>
+      <td>20.033001</td>
+      <td>-155.875000</td>
+      <td>-155.832993</td>
+      <td>1993-01-01 to 2022-12-31</td>
+      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>UHSLC RQDS</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Save to CSV</span>
+<span class="n">output_file_path</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="s1">&#39;SL_magnitude_results.csv&#39;</span>
+
+<span class="c1"># Use the path for operations, e.g., saving a DataFrame</span>
+<span class="n">SL_magnitude_results</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">)</span>
+
+<span class="c1"># glue trend_rates to the notebook</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;trend_rate_rsl&quot;</span><span class="p">,</span> <span class="n">trend_rate_rsl</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;trend_rate_asl&quot;</span><span class="p">,</span> <span class="n">trend_rate_asl</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="create-a-map">
+<h3>Create a Map<a class="headerlink" href="#create-a-map" title="Permalink to this heading">#</a></h3>
+<p>Now we’ll combine a both the tide gauge and altimetry sources into a map that includes the absolute change with the addition of an icon depicting the magnitude of relative change at the tide station.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">crs</span><span class="p">,</span><span class="n">cmap</span> <span class="o">=</span> <span class="n">plot_map</span><span class="p">(</span><span class="n">vmin</span><span class="p">,</span><span class="n">vmax</span><span class="p">,</span><span class="n">xlims</span><span class="p">,</span><span class="n">ylims</span><span class="p">)</span>
+
+<span class="c1"># plot the trend*100 for centimeters</span>
+<span class="n">trend_mag_cmems_cm</span> <span class="o">=</span> <span class="n">trend_mag_cmems</span> <span class="o">*</span> <span class="mi">100</span>
+
+<span class="c1"># plot a map of the magnitude of SL change in centimeters</span>
+<span class="n">trend_mag_cmems_cm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
+                         <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Δ Sea Level (cm, 1993-2022)&#39;</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+              <span class="n">c</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+              <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1">#remove nan values from trend_mag_rsl</span>
+<span class="n">trend_mag_rsl</span> <span class="o">=</span> <span class="n">trend_mag_rsl</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">trend_mag_rsl</span><span class="p">),</span><span class="n">drop</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">trend_mag_rsl</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">trend_mag_rsl</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> 
+           <span class="n">c</span><span class="o">=</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_mag_rsl</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+           <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+
+<span class="n">plot_zebra_frame</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">segment_length</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;mag_fig&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># save the figure</span>
+<span class="n">output_file_path</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="s1">&#39;SL_magnitude_map.png&#39;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/cartopy/mpl/geoaxes.py:1696: UserWarning: No data for colormapping provided via &#39;c&#39;. Parameters &#39;cmap&#39;, &#39;vmin&#39;, &#39;vmax&#39; will be ignored
+  result = super().scatter(*args, **kwargs)
+</pre></div>
+</div>
+<img alt="../../_images/f45fe6e59b48fd2fc557a917d8ca98022cfc5379b6d63cc7299d9bf9cee61284.png" src="../../_images/f45fe6e59b48fd2fc557a917d8ca98022cfc5379b6d63cc7299d9bf9cee61284.png" />
+</div>
+</details>
+</div>
+<figure class="align-default" id="fig-mag">
+<img alt="../../_images/f45fe6e59b48fd2fc557a917d8ca98022cfc5379b6d63cc7299d9bf9cee61284.png" src="../../_images/f45fe6e59b48fd2fc557a917d8ca98022cfc5379b6d63cc7299d9bf9cee61284.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Map of absolute and relative sea level change from the altimetry and tide gauge record near ,  station from  to .</span><a class="headerlink" href="#fig-mag" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="create-a-time-series-plot">
+<h3>Create a Time series plot<a class="headerlink" href="#create-a-time-series-plot" title="Permalink to this heading">#</a></h3>
+<p>Finally we will combine both tide gauge and altimetry sources into a time series plot that includes both <a class="reference internal" href="#asltimeseries"><span class="std std-ref">Absolute</span></a>  and <a class="reference internal" href="#rsltimeseries"><span class="std std-ref">Relative</span></a> Time Series.</p>
+<div class="cell tag_hide-output docutils container">
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set the style of the plot</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create a color palette</span>
+<span class="n">palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;Set1&quot;</span><span class="p">)</span>
+
+
+
+<span class="c1"># find the record_ids that do not have nan trend_mag_rsl</span>
+<span class="n">record_ids</span> <span class="o">=</span> <span class="n">trend_mag_rsl</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">fig</span><span class="p">,</span><span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">record_ids</span><span class="p">)):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="c1"># plot altimetry data</span>
+    <span class="n">sla_tg</span><span class="o">.</span><span class="n">sla</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Altimetry&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">trend_line_asl</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Altimetry Trend&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">rsl_daily</span><span class="o">.</span><span class="n">sea_level</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tide Gauge&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">trend_line_rsl</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">line</span><span class="p">(</span><span class="n">ax</span> <span class="o">=</span> <span class="n">ax</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Tide Gauge Trend&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Height (m)&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+
+    <span class="n">x_pos</span> <span class="o">=</span> <span class="mf">0.5</span>
+    <span class="n">y_pos</span> <span class="o">=</span> <span class="mf">0.05</span>
+    <span class="n">spacing</span> <span class="o">=</span> <span class="mf">0.25</span>  <span class="c1"># Adjust this value as needed for proper spacing</span>
+
+    <span class="c1"># Create the first part of the text in red</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_pos</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_rate_asl</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm/yr&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+            <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+
+    <span class="c1"># Create the second part of the text in blue, separated by a fixed amount</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_pos</span> <span class="o">+</span> <span class="n">spacing</span><span class="p">,</span> <span class="n">y_pos</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="mi">100</span><span class="o">*</span><span class="n">trend_rate_rsl</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> cm/yr&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">palette</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;bottom&#39;</span><span class="p">,</span> <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ax</span><span class="o">.</span><span class="n">transAxes</span><span class="p">,</span>
+            <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
+    
+    
+
+
+
+<span class="c1"># Set the y and x limits</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">.40</span><span class="p">,</span> <span class="mf">.40</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">])</span>
+<span class="c1"># Adjust overall figure aesthetics</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Altimetry and Tide Gauge Data Across Locations&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>  <span class="c1"># Adjust layout to make room for the main title</span>
+<span class="c1"># Add a legend in the last subplot</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span><span class="n">ncol</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c1"># remove the last subplot</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">delaxes</span><span class="p">(</span><span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;trend_fig&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># save the figure</span>
+<span class="n">output_file_path</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="s1">&#39;SL_magnitude_timeseries.png&#39;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<img alt="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" src="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" />
+</div>
+</details>
+</div>
+<figure class="align-default" id="trend-fig">
+<img alt="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" src="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the ,  station from  to .</span><a class="headerlink" href="#trend-fig" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<hr class="docutils" />
+<section id="citations">
+<h2>Citations<a class="headerlink" href="#citations" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id3">
+<dl class="citation">
+<dt class="label" id="id7"><span class="brackets"><a class="fn-backref" href="#id1">CLSFrance</a></span></dt>
+<dd><p>CLS (France). Global Ocean Gridded L 4 Sea Surface Heights And Derived Variables Reprocessed 1993 Ongoing. URL: <a class="reference external" href="https://data.marine.copernicus.eu/product/SEALEVEL_GLO_PHY_L4_MY_008_047/description">https://data.marine.copernicus.eu/product/SEALEVEL_GLO_PHY_L4_MY_008_047/description</a>, <a class="reference external" href="https://doi.org/10.48670/moi-00148">doi:10.48670/moi-00148</a>.</p>
+</dd>
+</dl>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jwfiedler/Sea_Level_Hawaii",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks/regional_and_local"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../SL_Data_Wrangling.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Data Wrangling</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="SL_MMA.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Monthly Mean Anomaly</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-data-sources">Retrieve Data Sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-timeseries">Plot the timeseries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-change">Calculate change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-a-map">Plot a map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-time-series">Plot time series</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-rate-and-magnitude-of-change">Calculate rate and magnitude of change</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rsltimeseries">Plot time series</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combining-both-sources">Combining both sources</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-table">Create a Table</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-map">Create a Map</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-time-series-plot">Create a Time series plot</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#citations">Citations</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Playground Coordinator
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

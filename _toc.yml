@@ -4,15 +4,12 @@
 format: jb-book
 root: intro.md
 parts:
-  - caption: Introduction
+  - caption: Getting Started
     chapters:
-    - file: intro2.md
-  - caption: Obtaining and Processing Data
-    chapters:
-    - file: notebooks/placeholder.md
-      - sections:
-        - file: notebooks/setup.ipynb
-        - file: notebooks/SL_Data_Wrangling.ipynb
+    - file: gettingStarted.md
+      sections:
+      - file: notebooks/setup.ipynb
+      - file: notebooks/SL_Data_Wrangling.ipynb
   - caption: Regional and Local Sea Level
     chapters:
     - file: notebooks/regional_and_local/SL_magnitude.ipynb

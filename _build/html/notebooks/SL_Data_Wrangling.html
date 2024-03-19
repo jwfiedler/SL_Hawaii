@@ -65,8 +65,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/SL_Data_Wrangling';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Sea Level Magnitude" href="SL_magnitude.html" />
-    <link rel="prev" title="Hello!" href="../intro2.html" />
+    <link rel="next" title="Sea Level Magnitude" href="regional_and_local/SL_magnitude.html" />
+    <link rel="prev" title="Setup" href="setup.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -159,8 +159,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../_static/chatgptmadethis.png" class="logo__image only-light" alt="Hawaii Sea Level Indicators - Home"/>
-    <script>document.write(`<img src="../_static/chatgptmadethis.png" class="logo__image only-dark" alt="Hawaii Sea Level Indicators - Home"/>`);</script>
+    <img src="../_static/trend_map.png" class="logo__image only-light" alt="Hawaii Sea Level Indicators - Home"/>
+    <script>document.write(`<img src="../_static/trend_map.png" class="logo__image only-dark" alt="Hawaii Sea Level Indicators - Home"/>`);</script>
   
   
 </a></div>
@@ -174,26 +174,26 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../intro2.html">Hello!</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Obtaining and Processing Data</span></p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Data Wrangling</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regional and Local Sea Level</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="SL_magnitude.html">Sea Level Magnitude</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="SL_MMA.html">Monthly Mean Anomaly</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="SL_Extremes.html">Heading: notebooks/SL_Extremes.rst</a></li>
-<li class="toctree-l2"><a class="reference internal" href="SL_Components.html">Heading: notebooks/SL_Components.rst</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../gettingStarted.html">Getting Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Wrangling</a></li>
 </ul>
 </li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Regional and Local Sea Level</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="regional_and_local/SL_magnitude.html">Sea Level Magnitude</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regional_and_local/SL_MMA.html">Monthly Mean Anomaly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regional_and_local/SL_Extremes.html">Extremes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regional_and_local/SL_Components.html">Components of Sea Level</a></li>
+<li class="toctree-l1"><a class="reference internal" href="regional_and_local/SL_Rankings.html">Rankings</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Minor Flood Frequency and Duration</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="FloodFrequency.html">Minor Flood Frequency and Duration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FloodFrequency.html">Minor Flood Frequency</a></li>
+<li class="toctree-l1"><a class="reference internal" href="FloodDuration.html">Flood Duration</a></li>
 </ul>
 
     </div>
@@ -248,7 +248,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Indicators_Hawaii/main?urlpath=tree/notebooks/SL_Data_Wrangling.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/jwfiedler/Sea_Level_Hawaii/main?urlpath=tree/notebooks/SL_Data_Wrangling.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -297,7 +297,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jwfiedler/SL_Indicators_Hawaii" target="_blank"
+      <li><a href="https://github.com/jwfiedler/Sea_Level_Hawaii" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
    title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -314,7 +314,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jwfiedler/SL_Indicators_Hawaii/edit/main/notebooks/SL_Data_Wrangling.ipynb" target="_blank"
+      <li><a href="https://github.com/jwfiedler/Sea_Level_Hawaii/edit/main/notebooks/SL_Data_Wrangling.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +331,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/jwfiedler/SL_Indicators_Hawaii/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SL_Data_Wrangling.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/jwfiedler/Sea_Level_Hawaii/issues/new?title=Issue%20on%20page%20%2Fnotebooks/SL_Data_Wrangling.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -455,7 +455,6 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-tide-gauge-data">Retrieve Tide Gauge Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-altimetry-data">Retrieve altimetry data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a><ul class="nav section-nav flex-column">
@@ -478,75 +477,13 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="data-wrangling">
 <h1>Data Wrangling<a class="headerlink" href="#data-wrangling" title="Permalink to this heading">#</a></h1>
 <p>In this notebook we’ll obtain all of our data, arrange it how we want, and store it in the proper directories.</p>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
-<p>First, we need to import all the necessary libraries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">##First, we need to import all the necessary libraries.</span>
-<span class="c1"># import necessary libraries</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
-<span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="c1"># data retrieval libraries</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">from</span> <span class="nn">urllib.request</span> <span class="kn">import</span> <span class="n">urlretrieve</span> <span class="c1">#used for downloading files</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">copernicusmarine</span>
-
-<span class="c1"># data processing libraries</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-<span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
-<span class="kn">import</span> <span class="nn">cartopy.feature</span> <span class="k">as</span> <span class="nn">cfeature</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span> <span class="c1">#used for figure numbering when exporting to LaTeX</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-  from .autonotebook import tqdm as notebook_tqdm
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> setup.ipynb
 </pre></div>
 </div>
 </div>
 </div>
-<p>Next, we’ll establish our directories for saving and reading data, and our output files.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span><span class="p">)</span> 
-<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../output&#39;</span><span class="p">)</span> 
-
-
-<span class="c1"># Create directories if they don&#39;t exist</span>
-<span class="n">data_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Then we’ll establish some basic plotting rules for this notebook to keep everything looking uniform.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>  <span class="c1"># Set a default figure size for the notebook</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>  <span class="c1"># Set default resolution for inline figures</span>
-
-<span class="c1"># Set the default font size for axes labels, titles and ticks</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.titlesize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>  <span class="c1"># Set the font size for axes titles</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;axes.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span>  <span class="c1"># Set the font size for x and y labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;xtick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># Set the font size for x-axis tick labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;ytick.labelsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span> <span class="c1"># Set the font size for y-axis tick labels</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;font.size&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">14</span> <span class="c1"># Set the font size for the text in the figure (can affect legend)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 <section id="retrieve-tide-gauge-data">
 <h2>Retrieve Tide Gauge Data<a class="headerlink" href="#retrieve-tide-gauge-data" title="Permalink to this heading">#</a></h2>
 <p>We are interested in getting tide gauge and alitmetry data for the Hawaiian Islands (and surrounds) for 1993 through 2022.
@@ -3218,7 +3155,7 @@ Attributes:
     {
         requestKernel: true,
         binderOptions: {
-            repo: "jwfiedler/SL_Indicators_Hawaii",
+            repo: "jwfiedler/Sea_Level_Hawaii",
             ref: "main",
         },
         codeMirrorConfig: {
@@ -3245,16 +3182,16 @@ Attributes:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro2.html"
+       href="setup.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Hello!</p>
+        <p class="prev-next-title">Setup</p>
       </div>
     </a>
     <a class="right-next"
-       href="SL_magnitude.html"
+       href="regional_and_local/SL_magnitude.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
@@ -3277,7 +3214,6 @@ Attributes:
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-tide-gauge-data">Retrieve Tide Gauge Data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#retrieve-altimetry-data">Retrieve altimetry data</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#processing">Processing</a><ul class="nav section-nav flex-column">
