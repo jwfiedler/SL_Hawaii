@@ -3,7 +3,7 @@
 
 title: Hawaii Sea Level Indicators
 author: Playground Coordinator
-logo: icons/chatgptmadethis.png
+logo: icons/trend_map.png
 copyright                   : "2024"  # Copyright year to be placed in the footer
 only_build_toc_files : true
 
@@ -24,7 +24,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/jwfiedler/SL_Indicators_Hawaii # Online location of your book
+  url: https://github.com/jwfiedler/Sea_Level_Hawaii # Online location of your book
   branch: main  # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
