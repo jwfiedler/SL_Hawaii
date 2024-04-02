@@ -16,29 +16,28 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 # plot the monthly_anomalies*100 for centimeters
-cmems_cm = cmems_mmsla * 100
+cmems_cm = cmems_climatology * 100
 
-# make a slice of data from 2023 only
-cmems_cm = cmems_cm.sel(time=slice('2022-03', '2023-02'))
-
-# Get the month from the time coordinate
-months = cmems_cm.time.dt.strftime('%b %Y')
+# convert cmems_cm.month to datetime object
+months = pd.to_datetime(cmems_cm.month.values, format='%m').strftime('%b')
 
 # Plot the data with modified titles
-mma = cmems_cm.plot(transform=crs, col='time', col_wrap=3,
+mma = cmems_cm.plot(transform=ccrs.PlateCarree(), col='month', col_wrap=3,
                         aspect=cmems_cm.sizes['longitude'] / cmems_cm.sizes['latitude'],
-                        subplot_kws={'projection': crs})
+                        subplot_kws={'projection': ccrs.PlateCarree()})
 
 # Add coastlines and land features to each subplot
 for i,ax in enumerate(mma.axs.flat):
     ax.coastlines()
     #ax.add_feature(cfeature.LAND, color='black')
-    ax.set_title(months[i].values)
+    ax.set_title(months[i])
     ax.set_extent([cmems_cm.longitude.min(), cmems_cm.longitude.max(),  cmems_cm.latitude.min(), cmems_cm.latitude.max()]) 
 
 # change the colorbar label
 mma.cbar.set_label('Monthly Mean Sea Level Anomaly (cm)')  
 
+
+glue("mma_asl_fig", fig, display=False)
 
 
 ------------------
@@ -46,14 +45,10 @@ mma.cbar.set_label('Monthly Mean Sea Level Anomaly (cm)')
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[9], line 11[0m
-[1;32m      8[0m months [38;5;241m=[39m cmems_cm[38;5;241m.[39mtime[38;5;241m.[39mdt[38;5;241m.[39mstrftime([38;5;124m'[39m[38;5;124m%[39m[38;5;124mb [39m[38;5;124m%[39m[38;5;124mY[39m[38;5;124m'[39m)
-[1;32m     10[0m [38;5;66;03m# Plot the data with modified titles[39;00m
-[0;32m---> 11[0m mma [38;5;241m=[39m cmems_cm[38;5;241m.[39mplot(transform[38;5;241m=[39m[43mcrs[49m, col[38;5;241m=[39m[38;5;124m'[39m[38;5;124mtime[39m[38;5;124m'[39m, col_wrap[38;5;241m=[39m[38;5;241m3[39m,
-[1;32m     12[0m                         aspect[38;5;241m=[39mcmems_cm[38;5;241m.[39msizes[[38;5;124m'[39m[38;5;124mlongitude[39m[38;5;124m'[39m] [38;5;241m/[39m cmems_cm[38;5;241m.[39msizes[[38;5;124m'[39m[38;5;124mlatitude[39m[38;5;124m'[39m],
-[1;32m     13[0m                         subplot_kws[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mprojection[39m[38;5;124m'[39m: crs})
-[1;32m     15[0m [38;5;66;03m# Add coastlines and land features to each subplot[39;00m
-[1;32m     16[0m [38;5;28;01mfor[39;00m i,ax [38;5;129;01min[39;00m [38;5;28menumerate[39m(mma[38;5;241m.[39maxs[38;5;241m.[39mflat):
+Cell [0;32mIn[10], line 23[0m
+[1;32m     19[0m [38;5;66;03m# change the colorbar label[39;00m
+[1;32m     20[0m mma[38;5;241m.[39mcbar[38;5;241m.[39mset_label([38;5;124m'[39m[38;5;124mMonthly Mean Sea Level Anomaly (cm)[39m[38;5;124m'[39m)  
+[0;32m---> 23[0m glue([38;5;124m"[39m[38;5;124mmma_asl_fig[39m[38;5;124m"[39m, [43mfig[49m, display[38;5;241m=[39m[38;5;28;01mFalse[39;00m)
 
-[0;31mNameError[0m: name 'crs' is not defined
+[0;31mNameError[0m: name 'fig' is not defined
 
