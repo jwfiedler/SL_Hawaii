@@ -1,0 +1,16 @@
+name: SLI39
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.9
+  - xarray
+  - ipykernel
+  - cartopy
+  - seaborn
+  - scipy
+  - jupyter-book
+  - docutils=0.17.1
+  - netcdf4
+  - dask
+prefix: /Users/juliafiedler/anaconda3/envs/SLI39
