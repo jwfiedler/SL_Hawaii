@@ -14,9 +14,10 @@ parts:
     chapters:
     - file: notebooks/regional_and_local/SL_magnitude.ipynb
     - file: notebooks/regional_and_local/SL_MMA.ipynb
+    - file: notebooks/regional_and_local/SL_Rankings.ipynb
     - file: notebooks/regional_and_local/SL_Extremes.ipynb
     - file: notebooks/regional_and_local/SL_Components.ipynb
-    - file: notebooks/regional_and_local/SL_Rankings.ipynb
+    
   - caption: Minor Flood Frequency and Duration
     chapters:
     - file: notebooks/FloodFrequency.ipynb
