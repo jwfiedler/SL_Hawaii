@@ -13,7 +13,10 @@ parts:
   - caption: Regional and Local Sea Level
     chapters:
     - file: notebooks/regional_and_local/SL_magnitude.ipynb
-    - file: notebooks/regional_and_local/SL_MMA.ipynb
+    - file: notebooks/regional_and_local/SL_anomaly.md
+      sections:
+      - file: notebooks/regional_and_local/SL_anomaly_annual.ipynb
+      - file: notebooks/regional_and_local/SL_anomaly_interannual.ipynb
     - file: notebooks/regional_and_local/SL_Rankings.ipynb
     - file: notebooks/regional_and_local/SL_Extremes.ipynb
     - file: notebooks/regional_and_local/SL_Components.ipynb

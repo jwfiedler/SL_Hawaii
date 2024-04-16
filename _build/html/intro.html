@@ -196,7 +196,11 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Regional and Local Sea Level</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_magnitude.html">Sea Level Magnitude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_MMA.html">Monthly Mean SLA</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="notebooks/regional_and_local/SL_anomaly.html">Sea Level Anomalies</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/regional_and_local/SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/regional_and_local/SL_anomaly_interannual.html">Intra-Annual Sea Level Anomalies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_Rankings.html">Rankings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_Extremes.html">Extremes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_Components.html">Components of Sea Level</a></li>
@@ -421,11 +425,118 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h1>
-<p>This jupyter book is intended to be used as a pathway toward greater plotting. It was originally developed for a single tide gauge in Palau, for use in historical sea level data trends. This notebook expands things to the Hawaiian Islands and other nearby tide gauges for a look at how things can be plotted in a regional sense.
-Follwoing this notebook from start to finish, you’ll see how to extract the data from various websites, what good data sources are, and how to format your data for plotting and analysis. The notebooks make very basic plots, as a template for further refinement using the datasets.</p>
-<p>Many of the codes make heavy use of xarray to format the data. For more on xarray, visit this website.</p>
-<p>This is a work in progress.</p>
-<p>Much of the code was produced with the aid of AI, including Copilot and chatGPT. So yes, putting a copyright on this seems somewhat silly, but here we are.</p>
+<p>This jupyter book is made for the Hawaiian Island region. Click on the following links to access the output or detailed code for each sea level indicator. You may also jump straight to the <a class="reference internal" href="#table-of-contents"><span class="xref myst">table of contents</span></a>.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Regional and Local</p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+<th class="head"><p></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>Indicator</strong></p></td>
+<td><p><strong>Historical</strong></p></td>
+<td><p></p></td>
+<td><p><strong>Outlooks/Projections</strong></p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1.0 Sea Level Magnitude</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1.1 Sea Level Trend</strong></p></td>
+<td><p><a href="../output/SL_magnitude_map.png"><img src="icons/map_emoji.png" width="20" ></a> <a class="reference download internal" download="" href="_downloads/e431ce7d8c76aff29ecaadb5eb65af7e/SL_magnitude_map.png"><span class="xref download myst">Map</span></a>  <img src="icons/plot_icon.png" width="20"> <a class="reference download internal" download="" href="_downloads/edda07cc955e4329e79bb17a5c3e9404/SL_magnitude_timeseries.png"><span class="xref download myst">Plot</span></a>    <img src="icons/table_icon.png" width="20"> <a class="reference download internal" download="" href="_downloads/333a4b21c90d9d5e4150a29d338170d8/SL_magnitude_results.csv"><span class="xref download myst">Tables</span></a>    <img src="icons/text_icon.png" width="20"> <a class="reference internal" href="notebooks/regional_and_local/SL_magnitude.html"><span class="std std-doc">Text</span></a></p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1.2 Sea Level Anomaly</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-odd"><td><p>Intra-Annual</p></td>
+<td><p><img src="icons/map_emoji.png" width="20"> <a class="reference download internal" download="" href="_downloads/beda1cf76b4f8f7bc50a36dc07975554/SL_anomaly_map.png"><span class="xref download myst">Maps</span></a>  <img src="icons/plot_icon.png" width="20"> <a class="reference internal" href="#output/SL_anomaly_timeseries_stations.png"><span class="xref myst">Plots</span></a>    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1.3 Rankings</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-even"><td><p>Intra-Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>1.4 Extremes</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-odd"><td><p>Intra-Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>1.5 Components</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-even"><td><p>Intra-Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2.0 Minor Flood Frequency and Duration</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p><strong>2.1 Indicator: Minor Flood Frequency</strong></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>Annual</p></td>
+<td><p><img src="icons/map_emoji.png" width="20"> <a class="reference download internal" download="" href="_downloads/e05c6c2f872e944506979d96f70def7e/SL_FloodFrequency_map.png"><span class="xref download myst">Maps</span></a>  <img src="icons/plot_icon.png" width="20"> <a class="reference download internal" download="" href="_downloads/b6ef93868e21657ad682e9077180d8bc/SL_FloodFrequency_threshold_counts_days.png"><span class="xref download myst">Plots</span></a>    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> <a class="reference internal" href="notebooks/FloodFrequency.html"><span class="std std-doc">Text</span></a></p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-even"><td><p>Intra-Annual</p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>2.2 Indicator: Flood Duration</strong></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+<td><p></p></td>
+<td><p><img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text</p></td>
+</tr>
+</tbody>
+</table>
 <div class="toctree-wrapper compound">
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul>
@@ -440,7 +551,11 @@ Follwoing this notebook from start to finish, you’ll see how to extract the da
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Regional and Local Sea Level</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_magnitude.html">Sea Level Magnitude</a></li>
-<li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_MMA.html">Monthly Mean SLA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_anomaly.html">Sea Level Anomalies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/regional_and_local/SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebooks/regional_and_local/SL_anomaly_interannual.html">Intra-Annual Sea Level Anomalies</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_Rankings.html">Rankings</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_Extremes.html">Extremes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="notebooks/regional_and_local/SL_Components.html">Components of Sea Level</a></li>

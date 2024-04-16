@@ -1,16 +1,30 @@
 # Introduction
+This jupyter book is made for the Hawaiian Island region. Click on the following links to access the output or detailed code for each sea level indicator. You may also jump straight to the [table of contents](#table-of-contents).
 
-This jupyter book is intended to be used as a pathway toward greater plotting. It was originally developed for a single tide gauge in Palau, for use in historical sea level data trends. This notebook expands things to the Hawaiian Islands and other nearby tide gauges for a look at how things can be plotted in a regional sense. 
-Follwoing this notebook from start to finish, you'll see how to extract the data from various websites, what good data sources are, and how to format your data for plotting and analysis. The notebooks make very basic plots, as a template for further refinement using the datasets. 
-
-Many of the codes make heavy use of xarray to format the data. For more on xarray, visit this website.
-
-This is a work in progress. 
-
-Much of the code was produced with the aid of AI, including Copilot and chatGPT. So yes, putting a copyright on this seems somewhat silly, but here we are.
-
-
-
+| Regional and Local | | | |
+|----------------|--------|--|---------|
+| **Indicator** |  **Historical** | |  **Outlooks/Projections** |
+| **1.0 Sea Level Magnitude** 
+| **1.1 Sea Level Trend** |  <a href="../output/SL_magnitude_map.png"><img src="icons/map_emoji.png" width="20" ></a> [Map](output/SL_magnitude_map.png)  <img src="icons/plot_icon.png" width="20"> [Plot](output/SL_magnitude_timeseries.png)    <img src="icons/table_icon.png" width="20"> [Tables](output/SL_magnitude_results.csv)    <img src="icons/text_icon.png" width="20"> [Text](notebooks/regional_and_local/SL_magnitude.ipynb)| | <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| **1.2 Sea Level Anomaly** 
+|     Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text| | <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| Intra-Annual |  <img src="icons/map_emoji.png" width="20"> [Maps](output/SL_anomaly_map.png)  <img src="icons/plot_icon.png" width="20"> [Plots](output/SL_anomaly_timeseries_stations.png)    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text| | <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| **1.3 Rankings** 
+| Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text| | <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| Intra-Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text||  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| **1.4 Extremes** 
+| Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text||  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| Intra-Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text||  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text
+| **1.5 Components**  
+| Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text| | <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| Intra-Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text||  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| **2.0 Minor Flood Frequency and Duration** | 
+| **2.1 Indicator: Minor Flood Frequency** |
+| Annual |  <img src="icons/map_emoji.png" width="20"> [Maps](output/SL_FloodFrequency_map.png)  <img src="icons/plot_icon.png" width="20"> [Plots](output/SL_FloodFrequency_threshold_counts_days.png)    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> [Text](notebooks/FloodFrequency.ipynb)||  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| Intra-Annual |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text||  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
+| **2.2 Indicator: Flood Duration** |  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text||  <img src="icons/map_emoji_bw.png" width="20"> Maps  <img src="icons/plot_icon.png" width="20"> Plots    <img src="icons/table_icon.png" width="20"> Tables    <img src="icons/text_icon.png" width="20"> Text 
 
 ```{tableofcontents}
 ```
+
+
