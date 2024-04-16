@@ -20,7 +20,7 @@ rsl_daily_mhhw = tide_gauge_daily_avg - rsl['MHHW']/1000
 
 # Set the attributes of the rsl_daily data
 rsl_daily_mhhw.attrs = tide_gauge_data_POR.attrs
-rsl_daily_mhhw.attrs['long_name'] = 'relative sea level, mean higher high water (MHHW) using epoch 1983-2001'
+rsl_daily_mhhw.attrs['long_name'] = 'water level above MHHW'
 rsl_daily_mhhw.attrs['units'] = 'm'
 # add lat and lon to the dataset
 rsl_daily_mhhw['lat'] = rsl['lat']
@@ -35,7 +35,6 @@ rsl_daily_mhhw.name = 'sea_level (mhhw)'
 
 #combine the two datasets
 rsl_daily_combined = xr.merge([rsl_daily, rsl_daily_mhhw])
-rsl_daily_combined
 
 # save rsl_daily_combined to the data directory
 rsl_daily_combined.to_netcdf(data_dir / 'rsl_daily_hawaii.nc')
@@ -54,15 +53,15 @@ File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backend
 [0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/SL_Hawaii/data/rsl_daily_hawaii.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '171c07a5-7e13-463c-9c24-5b95f466100b']
+[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/SL_Hawaii/data/rsl_daily_hawaii.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'd6ac4b3c-f375-4495-8cd1-9b33174e7511']
 
 During handling of the above exception, another exception occurred:
 
 [0;31mPermissionError[0m                           Traceback (most recent call last)
-Cell [0;32mIn[21], line 24[0m
-[1;32m     21[0m rsl_daily_combined
-[1;32m     23[0m [38;5;66;03m# save rsl_daily_combined to the data directory[39;00m
-[0;32m---> 24[0m [43mrsl_daily_combined[49m[38;5;241;43m.[39;49m[43mto_netcdf[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_daily_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
+Cell [0;32mIn[21], line 23[0m
+[1;32m     20[0m rsl_daily_combined [38;5;241m=[39m xr[38;5;241m.[39mmerge([rsl_daily, rsl_daily_mhhw])
+[1;32m     22[0m [38;5;66;03m# save rsl_daily_combined to the data directory[39;00m
+[0;32m---> 23[0m [43mrsl_daily_combined[49m[38;5;241;43m.[39;49m[43mto_netcdf[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_daily_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
 
 File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:2298[0m, in [0;36mDataset.to_netcdf[0;34m(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf)[0m
 [1;32m   2295[0m     encoding [38;5;241m=[39m {}
