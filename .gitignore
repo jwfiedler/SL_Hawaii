@@ -2,3 +2,5 @@ data/
 .DS_Store
 ./*/.DS_Store
 _build/.DS_Store
+*.nc
+data/*.nc

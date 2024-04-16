@@ -27,7 +27,7 @@ rsl_daily
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[2], line 2[0m
+Cell [0;32mIn[3], line 2[0m
 [1;32m      1[0m [38;5;66;03m#import rsl_daily[39;00m
 [0;32m----> 2[0m rsl_daily [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_daily_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
 [1;32m      4[0m [38;5;66;03m#make rsl_daily a subset - do not include TGs with more than 25% NaNs[39;00m

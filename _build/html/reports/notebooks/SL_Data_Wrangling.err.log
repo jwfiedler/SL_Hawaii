@@ -15,8 +15,30 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
+# Subtract the epoch daily mean from the tide gauge daily average
+rsl_daily_mhhw = tide_gauge_daily_avg - rsl['MHHW']/1000
+
+# Set the attributes of the rsl_daily data
+rsl_daily_mhhw.attrs = tide_gauge_data_POR.attrs
+rsl_daily_mhhw.attrs['long_name'] = 'relative sea level, mean higher high water (MHHW) using epoch 1983-2001'
+rsl_daily_mhhw.attrs['units'] = 'm'
+# add lat and lon to the dataset
+rsl_daily_mhhw['lat'] = rsl['lat']
+rsl_daily_mhhw['lon'] = rsl['lon']
+# add the station name and country
+rsl_daily_mhhw['station_name'] = rsl['station_name']
+
+rsl_daily_mhhw.name = 'sea_level (mhhw)'
 # save rsl_daily to the data directory
-rsl_daily.to_netcdf(data_dir / 'rsl_daily_hawaii.nc')
+# rsl_daily_mhhw.to_netcdf(data_dir / 'rsl_daily_hawaii_mhhw.nc')
+
+
+#combine the two datasets
+rsl_daily_combined = xr.merge([rsl_daily, rsl_daily_mhhw])
+rsl_daily_combined
+
+# save rsl_daily_combined to the data directory
+rsl_daily_combined.to_netcdf(data_dir / 'rsl_daily_hawaii.nc')
 ------------------
 
 
@@ -32,32 +54,32 @@ File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backend
 [0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/SL_Hawaii/data/rsl_daily_hawaii.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '3c4ee2ef-6ad2-421b-a21f-6cac2ff36c85']
+[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/SL_Hawaii/data/rsl_daily_hawaii.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '171c07a5-7e13-463c-9c24-5b95f466100b']
 
 During handling of the above exception, another exception occurred:
 
 [0;31mPermissionError[0m                           Traceback (most recent call last)
-Cell [0;32mIn[19], line 2[0m
-[1;32m      1[0m [38;5;66;03m# save rsl_daily to the data directory[39;00m
-[0;32m----> 2[0m [43mrsl_daily[49m[38;5;241;43m.[39;49m[43mto_netcdf[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_daily_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
+Cell [0;32mIn[21], line 24[0m
+[1;32m     21[0m rsl_daily_combined
+[1;32m     23[0m [38;5;66;03m# save rsl_daily_combined to the data directory[39;00m
+[0;32m---> 24[0m [43mrsl_daily_combined[49m[38;5;241;43m.[39;49m[43mto_netcdf[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_daily_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataarray.py:4095[0m, in [0;36mDataArray.to_netcdf[0;34m(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf)[0m
-[1;32m   4091[0m [38;5;28;01melse[39;00m:
-[1;32m   4092[0m     [38;5;66;03m# No problems with the name - so we're fine![39;00m
-[1;32m   4093[0m     dataset [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mto_dataset()
-[0;32m-> 4095[0m [38;5;28;01mreturn[39;00m [43mto_netcdf[49m[43m([49m[43m  [49m[38;5;66;43;03m# type: ignore  # mypy cannot resolve the overloads:([39;49;00m
-[1;32m   4096[0m [43m    [49m[43mdataset[49m[43m,[49m
-[1;32m   4097[0m [43m    [49m[43mpath[49m[43m,[49m
-[1;32m   4098[0m [43m    [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
-[1;32m   4099[0m [43m    [49m[38;5;28;43mformat[39;49m[38;5;241;43m=[39;49m[38;5;28;43mformat[39;49m[43m,[49m
-[1;32m   4100[0m [43m    [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m
-[1;32m   4101[0m [43m    [49m[43mengine[49m[38;5;241;43m=[39;49m[43mengine[49m[43m,[49m
-[1;32m   4102[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
-[1;32m   4103[0m [43m    [49m[43munlimited_dims[49m[38;5;241;43m=[39;49m[43munlimited_dims[49m[43m,[49m
-[1;32m   4104[0m [43m    [49m[43mcompute[49m[38;5;241;43m=[39;49m[43mcompute[49m[43m,[49m
-[1;32m   4105[0m [43m    [49m[43mmultifile[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[1;32m   4106[0m [43m    [49m[43minvalid_netcdf[49m[38;5;241;43m=[39;49m[43minvalid_netcdf[49m[43m,[49m
-[1;32m   4107[0m [43m[49m[43m)[49m
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:2298[0m, in [0;36mDataset.to_netcdf[0;34m(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf)[0m
+[1;32m   2295[0m     encoding [38;5;241m=[39m {}
+[1;32m   2296[0m [38;5;28;01mfrom[39;00m [38;5;21;01mxarray[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapi[39;00m [38;5;28;01mimport[39;00m to_netcdf
+[0;32m-> 2298[0m [38;5;28;01mreturn[39;00m [43mto_netcdf[49m[43m([49m[43m  [49m[38;5;66;43;03m# type: ignore  # mypy cannot resolve the overloads:([39;49;00m
+[1;32m   2299[0m [43m    [49m[38;5;28;43mself[39;49m[43m,[49m
+[1;32m   2300[0m [43m    [49m[43mpath[49m[43m,[49m
+[1;32m   2301[0m [43m    [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
+[1;32m   2302[0m [43m    [49m[38;5;28;43mformat[39;49m[38;5;241;43m=[39;49m[38;5;28;43mformat[39;49m[43m,[49m
+[1;32m   2303[0m [43m    [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m
+[1;32m   2304[0m [43m    [49m[43mengine[49m[38;5;241;43m=[39;49m[43mengine[49m[43m,[49m
+[1;32m   2305[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
+[1;32m   2306[0m [43m    [49m[43munlimited_dims[49m[38;5;241;43m=[39;49m[43munlimited_dims[49m[43m,[49m
+[1;32m   2307[0m [43m    [49m[43mcompute[49m[38;5;241;43m=[39;49m[43mcompute[49m[43m,[49m
+[1;32m   2308[0m [43m    [49m[43mmultifile[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
+[1;32m   2309[0m [43m    [49m[43minvalid_netcdf[49m[38;5;241;43m=[39;49m[43minvalid_netcdf[49m[43m,[49m
+[1;32m   2310[0m [43m[49m[43m)[49m
 
 File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:1322[0m, in [0;36mto_netcdf[0;34m(dataset, path_or_file, mode, format, group, engine, encoding, unlimited_dims, compute, multifile, invalid_netcdf)[0m
 [1;32m   1318[0m     [38;5;28;01melse[39;00m:

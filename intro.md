@@ -1,5 +1,5 @@
 # Introduction
-This jupyter book is made for the Hawaiian Island region. Click on the following links to access the output or detailed code for each sea level indicator. You may also jump straight to the [table of contents of currently available sections](#table-of-contents).
+This jupyter book is made for sea level indicators of the Hawaiian Island region. Click on the following links to access the output or detailed code for each sea level indicator. You may also jump straight to the [table of contents of currently available sections](#table-of-contents).
 
 ## Regional and Local
 ````{margin}
