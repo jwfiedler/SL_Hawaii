@@ -1,57 +1,130 @@
 Traceback (most recent call last):
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 162, in wrapped
     return loop.run_until_complete(inner)
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#import rsl_daily
-rsl_daily = xr.open_dataset(data_dir/ 'rsl_daily_hawaii.nc')
+# remove long term trend from rsl using polynomial fit
+trend_mag_cmems, trend_line_cmems, trend_rate_cmems = process_trend_with_nan(cmems.sla)
 
-#make rsl_daily a subset - do not include TGs with more than 25% NaNs
-# get percent Nans in rsl_daily['sea_level']
+cmems_detrended = cmems.sla - trend_line_cmems
 
-rsl_daily
+# make a cmems monthly mean for plotting
+cmems_monthly = cmems_detrended.resample(time='1ME').mean().squeeze()
+
+# get the mean for each month of the year
+cmems_climatology = cmems_monthly.groupby('time.month').mean(dim='time')
+
+cmems_mmsla = cmems_monthly.groupby('time.month') - cmems_climatology
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+File [0;32moffsets.pyx:4447[0m, in [0;36mpandas._libs.tslibs.offsets._get_offset[0;34m()[0m
+
+[0;31mKeyError[0m: 'ME'
+
+The above exception was the direct cause of the following exception:
+
 [0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[3], line 2[0m
-[1;32m      1[0m [38;5;66;03m#import rsl_daily[39;00m
-[0;32m----> 2[0m rsl_daily [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_daily_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[1;32m      4[0m [38;5;66;03m#make rsl_daily a subset - do not include TGs with more than 25% NaNs[39;00m
-[1;32m      5[0m [38;5;66;03m# get percent Nans in rsl_daily['sea_level'][39;00m
-[1;32m      7[0m rsl_daily
+File [0;32moffsets.pyx:4549[0m, in [0;36mpandas._libs.tslibs.offsets.to_offset[0;34m()[0m
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554[0m, in [0;36mopen_dataset[0;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
-[1;32m    551[0m     kwargs[38;5;241m.[39mupdate(backend_kwargs)
-[1;32m    553[0m [38;5;28;01mif[39;00m engine [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m--> 554[0m     engine [38;5;241m=[39m [43mplugins[49m[38;5;241;43m.[39;49m[43mguess_engine[49m[43m([49m[43mfilename_or_obj[49m[43m)[49m
-[1;32m    556[0m [38;5;28;01mif[39;00m from_array_kwargs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[1;32m    557[0m     from_array_kwargs [38;5;241m=[39m {}
+File [0;32moffsets.pyx:4453[0m, in [0;36mpandas._libs.tslibs.offsets._get_offset[0;34m()[0m
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197[0m, in [0;36mguess_engine[0;34m(store_spec)[0m
-[1;32m    189[0m [38;5;28;01melse[39;00m:
-[1;32m    190[0m     error_msg [38;5;241m=[39m (
-[1;32m    191[0m         [38;5;124m"[39m[38;5;124mfound the following matches with the input file in xarray[39m[38;5;124m'[39m[38;5;124ms IO [39m[38;5;124m"[39m
-[1;32m    192[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mbackends: [39m[38;5;132;01m{[39;00mcompatible_engines[38;5;132;01m}[39;00m[38;5;124m. But their dependencies may not be installed, see:[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[1;32m    193[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/user-guide/io.html [39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[1;32m    194[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/getting-started-guide/installing.html[39m[38;5;124m"[39m
-[1;32m    195[0m     )
-[0;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
+[0;31mValueError[0m: Invalid frequency: ME
 
-[0;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
-https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
-https://docs.xarray.dev/en/stable/user-guide/io.html
+The above exception was the direct cause of the following exception:
+
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[10], line 7[0m
+[1;32m      4[0m cmems_detrended [38;5;241m=[39m cmems[38;5;241m.[39msla [38;5;241m-[39m trend_line_cmems
+[1;32m      6[0m [38;5;66;03m# make a cmems monthly mean for plotting[39;00m
+[0;32m----> 7[0m cmems_monthly [38;5;241m=[39m [43mcmems_detrended[49m[38;5;241;43m.[39;49m[43mresample[49m[43m([49m[43mtime[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m1ME[39;49m[38;5;124;43m'[39;49m[43m)[49m[38;5;241m.[39mmean()[38;5;241m.[39msqueeze()
+[1;32m      9[0m [38;5;66;03m# get the mean for each month of the year[39;00m
+[1;32m     10[0m cmems_climatology [38;5;241m=[39m cmems_monthly[38;5;241m.[39mgroupby([38;5;124m'[39m[38;5;124mtime.month[39m[38;5;124m'[39m)[38;5;241m.[39mmean(dim[38;5;241m=[39m[38;5;124m'[39m[38;5;124mtime[39m[38;5;124m'[39m)
+
+File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataarray.py:7105[0m, in [0;36mDataArray.resample[0;34m(self, indexer, skipna, closed, label, base, offset, origin, loffset, restore_coord_dims, **indexer_kwargs)[0m
+[1;32m   6997[0m [38;5;250m[39m[38;5;124;03m"""Returns a Resample object for performing resampling operations.[39;00m
+[1;32m   6998[0m 
+[1;32m   6999[0m [38;5;124;03mHandles both downsampling and upsampling. The resampled[39;00m
+[0;32m   (...)[0m
+[1;32m   7101[0m [38;5;124;03m.. [1] http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases[39;00m
+[1;32m   7102[0m [38;5;124;03m"""[39;00m
+[1;32m   7103[0m [38;5;28;01mfrom[39;00m [38;5;21;01mxarray[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mresample[39;00m [38;5;28;01mimport[39;00m DataArrayResample
+[0;32m-> 7105[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_resample[49m[43m([49m
+[1;32m   7106[0m [43m    [49m[43mresample_cls[49m[38;5;241;43m=[39;49m[43mDataArrayResample[49m[43m,[49m
+[1;32m   7107[0m [43m    [49m[43mindexer[49m[38;5;241;43m=[39;49m[43mindexer[49m[43m,[49m
+[1;32m   7108[0m [43m    [49m[43mskipna[49m[38;5;241;43m=[39;49m[43mskipna[49m[43m,[49m
+[1;32m   7109[0m [43m    [49m[43mclosed[49m[38;5;241;43m=[39;49m[43mclosed[49m[43m,[49m
+[1;32m   7110[0m [43m    [49m[43mlabel[49m[38;5;241;43m=[39;49m[43mlabel[49m[43m,[49m
+[1;32m   7111[0m [43m    [49m[43mbase[49m[38;5;241;43m=[39;49m[43mbase[49m[43m,[49m
+[1;32m   7112[0m [43m    [49m[43moffset[49m[38;5;241;43m=[39;49m[43moffset[49m[43m,[49m
+[1;32m   7113[0m [43m    [49m[43morigin[49m[38;5;241;43m=[39;49m[43morigin[49m[43m,[49m
+[1;32m   7114[0m [43m    [49m[43mloffset[49m[38;5;241;43m=[39;49m[43mloffset[49m[43m,[49m
+[1;32m   7115[0m [43m    [49m[43mrestore_coord_dims[49m[38;5;241;43m=[39;49m[43mrestore_coord_dims[49m[43m,[49m
+[1;32m   7116[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mindexer_kwargs[49m[43m,[49m
+[1;32m   7117[0m [43m[49m[43m)[49m
+
+File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/common.py:1045[0m, in [0;36mDataWithCoords._resample[0;34m(self, resample_cls, indexer, skipna, closed, label, base, offset, origin, loffset, restore_coord_dims, **indexer_kwargs)[0m
+[1;32m   1032[0m grouper [38;5;241m=[39m TimeResampleGrouper(
+[1;32m   1033[0m     freq[38;5;241m=[39mfreq,
+[1;32m   1034[0m     closed[38;5;241m=[39mclosed,
+[0;32m   (...)[0m
+[1;32m   1038[0m     loffset[38;5;241m=[39mloffset,
+[1;32m   1039[0m )
+[1;32m   1041[0m group [38;5;241m=[39m DataArray(
+[1;32m   1042[0m     dim_coord, coords[38;5;241m=[39mdim_coord[38;5;241m.[39mcoords, dims[38;5;241m=[39mdim_coord[38;5;241m.[39mdims, name[38;5;241m=[39mRESAMPLE_DIM
+[1;32m   1043[0m )
+[0;32m-> 1045[0m rgrouper [38;5;241m=[39m [43mResolvedTimeResampleGrouper[49m[43m([49m[43mgrouper[49m[43m,[49m[43m [49m[43mgroup[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m
+[1;32m   1047[0m [38;5;28;01mreturn[39;00m resample_cls(
+[1;32m   1048[0m     [38;5;28mself[39m,
+[1;32m   1049[0m     (rgrouper,),
+[0;32m   (...)[0m
+[1;32m   1052[0m     restore_coord_dims[38;5;241m=[39mrestore_coord_dims,
+[1;32m   1053[0m )
+
+File [0;32m<string>:6[0m, in [0;36m__init__[0;34m(self, grouper, group, obj)[0m
+
+File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:513[0m, in [0;36mResolvedTimeResampleGrouper.__post_init__[0;34m(self)[0m
+[1;32m    504[0m     index_grouper [38;5;241m=[39m CFTimeGrouper(
+[1;32m    505[0m         freq[38;5;241m=[39mgrouper[38;5;241m.[39mfreq,
+[1;32m    506[0m         closed[38;5;241m=[39mgrouper[38;5;241m.[39mclosed,
+[0;32m   (...)[0m
+[1;32m    510[0m         loffset[38;5;241m=[39mgrouper[38;5;241m.[39mloffset,
+[1;32m    511[0m     )
+[1;32m    512[0m [38;5;28;01melse[39;00m:
+[0;32m--> 513[0m     index_grouper [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mGrouper[49m[43m([49m
+[1;32m    514[0m [43m        [49m[43mfreq[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43mfreq[49m[43m,[49m
+[1;32m    515[0m [43m        [49m[43mclosed[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43mclosed[49m[43m,[49m
+[1;32m    516[0m [43m        [49m[43mlabel[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43mlabel[49m[43m,[49m
+[1;32m    517[0m [43m        [49m[43morigin[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43morigin[49m[43m,[49m
+[1;32m    518[0m [43m        [49m[43moffset[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43moffset[49m[43m,[49m
+[1;32m    519[0m [43m    [49m[43m)[49m
+[1;32m    520[0m [38;5;28mself[39m[38;5;241m.[39mindex_grouper [38;5;241m=[39m index_grouper
+
+File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/core/resample.py:2046[0m, in [0;36mTimeGrouper.__init__[0;34m(self, freq, closed, label, how, axis, fill_method, limit, kind, convention, origin, offset, group_keys, **kwargs)[0m
+[1;32m   2043[0m [38;5;28;01mif[39;00m convention [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m {[38;5;28;01mNone[39;00m, [38;5;124m"[39m[38;5;124mstart[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mend[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124me[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124ms[39m[38;5;124m"[39m}:
+[1;32m   2044[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mUnsupported value [39m[38;5;132;01m{[39;00mconvention[38;5;132;01m}[39;00m[38;5;124m for `convention`[39m[38;5;124m"[39m)
+[0;32m-> 2046[0m freq [38;5;241m=[39m [43mto_offset[49m[43m([49m[43mfreq[49m[43m)[49m
+[1;32m   2048[0m end_types [38;5;241m=[39m {[38;5;124m"[39m[38;5;124mM[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mA[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mQ[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mBM[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mBA[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mBQ[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mW[39m[38;5;124m"[39m}
+[1;32m   2049[0m rule [38;5;241m=[39m freq[38;5;241m.[39mrule_code
+
+File [0;32moffsets.pyx:4460[0m, in [0;36mpandas._libs.tslibs.offsets.to_offset[0;34m()[0m
+
+File [0;32moffsets.pyx:4557[0m, in [0;36mpandas._libs.tslibs.offsets.to_offset[0;34m()[0m
+
+[0;31mValueError[0m: Invalid frequency: 1ME
 

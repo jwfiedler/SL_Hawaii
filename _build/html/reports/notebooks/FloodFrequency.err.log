@@ -1,135 +1,37 @@
 Traceback (most recent call last):
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
-    executenb(
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
-    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
-    return loop.run_until_complete(inner)
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
-    return future.result()
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
-    await self.async_execute_cell(
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
-    await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
-    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
-nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
-------------------
-# add MHHW to the dataset
-rsl['MHHW'] = xr.DataArray([1000*get_MHHW_uhslc_datums(id, 'MHHW') for id in rsl['uhslc_id'].values], dims='record_id', coords={'record_id': rsl['record_id']})
-
-rsl['MHHW'].attrs['units'] = 'mm'
-rsl['MHHW'].attrs['long_name'] = 'Mean Higher High Water, rel. to station datum'
-------------------
-
-
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mModuleNotFoundError[0m                       Traceback (most recent call last)
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/compat/_optional.py:135[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
-[1;32m    134[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 135[0m     module [38;5;241m=[39m [43mimportlib[49m[38;5;241;43m.[39;49m[43mimport_module[49m[43m([49m[43mname[49m[43m)[49m
-[1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/importlib/__init__.py:127[0m, in [0;36mimport_module[0;34m(name, package)[0m
-[1;32m    126[0m         level [38;5;241m+[39m[38;5;241m=[39m [38;5;241m1[39m
-[0;32m--> 127[0m [38;5;28;01mreturn[39;00m [43m_bootstrap[49m[38;5;241;43m.[39;49m[43m_gcd_import[49m[43m([49m[43mname[49m[43m[[49m[43mlevel[49m[43m:[49m[43m][49m[43m,[49m[43m [49m[43mpackage[49m[43m,[49m[43m [49m[43mlevel[49m[43m)[49m
-
-File [0;32m<frozen importlib._bootstrap>:1030[0m, in [0;36m_gcd_import[0;34m(name, package, level)[0m
-
-File [0;32m<frozen importlib._bootstrap>:1007[0m, in [0;36m_find_and_load[0;34m(name, import_)[0m
-
-File [0;32m<frozen importlib._bootstrap>:972[0m, in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
-
-File [0;32m<frozen importlib._bootstrap>:228[0m, in [0;36m_call_with_frames_removed[0;34m(f, *args, **kwds)[0m
-
-File [0;32m<frozen importlib._bootstrap>:1030[0m, in [0;36m_gcd_import[0;34m(name, package, level)[0m
-
-File [0;32m<frozen importlib._bootstrap>:1007[0m, in [0;36m_find_and_load[0;34m(name, import_)[0m
-
-File [0;32m<frozen importlib._bootstrap>:984[0m, in [0;36m_find_and_load_unlocked[0;34m(name, import_)[0m
-
-[0;31mModuleNotFoundError[0m: No module named 'lxml'
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 778, in _async_poll_for_reply
+    msg = await ensure_async(self.kc.shell_channel.get_msg(timeout=new_timeout))
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 178, in ensure_async
+    result = await obj
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_client/channels.py", line 315, in get_msg
+    raise Empty
+_queue.Empty
 
 During handling of the above exception, another exception occurred:
 
-[0;31mImportError[0m                               Traceback (most recent call last)
-Cell [0;32mIn[4], line 2[0m
-[1;32m      1[0m [38;5;66;03m# add MHHW to the dataset[39;00m
-[0;32m----> 2[0m rsl[[38;5;124m'[39m[38;5;124mMHHW[39m[38;5;124m'[39m] [38;5;241m=[39m xr[38;5;241m.[39mDataArray([[38;5;241m1000[39m[38;5;241m*[39mget_MHHW_uhslc_datums([38;5;28mid[39m, [38;5;124m'[39m[38;5;124mMHHW[39m[38;5;124m'[39m) [38;5;28;01mfor[39;00m [38;5;28mid[39m [38;5;129;01min[39;00m rsl[[38;5;124m'[39m[38;5;124muhslc_id[39m[38;5;124m'[39m][38;5;241m.[39mvalues], dims[38;5;241m=[39m[38;5;124m'[39m[38;5;124mrecord_id[39m[38;5;124m'[39m, coords[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mrecord_id[39m[38;5;124m'[39m: rsl[[38;5;124m'[39m[38;5;124mrecord_id[39m[38;5;124m'[39m]})
-[1;32m      4[0m rsl[[38;5;124m'[39m[38;5;124mMHHW[39m[38;5;124m'[39m][38;5;241m.[39mattrs[[38;5;124m'[39m[38;5;124munits[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;124m'[39m[38;5;124mmm[39m[38;5;124m'[39m
-[1;32m      5[0m rsl[[38;5;124m'[39m[38;5;124mMHHW[39m[38;5;124m'[39m][38;5;241m.[39mattrs[[38;5;124m'[39m[38;5;124mlong_name[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;124m'[39m[38;5;124mMean Higher High Water, rel. to station datum[39m[38;5;124m'[39m
-
-Cell [0;32mIn[4], line 2[0m, in [0;36m<listcomp>[0;34m(.0)[0m
-[1;32m      1[0m [38;5;66;03m# add MHHW to the dataset[39;00m
-[0;32m----> 2[0m rsl[[38;5;124m'[39m[38;5;124mMHHW[39m[38;5;124m'[39m] [38;5;241m=[39m xr[38;5;241m.[39mDataArray([[38;5;241m1000[39m[38;5;241m*[39m[43mget_MHHW_uhslc_datums[49m[43m([49m[38;5;28;43mid[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mMHHW[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;28;01mfor[39;00m [38;5;28mid[39m [38;5;129;01min[39;00m rsl[[38;5;124m'[39m[38;5;124muhslc_id[39m[38;5;124m'[39m][38;5;241m.[39mvalues], dims[38;5;241m=[39m[38;5;124m'[39m[38;5;124mrecord_id[39m[38;5;124m'[39m, coords[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mrecord_id[39m[38;5;124m'[39m: rsl[[38;5;124m'[39m[38;5;124mrecord_id[39m[38;5;124m'[39m]})
-[1;32m      4[0m rsl[[38;5;124m'[39m[38;5;124mMHHW[39m[38;5;124m'[39m][38;5;241m.[39mattrs[[38;5;124m'[39m[38;5;124munits[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;124m'[39m[38;5;124mmm[39m[38;5;124m'[39m
-[1;32m      5[0m rsl[[38;5;124m'[39m[38;5;124mMHHW[39m[38;5;124m'[39m][38;5;241m.[39mattrs[[38;5;124m'[39m[38;5;124mlong_name[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;124m'[39m[38;5;124mMean Higher High Water, rel. to station datum[39m[38;5;124m'[39m
-
-Cell [0;32mIn[3], line 10[0m, in [0;36mget_MHHW_uhslc_datums[0;34m(id, datumname)[0m
-[1;32m      8[0m table [38;5;241m=[39m [38;5;124m'[39m[38;5;124m<table>[39m[38;5;124m'[39m [38;5;241m+[39m [38;5;124m'[39m[38;5;124m'[39m[38;5;241m.[39mjoin([[38;5;28mstr[39m(x) [38;5;28;01mfor[39;00m x [38;5;129;01min[39;00m table]) [38;5;66;03m# add back the table tag[39;00m
-[1;32m      9[0m table_io [38;5;241m=[39m io[38;5;241m.[39mStringIO([38;5;28mstr[39m(table))
-[0;32m---> 10[0m datumtable [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_html[49m[43m([49m[43mtable_io[49m[43m)[49m[[38;5;241m0[39m]
-[1;32m     11[0m datum [38;5;241m=[39m datumtable[datumtable[[38;5;124m'[39m[38;5;124mDatum[39m[38;5;124m'[39m] [38;5;241m==[39m datumname][[38;5;124m'[39m[38;5;124mValue[39m[38;5;124m'[39m][38;5;241m.[39mvalues[[38;5;241m0[39m]
-[1;32m     12[0m [38;5;66;03m# ensure datum is a float[39;00m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/html.py:1246[0m, in [0;36mread_html[0;34m(io, match, flavor, header, index_col, skiprows, attrs, parse_dates, thousands, encoding, decimal, converters, na_values, keep_default_na, displayed_only, extract_links, dtype_backend, storage_options)[0m
-[1;32m   1230[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(io, [38;5;28mstr[39m) [38;5;129;01mand[39;00m [38;5;129;01mnot[39;00m [38;5;28many[39m(
-[1;32m   1231[0m     [
-[1;32m   1232[0m         is_file_like(io),
-[0;32m   (...)[0m
-[1;32m   1236[0m     ]
-[1;32m   1237[0m ):
-[1;32m   1238[0m     warnings[38;5;241m.[39mwarn(
-[1;32m   1239[0m         [38;5;124m"[39m[38;5;124mPassing literal html to [39m[38;5;124m'[39m[38;5;124mread_html[39m[38;5;124m'[39m[38;5;124m is deprecated and [39m[38;5;124m"[39m
-[1;32m   1240[0m         [38;5;124m"[39m[38;5;124mwill be removed in a future version. To read from a [39m[38;5;124m"[39m
-[0;32m   (...)[0m
-[1;32m   1243[0m         stacklevel[38;5;241m=[39mfind_stack_level(),
-[1;32m   1244[0m     )
-[0;32m-> 1246[0m [38;5;28;01mreturn[39;00m [43m_parse[49m[43m([49m
-[1;32m   1247[0m [43m    [49m[43mflavor[49m[38;5;241;43m=[39;49m[43mflavor[49m[43m,[49m
-[1;32m   1248[0m [43m    [49m[43mio[49m[38;5;241;43m=[39;49m[43mio[49m[43m,[49m
-[1;32m   1249[0m [43m    [49m[43mmatch[49m[38;5;241;43m=[39;49m[43mmatch[49m[43m,[49m
-[1;32m   1250[0m [43m    [49m[43mheader[49m[38;5;241;43m=[39;49m[43mheader[49m[43m,[49m
-[1;32m   1251[0m [43m    [49m[43mindex_col[49m[38;5;241;43m=[39;49m[43mindex_col[49m[43m,[49m
-[1;32m   1252[0m [43m    [49m[43mskiprows[49m[38;5;241;43m=[39;49m[43mskiprows[49m[43m,[49m
-[1;32m   1253[0m [43m    [49m[43mparse_dates[49m[38;5;241;43m=[39;49m[43mparse_dates[49m[43m,[49m
-[1;32m   1254[0m [43m    [49m[43mthousands[49m[38;5;241;43m=[39;49m[43mthousands[49m[43m,[49m
-[1;32m   1255[0m [43m    [49m[43mattrs[49m[38;5;241;43m=[39;49m[43mattrs[49m[43m,[49m
-[1;32m   1256[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
-[1;32m   1257[0m [43m    [49m[43mdecimal[49m[38;5;241;43m=[39;49m[43mdecimal[49m[43m,[49m
-[1;32m   1258[0m [43m    [49m[43mconverters[49m[38;5;241;43m=[39;49m[43mconverters[49m[43m,[49m
-[1;32m   1259[0m [43m    [49m[43mna_values[49m[38;5;241;43m=[39;49m[43mna_values[49m[43m,[49m
-[1;32m   1260[0m [43m    [49m[43mkeep_default_na[49m[38;5;241;43m=[39;49m[43mkeep_default_na[49m[43m,[49m
-[1;32m   1261[0m [43m    [49m[43mdisplayed_only[49m[38;5;241;43m=[39;49m[43mdisplayed_only[49m[43m,[49m
-[1;32m   1262[0m [43m    [49m[43mextract_links[49m[38;5;241;43m=[39;49m[43mextract_links[49m[43m,[49m
-[1;32m   1263[0m [43m    [49m[43mdtype_backend[49m[38;5;241;43m=[39;49m[43mdtype_backend[49m[43m,[49m
-[1;32m   1264[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[43mstorage_options[49m[43m,[49m
-[1;32m   1265[0m [43m[49m[43m)[49m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/html.py:977[0m, in [0;36m_parse[0;34m(flavor, io, match, attrs, encoding, displayed_only, extract_links, storage_options, **kwargs)[0m
-[1;32m    975[0m retained [38;5;241m=[39m [38;5;28;01mNone[39;00m
-[1;32m    976[0m [38;5;28;01mfor[39;00m flav [38;5;129;01min[39;00m flavor:
-[0;32m--> 977[0m     parser [38;5;241m=[39m [43m_parser_dispatch[49m[43m([49m[43mflav[49m[43m)[49m
-[1;32m    978[0m     p [38;5;241m=[39m parser(
-[1;32m    979[0m         io,
-[1;32m    980[0m         compiled_match,
-[0;32m   (...)[0m
-[1;32m    985[0m         storage_options,
-[1;32m    986[0m     )
-[1;32m    988[0m     [38;5;28;01mtry[39;00m:
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/html.py:924[0m, in [0;36m_parser_dispatch[0;34m(flavor)[0m
-[1;32m    922[0m     import_optional_dependency([38;5;124m"[39m[38;5;124mbs4[39m[38;5;124m"[39m)
-[1;32m    923[0m [38;5;28;01melse[39;00m:
-[0;32m--> 924[0m     [43mimport_optional_dependency[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mlxml.etree[39;49m[38;5;124;43m"[39;49m[43m)[49m
-[1;32m    925[0m [38;5;28;01mreturn[39;00m _valid_parsers[flavor]
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/compat/_optional.py:138[0m, in [0;36mimport_optional_dependency[0;34m(name, extra, errors, min_version)[0m
-[1;32m    136[0m [38;5;28;01mexcept[39;00m [38;5;167;01mImportError[39;00m:
-[1;32m    137[0m     [38;5;28;01mif[39;00m errors [38;5;241m==[39m [38;5;124m"[39m[38;5;124mraise[39m[38;5;124m"[39m:
-[0;32m--> 138[0m         [38;5;28;01mraise[39;00m [38;5;167;01mImportError[39;00m(msg)
-[1;32m    139[0m     [38;5;28;01mreturn[39;00m [38;5;28;01mNone[39;00m
-[1;32m    141[0m [38;5;66;03m# Handle submodules: if we have submodule, grab parent module from sys.modules[39;00m
-
-[0;31mImportError[0m: Missing optional dependency 'lxml'.  Use pip or conda to install lxml.
+Traceback (most recent call last):
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 162, in wrapped
+    return loop.run_until_complete(inner)
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1001, in async_execute_cell
+    exec_reply = await self.task_poll_for_reply
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 802, in _async_poll_for_reply
+    error_on_timeout_execute_reply = await self._async_handle_timeout(timeout, cell)
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 852, in _async_handle_timeout
+    raise CellTimeoutError.error_from_timeout_and_cell(
+nbclient.exceptions.CellTimeoutError: A cell timed out while it was being executed, after 30 seconds.
+The message was: Cell execution timed out.
+Here is a preview of the cell contents:
+-------------------
+# Resample the hourly data to daily maximum sea level
+SL_daily_max = hourly_data.resample(time='D').max()
+SL_daily_max
+-------------------
 
