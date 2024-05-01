@@ -15,14 +15,38 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-oni
+# concentrating on decadal trends
+# let's look at 1993-2003 and 2003-2013
+cmems1993_2003 = cmems.sel(time=slice('1993','2003'))
+
+trend_mag, sea_level_trend, trend_rate = process_trend_with_nan(cmems1993_2003['sla'])
+
+# define vmin and vmax variables
+vmin = 0
+vmax = 0.02
+
+# make ax,fig
+fig, ax = plt.subplots(figsize=(10, 5), subplot_kw={'projection': crs})
+# plot a map of the magnitude of SL change in centimeters
+trend_rate.plot(ax=ax, transform=crs,
+                         vmin=vmin, vmax=vmax, cmap=cmap, add_colorbar=True, 
+                         cbar_kwargs={'label': 'Sea Level Tend rate (cm/yr, 1993-2003)'}
+)
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[6], line 1[0m
-[0;32m----> 1[0m [43moni[49m
+Cell [0;32mIn[8], line 12[0m
+[1;32m      9[0m vmax [38;5;241m=[39m [38;5;241m0.02[39m
+[1;32m     11[0m [38;5;66;03m# make ax,fig[39;00m
+[0;32m---> 12[0m fig, ax [38;5;241m=[39m plt[38;5;241m.[39msubplots(figsize[38;5;241m=[39m([38;5;241m10[39m, [38;5;241m5[39m), subplot_kw[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mprojection[39m[38;5;124m'[39m: [43mcrs[49m})
+[1;32m     13[0m [38;5;66;03m# plot a map of the magnitude of SL change in centimeters[39;00m
+[1;32m     14[0m trend_rate[38;5;241m.[39mplot(ax[38;5;241m=[39max, transform[38;5;241m=[39mcrs,
+[1;32m     15[0m                          vmin[38;5;241m=[39mvmin, vmax[38;5;241m=[39mvmax, cmap[38;5;241m=[39mcmap, add_colorbar[38;5;241m=[39m[38;5;28;01mTrue[39;00m, 
+[1;32m     16[0m                          cbar_kwargs[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mlabel[39m[38;5;124m'[39m: [38;5;124m'[39m[38;5;124mSea Level Tend rate (cm/yr, 1993-2003)[39m[38;5;124m'[39m}
+[1;32m     17[0m )
 
-[0;31mNameError[0m: name 'oni' is not defined
+[0;31mNameError[0m: name 'crs' is not defined
 
