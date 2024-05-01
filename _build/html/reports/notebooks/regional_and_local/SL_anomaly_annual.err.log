@@ -15,14 +15,19 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-oni
+# remove trend from rsl_subset
+trend_mag, sea_level_trend, trend_rate = process_trend_with_nan(rsl_subset['rsl_anomaly'])
+
+rsl_subset['rsl_anomaly_detrended'] = rsl_subset['rsl_anomaly'] - sea_level_trend
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[6], line 1[0m
-[0;32m----> 1[0m [43moni[49m
+Cell [0;32mIn[4], line 2[0m
+[1;32m      1[0m [38;5;66;03m# remove trend from rsl_subset[39;00m
+[0;32m----> 2[0m trend_mag, sea_level_trend, trend_rate [38;5;241m=[39m [43mprocess_trend_with_nan[49m(rsl_subset[[38;5;124m'[39m[38;5;124mrsl_anomaly[39m[38;5;124m'[39m])
+[1;32m      4[0m rsl_subset[[38;5;124m'[39m[38;5;124mrsl_anomaly_detrended[39m[38;5;124m'[39m] [38;5;241m=[39m rsl_subset[[38;5;124m'[39m[38;5;124mrsl_anomaly[39m[38;5;124m'[39m] [38;5;241m-[39m sea_level_trend
 
-[0;31mNameError[0m: name 'oni' is not defined
+[0;31mNameError[0m: name 'process_trend_with_nan' is not defined
 
