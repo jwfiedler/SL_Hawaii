@@ -502,6 +502,26 @@ document.write(`
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
 <p>As with previous sections, we first need to import the necessary libraries, establish our input/output directories, and set up some basic plotting rules. We’ll do this by running another notebook called “setup” and “plotting functions,” and then we’ll set our data and output paths. If you have not run the datawrangling notebook, you will need to do this before running this notebook.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>TODO</strong></p>
+<ul class="simple">
+<li><p>Trend dates?</p></li>
+<li><p>Confirm numbers match</p></li>
+<li><p>Figure captions</p></li>
+<li><p>Figure labels</p></li>
+<li><p>Text</p></li>
+<li><p>Check with John’s master plan</p></li>
+<li><p>Clean up code</p></li>
+<li><p>add commentary</p></li>
+</ul>
+</div>
+</aside>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> ../setup.ipynb
@@ -522,22 +542,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-</div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p><strong>TODO</strong></p>
-<p>-Trend dates?
--Confirm numbers match
--Figure captions
--Figure labels
--Text
--Check with John’s master plan</p>
-</div>
-</aside>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
 </div>
 <section id="import-the-tide-gauge-data">
 <h3>Import the tide gauge data<a class="headerlink" href="#import-the-tide-gauge-data" title="Permalink to this heading">#</a></h3>
@@ -934,18 +938,18 @@ Attributes:
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-a44d3188-aedd-4936-894e-11fc64495348' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-a44d3188-aedd-4936-894e-11fc64495348' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-308c3026-5ed9-4b82-8359-109045587ce1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-308c3026-5ed9-4b82-8359-109045587ce1' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-6729207a-e6e9-4b80-b7b7-63c6f61700ff' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6729207a-e6e9-4b80-b7b7-63c6f61700ff' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-21bc4b9d-3290-41a6-b9a8-3307dcd67e1a' class='xr-var-data-in' type='checkbox'><label for='data-21bc4b9d-3290-41a6-b9a8-3307dcd67e1a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
-      dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-a21f896b-aa31-49f6-8e3a-69c3fad396d0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a21f896b-aa31-49f6-8e3a-69c3fad396d0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0439f85a-f09e-499f-b6aa-da0e52a9716c' class='xr-var-data-in' type='checkbox'><label for='data-0439f85a-f09e-499f-b6aa-da0e52a9716c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-575bc45b-da3f-4178-b878-68e0d2d5cdbf' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-575bc45b-da3f-4178-b878-68e0d2d5cdbf' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-ef060e64-67dd-4ccb-b04e-bbab9316b50f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ef060e64-67dd-4ccb-b04e-bbab9316b50f' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-7394bff0-98f5-498c-9721-60d098c7b903' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7394bff0-98f5-498c-9721-60d098c7b903' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-06e7a831-978e-4bbc-bce0-29d24f070af3' class='xr-var-data-in' type='checkbox'><label for='data-06e7a831-978e-4bbc-bce0-29d24f070af3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
+      dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-ad7be0ee-0953-4480-9aec-0a00e075c9ee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ad7be0ee-0953-4480-9aec-0a00e075c9ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ddc40d0c-ab06-47a7-9f4b-d0cab254eb29' class='xr-var-data-in' type='checkbox'><label for='data-ddc40d0c-ab06-47a7-9f4b-d0cab254eb29' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
        &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
        &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ce23166f-f75e-4818-b552-cf018875eed5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ce23166f-f75e-4818-b552-cf018875eed5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6735c387-8785-47c6-89cf-e555d425f892' class='xr-var-data-in' type='checkbox'><label for='data-6735c387-8785-47c6-89cf-e555d425f892' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-5912d352-9806-42d5-acd0-71c01e6fd1ee' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5912d352-9806-42d5-acd0-71c01e6fd1ee' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-00533837-4578-4344-8624-3251f39dc6fe' class='xr-var-data-in' type='checkbox'><label for='data-00533837-4578-4344-8624-3251f39dc6fe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c9ef26af-0db3-4be8-b1fc-2869b7f78d94' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c9ef26af-0db3-4be8-b1fc-2869b7f78d94' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1275dfe3-a71a-4834-a345-e93c9881c67d' class='xr-var-data-in' type='checkbox'><label for='data-1275dfe3-a71a-4834-a345-e93c9881c67d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-2812a9ad-f1a5-4429-a366-44466f956e57' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2812a9ad-f1a5-4429-a366-44466f956e57' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f2e6d953-254c-43b6-9518-412bdece685a' class='xr-var-data-in' type='checkbox'><label for='data-f2e6d953-254c-43b6-9518-412bdece685a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c9d6cbee-38ad-452f-b990-aef72ab407c2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c9d6cbee-38ad-452f-b990-aef72ab407c2' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-167d6577-cbdb-41c3-a720-7e4e3518af0e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-167d6577-cbdb-41c3-a720-7e4e3518af0e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c0a11a34-af39-4478-a7a1-b422b78acc91' class='xr-var-data-in' type='checkbox'><label for='data-c0a11a34-af39-4478-a7a1-b422b78acc91' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-e518eca3-b6da-4bda-9bff-1314af6fe960' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e518eca3-b6da-4bda-9bff-1314af6fe960' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f7320ece-1778-458f-a1e7-0a3fe00461ad' class='xr-var-data-in' type='checkbox'><label for='data-f7320ece-1778-458f-a1e7-0a3fe00461ad' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-dce21145-6006-4fcc-888c-8424ffd6df9d' class='xr-section-summary-in' type='checkbox'  ><label for='section-dce21145-6006-4fcc-888c-8424ffd6df9d' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-596dcf09-ddb9-4e3c-be03-8c62733f73d6' class='xr-index-data-in' type='checkbox'/><label for='index-596dcf09-ddb9-4e3c-be03-8c62733f73d6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a8349a5b-019a-409a-9cd1-82f37a07b03e' class='xr-index-data-in' type='checkbox'/><label for='index-a8349a5b-019a-409a-9cd1-82f37a07b03e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-bb548b97-0a7d-48b7-a3d9-b5c2453dc567' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bb548b97-0a7d-48b7-a3d9-b5c2453dc567' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4e173a4e-3d26-42ec-90c7-a7e8c254be83' class='xr-var-data-in' type='checkbox'><label for='data-4e173a4e-3d26-42ec-90c7-a7e8c254be83' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c46bc3d5-2d57-4504-83f8-06b1c373cd3b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c46bc3d5-2d57-4504-83f8-06b1c373cd3b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e7b5a50b-e19d-43be-af88-f61ae63b034d' class='xr-var-data-in' type='checkbox'><label for='data-e7b5a50b-e19d-43be-af88-f61ae63b034d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c93a1b4e-c924-4853-9674-e0692c40294d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c93a1b4e-c924-4853-9674-e0692c40294d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b6a82d4a-0d8d-47c5-96d7-463d92dfa478' class='xr-var-data-in' type='checkbox'><label for='data-b6a82d4a-0d8d-47c5-96d7-463d92dfa478' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-b0575959-ae5b-4b4b-8b0c-04c9c301ff07' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b0575959-ae5b-4b4b-8b0c-04c9c301ff07' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5ffd5823-fe2d-413a-b506-e992f3f3cee9' class='xr-var-data-in' type='checkbox'><label for='data-5ffd5823-fe2d-413a-b506-e992f3f3cee9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-07924994-2c44-41cd-9c65-ef9ede62890a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-07924994-2c44-41cd-9c65-ef9ede62890a' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-7ed4657b-a105-45c1-bfb4-266de6c42ab6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7ed4657b-a105-45c1-bfb4-266de6c42ab6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-716c02fc-4754-490f-9770-631789084c3c' class='xr-var-data-in' type='checkbox'><label for='data-716c02fc-4754-490f-9770-631789084c3c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-900c9216-f4e9-4532-8126-ef1a88606d65' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-900c9216-f4e9-4532-8126-ef1a88606d65' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d5354718-8a8d-4e87-8234-fed3fe234773' class='xr-var-data-in' type='checkbox'><label for='data-d5354718-8a8d-4e87-8234-fed3fe234773' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-1dff89dd-c178-4358-8a31-acb2f521f642' class='xr-section-summary-in' type='checkbox'  ><label for='section-1dff89dd-c178-4358-8a31-acb2f521f642' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4af7e52d-1ed5-40f4-a1ee-e37fe8798855' class='xr-index-data-in' type='checkbox'/><label for='index-4af7e52d-1ed5-40f4-a1ee-e37fe8798855' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ebedacde-208b-4670-b686-0f476b7b35b0' class='xr-index-data-in' type='checkbox'/><label for='index-ebedacde-208b-4670-b686-0f476b7b35b0' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
                &#x27;1993-01-05&#x27;, &#x27;1993-01-06&#x27;, &#x27;1993-01-07&#x27;, &#x27;1993-01-08&#x27;,
                &#x27;1993-01-09&#x27;, &#x27;1993-01-10&#x27;,
                ...
                &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
                &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
                &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5102f4b3-cabc-4553-85ef-e26a44f8d286' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5102f4b3-cabc-4553-85ef-e26a44f8d286' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c7d086af-76bb-40e2-ab62-9a40cc810dc4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c7d086af-76bb-40e2-ab62-9a40cc810dc4' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="do-some-data-wrangling-again">
@@ -1344,13 +1348,13 @@ Attributes:
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-30b4d7da-9dac-4a1f-a4c8-2beb8f6d2aa7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-30b4d7da-9dac-4a1f-a4c8-2beb8f6d2aa7' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-81fd9a51-e738-4247-9a40-7e0a8e11f63a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-81fd9a51-e738-4247-9a40-7e0a8e11f63a' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>500 520 570 580 590 600 610 5520</div><input id='attrs-10d0af5e-3069-4e3a-804f-81b23e75831b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-10d0af5e-3069-4e3a-804f-81b23e75831b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e66e5dc7-9689-4043-ad02-8849ef543237' class='xr-var-data-in' type='checkbox'><label for='data-e66e5dc7-9689-4043-ad02-8849ef543237' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 500,  520,  570,  580,  590,  600,  610, 5520], dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-a719082b-f1d3-415a-b32a-c0e0052d27b6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a719082b-f1d3-415a-b32a-c0e0052d27b6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-54d0252d-47a9-46e8-9d75-36bf3413487c' class='xr-var-data-in' type='checkbox'><label for='data-54d0252d-47a9-46e8-9d75-36bf3413487c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-12f7bf9c-2555-463d-87ae-ee1aea67a814' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-12f7bf9c-2555-463d-87ae-ee1aea67a814' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-f8fe66b6-b670-42f4-a989-697e65a8c89a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f8fe66b6-b670-42f4-a989-697e65a8c89a' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>500 520 570 580 590 600 610 5520</div><input id='attrs-9945ab2c-7d3e-415b-ab60-35056e8d5535' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9945ab2c-7d3e-415b-ab60-35056e8d5535' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5463ff8f-f6a3-466e-81c5-c2f94b30b82a' class='xr-var-data-in' type='checkbox'><label for='data-5463ff8f-f6a3-466e-81c5-c2f94b30b82a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 500,  520,  570,  580,  590,  600,  610, 5520], dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-ba1aa6f1-48d2-4d2e-bc83-f384e966dbc4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ba1aa6f1-48d2-4d2e-bc83-f384e966dbc4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1fce717a-4efd-43c1-b2d7-779a102defeb' class='xr-var-data-in' type='checkbox'><label for='data-1fce717a-4efd-43c1-b2d7-779a102defeb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
        &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
        &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 21.31 ... 21.43 20.03</div><input id='attrs-f1639435-83dd-42d3-9c14-39d3549961d1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f1639435-83dd-42d3-9c14-39d3549961d1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-adea35c7-ebc6-48ca-90d7-c907d5e25648' class='xr-var-data-in' type='checkbox'><label for='data-adea35c7-ebc6-48ca-90d7-c907d5e25648' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 20.033],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 202.1 ... 202.2 204.2</div><input id='attrs-8973379c-1f84-4f4e-8e93-393705191f3e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8973379c-1f84-4f4e-8e93-393705191f3e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c9c07316-1c2b-4bf9-8517-4a43fbf7a9bd' class='xr-var-data-in' type='checkbox'><label for='data-c9c07316-1c2b-4bf9-8517-4a43fbf7a9bd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
-       204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-997ea68c-3068-471a-acca-cce36d740e05' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-997ea68c-3068-471a-acca-cce36d740e05' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-65cdf49d-5d2e-4f47-9160-09cc78801749' class='xr-var-data-in' type='checkbox'><label for='data-65cdf49d-5d2e-4f47-9160-09cc78801749' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
-       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1be5fef3-6831-4964-bd3c-8d5f06039e70' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1be5fef3-6831-4964-bd3c-8d5f06039e70' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cad1fedd-c03b-4718-a250-51948ca06636' class='xr-var-data-in' type='checkbox'><label for='data-cad1fedd-c03b-4718-a250-51948ca06636' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-520e6593-d30c-4578-a7b9-174961c6b6e7' class='xr-section-summary-in' type='checkbox'  checked><label for='section-520e6593-d30c-4578-a7b9-174961c6b6e7' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.05425 -0.022 ... -0.1367</div><input id='attrs-98f74657-3bd8-427c-8d21-39fef6be7db0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-98f74657-3bd8-427c-8d21-39fef6be7db0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f6ee73ee-69ca-45ab-b8e7-6e213c5c3dd2' class='xr-var-data-in' type='checkbox'><label for='data-f6ee73ee-69ca-45ab-b8e7-6e213c5c3dd2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>array([[-0.05424732, -0.02199733, -0.03012228, ...,  0.2555027 ,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 21.31 ... 21.43 20.03</div><input id='attrs-c17405a1-212d-410e-8282-0beab386a3bc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c17405a1-212d-410e-8282-0beab386a3bc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e303b057-9a62-40db-b168-8b2ed5d15891' class='xr-var-data-in' type='checkbox'><label for='data-e303b057-9a62-40db-b168-8b2ed5d15891' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 20.033],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 202.1 ... 202.2 204.2</div><input id='attrs-ea3764b6-a2b2-48bb-80cc-63d534767fc6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ea3764b6-a2b2-48bb-80cc-63d534767fc6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b13379bb-bdb6-474e-8243-bdbbf6c11f43' class='xr-var-data-in' type='checkbox'><label for='data-b13379bb-bdb6-474e-8243-bdbbf6c11f43' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
+       204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-b0042b20-5656-4ef8-8a82-ed5e65ae952a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b0042b20-5656-4ef8-8a82-ed5e65ae952a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e6f9f5c8-a68f-419a-a573-f6e919af0fec' class='xr-var-data-in' type='checkbox'><label for='data-e6f9f5c8-a68f-419a-a573-f6e919af0fec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
+       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9d7c8e2e-e983-40f5-993c-e42c33ec6a19' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9d7c8e2e-e983-40f5-993c-e42c33ec6a19' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b0cb4789-28e1-41f4-91ee-86fe3c267f39' class='xr-var-data-in' type='checkbox'><label for='data-b0cb4789-28e1-41f4-91ee-86fe3c267f39' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6a42bc84-ecbb-4875-b2c7-ed1585b98b59' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6a42bc84-ecbb-4875-b2c7-ed1585b98b59' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.05425 -0.022 ... -0.1367</div><input id='attrs-0b4f5155-cf5a-448e-a93b-40019645007e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0b4f5155-cf5a-448e-a93b-40019645007e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-180fea5d-b40c-47f7-9fed-ded7474fb21f' class='xr-var-data-in' type='checkbox'><label for='data-180fea5d-b40c-47f7-9fed-ded7474fb21f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>array([[-0.05424732, -0.02199733, -0.03012228, ...,  0.2555027 ,
          0.18437767,  0.211586  ],
        [-0.01166356, -0.01462179, -0.04083019, ...,  0.14666986,
          0.16116977,  0.16787815],
@@ -1362,7 +1366,7 @@ Attributes:
        [ 0.1333803 ,  0.14271355,  0.12504709, ...,  0.0287137 ,
          0.01638031, -0.1817863 ],
        [        nan,         nan,         nan, ...,  0.00287366,
-        -0.00904298, -0.13670963]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.2078 -0.1756 ... -0.3183 -0.446</div><input id='attrs-3fbe5f9d-043a-4cf8-a997-4c0a31223664' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3fbe5f9d-043a-4cf8-a997-4c0a31223664' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6faa5d39-42f1-4c85-af2e-44e4e956445f' class='xr-var-data-in' type='checkbox'><label for='data-6faa5d39-42f1-4c85-af2e-44e4e956445f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[-0.20783335, -0.17558337, -0.18370831, ...,  0.10191667,
+        -0.00904298, -0.13670963]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.2078 -0.1756 ... -0.3183 -0.446</div><input id='attrs-bf633c65-7bd6-489d-83a9-a6c33bce51eb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bf633c65-7bd6-489d-83a9-a6c33bce51eb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7984970f-4298-4799-a21e-344346a409ce' class='xr-var-data-in' type='checkbox'><label for='data-7984970f-4298-4799-a21e-344346a409ce' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[-0.20783335, -0.17558337, -0.18370831, ...,  0.10191667,
          0.03079164,  0.05799996],
        [-0.3405417 , -0.34349993, -0.36970834, ..., -0.18220828,
         -0.16770837, -0.16099999],
@@ -1374,14 +1378,14 @@ Attributes:
        [-0.16883338, -0.15950013, -0.17716659, ..., -0.27349997,
         -0.28583337, -0.48399998],
        [        nan,         nan,         nan, ..., -0.30641673,
-        -0.31833337, -0.44600002]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-310324db-6f31-444a-91a5-54034a9901a9' class='xr-section-summary-in' type='checkbox'  ><label for='section-310324db-6f31-444a-91a5-54034a9901a9' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-dd5eb08f-7a1d-41c3-8167-e012f8b2f9c3' class='xr-index-data-in' type='checkbox'/><label for='index-dd5eb08f-7a1d-41c3-8167-e012f8b2f9c3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([500, 520, 570, 580, 590, 600, 610, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a00937d3-b64c-4ac3-8578-37dca8e04240' class='xr-index-data-in' type='checkbox'/><label for='index-a00937d3-b64c-4ac3-8578-37dca8e04240' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
+        -0.31833337, -0.44600002]])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-38e1e17a-06c9-4c85-bde0-8badff74ab2f' class='xr-section-summary-in' type='checkbox'  ><label for='section-38e1e17a-06c9-4c85-bde0-8badff74ab2f' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f19f781a-d709-4341-9301-e10119155a96' class='xr-index-data-in' type='checkbox'/><label for='index-f19f781a-d709-4341-9301-e10119155a96' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([500, 520, 570, 580, 590, 600, 610, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-cc3d05c5-0f6b-4233-a92c-fc91cf877271' class='xr-index-data-in' type='checkbox'/><label for='index-cc3d05c5-0f6b-4233-a92c-fc91cf877271' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
                &#x27;1993-01-05&#x27;, &#x27;1993-01-06&#x27;, &#x27;1993-01-07&#x27;, &#x27;1993-01-08&#x27;,
                &#x27;1993-01-09&#x27;, &#x27;1993-01-10&#x27;,
                ...
                &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
                &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
                &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f99e3d47-5957-40ff-978d-f7b1b5a78216' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f99e3d47-5957-40ff-978d-f7b1b5a78216' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-31caab68-900e-4251-b507-b83055ab7d22' class='xr-section-summary-in' type='checkbox'  checked><label for='section-31caab68-900e-4251-b507-b83055ab7d22' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="now-we-ll-remove-the-trend-over-the-entire-record-from-this-subset-of-stations">
@@ -1401,7 +1405,7 @@ Attributes:
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># resample to monthly time series </span>
-<span class="n">rsl_monthly</span> <span class="o">=</span> <span class="n">rsl_subset</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">rsl_monthly</span> <span class="o">=</span> <span class="n">rsl_subset</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
 <span class="c1"># get climatology (annual cycle) by grouping by month</span>
 <span class="n">rsl_climatology</span> <span class="o">=</span> <span class="n">rsl_monthly</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
@@ -1414,104 +1418,431 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File offsets.pyx:4447,</span> in <span class="ni">pandas._libs.tslibs.offsets._get_offset</span><span class="nt">()</span>
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
 
-<span class="ne">KeyError</span>: &#39;ME&#39;
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
 
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
 
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="nn">File offsets.pyx:4549,</span> in <span class="ni">pandas._libs.tslibs.offsets.to_offset</span><span class="nt">()</span>
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
 
-<span class="nn">File offsets.pyx:4453,</span> in <span class="ni">pandas._libs.tslibs.offsets._get_offset</span><span class="nt">()</span>
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
 
-<span class="ne">ValueError</span>: Invalid frequency: ME
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
 
-<span class="n">The</span> <span class="n">above</span> <span class="n">exception</span> <span class="n">was</span> <span class="n">the</span> <span class="n">direct</span> <span class="n">cause</span> <span class="n">of</span> <span class="n">the</span> <span class="n">following</span> <span class="n">exception</span><span class="p">:</span>
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># resample to monthly time series </span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rsl_monthly</span> <span class="o">=</span> <span class="n">rsl_subset</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># get climatology (annual cycle) by grouping by month</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">rsl_climatology</span> <span class="o">=</span> <span class="n">rsl_monthly</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.month&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
 
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:10403,</span> in <span class="ni">Dataset.resample</span><span class="nt">(self, indexer, skipna, closed, label, base, offset, origin, loffset, restore_coord_dims, **indexer_kwargs)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10340</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Returns a Resample object for performing resampling operations.</span>
-<span class="g g-Whitespace">  </span><span class="mi">10341</span><span class="sd"> </span>
-<span class="g g-Whitespace">  </span><span class="mi">10342</span><span class="sd"> Handles both downsampling and upsampling. The resampled</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">  </span><span class="mi">10399</span><span class="sd"> .. [1] http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases</span>
-<span class="g g-Whitespace">  </span><span class="mi">10400</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">  </span><span class="mi">10401</span> <span class="kn">from</span> <span class="nn">xarray.core.resample</span> <span class="kn">import</span> <span class="n">DatasetResample</span>
-<span class="ne">&gt; </span><span class="mi">10403</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resample</span><span class="p">(</span>
-<span class="g g-Whitespace">  </span><span class="mi">10404</span>     <span class="n">resample_cls</span><span class="o">=</span><span class="n">DatasetResample</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10405</span>     <span class="n">indexer</span><span class="o">=</span><span class="n">indexer</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10406</span>     <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10407</span>     <span class="n">closed</span><span class="o">=</span><span class="n">closed</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10408</span>     <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10409</span>     <span class="n">base</span><span class="o">=</span><span class="n">base</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10410</span>     <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10411</span>     <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10412</span>     <span class="n">loffset</span><span class="o">=</span><span class="n">loffset</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10413</span>     <span class="n">restore_coord_dims</span><span class="o">=</span><span class="n">restore_coord_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10414</span>     <span class="o">**</span><span class="n">indexer_kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">  </span><span class="mi">10415</span> <span class="p">)</span>
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
 
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/common.py:1045,</span> in <span class="ni">DataWithCoords._resample</span><span class="nt">(self, resample_cls, indexer, skipna, closed, label, base, offset, origin, loffset, restore_coord_dims, **indexer_kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1032</span> <span class="n">grouper</span> <span class="o">=</span> <span class="n">TimeResampleGrouper</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1033</span>     <span class="n">freq</span><span class="o">=</span><span class="n">freq</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1034</span>     <span class="n">closed</span><span class="o">=</span><span class="n">closed</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1038</span>     <span class="n">loffset</span><span class="o">=</span><span class="n">loffset</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1039</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1041</span> <span class="n">group</span> <span class="o">=</span> <span class="n">DataArray</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="n">dim_coord</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">dim_coord</span><span class="o">.</span><span class="n">coords</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">dim_coord</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">RESAMPLE_DIM</span>
-<span class="g g-Whitespace">   </span><span class="mi">1043</span> <span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1045</span> <span class="n">rgrouper</span> <span class="o">=</span> <span class="n">ResolvedTimeResampleGrouper</span><span class="p">(</span><span class="n">grouper</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1047</span> <span class="k">return</span> <span class="n">resample_cls</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1049</span>     <span class="p">(</span><span class="n">rgrouper</span><span class="p">,),</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1052</span>     <span class="n">restore_coord_dims</span><span class="o">=</span><span class="n">restore_coord_dims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1053</span> <span class="p">)</span>
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
 
-<span class="nn">File &lt;string&gt;:6,</span> in <span class="ni">__init__</span><span class="nt">(self, grouper, group, obj)</span>
+.xr-section-item {
+  display: contents;
+}
 
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:513,</span> in <span class="ni">ResolvedTimeResampleGrouper.__post_init__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">504</span>     <span class="n">index_grouper</span> <span class="o">=</span> <span class="n">CFTimeGrouper</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">505</span>         <span class="n">freq</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">freq</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">506</span>         <span class="n">closed</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">closed</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">510</span>         <span class="n">loffset</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">loffset</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">511</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">512</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">513</span>     <span class="n">index_grouper</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">514</span>         <span class="n">freq</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">freq</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">515</span>         <span class="n">closed</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">closed</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">516</span>         <span class="n">label</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">label</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">517</span>         <span class="n">origin</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">origin</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="n">offset</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">offset</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">519</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">520</span> <span class="bp">self</span><span class="o">.</span><span class="n">index_grouper</span> <span class="o">=</span> <span class="n">index_grouper</span>
+.xr-section-item input {
+  display: none;
+}
 
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/core/resample.py:2046,</span> in <span class="ni">TimeGrouper.__init__</span><span class="nt">(self, freq, closed, label, how, axis, fill_method, limit, kind, convention, origin, offset, group_keys, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2043</span> <span class="k">if</span> <span class="n">convention</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="kc">None</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">,</span> <span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="s2">&quot;e&quot;</span><span class="p">,</span> <span class="s2">&quot;s&quot;</span><span class="p">}:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2044</span>     <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unsupported value </span><span class="si">{</span><span class="n">convention</span><span class="si">}</span><span class="s2"> for `convention`&quot;</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">2046</span> <span class="n">freq</span> <span class="o">=</span> <span class="n">to_offset</span><span class="p">(</span><span class="n">freq</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2048</span> <span class="n">end_types</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;M&quot;</span><span class="p">,</span> <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="s2">&quot;Q&quot;</span><span class="p">,</span> <span class="s2">&quot;BM&quot;</span><span class="p">,</span> <span class="s2">&quot;BA&quot;</span><span class="p">,</span> <span class="s2">&quot;BQ&quot;</span><span class="p">,</span> <span class="s2">&quot;W&quot;</span><span class="p">}</span>
-<span class="g g-Whitespace">   </span><span class="mi">2049</span> <span class="n">rule</span> <span class="o">=</span> <span class="n">freq</span><span class="o">.</span><span class="n">rule_code</span>
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
 
-<span class="nn">File offsets.pyx:4460,</span> in <span class="ni">pandas._libs.tslibs.offsets.to_offset</span><span class="nt">()</span>
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
 
-<span class="nn">File offsets.pyx:4557,</span> in <span class="ni">pandas._libs.tslibs.offsets.to_offset</span><span class="nt">()</span>
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
 
-<span class="ne">ValueError</span>: Invalid frequency: 1ME
-</pre></div>
-</div>
-</div>
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:                (record_id: 8, time: 360)
+Coordinates:
+  * record_id              (record_id) int16 500 520 570 580 590 600 610 5520
+    lat                    (record_id) float32 28.22 16.75 21.31 ... 21.43 20.03
+    lon                    (record_id) float32 182.6 190.5 202.1 ... 202.2 204.2
+    station_name           (record_id) &lt;U17 &#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;
+  * time                   (time) datetime64[ns] 1993-01-31 ... 2022-12-31
+    month                  (time) int64 1 2 3 4 5 6 7 8 9 ... 5 6 7 8 9 10 11 12
+Data variables:
+    rsl_anomaly            (time, record_id) float32 -0.09168 ... -0.07986
+    rsl_mhhw               (time, record_id) float64 -0.09168 ... -0.07986
+    rsl_anomaly_detrended  (time, record_id) float32 -0.03686 ... -0.1795</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-2ed3890e-7389-41ff-8632-53c72df098d6' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2ed3890e-7389-41ff-8632-53c72df098d6' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>time</span>: 360</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3eed0069-a545-4fde-b588-74fe29f980fd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3eed0069-a545-4fde-b588-74fe29f980fd' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>500 520 570 580 590 600 610 5520</div><input id='attrs-0b579f1a-6cef-4eea-bb6a-0d9852be8d44' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0b579f1a-6cef-4eea-bb6a-0d9852be8d44' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-18f2077a-ca98-4464-a420-56e55ca1f8ec' class='xr-var-data-in' type='checkbox'><label for='data-18f2077a-ca98-4464-a420-56e55ca1f8ec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 500,  520,  570,  580,  590,  600,  610, 5520], dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 21.31 ... 21.43 20.03</div><input id='attrs-433225da-b8c1-4ae6-8354-426dd52af4ca' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-433225da-b8c1-4ae6-8354-426dd52af4ca' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6a2c8dd5-88a5-4a47-830b-60bafd9b4f1f' class='xr-var-data-in' type='checkbox'><label for='data-6a2c8dd5-88a5-4a47-830b-60bafd9b4f1f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 20.033],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 202.1 ... 202.2 204.2</div><input id='attrs-ec0f3e9a-7d36-48fa-be5e-f5abbcd5b47e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ec0f3e9a-7d36-48fa-be5e-f5abbcd5b47e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3b435c84-07bf-4dbc-b8a0-3a43d608ca6b' class='xr-var-data-in' type='checkbox'><label for='data-3b435c84-07bf-4dbc-b8a0-3a43d608ca6b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
+       204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-ff15c47b-8dbd-429e-98f4-b1e756af7197' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ff15c47b-8dbd-429e-98f4-b1e756af7197' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5ac3e13f-4e4f-4c5a-80f8-f18f28f75372' class='xr-var-data-in' type='checkbox'><label for='data-5ac3e13f-4e4f-4c5a-80f8-f18f28f75372' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
+       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-31 ... 2022-12-31</div><input id='attrs-dfdf52d9-bf50-4eee-bd25-0d33331920ce' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dfdf52d9-bf50-4eee-bd25-0d33331920ce' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1778617f-3d4d-4b3c-b887-24add1dc0c09' class='xr-var-data-in' type='checkbox'><label for='data-1778617f-3d4d-4b3c-b887-24add1dc0c09' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-31T00:00:00.000000000&#x27;, &#x27;1993-02-28T00:00:00.000000000&#x27;,
+       &#x27;1993-03-31T00:00:00.000000000&#x27;, ..., &#x27;2022-10-31T00:00:00.000000000&#x27;,
+       &#x27;2022-11-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>month</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 2 3 4 5 6 7 ... 6 7 8 9 10 11 12</div><input id='attrs-7590a750-7aab-4707-b047-244e4d59865d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7590a750-7aab-4707-b047-244e4d59865d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6c6b9480-135f-4bbc-8995-2baa240fff60' class='xr-var-data-in' type='checkbox'><label for='data-6c6b9480-135f-4bbc-8995-2baa240fff60' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 1,  2,  3, ..., 10, 11, 12])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ea3e6918-9068-4463-8f0d-ef7a9bdfbf04' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ea3e6918-9068-4463-8f0d-ef7a9bdfbf04' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(time, record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.09168 -0.1217 ... -0.07986</div><input id='attrs-d8272558-c2de-4f86-bddb-42488952c9bf' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d8272558-c2de-4f86-bddb-42488952c9bf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4682c416-094a-4fe0-b7d0-80afde85824b' class='xr-var-data-in' type='checkbox'><label for='data-4682c416-094a-4fe0-b7d0-80afde85824b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.09167589, -0.12172623,  0.01463851, ..., -0.00378337,
+         0.02536067, -0.00910051],
+       [-0.00249938, -0.11258736,  0.00216341, ..., -0.00767034,
+         0.0175807 , -0.06777411],
+       [-0.10885975, -0.04259116,  0.03563119, ...,  0.01215948,
+         0.04416829, -0.03881519],
+       ...,
+       [ 0.06994139, -0.05568933,  0.02528922, ...,  0.02685153,
+         0.02224933, -0.00634435],
+       [ 0.07656572, -0.02413879, -0.01656105, ...,  0.01440231,
+        -0.01933395, -0.01586147],
+       [ 0.13709608,  0.11967257,  0.00103051, ..., -0.02924476,
+        -0.00727312, -0.0798648 ]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(time, record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.09168 -0.1217 ... -0.07986</div><input id='attrs-16bd2744-2b10-4086-94f2-95d5d1d13b44' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-16bd2744-2b10-4086-94f2-95d5d1d13b44' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-659601fe-019c-4982-a71f-c58a96879d05' class='xr-var-data-in' type='checkbox'><label for='data-659601fe-019c-4982-a71f-c58a96879d05' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.0916759 , -0.12172623,  0.01463851, ..., -0.00378337,
+         0.02536067, -0.00910051],
+       [-0.00249938, -0.11258735,  0.00216341, ..., -0.00767034,
+         0.0175807 , -0.0677741 ],
+       [-0.10885975, -0.04259116,  0.03563119, ...,  0.01215948,
+         0.04416829, -0.03881519],
+       ...,
+       [ 0.06994138, -0.05568933,  0.02528923, ...,  0.02685152,
+         0.02224933, -0.00634435],
+       [ 0.07656572, -0.0241388 , -0.01656105, ...,  0.0144023 ,
+        -0.01933395, -0.01586148],
+       [ 0.13709609,  0.11967259,  0.00103051, ..., -0.02924476,
+        -0.00727311, -0.07986479]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly_detrended</span></div><div class='xr-var-dims'>(time, record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.03686 -0.09476 ... -0.1795</div><input id='attrs-3f9e4d23-319f-48aa-b63d-dc583d25305f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3f9e4d23-319f-48aa-b63d-dc583d25305f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e690ce7a-654d-48e0-80d4-1c2243e62824' class='xr-var-data-in' type='checkbox'><label for='data-e690ce7a-654d-48e0-80d4-1c2243e62824' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.03686018, -0.09476381,  0.05373569, ...,  0.04341588,
+         0.06789684,  0.09489115],
+       [ 0.05231756, -0.08562002,  0.04126145, ...,  0.03952937,
+         0.0601178 ,  0.0364447 ],
+       [-0.05404283, -0.0156224 ,  0.0747301 , ...,  0.05999204,
+         0.08670743,  0.06561761],
+       ...,
+       [ 0.01583725, -0.08063474, -0.01380968, ..., -0.02097552,
+        -0.02028871, -0.10595828],
+       [ 0.02246423, -0.04908415, -0.05565995, ..., -0.03342474,
+        -0.06187199, -0.11548071],
+       [ 0.08227794,  0.09472723, -0.03806839, ..., -0.07707211,
+        -0.04981115, -0.179489  ]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b0f8b61a-02fd-4b97-ab63-722b9323e600' class='xr-section-summary-in' type='checkbox'  ><label for='section-b0f8b61a-02fd-4b97-ab63-722b9323e600' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ac2e1175-9772-46b1-b92a-fedaa45c4202' class='xr-index-data-in' type='checkbox'/><label for='index-ac2e1175-9772-46b1-b92a-fedaa45c4202' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([500, 520, 570, 580, 590, 600, 610, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f7d24ccf-be5e-46a6-a1a4-b11f0f7d84d3' class='xr-index-data-in' type='checkbox'/><label for='index-f7d24ccf-be5e-46a6-a1a4-b11f0f7d84d3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-31&#x27;, &#x27;1993-02-28&#x27;, &#x27;1993-03-31&#x27;, &#x27;1993-04-30&#x27;,
+               &#x27;1993-05-31&#x27;, &#x27;1993-06-30&#x27;, &#x27;1993-07-31&#x27;, &#x27;1993-08-31&#x27;,
+               &#x27;1993-09-30&#x27;, &#x27;1993-10-31&#x27;,
+               ...
+               &#x27;2022-03-31&#x27;, &#x27;2022-04-30&#x27;, &#x27;2022-05-31&#x27;, &#x27;2022-06-30&#x27;,
+               &#x27;2022-07-31&#x27;, &#x27;2022-08-31&#x27;, &#x27;2022-09-30&#x27;, &#x27;2022-10-31&#x27;,
+               &#x27;2022-11-30&#x27;, &#x27;2022-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=360, freq=&#x27;M&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-70635f1b-4753-4a05-a614-f85faa56c1d7' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-70635f1b-4753-4a05-a614-f85faa56c1d7' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="now-sort-the-subset-on-storm-year-instead-of-calendar-year-for-yearly-means">
@@ -1892,30 +2223,30 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 1MB
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
 Dimensions:                (record_id: 8, storm_time: 10957)
 Coordinates:
-  * record_id              (record_id) int16 16B 500 520 570 ... 600 610 5520
-  * storm_time             (storm_time) datetime64[ns] 88kB 1992-01-01 ... 20...
-    lat                    (record_id) float32 32B 28.22 16.75 ... 21.43 20.03
-    lon                    (record_id) float32 32B 182.6 190.5 ... 202.2 204.2
-    station_name           (record_id) &lt;U17 544B &#x27;Midway&#x27; ... &#x27;Kawaihae&#x27;
+  * record_id              (record_id) int16 500 520 570 580 590 600 610 5520
+  * storm_time             (storm_time) datetime64[ns] 1992-01-01 ... 2022-12-31
+    lat                    (record_id) float32 28.22 16.75 21.31 ... 21.43 20.03
+    lon                    (record_id) float32 182.6 190.5 202.1 ... 202.2 204.2
+    station_name           (record_id) &lt;U17 &#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;
 Data variables:
-    rsl_anomaly            (record_id, storm_time) float32 351kB -0.05425 ......
-    rsl_mhhw               (record_id, storm_time) float64 701kB -0.2078 ... ...
-    rsl_anomaly_detrended  (record_id, storm_time) float32 351kB -0.01937 ......
+    rsl_anomaly            (record_id, storm_time) float32 -0.05425 ... -0.1367
+    rsl_mhhw               (record_id, storm_time) float64 -0.2078 ... -0.446
+    rsl_anomaly_detrended  (record_id, storm_time) float32 -0.01937 ... -0.2818
 Attributes:
     long_name:  Sea Level Anomaly
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-609b130a-0230-4795-b588-21db016c052c' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-609b130a-0230-4795-b588-21db016c052c' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>storm_time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-024183cf-ca07-4d3c-b261-c3d9b9684919' class='xr-section-summary-in' type='checkbox'  checked><label for='section-024183cf-ca07-4d3c-b261-c3d9b9684919' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>500 520 570 580 590 600 610 5520</div><input id='attrs-87c01362-55e1-4bf0-97a8-b0a958525d79' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-87c01362-55e1-4bf0-97a8-b0a958525d79' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1500bee8-5823-4b90-a81f-55af9a1e87b7' class='xr-var-data-in' type='checkbox'><label for='data-1500bee8-5823-4b90-a81f-55af9a1e87b7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 500,  520,  570,  580,  590,  600,  610, 5520], dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>storm_time</span></div><div class='xr-var-dims'>(storm_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1992-01-01 ... 2022-12-31</div><input id='attrs-977e0d3b-0e28-4180-ab88-b804dae408c1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-977e0d3b-0e28-4180-ab88-b804dae408c1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0e141623-eaad-47ae-882b-91d221c03e38' class='xr-var-data-in' type='checkbox'><label for='data-0e141623-eaad-47ae-882b-91d221c03e38' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1992-01-01T00:00:00.000000000&#x27;, &#x27;1992-01-02T00:00:00.000000000&#x27;,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-b88709b6-fbed-4a30-aa15-b4c4c0d03dfe' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-b88709b6-fbed-4a30-aa15-b4c4c0d03dfe' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>storm_time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-89727868-2797-4d37-9ee8-ac19c2155fd9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-89727868-2797-4d37-9ee8-ac19c2155fd9' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>500 520 570 580 590 600 610 5520</div><input id='attrs-c27f43e2-24c5-4bda-9b8e-5159ec83e410' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c27f43e2-24c5-4bda-9b8e-5159ec83e410' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c40bfc87-15fb-4fed-962f-defa85cd238a' class='xr-var-data-in' type='checkbox'><label for='data-c40bfc87-15fb-4fed-962f-defa85cd238a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 500,  520,  570,  580,  590,  600,  610, 5520], dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>storm_time</span></div><div class='xr-var-dims'>(storm_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1992-01-01 ... 2022-12-31</div><input id='attrs-de21f52e-c588-4761-aeea-f73d864482c7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-de21f52e-c588-4761-aeea-f73d864482c7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9ad5696d-d81c-406b-9c15-58ae544ccfb6' class='xr-var-data-in' type='checkbox'><label for='data-9ad5696d-d81c-406b-9c15-58ae544ccfb6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1992-01-01T00:00:00.000000000&#x27;, &#x27;1992-01-02T00:00:00.000000000&#x27;,
        &#x27;1992-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
        &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 21.31 ... 21.43 20.03</div><input id='attrs-521abcdd-7a30-445f-818d-66a28cbc2756' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-521abcdd-7a30-445f-818d-66a28cbc2756' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-75cf6ec0-4b00-42b5-a212-e0ab04e9807e' class='xr-var-data-in' type='checkbox'><label for='data-75cf6ec0-4b00-42b5-a212-e0ab04e9807e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 20.033],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 202.1 ... 202.2 204.2</div><input id='attrs-69abf8ce-83d4-4d81-9027-9a3d638c7558' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-69abf8ce-83d4-4d81-9027-9a3d638c7558' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8620054d-c38b-4aab-a006-942f4ce92e0d' class='xr-var-data-in' type='checkbox'><label for='data-8620054d-c38b-4aab-a006-942f4ce92e0d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
-       204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-62d20d99-5699-4264-83c4-ec9558a393a7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-62d20d99-5699-4264-83c4-ec9558a393a7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-81f9884c-697c-4e01-8bb1-c12cd6642645' class='xr-var-data-in' type='checkbox'><label for='data-81f9884c-697c-4e01-8bb1-c12cd6642645' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
-       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-746d4c07-12a0-4056-b233-35f64b7c2d22' class='xr-section-summary-in' type='checkbox'  checked><label for='section-746d4c07-12a0-4056-b233-35f64b7c2d22' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, storm_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.05425 -0.022 ... -0.1367</div><input id='attrs-dbbedb2f-fcdd-4c27-94fa-c16b49674f16' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dbbedb2f-fcdd-4c27-94fa-c16b49674f16' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b5f36f32-4c08-41cb-b1e8-7463ad26ae7c' class='xr-var-data-in' type='checkbox'><label for='data-b5f36f32-4c08-41cb-b1e8-7463ad26ae7c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>array([[-0.05424732, -0.02199733, -0.03012228, ...,  0.2555027 ,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 21.31 ... 21.43 20.03</div><input id='attrs-24c38bbf-54af-403f-9ceb-e5e9486f56e6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-24c38bbf-54af-403f-9ceb-e5e9486f56e6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-12e818d7-92ab-4e8a-8283-77de092304ff' class='xr-var-data-in' type='checkbox'><label for='data-12e818d7-92ab-4e8a-8283-77de092304ff' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 20.033],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 202.1 ... 202.2 204.2</div><input id='attrs-9d049711-892b-42c5-99eb-08ecaf32670d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9d049711-892b-42c5-99eb-08ecaf32670d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1b85daf4-5a0d-44ac-a00a-cd5fe7b67ad6' class='xr-var-data-in' type='checkbox'><label for='data-1b85daf4-5a0d-44ac-a00a-cd5fe7b67ad6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
+       204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-abb9ae0d-488a-4ea1-a190-a19510f94152' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-abb9ae0d-488a-4ea1-a190-a19510f94152' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4aad543e-d9a7-437b-846b-2cef525c0024' class='xr-var-data-in' type='checkbox'><label for='data-4aad543e-d9a7-437b-846b-2cef525c0024' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
+       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-5e32ac87-37ae-4587-8449-3e52123ff2b4' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5e32ac87-37ae-4587-8449-3e52123ff2b4' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, storm_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.05425 -0.022 ... -0.1367</div><input id='attrs-b99a91b9-5de9-488e-b08c-539135f13db5' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b99a91b9-5de9-488e-b08c-539135f13db5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4385df3a-545a-46ef-b07d-fc34e5772ecf' class='xr-var-data-in' type='checkbox'><label for='data-4385df3a-545a-46ef-b07d-fc34e5772ecf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>array([[-0.05424732, -0.02199733, -0.03012228, ...,  0.2555027 ,
          0.18437767,  0.211586  ],
        [-0.01166356, -0.01462179, -0.04083019, ...,  0.14666986,
          0.16116977,  0.16787815],
@@ -1927,7 +2258,7 @@ Attributes:
        [ 0.1333803 ,  0.14271355,  0.12504709, ...,  0.0287137 ,
          0.01638031, -0.1817863 ],
        [        nan,         nan,         nan, ...,  0.00287366,
-        -0.00904298, -0.13670963]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, storm_time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.2078 -0.1756 ... -0.3183 -0.446</div><input id='attrs-d0982a4c-96f0-4a5c-a919-1ed28fd73908' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d0982a4c-96f0-4a5c-a919-1ed28fd73908' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-28ea0ef2-58e2-4fb3-9888-f5ea5ec626a7' class='xr-var-data-in' type='checkbox'><label for='data-28ea0ef2-58e2-4fb3-9888-f5ea5ec626a7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[-0.20783335, -0.17558337, -0.18370831, ...,  0.10191667,
+        -0.00904298, -0.13670963]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, storm_time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.2078 -0.1756 ... -0.3183 -0.446</div><input id='attrs-66f6fee6-b990-4f70-a4dc-6f2c8f278586' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-66f6fee6-b990-4f70-a4dc-6f2c8f278586' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-93b95a0a-02bc-4cd4-b0a1-ace9212bd2a3' class='xr-var-data-in' type='checkbox'><label for='data-93b95a0a-02bc-4cd4-b0a1-ace9212bd2a3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[-0.20783335, -0.17558337, -0.18370831, ...,  0.10191667,
          0.03079164,  0.05799996],
        [-0.3405417 , -0.34349993, -0.36970834, ..., -0.18220828,
         -0.16770837, -0.16099999],
@@ -1939,7 +2270,7 @@ Attributes:
        [-0.16883338, -0.15950013, -0.17716659, ..., -0.27349997,
         -0.28583337, -0.48399998],
        [        nan,         nan,         nan, ..., -0.30641673,
-        -0.31833337, -0.44600002]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly_detrended</span></div><div class='xr-var-dims'>(record_id, storm_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.01937 0.01287 ... -0.2818</div><input id='attrs-ca25abfa-a93e-4826-8898-c865cc77148d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ca25abfa-a93e-4826-8898-c865cc77148d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61f48d33-374c-4029-91a0-1e72d517fb18' class='xr-var-data-in' type='checkbox'><label for='data-61f48d33-374c-4029-91a0-1e72d517fb18' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.01936725,  0.01287239,  0.00473709, ...,  0.17699948,
+        -0.31833337, -0.44600002]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly_detrended</span></div><div class='xr-var-dims'>(record_id, storm_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.01937 0.01287 ... -0.2818</div><input id='attrs-52b71b18-906d-400f-8470-bdf685627654' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-52b71b18-906d-400f-8470-bdf685627654' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f47cf8d9-aa34-489c-8fb2-152d7e24792c' class='xr-var-data-in' type='checkbox'><label for='data-f47cf8d9-aa34-489c-8fb2-152d7e24792c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.01936725,  0.01287239,  0.00473709, ...,  0.17699948,
          0.1058641 ,  0.13306208],
        [ 0.00528898,  0.00232581, -0.02388753, ...,  0.10956588,
          0.12406085,  0.13076429],
@@ -1951,14 +2282,14 @@ Attributes:
        [ 0.15857638,  0.1679016 ,  0.15022711, ..., -0.0340739 ,
         -0.04641533, -0.24458997],
        [        nan,         nan,         nan, ..., -0.14221959,
-        -0.15415546, -0.28184137]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a6b1a997-321b-4d58-8670-7287315bfd33' class='xr-section-summary-in' type='checkbox'  ><label for='section-a6b1a997-321b-4d58-8670-7287315bfd33' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4bbca8c9-b965-47af-b5d6-a76bb2dc5165' class='xr-index-data-in' type='checkbox'/><label for='index-4bbca8c9-b965-47af-b5d6-a76bb2dc5165' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([500, 520, 570, 580, 590, 600, 610, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>storm_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-947f40a5-76f7-49f7-abef-cab66e3a87bd' class='xr-index-data-in' type='checkbox'/><label for='index-947f40a5-76f7-49f7-abef-cab66e3a87bd' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1992-01-01&#x27;, &#x27;1992-01-02&#x27;, &#x27;1992-01-03&#x27;, &#x27;1992-01-04&#x27;,
+        -0.15415546, -0.28184137]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e08a6944-352f-431f-ab24-d0541ef231c4' class='xr-section-summary-in' type='checkbox'  ><label for='section-e08a6944-352f-431f-ab24-d0541ef231c4' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a01eb5c3-3897-4882-9db4-c608b6fe61aa' class='xr-index-data-in' type='checkbox'/><label for='index-a01eb5c3-3897-4882-9db4-c608b6fe61aa' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([500, 520, 570, 580, 590, 600, 610, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>storm_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5c4c55bb-ffee-49fc-9abd-c8556c32b0ac' class='xr-index-data-in' type='checkbox'/><label for='index-5c4c55bb-ffee-49fc-9abd-c8556c32b0ac' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1992-01-01&#x27;, &#x27;1992-01-02&#x27;, &#x27;1992-01-03&#x27;, &#x27;1992-01-04&#x27;,
                &#x27;1992-01-05&#x27;, &#x27;1992-01-06&#x27;, &#x27;1992-01-07&#x27;, &#x27;1992-01-08&#x27;,
                &#x27;1992-01-09&#x27;, &#x27;1992-01-10&#x27;,
                ...
                &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
                &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
                &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;storm_time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ffee34fe-a53d-4995-85c4-25f72f87d17f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ffee34fe-a53d-4995-85c4-25f72f87d17f' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;storm_time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8764be29-e8f3-47bf-90d3-fb896f309413' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8764be29-e8f3-47bf-90d3-fb896f309413' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2339,29 +2670,29 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 5kB
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
 Dimensions:                (storm_year: 31, record_id: 8)
 Coordinates:
-  * record_id              (record_id) int16 16B 500 520 570 ... 600 610 5520
-    lat                    (record_id) float32 32B 28.22 16.75 ... 21.43 20.03
-    lon                    (record_id) float32 32B 182.6 190.5 ... 202.2 204.2
-    station_name           (record_id) &lt;U17 544B &#x27;Midway&#x27; ... &#x27;Kawaihae&#x27;
-  * storm_year             (storm_year) int64 248B 1992 1993 1994 ... 2021 2022
+  * record_id              (record_id) int16 500 520 570 580 590 600 610 5520
+    lat                    (record_id) float32 28.22 16.75 21.31 ... 21.43 20.03
+    lon                    (record_id) float32 182.6 190.5 202.1 ... 202.2 204.2
+    station_name           (record_id) &lt;U17 &#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;
+  * storm_year             (storm_year) int64 1992 1993 1994 ... 2020 2021 2022
 Data variables:
-    rsl_anomaly            (storm_year, record_id) float32 992B -0.05539 ... ...
-    rsl_mhhw               (storm_year, record_id) float64 2kB -0.209 ... -0....
-    rsl_anomaly_detrended  (storm_year, record_id) float32 992B -0.02112 ... ...
+    rsl_anomaly            (storm_year, record_id) float32 -0.05539 ... 0.01844
+    rsl_mhhw               (storm_year, record_id) float64 -0.209 ... -0.2909
+    rsl_anomaly_detrended  (storm_year, record_id) float32 -0.02112 ... -0.1243
 Attributes:
     long_name:  Sea Level Anomaly
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-cea410f7-cbb1-42d8-b487-d28545fe2358' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-cea410f7-cbb1-42d8-b487-d28545fe2358' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>storm_year</span>: 31</li><li><span class='xr-has-index'>record_id</span>: 8</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-8ede0a2e-d007-47dd-b541-549fcd952af0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8ede0a2e-d007-47dd-b541-549fcd952af0' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>500 520 570 580 590 600 610 5520</div><input id='attrs-71cf57b4-0e7a-49a7-99c1-62c43d1e2915' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-71cf57b4-0e7a-49a7-99c1-62c43d1e2915' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32416fde-e554-4d67-9241-8a0e8acd0f72' class='xr-var-data-in' type='checkbox'><label for='data-32416fde-e554-4d67-9241-8a0e8acd0f72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 500,  520,  570,  580,  590,  600,  610, 5520], dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 21.31 ... 21.43 20.03</div><input id='attrs-33b27cf9-2091-404e-9fac-5c3afc26fcd8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-33b27cf9-2091-404e-9fac-5c3afc26fcd8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-894a5202-8192-47b8-bb4d-11b7019d6953' class='xr-var-data-in' type='checkbox'><label for='data-894a5202-8192-47b8-bb4d-11b7019d6953' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 20.033],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 202.1 ... 202.2 204.2</div><input id='attrs-156df817-2215-4353-ba4f-e20dcecfff0d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-156df817-2215-4353-ba4f-e20dcecfff0d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d5ed2512-66c0-4d35-9187-08ac2f819fbb' class='xr-var-data-in' type='checkbox'><label for='data-d5ed2512-66c0-4d35-9187-08ac2f819fbb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
-       204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-bf0657e9-5dab-417c-a934-4501ce0fe922' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bf0657e9-5dab-417c-a934-4501ce0fe922' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b7843efb-e5a3-4560-a491-663170a55289' class='xr-var-data-in' type='checkbox'><label for='data-b7843efb-e5a3-4560-a491-663170a55289' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
-       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>storm_year</span></div><div class='xr-var-dims'>(storm_year)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1992 1993 1994 ... 2020 2021 2022</div><input id='attrs-647694e6-7870-4693-b6ce-41c89e392f06' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-647694e6-7870-4693-b6ce-41c89e392f06' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ae7d97ba-70d6-4867-821f-7432814818d6' class='xr-var-data-in' type='checkbox'><label for='data-ae7d97ba-70d6-4867-821f-7432814818d6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-d6e6f8fb-a149-424e-ad2c-f9bdb4f57c48' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d6e6f8fb-a149-424e-ad2c-f9bdb4f57c48' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>storm_year</span>: 31</li><li><span class='xr-has-index'>record_id</span>: 8</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-4c457f0b-5d35-4d17-be67-6f394bb083f3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4c457f0b-5d35-4d17-be67-6f394bb083f3' class='xr-section-summary' >Coordinates: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>500 520 570 580 590 600 610 5520</div><input id='attrs-34177f2e-480d-49d6-a387-a6e7d85b3e6e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-34177f2e-480d-49d6-a387-a6e7d85b3e6e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-19c86ba4-a5f5-43af-b986-186863ff3de6' class='xr-var-data-in' type='checkbox'><label for='data-19c86ba4-a5f5-43af-b986-186863ff3de6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 500,  520,  570,  580,  590,  600,  610, 5520], dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 21.31 ... 21.43 20.03</div><input id='attrs-5b6f50f0-0dcc-4a16-b939-538218a76bfa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5b6f50f0-0dcc-4a16-b939-538218a76bfa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2a7f8112-bbe4-4ca9-8826-721d3162b700' class='xr-var-data-in' type='checkbox'><label for='data-2a7f8112-bbe4-4ca9-8826-721d3162b700' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 20.033],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 202.1 ... 202.2 204.2</div><input id='attrs-88543638-b524-484c-91ab-f047bfdd30ff' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-88543638-b524-484c-91ab-f047bfdd30ff' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-16291f9b-6a20-49ce-9b99-503d6ea04b6a' class='xr-var-data-in' type='checkbox'><label for='data-16291f9b-6a20-49ce-9b99-503d6ea04b6a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
+       204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-8c996f50-3fef-4f03-8699-859cd5e919e8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8c996f50-3fef-4f03-8699-859cd5e919e8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e1f1077e-6e69-424c-8ea7-416306caa57d' class='xr-var-data-in' type='checkbox'><label for='data-e1f1077e-6e69-424c-8ea7-416306caa57d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
+       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>storm_year</span></div><div class='xr-var-dims'>(storm_year)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1992 1993 1994 ... 2020 2021 2022</div><input id='attrs-37bf490f-27ce-4df2-9299-707c9b1462e6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-37bf490f-27ce-4df2-9299-707c9b1462e6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3415fa61-0676-45c2-923f-a3ca4ad87bb0' class='xr-var-data-in' type='checkbox'><label for='data-3415fa61-0676-45c2-923f-a3ca4ad87bb0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
        2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
-       2016, 2017, 2018, 2019, 2020, 2021, 2022])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e5497bc8-af37-46fb-8d5c-2d65503cfd94' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e5497bc8-af37-46fb-8d5c-2d65503cfd94' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(storm_year, record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.05539 -0.07089 ... 0.01844</div><input id='attrs-8277d540-fc04-4eac-8f36-72032e153ade' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8277d540-fc04-4eac-8f36-72032e153ade' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-328e43b4-dfa1-4c6e-90af-bc40e3fe251d' class='xr-var-data-in' type='checkbox'><label for='data-328e43b4-dfa1-4c6e-90af-bc40e3fe251d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>array([[-5.53851351e-02, -7.08867833e-02,  4.05777385e-03,
+       2016, 2017, 2018, 2019, 2020, 2021, 2022])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ca434bc2-8245-4104-b6bc-93cac90700f9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ca434bc2-8245-4104-b6bc-93cac90700f9' class='xr-section-summary' >Data variables: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(storm_year, record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.05539 -0.07089 ... 0.01844</div><input id='attrs-02bdc1ca-e43c-4601-b256-21460d980c21' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-02bdc1ca-e43c-4601-b256-21460d980c21' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5a3c7b6f-cc52-49e7-b1b9-f65f946bacb8' class='xr-var-data-in' type='checkbox'><label for='data-5a3c7b6f-cc52-49e7-b1b9-f65f946bacb8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>array([[-5.53851351e-02, -7.08867833e-02,  4.05777385e-03,
          2.16376409e-02,  9.96339321e-03,  1.13064786e-02,
          1.69834774e-02, -2.10616458e-02],
        [-5.84134832e-02, -2.05510836e-02, -3.83995511e-02,
@@ -2401,7 +2732,7 @@ Attributes:
          4.28027064e-02,  1.85237173e-02],
        [ 8.37890506e-02,  6.48861984e-03,  3.15039493e-02,
          5.27719744e-02,  1.86311454e-02,  2.25273725e-02,
-         2.77821980e-02,  1.84394810e-02]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(storm_year, record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.209 -0.3998 ... -0.2744 -0.2909</div><input id='attrs-0a17d896-c312-431a-ad37-f5b8e0fe5f12' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0a17d896-c312-431a-ad37-f5b8e0fe5f12' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-87de60d8-47b3-4e53-b232-946a4ac7997f' class='xr-var-data-in' type='checkbox'><label for='data-87de60d8-47b3-4e53-b232-946a4ac7997f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[-0.20897118, -0.39976493, -0.28864132, -0.25463125, -0.25716702,
+         2.77821980e-02,  1.84394810e-02]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(storm_year, record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-0.209 -0.3998 ... -0.2744 -0.2909</div><input id='attrs-5429c70f-0d92-4d1b-8ccc-cd09036422ab' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5429c70f-0d92-4d1b-8ccc-cd09036422ab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-37c067a3-8aeb-40b5-b272-9e34f73a3634' class='xr-var-data-in' type='checkbox'><label for='data-37c067a3-8aeb-40b5-b272-9e34f73a3634' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[-0.20897118, -0.39976493, -0.28864132, -0.25463125, -0.25716702,
         -0.33317743, -0.2852302 , -0.33035204],
        [-0.21199954, -0.34942923, -0.33109863, -0.31675057, -0.29883276,
         -0.34516827, -0.33990947, -0.34605491],
@@ -2441,7 +2772,7 @@ Attributes:
        [-0.06808491, -0.28789874, -0.25150217, -0.23038493, -0.24715354,
         -0.32327991, -0.25941096, -0.29076666],
        [-0.06979698, -0.32238953, -0.26119517, -0.22349693, -0.24849927,
-        -0.32195654, -0.27443147, -0.2908509 ]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly_detrended</span></div><div class='xr-var-dims'>(storm_year, record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.02112 -0.05423 ... -0.1243</div><input id='attrs-3ecdf61c-3c63-46fe-a4a6-04b9b7a7a9ac' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3ecdf61c-3c63-46fe-a4a6-04b9b7a7a9ac' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-860bc25b-a0b6-4ea2-b055-1a280c9644f8' class='xr-var-data-in' type='checkbox'><label for='data-860bc25b-a0b6-4ea2-b055-1a280c9644f8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.02112095, -0.05422787,  0.02615284,  0.04680496,  0.03117696,
+        -0.32195654, -0.27443147, -0.2908509 ]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly_detrended</span></div><div class='xr-var-dims'>(storm_year, record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>-0.02112 -0.05423 ... -0.1243</div><input id='attrs-3a804d61-8882-47b9-aad8-cc10261193fa' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3a804d61-8882-47b9-aad8-cc10261193fa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5a372fdd-68f8-4e7f-8f0f-a72ffda17874' class='xr-var-data-in' type='checkbox'><label for='data-5a372fdd-68f8-4e7f-8f0f-a72ffda17874' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[-0.02112095, -0.05422787,  0.02615284,  0.04680496,  0.03117696,
          0.03978027,  0.04170166,  0.04326098],
        [-0.02665939, -0.00508888, -0.01809478, -0.0173476 , -0.01216712,
          0.02559948, -0.0149254 ,  0.02314097],
@@ -2481,10 +2812,10 @@ Attributes:
        [ 0.01140361,  0.00597273, -0.01400143, -0.01673103, -0.0312691 ,
         -0.04487001, -0.01657126, -0.11839037],
        [ 0.00652795, -0.03002523, -0.02594616, -0.01240033, -0.03472573,
-        -0.04630104, -0.03404155, -0.12434433]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a9894fc1-ddbd-4eee-8d24-cd2214a5afcd' class='xr-section-summary-in' type='checkbox'  ><label for='section-a9894fc1-ddbd-4eee-8d24-cd2214a5afcd' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f2e6e37b-43ea-4edc-b9c9-babb78a6d499' class='xr-index-data-in' type='checkbox'/><label for='index-f2e6e37b-43ea-4edc-b9c9-babb78a6d499' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([500, 520, 570, 580, 590, 600, 610, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>storm_year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-81d5b281-d583-43a1-a821-6ea9bbc6419f' class='xr-index-data-in' type='checkbox'/><label for='index-81d5b281-d583-43a1-a821-6ea9bbc6419f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
+        -0.04630104, -0.03404155, -0.12434433]], dtype=float32)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f6bff805-1a99-4c53-8415-e9a2e611b878' class='xr-section-summary-in' type='checkbox'  ><label for='section-f6bff805-1a99-4c53-8415-e9a2e611b878' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3d0bfa86-c80f-4b8e-93f2-316e30608118' class='xr-index-data-in' type='checkbox'/><label for='index-3d0bfa86-c80f-4b8e-93f2-316e30608118' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([500, 520, 570, 580, 590, 600, 610, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>storm_year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-30a820de-bae0-4f23-8f9d-7b34f81b07f5' class='xr-index-data-in' type='checkbox'/><label for='index-30a820de-bae0-4f23-8f9d-7b34f81b07f5' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1992, 1993, 1994, 1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003,
        2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015,
        2016, 2017, 2018, 2019, 2020, 2021, 2022],
-      dtype=&#x27;int64&#x27;, name=&#x27;storm_year&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-28edc752-5cf3-4ecf-a4ec-ee3c81d7a3e9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-28edc752-5cf3-4ecf-a4ec-ee3c81d7a3e9' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;int64&#x27;, name=&#x27;storm_year&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6dea0a16-e109-4a99-a02e-1b9e1f039a61' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6dea0a16-e109-4a99-a02e-1b9e1f039a61' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 </section>
@@ -2532,7 +2863,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/498f9bb9acde41e5c3a4f143d6c617e56fc5df5a65e5169d71f91a028b9c8a28.png" src="../../_images/498f9bb9acde41e5c3a4f143d6c617e56fc5df5a65e5169d71f91a028b9c8a28.png" />
+<img alt="../../_images/339fe41797175e60305a0f5cc31bb35aed12a54d2479c4ba64b2de6cc85e5feb.png" src="../../_images/339fe41797175e60305a0f5cc31bb35aed12a54d2479c4ba64b2de6cc85e5feb.png" />
 </div>
 </div>
 </section>
@@ -2573,9 +2904,11 @@ Attributes:
 </div>
 </div>
 </div>
+<p>Let’s check this for a random station in our list.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">lat</span> <span class="o">=</span> <span class="n">rsl_subset</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">)</span><span class="o">.</span><span class="n">lat</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rid</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="n">rsl_subset</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">)</span><span class="o">.</span><span class="n">lat</span>
 <span class="n">lon</span> <span class="o">=</span> <span class="n">rsl_subset</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">)</span><span class="o">.</span><span class="n">lon</span>
 <span class="n">sla_detrended</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">latitude</span><span class="o">=</span><span class="n">lat</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="n">lon</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Sea Level Anomaly (m)&#39;</span><span class="p">)</span>
 <span class="n">sla_detrended_area_weighted</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">latitude</span><span class="o">=</span><span class="n">lat</span><span class="p">,</span> <span class="n">longitude</span><span class="o">=</span><span class="n">lon</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;nearest&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Area Weighted Sea Level Anomaly (m)&#39;</span><span class="p">)</span>
@@ -2586,13 +2919,13 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Midway&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Nawiliwili&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/767276ac9a50e4f4145e284dd7a774519be07798a47988bbdbdc6acbb3958807.png" src="../../_images/767276ac9a50e4f4145e284dd7a774519be07798a47988bbdbdc6acbb3958807.png" />
+<img alt="../../_images/b8d029e4d3bdc36a260dcb13790547aa824b35d47696870bb39fc96c3b9c5c40.png" src="../../_images/b8d029e4d3bdc36a260dcb13790547aa824b35d47696870bb39fc96c3b9c5c40.png" />
 </div>
 </div>
-<p>There are slight differences between removing the grid-level trend versus the area-weighted trend in this plot. But when we get to the full spatial plot, that’s where things get weird.</p>
+<p>There are slight differences between removing the grid-level trend versus the area-weighted trend in this plot. Nothing too major here.</p>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># concentrating on decadal trends</span>
@@ -2669,12 +3002,12 @@ Attributes:
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/d4e41dc51bac76b6c224e67f4b232626eb083d3c58da797416a4f138cb5b97b5.png" src="../../_images/d4e41dc51bac76b6c224e67f4b232626eb083d3c58da797416a4f138cb5b97b5.png" />
+<img alt="../../_images/c4639600d43cc2dc05194b2ce7af3e88705143787206d3ec5027d54cac7fbeaa.png" src="../../_images/c4639600d43cc2dc05194b2ce7af3e88705143787206d3ec5027d54cac7fbeaa.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="sl-yma-decadal">
-<img alt="../../_images/d4e41dc51bac76b6c224e67f4b232626eb083d3c58da797416a4f138cb5b97b5.png" src="../../_images/d4e41dc51bac76b6c224e67f4b232626eb083d3c58da797416a4f138cb5b97b5.png" />
+<img alt="../../_images/c4639600d43cc2dc05194b2ce7af3e88705143787206d3ec5027d54cac7fbeaa.png" src="../../_images/c4639600d43cc2dc05194b2ce7af3e88705143787206d3ec5027d54cac7fbeaa.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 4 </span><span class="caption-text">Decadal (or bidecadal, is that a word) mean anomalies of the Hawaiian Islands region, background trend (Storm Years 1993-2023) removed. Note that the sea level is plotted in units of m. The mean anomaly is near zero when using the full timeseries and grid-level trends (i.e. no area-weighted averaging). Mean monthly anomalies at the stations are plotted as well, showing similar-ish patterns, with some weirdness at Kawaihae that I should check on.</span><a class="headerlink" href="#sl-yma-decadal" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -2765,14 +3098,14 @@ Attributes:
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/8ba855e5c28294379ea8a1c0bbcc09722c8e1a099415fd3c2b6e0b5b51626c49.png" src="../../_images/8ba855e5c28294379ea8a1c0bbcc09722c8e1a099415fd3c2b6e0b5b51626c49.png" />
+<img alt="../../_images/9e500c3f10384492c6802d1128e2f8f43f2d4c6efe684006be8c0e8d9fc128c5.png" src="../../_images/9e500c3f10384492c6802d1128e2f8f43f2d4c6efe684006be8c0e8d9fc128c5.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="sl-mma-annual-station">
-<img alt="../../_images/8ba855e5c28294379ea8a1c0bbcc09722c8e1a099415fd3c2b6e0b5b51626c49.png" src="../../_images/8ba855e5c28294379ea8a1c0bbcc09722c8e1a099415fd3c2b6e0b5b51626c49.png" />
+<img alt="../../_images/9e500c3f10384492c6802d1128e2f8f43f2d4c6efe684006be8c0e8d9fc128c5.png" src="../../_images/9e500c3f10384492c6802d1128e2f8f43f2d4c6efe684006be8c0e8d9fc128c5.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Yearly mean anomalies at the <span class="pasted-text">Kawaihae</span> tide gauge with background trend removed (blue). The shaded region denotes the yearly means of the daily min and max sea level. Note that the sea level is plotted in units of m. The monthly mean anomaly (orange) is calculated with respect to the annual cycle. El Nino and La Nino time periods are derived from the Oceanic Niño Index (ONI), available at <a class="reference external" href="https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php">https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php</a></span><a class="headerlink" href="#sl-mma-annual-station" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Yearly mean anomalies at the <span class="pasted-text">Nawiliwili</span> tide gauge with background trend removed (blue). The shaded region denotes the yearly means of the daily min and max sea level. Note that the sea level is plotted in units of m. The monthly mean anomaly (orange) is calculated with respect to the annual cycle. El Nino and La Nino time periods are derived from the Oceanic Niño Index (ONI), available at <a class="reference external" href="https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php">https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php</a></span><a class="headerlink" href="#sl-mma-annual-station" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Now we will plots all the gauges.</p>
@@ -2817,12 +3150,12 @@ Attributes:
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/3f1f9288b5da5125a13abeffd51dc685e8cc92a64df87c689583732ae9119a9e.png" src="../../_images/3f1f9288b5da5125a13abeffd51dc685e8cc92a64df87c689583732ae9119a9e.png" />
+<img alt="../../_images/2b6c9d35df68cfa60306ceeec480b6f7476fb9865f2595269cdfe9aaa3e254ca.png" src="../../_images/2b6c9d35df68cfa60306ceeec480b6f7476fb9865f2595269cdfe9aaa3e254ca.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="sl-mma-annual">
-<img alt="../../_images/3f1f9288b5da5125a13abeffd51dc685e8cc92a64df87c689583732ae9119a9e.png" src="../../_images/3f1f9288b5da5125a13abeffd51dc685e8cc92a64df87c689583732ae9119a9e.png" />
+<img alt="../../_images/2b6c9d35df68cfa60306ceeec480b6f7476fb9865f2595269cdfe9aaa3e254ca.png" src="../../_images/2b6c9d35df68cfa60306ceeec480b6f7476fb9865f2595269cdfe9aaa3e254ca.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 6 </span><span class="caption-text">Yearly mean anomalies at the each tide gauge with background trend removed (blue). The shaded region denotes the yearly means of the daily min and max sea level. Note that the sea level is plotted in units of m. The monthly mean anomaly (orange) is calculated with respect to the annual cycle. This plot is foul looking, it reminds me of a wound, and I will return to it later.</span><a class="headerlink" href="#sl-mma-annual" title="Permalink to this image">#</a></p>
 </figcaption>

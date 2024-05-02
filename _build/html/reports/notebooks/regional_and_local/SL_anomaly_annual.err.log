@@ -15,112 +15,22 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# resample to monthly time series 
-rsl_monthly = rsl_subset.resample(time='1ME',label='right').mean()
+lat = rsl_subset.isel(record_id=rid).lat
+lon = rsl_subset.isel(record_id=rid).lon
+sla_detrended.sel(latitude=lat, longitude=lon, method='nearest').plot(label='Sea Level Anomaly (m)')
+sla_detrended_area_weighted.sel(latitude=lat, longitude=lon, method='nearest').plot(label='Area Weighted Sea Level Anomaly (m)')
 
-# get climatology (annual cycle) by grouping by month
-rsl_climatology = rsl_monthly.groupby('time.month').mean('time')
-
-# get anomalies by subtracting climatology from monthly data
-rsl_anomalies = rsl_monthly.groupby('time.month') - rsl_climatology
-
-rsl_anomalies
+# change the title to station name
+plt.title(rsl_subset['station_name'].isel(record_id=rid).values)
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-File [0;32moffsets.pyx:4447[0m, in [0;36mpandas._libs.tslibs.offsets._get_offset[0;34m()[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[12], line 1[0m
+[0;32m----> 1[0m lat [38;5;241m=[39m rsl_subset[38;5;241m.[39misel(record_id[38;5;241m=[39m[43mrid[49m)[38;5;241m.[39mlat
+[1;32m      2[0m lon [38;5;241m=[39m rsl_subset[38;5;241m.[39misel(record_id[38;5;241m=[39mrid)[38;5;241m.[39mlon
+[1;32m      3[0m sla_detrended[38;5;241m.[39msel(latitude[38;5;241m=[39mlat, longitude[38;5;241m=[39mlon, method[38;5;241m=[39m[38;5;124m'[39m[38;5;124mnearest[39m[38;5;124m'[39m)[38;5;241m.[39mplot(label[38;5;241m=[39m[38;5;124m'[39m[38;5;124mSea Level Anomaly (m)[39m[38;5;124m'[39m)
 
-[0;31mKeyError[0m: 'ME'
-
-The above exception was the direct cause of the following exception:
-
-[0;31mValueError[0m                                Traceback (most recent call last)
-File [0;32moffsets.pyx:4549[0m, in [0;36mpandas._libs.tslibs.offsets.to_offset[0;34m()[0m
-
-File [0;32moffsets.pyx:4453[0m, in [0;36mpandas._libs.tslibs.offsets._get_offset[0;34m()[0m
-
-[0;31mValueError[0m: Invalid frequency: ME
-
-The above exception was the direct cause of the following exception:
-
-[0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[5], line 2[0m
-[1;32m      1[0m [38;5;66;03m# resample to monthly time series [39;00m
-[0;32m----> 2[0m rsl_monthly [38;5;241m=[39m [43mrsl_subset[49m[38;5;241;43m.[39;49m[43mresample[49m[43m([49m[43mtime[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43m1ME[39;49m[38;5;124;43m'[39;49m[43m,[49m[43mlabel[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mright[39;49m[38;5;124;43m'[39;49m[43m)[49m[38;5;241m.[39mmean()
-[1;32m      4[0m [38;5;66;03m# get climatology (annual cycle) by grouping by month[39;00m
-[1;32m      5[0m rsl_climatology [38;5;241m=[39m rsl_monthly[38;5;241m.[39mgroupby([38;5;124m'[39m[38;5;124mtime.month[39m[38;5;124m'[39m)[38;5;241m.[39mmean([38;5;124m'[39m[38;5;124mtime[39m[38;5;124m'[39m)
-
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:10403[0m, in [0;36mDataset.resample[0;34m(self, indexer, skipna, closed, label, base, offset, origin, loffset, restore_coord_dims, **indexer_kwargs)[0m
-[1;32m  10340[0m [38;5;250m[39m[38;5;124;03m"""Returns a Resample object for performing resampling operations.[39;00m
-[1;32m  10341[0m 
-[1;32m  10342[0m [38;5;124;03mHandles both downsampling and upsampling. The resampled[39;00m
-[0;32m   (...)[0m
-[1;32m  10399[0m [38;5;124;03m.. [1] http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases[39;00m
-[1;32m  10400[0m [38;5;124;03m"""[39;00m
-[1;32m  10401[0m [38;5;28;01mfrom[39;00m [38;5;21;01mxarray[39;00m[38;5;21;01m.[39;00m[38;5;21;01mcore[39;00m[38;5;21;01m.[39;00m[38;5;21;01mresample[39;00m [38;5;28;01mimport[39;00m DatasetResample
-[0;32m> 10403[0m [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_resample[49m[43m([49m
-[1;32m  10404[0m [43m    [49m[43mresample_cls[49m[38;5;241;43m=[39;49m[43mDatasetResample[49m[43m,[49m
-[1;32m  10405[0m [43m    [49m[43mindexer[49m[38;5;241;43m=[39;49m[43mindexer[49m[43m,[49m
-[1;32m  10406[0m [43m    [49m[43mskipna[49m[38;5;241;43m=[39;49m[43mskipna[49m[43m,[49m
-[1;32m  10407[0m [43m    [49m[43mclosed[49m[38;5;241;43m=[39;49m[43mclosed[49m[43m,[49m
-[1;32m  10408[0m [43m    [49m[43mlabel[49m[38;5;241;43m=[39;49m[43mlabel[49m[43m,[49m
-[1;32m  10409[0m [43m    [49m[43mbase[49m[38;5;241;43m=[39;49m[43mbase[49m[43m,[49m
-[1;32m  10410[0m [43m    [49m[43moffset[49m[38;5;241;43m=[39;49m[43moffset[49m[43m,[49m
-[1;32m  10411[0m [43m    [49m[43morigin[49m[38;5;241;43m=[39;49m[43morigin[49m[43m,[49m
-[1;32m  10412[0m [43m    [49m[43mloffset[49m[38;5;241;43m=[39;49m[43mloffset[49m[43m,[49m
-[1;32m  10413[0m [43m    [49m[43mrestore_coord_dims[49m[38;5;241;43m=[39;49m[43mrestore_coord_dims[49m[43m,[49m
-[1;32m  10414[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mindexer_kwargs[49m[43m,[49m
-[1;32m  10415[0m [43m[49m[43m)[49m
-
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/common.py:1045[0m, in [0;36mDataWithCoords._resample[0;34m(self, resample_cls, indexer, skipna, closed, label, base, offset, origin, loffset, restore_coord_dims, **indexer_kwargs)[0m
-[1;32m   1032[0m grouper [38;5;241m=[39m TimeResampleGrouper(
-[1;32m   1033[0m     freq[38;5;241m=[39mfreq,
-[1;32m   1034[0m     closed[38;5;241m=[39mclosed,
-[0;32m   (...)[0m
-[1;32m   1038[0m     loffset[38;5;241m=[39mloffset,
-[1;32m   1039[0m )
-[1;32m   1041[0m group [38;5;241m=[39m DataArray(
-[1;32m   1042[0m     dim_coord, coords[38;5;241m=[39mdim_coord[38;5;241m.[39mcoords, dims[38;5;241m=[39mdim_coord[38;5;241m.[39mdims, name[38;5;241m=[39mRESAMPLE_DIM
-[1;32m   1043[0m )
-[0;32m-> 1045[0m rgrouper [38;5;241m=[39m [43mResolvedTimeResampleGrouper[49m[43m([49m[43mgrouper[49m[43m,[49m[43m [49m[43mgroup[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[43m)[49m
-[1;32m   1047[0m [38;5;28;01mreturn[39;00m resample_cls(
-[1;32m   1048[0m     [38;5;28mself[39m,
-[1;32m   1049[0m     (rgrouper,),
-[0;32m   (...)[0m
-[1;32m   1052[0m     restore_coord_dims[38;5;241m=[39mrestore_coord_dims,
-[1;32m   1053[0m )
-
-File [0;32m<string>:6[0m, in [0;36m__init__[0;34m(self, grouper, group, obj)[0m
-
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:513[0m, in [0;36mResolvedTimeResampleGrouper.__post_init__[0;34m(self)[0m
-[1;32m    504[0m     index_grouper [38;5;241m=[39m CFTimeGrouper(
-[1;32m    505[0m         freq[38;5;241m=[39mgrouper[38;5;241m.[39mfreq,
-[1;32m    506[0m         closed[38;5;241m=[39mgrouper[38;5;241m.[39mclosed,
-[0;32m   (...)[0m
-[1;32m    510[0m         loffset[38;5;241m=[39mgrouper[38;5;241m.[39mloffset,
-[1;32m    511[0m     )
-[1;32m    512[0m [38;5;28;01melse[39;00m:
-[0;32m--> 513[0m     index_grouper [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mGrouper[49m[43m([49m
-[1;32m    514[0m [43m        [49m[43mfreq[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43mfreq[49m[43m,[49m
-[1;32m    515[0m [43m        [49m[43mclosed[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43mclosed[49m[43m,[49m
-[1;32m    516[0m [43m        [49m[43mlabel[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43mlabel[49m[43m,[49m
-[1;32m    517[0m [43m        [49m[43morigin[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43morigin[49m[43m,[49m
-[1;32m    518[0m [43m        [49m[43moffset[49m[38;5;241;43m=[39;49m[43mgrouper[49m[38;5;241;43m.[39;49m[43moffset[49m[43m,[49m
-[1;32m    519[0m [43m    [49m[43m)[49m
-[1;32m    520[0m [38;5;28mself[39m[38;5;241m.[39mindex_grouper [38;5;241m=[39m index_grouper
-
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/core/resample.py:2046[0m, in [0;36mTimeGrouper.__init__[0;34m(self, freq, closed, label, how, axis, fill_method, limit, kind, convention, origin, offset, group_keys, **kwargs)[0m
-[1;32m   2043[0m [38;5;28;01mif[39;00m convention [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m {[38;5;28;01mNone[39;00m, [38;5;124m"[39m[38;5;124mstart[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mend[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124me[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124ms[39m[38;5;124m"[39m}:
-[1;32m   2044[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mUnsupported value [39m[38;5;132;01m{[39;00mconvention[38;5;132;01m}[39;00m[38;5;124m for `convention`[39m[38;5;124m"[39m)
-[0;32m-> 2046[0m freq [38;5;241m=[39m [43mto_offset[49m[43m([49m[43mfreq[49m[43m)[49m
-[1;32m   2048[0m end_types [38;5;241m=[39m {[38;5;124m"[39m[38;5;124mM[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mA[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mQ[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mBM[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mBA[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mBQ[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mW[39m[38;5;124m"[39m}
-[1;32m   2049[0m rule [38;5;241m=[39m freq[38;5;241m.[39mrule_code
-
-File [0;32moffsets.pyx:4460[0m, in [0;36mpandas._libs.tslibs.offsets.to_offset[0;34m()[0m
-
-File [0;32moffsets.pyx:4557[0m, in [0;36mpandas._libs.tslibs.offsets.to_offset[0;34m()[0m
-
-[0;31mValueError[0m: Invalid frequency: 1ME
+[0;31mNameError[0m: name 'rid' is not defined
 
