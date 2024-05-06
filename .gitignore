@@ -4,3 +4,4 @@ data/
 _build/.DS_Store
 *.nc
 data/*.nc
+playground/
