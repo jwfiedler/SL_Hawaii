@@ -34,6 +34,8 @@ html:
   use_repository_button: true
   use_edit_page_button: true
   announcement: "In development! Please post issues and suggestions to github."
+  comments:
+    hypothesis: true
 
 # Parse and render settings
 parse:
