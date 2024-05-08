@@ -1,5 +1,5 @@
 # Introduction
-This jupyter book is made for sea level indicators of the Hawaiian Island region. Click on the following links to access the output or detailed code for each sea level indicator. You may also jump straight to the [table of contents of currently available sections](#table-of-contents).
+This jupyter book is made for sea level indicators of the Hawaiian Island region. Click on the following links to access the output or detailed code for each sea level indicator. Alternatively, you may also jump straight to the {ref}`table-of-contents` of currently available sections.
 
 ````{margin}
 ```{note}
@@ -35,8 +35,6 @@ Click on the icons below to jump to the product's notebook. Downloadable content
 **Projections**
 :::
 
----
-
 :::{grid-item}
 :columns: 12
 **1.0 Sea Level Magnitude**
@@ -51,7 +49,7 @@ Click on the icons below to jump to the product's notebook. Downloadable content
 :::
 :::{grid-item}
 :columns: 3
-[![map](icons/map_emoji_small.png)](notebooks/regional_and_local/SL_magnitude.ipynb#create-a-map) [![Plots](icons/plot_icon_color_small.png)](notebooks/regional_and_local/SL_magnitude.ipynb#create-a-time-series-plot) [![Tables](icons/table_icon_color_small.png)](notebooks/regional_and_local/SL_magnitude.ipynb#create-a-table)  [![Text](icons/text_icon_color_small.png)](notebooks/regional_and_local/SL_magnitude.ipynb) 
+[![map](icons/map_emoji_small.png)](notebooks/regional_and_local/SL_magnitude.html#create-a-map) [![Plots](icons/plot_icon_color_small.png)](notebooks/regional_and_local/SL_magnitude.ipynb#create-a-time-series-plot) [![Tables](icons/table_icon_color_small.png)](notebooks/regional_and_local/SL_magnitude.ipynb#create-a-table)  [![Text](icons/text_icon_color_small.png)](notebooks/regional_and_local/SL_magnitude.ipynb) 
 :::
 :::{grid-item}
 :columns: 3
@@ -115,7 +113,7 @@ a. Annual
 :::
 :::{grid-item}
 :columns: 3
-[![map](icons/map_emoji_small.png)](notebooks/regional_and_local/SL_Rankings.ipynb#create-a-map) [![Plots](icons/plot_icon_color_small.png)](notebooks/regional_and_local/SL_Rankings.ipynb#make-timeseries-plots) [![Tables](icons/table_icon_color_small.png)](notebooks/regional_and_local/SL_Rankings.ipynb#style-the-table)  [![Text](icons/text_icon_color_small.png)](notebooks/regional_and_local/SL_Rankings.ipynb) 
+[![map](icons/map_emoji_small.png)](notebooks/regional_and_local/SL_Rankings_annual.ipynb#create-a-map) [![Plots](icons/plot_icon_color_small.png)](notebooks/regional_and_local/SL_Rankings_annual.ipynb#make-timeseries-plots) [![Tables](icons/table_icon_color_small.png)](notebooks/regional_and_local/SL_Rankings_annual.ipynb#style-the-table)  [![Text](icons/text_icon_color_small.png)](notebooks/regional_and_local/SL_Rankings_annual.ipynb) 
 :::
 :::{grid-item}
 :columns: 3
@@ -303,12 +301,11 @@ b. Intra-Annual
 :columns: 3
 ![Maps](icons/map_emoji_bw_small.png) ![Plots](icons/plot_icon_small.png) ![Tables](icons/table_icon_small.png) ![Text](icons/text_icon_small.png) 
 :::
-
-
 ::::
 
 ***
-## Table of Contents
+(table-of-contents)=
+## Table of Contents 
 
 ```{tableofcontents}
 ```
