@@ -209,7 +209,6 @@
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="SL_Extremes.html">Sea Level Extremes</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="SL_Extremes_annual.html">Annual Extremes</a></li>
-
 <li class="toctree-l2"><a class="reference internal" href="SL_Extremes_intra-annual.html">Intra-Annual Extremes</a></li>
 </ul>
 </li>
@@ -457,7 +456,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -473,6 +474,28 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#following-merrifield-firing-marra">Following Merrifield, Firing &amp; Marra:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deconstruct-the-time-series-into-components-with-different-timescales">Deconstruct the time series into components with different timescales.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-high-pass-filtered-data">Get high-pass filtered data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-linear-trend">Remove linear trend</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-low-frequency-sl-variability">Obtain low-frequency SL variability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-seasonal-cycle-by-averaging-daily-mean-water-levels-over-all-years-for-each-year-day">Compute the seasonal cycle by averaging daily mean water levels over all years for each year day</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-high-frequency-data">Obtain High Frequency data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tidal-component-is-predicted-with-fits-to-hourly-data">Tidal component is predicted with fits to hourly data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-95-exceedence-threshold-for-tidal-component">Find 95% exceedence threshold for tidal component</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -492,6 +515,352 @@ document.write(`
 </div>
 </div>
 <p>Hi, I am stuff.</p>
+<section id="following-merrifield-firing-marra">
+<h2>Following Merrifield, Firing &amp; Marra:<a class="headerlink" href="#following-merrifield-firing-marra" title="Permalink to this heading">#</a></h2>
+<p>This technique uses the Peaks Over Treshold (POT) technique to obtain extrema. This treshold is based on annual climatologies, obtained with the following steps:</p>
+<ol class="arabic simple">
+<li><p>Obtain hourly and daily mean tide gauge data from UHSLC</p></li>
+<li><p>Deconstruct the time series into components with different timescales</p></li>
+<li><p>Get high-pass filtered data:</p>
+<ol class="arabic simple">
+<li><p>Remove linear trend</p></li>
+<li><p>Obtain low-frequency SL variability by smoothing daily data with a running Gaussian-shaped low-pass filter (half power period at ~5 months).</p></li>
+<li><p>Compute seasonal cycle by averaging daily mean WL over all years for each year day</p></li>
+<li><p>High-frequency SL is the residual of the daily means after removing #3,#4,#5</p></li>
+</ol>
+</li>
+<li><p>Tidal component is predicted with fits to hourly data</p></li>
+<li><p>Reference all data to MHHW</p></li>
+<li><p>Extreme events are the superposition of seasonal sea level, tidal and high frequency water level components.</p>
+<ol class="arabic simple">
+<li><p>Tidal contribution is 95% exceedence threshold of daily highest water above MHHW on each day.</p></li>
+<li><p>HF variability is the 95% exceedance threshold of the HF filtered data on each year day.</p></li>
+</ol>
+</li>
+<li><p>Obtain TWL (H95) by stacking the seasonal sea level, 95% tide contribution, and 95% HF contribution</p></li>
+</ol>
+</section>
+<section id="deconstruct-the-time-series-into-components-with-different-timescales">
+<h2>Deconstruct the time series into components with different timescales.<a class="headerlink" href="#deconstruct-the-time-series-into-components-with-different-timescales" title="Permalink to this heading">#</a></h2>
+<section id="get-high-pass-filtered-data">
+<h3>Get high-pass filtered data<a class="headerlink" href="#get-high-pass-filtered-data" title="Permalink to this heading">#</a></h3>
+<section id="remove-linear-trend">
+<h4>Remove linear trend<a class="headerlink" href="#remove-linear-trend" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># remove the linear trend from rsl_daily</span>
+
+<span class="n">trend_mag</span><span class="p">,</span> <span class="n">trend_line</span><span class="p">,</span> <span class="n">trend_rate</span> <span class="o">=</span> <span class="n">process_trend_with_nan</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">])</span>
+
+<span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">trend_line</span>
+
+<span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span> <span class="o">=</span> <span class="mi">590</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># remove the linear trend from rsl_daily</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">trend_mag</span><span class="p">,</span> <span class="n">trend_line</span><span class="p">,</span> <span class="n">trend_rate</span> <span class="o">=</span> <span class="n">process_trend_with_nan</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">trend_line</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span> <span class="o">=</span> <span class="mi">590</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="ne">NameError</span>: name &#39;process_trend_with_nan&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="obtain-low-frequency-sl-variability">
+<h4>Obtain low-frequency SL variability<a class="headerlink" href="#obtain-low-frequency-sl-variability" title="Permalink to this heading">#</a></h4>
+<p>We’ll do this by smoothing daily data with a running Gaussian-shaped low-pass filter (half power period at ~5 months).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.ndimage</span> <span class="kn">import</span> <span class="n">gaussian_filter1d</span>
+<span class="kn">from</span> <span class="nn">scipy.signal</span> <span class="kn">import</span> <span class="n">detrend</span>
+
+<span class="c1"># Define the filter parameters</span>
+<span class="n">half_power_period</span> <span class="o">=</span> <span class="mi">5</span> <span class="o">*</span> <span class="mi">30</span>  <span class="c1"># Approximate number of days in 5 months</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="n">half_power_period</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>  <span class="c1"># Convert half-power period to standard deviation</span>
+
+<span class="c1"># Detrend each station&#39;s time series and handle NaNs</span>
+<span class="n">rsl_mhhw_detrended</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">values</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">mask</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">),</span> <span class="n">data</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">])</span>
+    <span class="n">rsl_mhhw_detrended</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">detrend</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+
+<span class="c1"># Apply the Gaussian filter to the detrended data</span>
+<span class="n">rsl_mhhw_detrended_filtered</span> <span class="o">=</span> <span class="n">gaussian_filter1d</span><span class="p">(</span><span class="n">rsl_mhhw_detrended</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">sigma</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Add the detrended and filtered data to the dataset</span>
+<span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended_interp&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;record_id&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">),</span> <span class="n">rsl_mhhw_detrended</span><span class="p">)</span>
+<span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended_filtered&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;record_id&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">),</span> <span class="n">rsl_mhhw_detrended_filtered</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compute-the-seasonal-cycle-by-averaging-daily-mean-water-levels-over-all-years-for-each-year-day">
+<h4>Compute the seasonal cycle by averaging daily mean water levels over all years for each year day<a class="headerlink" href="#compute-the-seasonal-cycle-by-averaging-daily-mean-water-levels-over-all-years-for-each-year-day" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compute seasonal cycle by averaging daily rsl_mhhw over all years for each year day</span>
+<span class="n">seasonal_cycle</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> 
+
+<span class="c1"># Plot the seasonal cycle, with 11 different lines, and add the station names to the legend</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">seasonal_cycle</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">seasonal_cycle</span><span class="p">[</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">],</span> <span class="n">seasonal_cycle</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="n">label</span><span class="o">=</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Day of Year&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Median Detrended rsl_mhhw [m]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Seasonal Cycle of rsl_mhhw Detrended&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;center left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="obtain-high-frequency-data">
+<h4>Obtain High Frequency data<a class="headerlink" href="#obtain-high-frequency-data" title="Permalink to this heading">#</a></h4>
+<p>It is the residual of the daily means after removing the linear trend, low-frequency variability, and seasonal cycle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Extend the seasonal cycle to the full time series length for each station</span>
+<span class="n">seasonal_cycle_full</span> <span class="o">=</span> <span class="n">seasonal_cycle</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">dayofyear</span><span class="o">=</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span><span class="p">)</span>
+
+<span class="c1"># Compute the residual by removing the linear trend, filtered data, and seasonal cycle</span>
+<span class="n">residual</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rsl_mhhw_detrended_filtered</span> <span class="o">-</span> <span class="n">seasonal_cycle_full</span>
+
+<span class="c1"># Add the residual to the dataset</span>
+<span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_high_pass_filtered&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="s1">&#39;record_id&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">),</span> <span class="n">residual</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+<span class="c1"># Plot the residual for each station</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">):</span>
+    <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_high_pass_filtered&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="tidal-component-is-predicted-with-fits-to-hourly-data">
+<h3>Tidal component is predicted with fits to hourly data<a class="headerlink" href="#tidal-component-is-predicted-with-fits-to-hourly-data" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">split_continuous_segments</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">max_gap_hours</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
+    <span class="c1"># Create a DataFrame from the time and data arrays</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">})</span>
+    
+    <span class="c1"># Calculate the time difference in hours</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">diff</span><span class="p">()</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span>
+    
+    <span class="c1"># Identify the start of new segments</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;segment&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;time_diff&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">max_gap_hours</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    
+    <span class="c1"># Group by the segment identifier and convert groups to list of tuples</span>
+    <span class="n">segments</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">group</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]))</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;segment&#39;</span><span class="p">)]</span>
+    
+    <span class="k">return</span> <span class="n">segments</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert time in rsl_hourly to fractional year, starting at 0</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">time</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="o">/</span><span class="mf">365.25</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check to make sure that data_dir/rsl_hawaii_tidal_predictions.nc exists, if not, run the following code to create it</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii_tidal_predictions.nc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rsl_hawaii_tidal_predictions.nc not found in ../../data. Will proceed with tidal analysis and prediction.&#39;</span><span class="p">)</span>
+
+
+    <span class="c1"># Prepare an empty array to store tidal predictions for all stations</span>
+    <span class="n">sea_level_shape</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+    <span class="n">tidal_predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">sea_level_shape</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>  <span class="c1"># Initialize with NaNs</span>
+
+    <span class="c1"># Perform tidal analysis and prediction for each station</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">station_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Processing &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station_id</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">))</span>
+
+        <span class="n">sea_level_data</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station_id</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="c1">#remove linear trend</span>
+        <span class="n">sea_level_data</span> <span class="o">=</span> <span class="n">sea_level_data</span> <span class="o">-</span> <span class="n">trend_rate</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station_id</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="o">*</span><span class="mi">1000</span><span class="o">*</span><span class="n">time</span>
+        <span class="c1"># print the % nans in the data</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Percentage of NaNs in the data: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;%&#39;</span><span class="p">)</span>
+        <span class="n">time_data</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">latitude</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station_id</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+        <span class="c1"># Convert time_data to pandas datetime format for UTide</span>
+        <span class="n">time_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">time_data</span><span class="p">)</span>
+
+        <span class="c1"># Split data into continuous segments</span>
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">split_continuous_segments</span><span class="p">(</span><span class="n">time_series</span><span class="p">,</span> <span class="n">sea_level_data</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Number of segments: &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)))</span>
+
+        <span class="c1"># Perform harmonic analysis on each segment</span>
+        <span class="k">for</span> <span class="n">segment</span> <span class="ow">in</span> <span class="n">segments</span><span class="p">:</span>
+            <span class="c1"># print counter</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Processing segment &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">segments</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">segment</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; of &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">segments</span><span class="p">)))</span>
+            <span class="n">segment_time</span><span class="p">,</span> <span class="n">segment_data</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">segment</span><span class="p">)</span>
+            <span class="n">segment_time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">segment_time</span><span class="p">)</span>
+            <span class="n">segment_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">segment_data</span><span class="p">)</span>
+    
+            <span class="c1"># Convert datetime to numeric format for interpolation</span>
+            <span class="n">segment_time_numeric</span> <span class="o">=</span> <span class="n">segment_time</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;datetime64[s]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    
+            <span class="c1"># Check for NaNs and interpolate to fill NaNs if needed</span>
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">segment_data</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">segment_data</span><span class="p">)</span>
+                <span class="n">interp_func</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">segment_time_numeric</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">],</span> <span class="n">segment_data</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">],</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">)</span>
+                <span class="n">segment_data</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">interp_func</span><span class="p">(</span><span class="n">segment_time_numeric</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+    
+            <span class="c1"># Perform harmonic analysis</span>
+            <span class="n">coef</span> <span class="o">=</span> <span class="n">utide</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">segment_time</span><span class="p">,</span> <span class="n">segment_data</span><span class="p">,</span> <span class="n">lat</span><span class="o">=</span><span class="n">latitude</span><span class="p">)</span>
+    
+            <span class="c1"># Predict the tide using the fitted model</span>
+            <span class="n">tide_pred</span> <span class="o">=</span> <span class="n">utide</span><span class="o">.</span><span class="n">reconstruct</span><span class="p">(</span><span class="n">segment_time</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span>
+    
+            <span class="c1"># Store the tidal predictions in the array</span>
+            <span class="k">for</span> <span class="n">t</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">segment_time</span><span class="p">,</span> <span class="n">tide_pred</span><span class="o">.</span><span class="n">h</span><span class="p">):</span>
+                <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">time_series</span> <span class="o">==</span> <span class="n">t</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">tidal_predictions</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">pred</span>
+    
+    <span class="c1"># Create the tidal predictions xarray Dataset with the same structure as rsl_hourly</span>
+    <span class="n">tidal_predictions_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">Dataset</span><span class="p">(</span>
+        <span class="n">data_vars</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tidal_prediction&#39;</span><span class="p">:</span> <span class="p">((</span><span class="s1">&#39;record_id&#39;</span><span class="p">,</span> <span class="s1">&#39;time&#39;</span><span class="p">),</span> <span class="n">tidal_predictions</span><span class="p">)},</span>
+        <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;record_id&#39;</span><span class="p">:</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="c1"># save rsl_daily_combined to the data directory</span>
+    <span class="n">tidal_predictions_ds</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii_tidal_predictions.nc&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tidal predictions saved to: </span><span class="si">{</span><span class="n">data_dir</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="s2">&quot;rsl_hawaii_tidal_predictions.nc&quot;</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rsl_hawaii_tidal_predictions.nc found in ../../data. Proceed.&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Reference all data to MHHW</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open rsl_hawaii_tidal_predictions.nc</span>
+<span class="n">rsl_hawaii_tidal_predictions</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii_tidal_predictions.nc&#39;</span><span class="p">)</span>
+<span class="c1">#</span>
+
+<span class="n">rsl_hawaii_tidal_predictions</span>
+<span class="c1">#Adjust the tidal precictions to be in MHHW</span>
+<span class="c1"># for station_id in rsl_hawaii_tidal_predictions.data_vars:</span>
+    <span class="c1"># rsl_hawaii_tidal_predictions[station_id] = rsl_hawaii_tidal_predictions[station_id] + rsl_hourly[&#39;MHHW&#39;].sel(record_id=int(station_id))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># reference it to MHHW</span>
+<span class="n">rsl_hawaii_tidal_predictions</span><span class="p">[</span><span class="s1">&#39;tidal_prediction_mhhw_m&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="p">(</span><span class="n">rsl_hawaii_tidal_predictions</span><span class="p">[</span><span class="s1">&#39;tidal_prediction&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">])</span>
+
+<span class="c1">#plot the tidal predictions for Honolulu</span>
+<span class="n">rid</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level_mhhw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">])</span>
+<span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level_mhhw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1"># rsl_daily[&#39;rsl_mhhw_detrended_interp&#39;].sel(record_id=rsl_daily.record_id[rid]).plot()</span>
+<span class="n">rsl_hawaii_tidal_predictions</span><span class="p">[</span><span class="s1">&#39;tidal_prediction_mhhw_m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="find-95-exceedence-threshold-for-tidal-component">
+<h4>Find 95% exceedence threshold for tidal component<a class="headerlink" href="#find-95-exceedence-threshold-for-tidal-component" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># &quot;The tidal contribution is the 95% exceedance threshold of daily highest water above the MHHW on each year-day.&quot;&quot;</span>
+
+<span class="c1"># first we&#39;ll get &quot;daily highest water&quot;</span>
+<span class="n">rsl_daily_max_tidal</span> <span class="o">=</span> <span class="n">rsl_hawaii_tidal_predictions</span><span class="p">[</span><span class="s1">&#39;tidal_prediction_mhhw_m&#39;</span><span class="p">]</span>
+<span class="c1"># .groupby(&#39;time.day&#39;).max(dim=&#39;time&#39;)</span>
+<span class="c1">#plot</span>
+<span class="c1"># get daily max tidal prediction by resampling to daily and taking the max</span>
+<span class="n">rsl_daily_max_tidal</span> <span class="o">=</span> <span class="n">rsl_daily_max_tidal</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="c1">#If we go by the exact wording in the Merrifield doc, it&#39;s the 95th percentile of the daily max tidal prediction</span>
+<span class="c1"># and we need to do this on year day</span>
+<span class="c1"># seasonal_cycle = rsl_daily[&#39;rsl_mhhw_detrended&#39;].groupby(&#39;time.dayofyear&#39;).median(dim=&#39;time&#39;) #NOTE I AM USING MEDIAN!!!</span>
+
+<span class="c1"># # get 95th percentile of rsl_daily_max_tidal</span>
+<span class="c1"># rsl_daily_max_tidal_95 = rsl_daily_max_tidal.quantile(0.95, dim=&#39;time&#39;)</span>
+
+<span class="c1"># rsl_daily_max_tidal_95</span>
+
+<span class="c1"># rsl_daily_max_tidal_95 = rsl_daily_max_tidal.groupby(&#39;time.dayofyear&#39;).quantile(0.95, dim=&#39;time&#39;)</span>
+<span class="c1"># rsl_daily_max_tidal_50 = rsl_daily_max_tidal.groupby(&#39;time.dayofyear&#39;).quantile(0.5, dim=&#39;time&#39;)</span>
+<span class="c1"># rsl_daily_max_tidal_5 = rsl_daily_max_tidal.groupby(&#39;time.dayofyear&#39;).quantile(0.05, dim=&#39;time&#39;)</span>
+
+
+<span class="c1"># rsl_daily_max_tidal_95</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>HF variability is the 95% exceedance threshold of the HF filtered data on each year day.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the 95th percentile of the HF residual data</span>
+<span class="n">rsl_daily_residual_95</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_high_pass_filtered&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;time.dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+<span class="n">rsl_daily_residual_95</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsl_low_frequency</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw_detrended_filtered&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span> <span class="o">+</span> <span class="n">trend_line</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
+
+<span class="c1"># plot rsl_low_frequency, trend_line</span>
+<span class="n">rsl_low_frequency</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">trend_line</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obtain TWL (H95) by stacking the seasonal sea level, tide contribution, and HF contribution</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">H95</span> <span class="o">=</span> <span class="n">seasonal_cycle</span><span class="o">+</span> <span class="n">rsl_daily_max_tidal_95</span><span class="o">+</span> <span class="n">rsl_daily_residual_95</span>
+<span class="n">H95</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="mi">570</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1"># seasonal_cycle.sel(record_id=570).plot()</span>
+<span class="n">rsl_daily_max_tidal_95</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="mi">570</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">rsl_daily_max_tidal_5</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="mi">570</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="n">rsl_daily_max_tidal_50</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="mi">570</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="c1"># rsl_daily_residual_95.sel(record_id=570).plot()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -549,7 +918,34 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#following-merrifield-firing-marra">Following Merrifield, Firing &amp; Marra:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#deconstruct-the-time-series-into-components-with-different-timescales">Deconstruct the time series into components with different timescales.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#get-high-pass-filtered-data">Get high-pass filtered data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-linear-trend">Remove linear trend</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-low-frequency-sl-variability">Obtain low-frequency SL variability</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#compute-the-seasonal-cycle-by-averaging-daily-mean-water-levels-over-all-years-for-each-year-day">Compute the seasonal cycle by averaging daily mean water levels over all years for each year day</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#obtain-high-frequency-data">Obtain High Frequency data</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tidal-component-is-predicted-with-fits-to-hourly-data">Tidal component is predicted with fits to hourly data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#find-95-exceedence-threshold-for-tidal-component">Find 95% exceedence threshold for tidal component</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

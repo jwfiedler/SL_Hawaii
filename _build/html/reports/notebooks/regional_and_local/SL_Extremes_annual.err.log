@@ -15,97 +15,34 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# check to make sure that data_dir/rsl_hawaii_tidal_predictions.nc exists, if not, run the following code to create it
-if not (data_dir / 'rsl_hawaii_tidal_predictions.nc').exists():
-    print('rsl_hawaii_tidal_predictions.nc not found in ../../data. Will proceed with tidal analysis and prediction.')
+fig,ax = model.plot_return_values(alpha=0.95, return_period=np.arange(1.3,500,2),n_samples=1000, plotting_position='weibull')
+ax.set_ylim(0.1,0.5)
 
 
-    # Prepare an empty array to store tidal predictions for all stations
-    sea_level_shape = rsl_hourly['sea_level'].shape
-    tidal_predictions = np.full(sea_level_shape, np.nan)  # Initialize with NaNs
+# add lines for the 2, 5, 10, 50, and 100 year return periods
 
-    # Perform tidal analysis and prediction for each station
-    for i, station_id in enumerate(rsl_hourly['record_id'].values):
-        print('Processing ' + str(rsl_hourly['station_name'].sel(record_id=station_id).values))
+colors = ['r','g','b','c']
+for return_period, color in zip(return_periods, colors):
+    ax.axvline(x=return_period, color=color, label=f'{return_period} year return period')
+    ax.text(return_period, 0.12, f'{return_period} years', rotation=90, 
+            verticalalignment='bottom',backgroundcolor='w',horizontalalignment='center',
+            fontsize=10)
 
-        sea_level_data = rsl_hourly['sea_level'].sel(record_id=station_id).values
-        #remove linear trend
-        sea_level_data = sea_level_data - trend_rate.sel(record_id=station_id).values*1000*time
-        # print the % nans in the data
-        print('Percentage of NaNs in the data: ' + str(np.isnan(sea_level_data).sum() / len(sea_level_data) * 100) + '%')
-        time_data = rsl_hourly['time'].values
-        latitude = rsl_hourly['lat'].sel(record_id=station_id).values
-
-        # Convert time_data to pandas datetime format for UTide
-        time_series = pd.to_datetime(time_data)
-
-        # Split data into continuous segments
-        segments = split_continuous_segments(time_series, sea_level_data)
-        print('Number of segments: ' + str(len(segments)))
-
-        # Perform harmonic analysis on each segment
-        for segment in segments:
-            # print counter
-            print('Processing segment ' + str(segments.index(segment) + 1) + ' of ' + str(len(segments)))
-            segment_time, segment_data = zip(*segment)
-            segment_time = np.array(segment_time)
-            segment_data = np.array(segment_data)
-    
-            # Convert datetime to numeric format for interpolation
-            segment_time_numeric = segment_time.astype('datetime64[s]').astype(np.float64)
-    
-            # Check for NaNs and interpolate to fill NaNs if needed
-            if np.isnan(segment_data).any():
-                mask = np.isnan(segment_data)
-                interp_func = interp1d(segment_time_numeric[~mask], segment_data[~mask], kind='linear', fill_value="extrapolate")
-                segment_data[mask] = interp_func(segment_time_numeric[mask])
-    
-            # Perform harmonic analysis
-            coef = utide.solve(segment_time, segment_data, lat=latitude)
-    
-            # Predict the tide using the fitted model
-            tide_pred = utide.reconstruct(segment_time, coef)
-    
-            # Store the tidal predictions in the array
-            for t, pred in zip(segment_time, tide_pred.h):
-                idx = np.where(time_series == t)[0][0]
-                tidal_predictions[i, idx] = pred
-    
-    # Create the tidal predictions xarray Dataset with the same structure as rsl_hourly
-    tidal_predictions_ds = xr.Dataset(
-        data_vars={'tidal_prediction': (('record_id', 'time'), tidal_predictions)},
-        coords={'time': rsl_hourly['time'].values, 'record_id': rsl_hourly['record_id'].values}
-    )
-
-    # save rsl_daily_combined to the data directory
-    tidal_predictions_ds.to_netcdf(data_dir / 'rsl_hawaii_tidal_predictions.nc')
-    print(f'Tidal predictions saved to: {data_dir / "rsl_hawaii_tidal_predictions.nc"}')
-
-else:
-    print('rsl_hawaii_tidal_predictions.nc found in ../../data. Proceed.')
-
-
+fig.set_size_inches(5,3)
 
 ------------------
 
------ stdout -----
-rsl_hawaii_tidal_predictions.nc not found in ../../data. Will proceed with tidal analysis and prediction.
-Processing Midway
-Percentage of NaNs in the data: <xarray.DataArray 'time' ()> Size: 8B
-array(39.21078226)%
------ stdout -----
-Number of segments: 1
-Processing segment 1 of 1
-------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[21], line 47[0m
-[1;32m     44[0m     segment_data[mask] [38;5;241m=[39m interp_func(segment_time_numeric[mask])
-[1;32m     46[0m [38;5;66;03m# Perform harmonic analysis[39;00m
-[0;32m---> 47[0m coef [38;5;241m=[39m [43mutide[49m[38;5;241m.[39msolve(segment_time, segment_data, lat[38;5;241m=[39mlatitude)
-[1;32m     49[0m [38;5;66;03m# Predict the tide using the fitted model[39;00m
-[1;32m     50[0m tide_pred [38;5;241m=[39m utide[38;5;241m.[39mreconstruct(segment_time, coef)
+Cell [0;32mIn[10], line 8[0m
+[1;32m      5[0m [38;5;66;03m# add lines for the 2, 5, 10, 50, and 100 year return periods[39;00m
+[1;32m      7[0m colors [38;5;241m=[39m [[38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mg[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mb[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mc[39m[38;5;124m'[39m]
+[0;32m----> 8[0m [38;5;28;01mfor[39;00m return_period, color [38;5;129;01min[39;00m [38;5;28mzip[39m([43mreturn_periods[49m, colors):
+[1;32m      9[0m     ax[38;5;241m.[39maxvline(x[38;5;241m=[39mreturn_period, color[38;5;241m=[39mcolor, label[38;5;241m=[39m[38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mreturn_period[38;5;132;01m}[39;00m[38;5;124m year return period[39m[38;5;124m'[39m)
+[1;32m     10[0m     ax[38;5;241m.[39mtext(return_period, [38;5;241m0.12[39m, [38;5;124mf[39m[38;5;124m'[39m[38;5;132;01m{[39;00mreturn_period[38;5;132;01m}[39;00m[38;5;124m years[39m[38;5;124m'[39m, rotation[38;5;241m=[39m[38;5;241m90[39m, 
+[1;32m     11[0m             verticalalignment[38;5;241m=[39m[38;5;124m'[39m[38;5;124mbottom[39m[38;5;124m'[39m,backgroundcolor[38;5;241m=[39m[38;5;124m'[39m[38;5;124mw[39m[38;5;124m'[39m,horizontalalignment[38;5;241m=[39m[38;5;124m'[39m[38;5;124mcenter[39m[38;5;124m'[39m,
+[1;32m     12[0m             fontsize[38;5;241m=[39m[38;5;241m10[39m)
 
-[0;31mNameError[0m: name 'utide' is not defined
+[0;31mNameError[0m: name 'return_periods' is not defined
 
