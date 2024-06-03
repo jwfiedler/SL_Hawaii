@@ -1,0 +1,959 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sea Level Products</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Sea Level Products</h2>
+        <p>These example product sets are generated through a series of jupyter notebooks. For more details, click on the linked notebooks in the indicator column.</p>
+    <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link active" id="annual-tab" data-toggle="tab" href="#annual">Annual</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="intraannual-tab" data-toggle="tab" href="#intraannual">Intra-Annual</a>
+        </li>
+    </ul>
+    
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="annual">
+            <table>
+                <tr>
+                    <th>Variable</th>
+                    <th>Indicator</th>
+                    <th>Indicator Type</th>
+                    <th>Historical</th>
+                    <th>Projections</th>
+                </tr>
+                <tr>
+                    <td rowspan="8">1.0 Sea Level Magnitude</td>
+                    <td><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_magnitude.html">1.1 Sea Level Trend</a></td>
+                    <td></td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
+                            <div class="hover-content">
+                                <span class="nav-arrow left" onclick="prevImage(this)">&#9664;</span>
+                                <span class="nav-arrow right" onclick="nextImage(this)">&#9654;</span>
+                                <div class="image-container">
+                                    <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_map.png" download>
+                                        <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_map.png" alt="Historical Figure" class="active">
+                                    </a>
+                                </div>
+                                <div class="caption">Figure 1.1.1 Map of absolute and relative sea level change from the altimetry and tide gauge record near the Hawaiian Islands stations from 1993-01-01 to 2022-12-31.</div>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <div class="image-container">
+                                <div class="image-container-multi">
+                                    <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_timeseries_500.png" download>
+                                        <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_timeseries_500.png" alt="Historical Plot" >
+                                    </a>
+                                    </div>
+                                <div class="caption"><b>Figure XXX</b> Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the Midway tide gauge record from 1993-01-01 to 2022-12-31.</div>
+                                <div class="image-container-multi">
+                                    <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_timeseries.png" download>
+                                        <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_timeseries.png" alt="Historical Plot" >
+                                    </a>
+                                </div>
+                                <div class="caption"><b>Figure XXX</b> Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the Hawaiian Islands stations from 1993-01-01 to 2022-12-31.</div>
+                            
+                            </div>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_results.csv" download>
+                                    Download Table</a>
+                                <div id="csv-table-container" class="table-bordered table-striped table-sm table-responsive table-csv"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_image.png" alt="Projection Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_plot.png" alt="Projection Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_table.png" alt="Projection Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_anomaly.html">1.2 Sea Level Anomaly</a></td>
+                    <td> </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_YMA_annual.png" download>
+                                    <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_YMA_annual.png" alt="Annual Historical Figure" >
+                                </a>
+                                <div class="caption">Figure 1.2.a.4 Decadal (or bidecadal, is that a word) mean anomalies of the Hawaiian Islands region, background trend (Storm Years 1993-2023) removed. Note that the sea level is plotted in units of m. The mean anomaly is near zero when using the full timeseries and grid-level trends (i.e. no area-weighted averaging). Mean monthly anomalies at the stations are plotted as well.</div>
+        
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <div class="image-container">
+                                <div class="image-container-multi">
+                                    <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_MMA_annual_Kawaihae.png" download>
+                                        <img id="current-image" src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_MMA_annual_Kawaihae.png" alt="Ugh"></a>
+                                </div>  
+                                <div class="caption"><b>Figure XXX</b> Yearly mean anomalies at the Kawaihae tide gauge with background trend removed (blue). The shaded region about the annual mean denotes the annual means of the daily min and max sea level. Note that the sea level is plotted in units of m. The monthly mean anomaly (gray) is calculated with respect to the annual cycle. El Niño and La Niño time periods are derived from the <a href="https://origin.cpc.ncep.noaa.gov/products/analysis_monitoring/ensostuff/ONI_v5.php">Oceanic Niño Index (ONI)</a>.</div>
+                                <div class="image-container-multi">
+                                    <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_MMA_annual.png" download>
+                                        <img id="current-image" src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_MMA_annual.png" alt="Ugh">
+                                </div>  
+                                <div class="caption"><b>Figure XXX</b> Yearly mean anomalies at all Hawaiian Island region tide gauges with background trend removed (blue). The shaded region about the annual mean denotes the annual means of the daily min and max sea level. Note that the sea level is plotted in units of m. The monthly mean anomaly (gray) is calculated with respect to the annual cycle. </div>
+                            </div>
+                            
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_annual_table.png" alt="Annual Historical Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_annual_image.png" alt="Annual Projection Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_annual_plot.png" alt="Annual Projection Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_annual_table.png" alt="Annual Projection Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Rankings.html">1.3 Rankings</a></td>
+                    <td > </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_map.png" download>
+                                    <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_map.png" alt="Annual Historical Rankings Figure" >
+                                </a>
+                                <div class="caption"><b>Figure XXX.</b> Lowest and highest observed sea levels, relative to MHHW.</div>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_Kahului.png" download>
+                                    <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_Kahului.png" alt="Annual Historical Rankings Plot" >
+                                </a>
+                            <div class="caption"><b>Figure XXX.</b> Lowest and highest observed sea levels, relative to MHHW, at the Kahului tide gauge. El Niño events are highlighted with red stars, and La Niña events are highlighted with blue circles. The monthly mean sea level is shown in solid blue, with the monthly minimum and maximum (range) shown in shaded light blue.</div>
+
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_top_10_table_Honolulu, Hawaii.csv" download>
+                                    Annual Historical Rankings Table
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_rankings_annual_image.png" alt="Annual Projection Rankings Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_rankings_annual_plot.png" alt="Annual Projection Rankings Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_rankings_annual_table.png" alt="Annual Projection Rankings Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td rowspan="3"><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Extremes.html">1.4 Extremes</a></td>
+                    <td>1.4.1 Station-based Stationary</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings.png" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_plot.png" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>1.4.2 Station-based Nonstationary</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture1.jpg" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td >1.4.3 RFA-based</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture2.jpg" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_plot.png" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture3.jpg" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td rowspan="2"><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Components.html">1.5 Components</a></td>
+                    <td >1.5.1 Trend</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture4.jpg" alt="Annual Components Trend Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>1.5.2 Extreme (NTR)</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture5.jpg" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/HIregion_amp.png" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture7.jpg" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+        
+                <tr>
+                    <td rowspan="2">2.0 Minor Flood Frequency<br> and Duration</td>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/FloodFrequency.html">2.1 Minor Flood Frequency</a></td>
+                    <td></td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_map.png" download>
+                                    <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_map.png" alt="Annual Historical Minor Flood Figure" >
+                                    <div class="caption"><b>Figure XXX.</b> Map of the rate of change in average flood (a) days and (b) hours per year above the 99th threshold of water levels at at the Hawaiian Islands tide gauges from 1983-01-01 to 2023-12-31.</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <div class="image-container">
+                                    <div class="image-container-multi">
+                                        <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_Honolulu, Hawaii.png" download>
+                                            <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_Honolulu, Hawaii.png" alt="Annual Historical Minor Flood Plot" >
+                                        </a>
+                                        <div class="caption"><b>Figure XXX.</b> Average flood duration in hours above a threshold of 30 cm per year for the Honolulu tide gauge from 1983-01-01 to 2023-12-31.
+                                    </div>
+                                    </div>
+                                    <div class="image-container-multi">
+                                        <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_hours.png" download>
+                                            <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_hours.png" alt="Annual Historical Minor Flood Plot" >
+                                        </a>
+                                        <div class="caption"><b>Figure XXX.</b> Average flood duration in hours above a threshold of 30 cm per year for 'Hawaiian Islands' region tide gauges from 1983-01-01 to 2023-12-31.
+                                    </div>
+                                    </div>  
+                                
+                                </div>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_minor_flood_annual_table.png" alt="Annual Historical Minor Flood Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_minor_flood_annual_image.png" alt="Annual Projection Minor Flood Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_minor_flood_annual_plot.png" alt="Annual Projection Minor Flood Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_minor_flood_annual_table.png" alt="Annual Projection Minor Flood Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+        
+                <tr>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/FloodDuration.html">2.2 Flood Duration</a></td>
+                    <td > </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_flood_duration_annual_image.png" alt="Annual Historical Flood Duration Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture8.jpg" alt="Annual Historical Flood Duration Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_flood_duration_annual_table.png" alt="Annual Historical Flood Duration Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_flood_duration_annual_image.png" alt="Annual Projection Flood Duration Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_flood_duration_annual_plot.png" alt="Annual Projection Flood Duration Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_flood_duration_annual_table.png" alt="Annual Projection Flood Duration Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+        <div class="tab-pane fade" id="intraannual">
+            <table>
+                <tr>
+                    <th>Variable</th>
+                    <th>Indicator</th>
+                    <th>Indicator Type</th>
+                    <th>Historical</th>
+                    <th>Outlooks</th>
+                </tr>
+                <tr>
+                    <td rowspan="6">1.0 Sea Level Magnitude</td>
+                    <td><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_anomaly_intra-annual.html">1.1 Sea Level Anomaly</a></td>
+                    <td></td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
+                            <div class="hover-content">
+                                <span class="nav-arrow left" onclick="prevImage(this)">&#9664;</span>
+                                <span class="nav-arrow right" onclick="nextImage(this)">&#9654;</span>
+                                <div class="image-container">
+                                    <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_anomaly_map.png" download>
+                                        <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_anomaly_map.png" alt="Historical Figure" class="active">
+                                    </a>
+                                </div>
+                                <div class="caption"><b>Figure XXX</b> Map of absolute monthly mean sea level anomalies from altimetry for the full record at Hawaiian Islands stations from 1993-01-01 to 2022-12-31.</div>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_MMMA_intra.png" download>
+                                    <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_MMMA_intra.png" alt="Historical Plot" >
+                                </a>
+                                <div class="caption"><b>Figure XXX</b> Monthly means at the Honolulu tide gauge for the epoch 1983-2001. Note that the sea level is plotted in units of m, relative to . Note also that this differs from the plot available at <a href="https://uhslc.soest.hawaii.edu/stations/?stn=057#climatology">UHSLC</a>, because we are using records only from the epoch.
+
+                            </div>
+                            </div>
+
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <a href="" download>Download Table</a>
+                                <div id="csv-table-container" class="table-bordered table-striped table-sm table-responsive table-csv"></div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_image.png" alt="Projection Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_plot.png" alt="Projection Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_table.png" alt="Projection Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td >1.2 Rankings</td>
+                    <td > </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <a href="" download>
+                                    <img src="" alt="Annual Historical Rankings Figure" >
+                                </a>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_Honolulu, Hawaii.png" download>
+                                    <img src="placeholders/Picture9.jpg" alt="Intra-Annual Historical Rankings Plot" >
+                                </a>
+                                <div class="caption"><b>Figure XXX.</b> Timeseries of lowest and highest observed sea levels, relative to MHHW. Monthly means are shown in solid blue, with the range (monthly max and monthly min) shown in shaded light blue. Blue circles indicate La Niña events, red stars indicate El Niño events.</div>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <a href="" download>
+                                    Intra-Annual Historical Rankings Table
+                                </a>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_rankings_annual_image.png" alt="Annual Projection Rankings Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_rankings_annual_plot.png" alt="Annual Projection Rankings Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_rankings_annual_table.png" alt="Annual Projection Rankings Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td rowspan="3">1.3 Extremes</td>
+                    <td>1.4.1 Station-based Stationary</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_plot.png" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td>1.4.2 Station-based Nonstationary</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings.png" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_plot.png" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td >1.4.3 RFA-based</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings.png" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_plot.png" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Components.html">1.4 Components</a></td>
+                    <td >1.4.1 Extremes</td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings.png" alt="Annual Historical Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <img src="placeholders/Picture10.jpg" alt="Annual Historical Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_image.png" alt="Annual Projection Extremes Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_plot.png" alt="Annual Projection Extremes Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                
+        
+                <tr>
+                    <td rowspan="2">2.0 Minor Flood Frequency<br> and Duration</td>
+                    <td >2.1 Minor Flood Frequency</td>
+                    <td></td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                    <img src="notyet.png" alt="Annual Historical Minor Flood Figure" >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
+                            <div class="hover-content">
+                                <a href="placeholders/Picture11.jpg" download>
+                                    <img src="placeholders/Picture11.jpg" alt="Intra-Annual Historical Minor Flood Plot" >
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_minor_flood_annual_table.png" alt="Annual Historical Minor Flood Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_minor_flood_annual_image.png" alt="Annual Projection Minor Flood Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_minor_flood_annual_plot.png" alt="Annual Projection Minor Flood Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_minor_flood_annual_table.png" alt="Annual Projection Minor Flood Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+        
+                <tr>
+                    <td >2.2 Flood Duration</td>
+                    <td > </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_flood_duration_annual_image.png" alt="Annual Historical Flood Duration Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_flood_duration_annual_plot.png" alt="Annual Historical Flood Duration Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_historical_flood_duration_annual_table.png" alt="Annual Historical Flood Duration Table"  >
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_flood_duration_annual_image.png" alt="Annual Projection Flood Duration Figure"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_flood_duration_annual_plot.png" alt="Annual Projection Flood Duration Plot"  >
+                            </div>
+                        </div>
+                        <div class="icon">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <div class="hover-content">
+                                <img src="path_to_projection_flood_duration_annual_table.png" alt="Annual Projection Flood Duration Table"  >
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>

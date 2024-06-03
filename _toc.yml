@@ -4,29 +4,35 @@
 format: jb-book
 root: intro.md
 parts:
-  - caption: Getting Started
+  - caption: Getting started
     chapters:
     - file: gettingStarted.md
       sections:
       - file: notebooks/setup.ipynb
       - file: notebooks/SL_Data_Wrangling.ipynb
-  - caption: Regional and Local Sea Level
+  - caption: ANNUAL
     chapters:
-    - file: notebooks/regional_and_local/SL_magnitude.ipynb
-    - file: notebooks/regional_and_local/SL_anomaly.md
+    - file: notebooks/SL_annual.md
       sections:
+      - file: notebooks/regional_and_local/SL_Trend.ipynb
       - file: notebooks/regional_and_local/SL_anomaly_annual.ipynb
-      - file: notebooks/regional_and_local/SL_anomaly_intra-annual.ipynb
-    - file: notebooks/regional_and_local/SL_Rankings.md
-      sections:
       - file: notebooks/regional_and_local/SL_Rankings_annual.ipynb
-      - file: notebooks/regional_and_local/SL_Rankings_intra-annual.md
-    - file: notebooks/regional_and_local/SL_Extremes.md
-      sections:
       - file: notebooks/regional_and_local/SL_Extremes_annual.ipynb
-      - file: notebooks/regional_and_local/SL_Extremes_intra-annual.ipynb
-    - file: notebooks/regional_and_local/SL_Components.ipynb
-  - caption: Minor Flood Frequency and Duration
+      - file: notebooks/regional_and_local/SL_Components_annual.ipynb
+    - file: notebooks/Flood.md
+      sections:
+      - file: notebooks/FloodFrequency.ipynb
+      - file: notebooks/FloodDuration.ipynb  
+  - caption: INTRA-ANNUAL
     chapters:
-    - file: notebooks/FloodFrequency.ipynb
-    - file: notebooks/FloodDuration.ipynb
+    - file: notebooks/SL_intra-annual.md
+      sections:
+      - file: notebooks/regional_and_local/SL_anomaly_intra-annual.ipynb
+      - file: notebooks/regional_and_local/SL_Rankings_intra-annual.md
+      - file: notebooks/regional_and_local/SL_Extremes_intra-annual.ipynb
+      - file: notebooks/regional_and_local/SL_Components_intra-annual.ipynb
+    - file: notebooks/Flood_intra-annual.md
+      sections:
+      - file: notebooks/FloodFrequency_intra-annual.ipynb
+      - file: notebooks/FloodDuration_intra-annual.ipynb
+  
