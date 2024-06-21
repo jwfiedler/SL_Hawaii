@@ -6,16 +6,14 @@
     <title>Sea Level Products</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./custom.css">
     
 </head>
 <body>
     <div class="container">
         <h2>Sea Level Products</h2>
         <p>These example product sets are generated through a series of jupyter notebooks. For more details, click on the linked notebooks in the indicator column.</p>
+        <h3_custom> <center>NOTE: For internal use only. This site and its products are in development.</center></h3_custom>
     <ul class="nav nav-pills">
         <li class="nav-item">
             <a class="nav-link active" id="annual-tab" data-toggle="tab" href="#annual">Annual</a>
@@ -37,20 +35,26 @@
                 </tr>
                 <tr>
                     <td rowspan="8">1.0 Sea Level Magnitude</td>
-                    <td><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_magnitude.html">1.1 Sea Level Trend</a></td>
+                    <td><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Trend.html">1.1 Sea Level Trend</a></td>
                     <td></td>
                     <td>
                         <div class="icon">
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
                             <div class="hover-content">
-                                <span class="nav-arrow left" onclick="prevImage(this)">&#9664;</span>
-                                <span class="nav-arrow right" onclick="nextImage(this)">&#9654;</span>
-                                <div class="image-container">
-                                    <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_map.png" download>
-                                        <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_map.png" alt="Historical Figure" class="active">
-                                    </a>
-                                </div>
-                                <div class="caption">Figure 1.1.1 Map of absolute and relative sea level change from the altimetry and tide gauge record near the Hawaiian Islands stations from 1993-01-01 to 2022-12-31.</div>
+                                   <div class="image-container">
+                                          <div class="image-container-multi">
+                                              <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_map.png" download>
+                                                  <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_map.png" alt="Historical Figure" class="active">
+                                              </a>
+                                          </div>
+                                          <div class="caption"><b>Figure XXX</b> Map of absolute and relative sea level change from the altimetry and tide gauge record (dots) near the Hawaiian Islands stations from 1993-01-01 to 2022-12-31. White dots indicate station locations that do not have suitable records for this analysis. See <a href="https://ccar.colorado.edu/altimetry/"> The Sea Level Explorer</a> for more.</div>
+                                          
+                                          <div class="image-container-multi">
+                                             <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/cmems_trend_rate_1993_2023.png" download>
+                                                 <img id="current-image" src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/cmems_trend_rate_1993_2023.png" alt="Ugh"></a>
+                                          </div>  
+                                          <div class="caption"><b>Figure XXX</b> Background trend of sea level anomalies relative to 1993-2001 epoch, using Storm Years.</a>.</div>
+                                   </div>
                             </div>
                         </div>
                         <div class="icon">
@@ -62,7 +66,7 @@
                                         <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_timeseries_500.png" alt="Historical Plot" >
                                     </a>
                                     </div>
-                                <div class="caption"><b>Figure XXX</b> Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the Midway tide gauge record from 1993-01-01 to 2022-12-31.</div>
+                                <div class="caption"><b>Figure XXX</b> Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the Midway tide gauge record from 1993-01-01 to 2022-12-31. See <a href="https://ccar.colorado.edu/altimetry/"> The Sea Level Explorer</a> for more.</div>
                                 <div class="image-container-multi">
                                     <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_timeseries.png" download>
                                         <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_timeseries.png" alt="Historical Plot" >
@@ -74,11 +78,12 @@
                             </div>
                         </div>
                         <div class="icon">
-                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png' >
                             <div class="hover-content">
                                 <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_magnitude_results.csv" download>
-                                    Download Table</a>
-                                <div id="csv-table-container" class="table-bordered table-striped table-sm table-responsive table-csv"></div>
+                                    <img src="output/SL_Trend.png" alt="Sea Level Trend"  >     
+                                </a>
+                                <div class="caption"><b>Table XXX</b> Sea level trend results for the Hawaiian Islands region from 1993 to 2023. </div> 
                             </div>
                         </div>
                     </td>
@@ -104,18 +109,22 @@
                     </td>
                 </tr>
                 <tr>
-                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_anomaly.html">1.2 Sea Level Anomaly</a></td>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_anomaly_annual.html">1.2 Sea Level Anomaly</a></td>
                     <td> </td>
                     <td>
                         <div class="icon">
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
                             <div class="hover-content">
-                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_YMA_annual.png" download>
-                                    <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_YMA_annual.png" alt="Annual Historical Figure" >
-                                </a>
-                                <div class="caption">Figure 1.2.a.4 Decadal (or bidecadal, is that a word) mean anomalies of the Hawaiian Islands region, background trend (Storm Years 1993-2023) removed. Note that the sea level is plotted in units of m. The mean anomaly is near zero when using the full timeseries and grid-level trends (i.e. no area-weighted averaging). Mean monthly anomalies at the stations are plotted as well.</div>
-        
-                            </div>
+                                   <div class="image-container">
+                                   
+                                   <div class="image-container-multi">
+                                       <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_anomaly_annual_map_decadal.png" download>
+                                           <img id="current-image" src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_anomaly_annual_map_decadal.png" alt="Ugh">
+                                   </div>  
+                                   <div class="caption"><b>Figure XXX</b> Decadal mean anomalies of the Hawaiian Islands region, background trend (Storm Years 1993-2023) removed. Note that the sea level is plotted in units of m. The mean anomaly is near zero when using the full timeseries and grid-level trends (i.e. no area-weighted averaging). Mean monthly anomalies at the stations are plotted as well. </div>
+                               </div>
+                               
+                               </div>
                         </div>
                         <div class="icon">
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
@@ -165,7 +174,7 @@
                 </tr>
                 
                 <tr>
-                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Rankings.html">1.3 Rankings</a></td>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Rankings_annual.html">1.3 Rankings</a></td>
                     <td > </td>
                     <td>
                         <div class="icon">
@@ -177,22 +186,24 @@
                                 <div class="caption"><b>Figure XXX.</b> Lowest and highest observed sea levels, relative to MHHW.</div>
                             </div>
                         </div>
-                        <div class="icon">
+                        <div class="icon" >
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
                             <div class="hover-content">
                                 <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_Kahului.png" download>
                                     <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_Kahului.png" alt="Annual Historical Rankings Plot" >
                                 </a>
+                                
                             <div class="caption"><b>Figure XXX.</b> Lowest and highest observed sea levels, relative to MHHW, at the Kahului tide gauge. El Niño events are highlighted with red stars, and La Niña events are highlighted with blue circles. The monthly mean sea level is shown in solid blue, with the monthly minimum and maximum (range) shown in shaded light blue.</div>
-
                             </div>
+                            
                         </div>
-                        <div class="icon">
-                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
+                        <div class="icon" ">
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png' >
                             <div class="hover-content">
                                 <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_top_10_table_Honolulu, Hawaii.csv" download>
-                                    Annual Historical Rankings Table
+                                   <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_top_10_table_Honolulu,Hawaii.png" alt="Annual Historical Rankings Table" >
                                 </a>
+                                <div class="caption"><b>Table XXX.</b> Top 10 minimum and maximum water levels, relative to MHHW for the Honolulu tide gauge. </div> 
                             </div>
                         </div>
                     </td>
@@ -219,25 +230,44 @@
                 </tr>
                 
                 <tr>
-                    <td rowspan="3"><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Extremes.html">1.4 Extremes</a></td>
-                    <td>1.4.1 Station-based Stationary</td>
+                    <td rowspan="3">1.4 Extremes</td>
+                    <td><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Extremes_annual.html">1.4.1 Station-based Stationary</a></td>
                     <td>
                         <div class="icon">
-                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_bw_small.png'>
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/map_emoji_small.png'>
                             <div class="hover-content">
-                                <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings.png" alt="Annual Historical Extremes Figure"  >
+                                <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_extremes_map.png" alt="Annual Historical Extremes Figure"  >
+                                <div class="caption"><b>Figure XXX.</b> Extreme water levels at the 2,10,50, and 100 year return periods for Hawaiian Island stations, using stationary GEV analysis.</div>
+
                             </div>
                         </div>
                         <div class="icon">
-                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_small.png'>
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
                             <div class="hover-content">
-                                <img src="path_to_historical_extremes_annual_plot.png" alt="Annual Historical Extremes Plot"  >
+                                   <div class="image-container">
+                                   <div class="image-container-multi">
+                                          <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_extremes_monthly_annual_maxima.png" alt="Annual Historical Extremes Plot"  >
+                                          <div class="caption"><b>Figure XXX.</b> Annual and monthly extremes above MHHW for the Honolulu tide gauge. Colored horizontal lines indicate the 2,10,50 and 100 year return levels.</div>
+                                   </div>
+                                   <div class="image-container-multi">
+                                          <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_extremes_return_values.png" alt="Return Values Plot" width="300px" >
+                                          <div class="caption"><b>Figure XXX.</b> Return values plot, stationary station-based. Colored vertical lines indicate the 2,10,50 and 100 year return levels. </div>
+                                   </div>
+                                   <div class="image-container-multi">
+                                          <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_extremes_histogram_pp_qq.png" alt="Return Values Plot"  >
+                                          <div class="caption"><b>Figure XXX.</b> Histogram, pp, qq plots for stationary GEV at the Honolulu tide gauge. </div>
+                                   </div>
+                                   </div>
                             </div>
                         </div>
                         <div class="icon">
-                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
                             <div class="hover-content">
-                                <img src="path_to_historical_extremes_annual_table.png" alt="Annual Historical Extremes Table"  >
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_extremesHonolulu,Hawaii.csv" download>
+                                   <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_rankings_merge_Honolulu,Hawaii.png" alt="Annual Historical Extremes Table" height="400px" >
+                               </a>
+                               <div class="caption"><b>Table XXX.</b> Extreme water levels, coupled with the 2,10,50, and 100 year return period water levels 
+                                   for the Honolulu tide gauge, using nonstationary GEV analysis. See also <a href="https://pacificislandsflooding.org/observed-flooding?station-id=057&units=meters&threshold=030"> the Pacific Islands Flooding tool </a>: Extreme Water Levels table. </div>
                             </div>
                         </div>
                     </td>
@@ -352,7 +382,7 @@
                 </tr>
                 
                 <tr>
-                    <td rowspan="2"><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Components.html">1.5 Components</a></td>
+                    <td rowspan="2"><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Components_annual.html">1.5 Components</a></td>
                     <td >1.5.1 Trend</td>
                     <td>
                         <div class="icon">
@@ -364,9 +394,11 @@
                         <div class="icon">
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
                             <div class="hover-content">
-                                <img src="placeholders/Picture4.jpg" alt="Annual Components Trend Plot"  >
-                            </div>
-                        </div>
+                                <img src="placeholders/Picture4.jpg" alt="Annual Components Trend Plot" height="300px" >
+                            
+                                   <div class="caption"><b>Figure XXX.</b> Components of sea level trend at the Honolulu tide gauge. See the <a href="https://pacificislandsflooding.org/sea-level-rise?station-id=057&units=meters&threshold=030">PI-Casc Flooding Tool</a>.</div>
+                            </div>   
+                     </div>
                         <div class="icon">
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
                             <div class="hover-content">
@@ -409,6 +441,7 @@
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
                             <div class="hover-content">
                                 <img src="placeholders/HIregion_amp.png" alt="Annual Historical Extremes Plot"  >
+                                <div class="caption"><b>Figure XXX.</b> Amplitude of individual covariate contributions (seasonal, long-term trend, climate variability and nodal tidal cycle) to sea level in the location parameter.  The amplitude of each factor is displayed in centimeters.</div>
                             </div>
                         </div>
                         <div class="icon">
@@ -434,6 +467,7 @@
                         <div class="icon">
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
                             <div class="hover-content">
+                                   <div id="table-content-container"> </div>
                                 <img src="path_to_projection_extremes_annual_table.png" alt="Annual Projection Extremes Table"  >
                             </div>
                         </div>
@@ -451,36 +485,50 @@
                             <div class="hover-content">
                                 <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_map.png" download>
                                     <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_map.png" alt="Annual Historical Minor Flood Figure" >
-                                    <div class="caption"><b>Figure XXX.</b> Map of the rate of change in average flood (a) days and (b) hours per year above the 99th threshold of water levels at at the Hawaiian Islands tide gauges from 1983-01-01 to 2023-12-31.</div>
                                 </a>
+                                <div class="caption"><b>Figure XXX.</b> Map of the rate of change in average flood (a) days and (b) hours per year above the 99th threshold of water levels at at the Hawaiian Islands tide gauges from 1983-01-01 to 2023-12-31.</div>
                             </div>
                         </div>
                         <div class="icon">
                             <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/plot_icon_color_small.png'>
                             <div class="hover-content">
-                                <div class="image-container">
-                                    <div class="image-container-multi">
-                                        <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_Honolulu, Hawaii.png" download>
-                                            <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_Honolulu, Hawaii.png" alt="Annual Historical Minor Flood Plot" >
-                                        </a>
-                                        <div class="caption"><b>Figure XXX.</b> Average flood duration in hours above a threshold of 30 cm per year for the Honolulu tide gauge from 1983-01-01 to 2023-12-31.
-                                    </div>
-                                    </div>
-                                    <div class="image-container-multi">
-                                        <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_hours.png" download>
-                                            <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_hours.png" alt="Annual Historical Minor Flood Plot" >
-                                        </a>
-                                        <div class="caption"><b>Figure XXX.</b> Average flood duration in hours above a threshold of 30 cm per year for 'Hawaiian Islands' region tide gauges from 1983-01-01 to 2023-12-31.
-                                    </div>
-                                    </div>  
-                                
-                                </div>
+                                   <div class="image-container">
+                                          <div class="image-container-multi">
+                                              <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_Honolulu, Hawaii.png" download>
+                                                  <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_Honolulu, Hawaii.png" alt="Annual Historical Minor Flood Plot" width="100%" >
+                                              </a>
+                                              <div class="caption"><b>Figure XXX.</b> Average flood duration in <b>days</b> above a threshold of 30 cm per year for the Honolulu tide gauge from 1983-01-01 to 2023-12-31.</div>
+                                          </div>
+                                          <div class="image-container-multi">
+                                              <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_HOURS_Honolulu, Hawaii.png" download>
+                                                  <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_HOURS_Honolulu, Hawaii.png" alt="Annual Historical Minor Flood Plot" width="100%">
+                                              </a>
+                                              <div class="caption"><b>Figure XXX.</b> Average flood duration in <b>hours</b> above a threshold of 30 cm per year for the Honolulu tide gauge from 1983-01-01 to 2023-12-31.</div>
+                                          </div>
+                                   </div>
+                                   <div class="image-container">
+                                          <div class="image-container-multi">
+                                              <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_hours.png" download>
+                                                  <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_hours.png" alt="Annual Historical Minor Flood Plot">
+                                              </a>
+                                              <div class="caption"><b>Figure XXX.</b> Average flood duration in hours above a threshold of 30 cm per year for 'Hawaiian Islands' region tide gauges from 1983-01-01 to 2023-12-31.</div>
+                                          </div>
+                                          <div class="image-container-multi">
+                                              <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_days.png" download>
+                                                  <img src="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_threshold_counts_days.png" alt="Annual Historical Minor Flood Plot">
+                                              </a>
+                                              <div class="caption"><b>Figure XXX.</b> Average flood duration in days above a threshold of 30 cm per year for 'Hawaiian Islands' region tide gauges from 1983-01-01 to 2023-12-31.</div>
+                                          </div>
+                                   </div>
                             </div>
                         </div>
                         <div class="icon">
-                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_small.png'>
+                            <img src='https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/icons/table_icon_color_small.png'>
                             <div class="hover-content">
-                                <img src="path_to_historical_minor_flood_annual_table.png" alt="Annual Historical Minor Flood Table"  >
+                                <a href="https://raw.githubusercontent.com/jwfiedler/SL_Hawaii/main/output/SL_FloodFrequency_percent_change.csv" download>
+
+                                    <img src="output/SL_FloodFrequency_table.png" alt="Annual Historical Minor Flood Table"  >
+                                </a>                           
                             </div>
                         </div>
                     </td>
@@ -624,7 +672,7 @@
                 </tr>
                 
                 <tr>
-                    <td >1.2 Rankings</td>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Rankings_intra-annual.html">1.2 Rankings</a></td>
                     <td > </td>
                     <td>
                         <div class="icon">
@@ -676,7 +724,7 @@
                 </tr>
                 
                 <tr>
-                    <td rowspan="3">1.3 Extremes</td>
+                    <td rowspan="3"><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/regional_and_local/SL_Extremes_intra-annual.html">1.3 Extremes</a></td>
                     <td>1.4.1 Station-based Stationary</td>
                     <td>
                         <div class="icon">
@@ -857,7 +905,7 @@
         
                 <tr>
                     <td rowspan="2">2.0 Minor Flood Frequency<br> and Duration</td>
-                    <td >2.1 Minor Flood Frequency</td>
+              <td><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/FloodFrequency_intra-annual.html">2.1 Minor Flood Frequency</a></td>
                     <td></td>
                     <td>
                         <div class="icon">
@@ -906,7 +954,7 @@
                 
         
                 <tr>
-                    <td >2.2 Flood Duration</td>
+                    <td ><a href="https://jwfiedler.github.io/SL_Hawaii/notebooks/FloodDuration_intra-annual.html">2.2 Flood Duration</a></td>
                     <td > </td>
                     <td>
                         <div class="icon">
@@ -955,5 +1003,41 @@
     </div>
 </div>
     
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+       document.addEventListener('DOMContentLoaded', () => {
+           console.log('DOM fully loaded and parsed');
+   
+           const icons = document.querySelectorAll('.icon');
+           console.log('Icons found:', icons);
+   
+           icons.forEach(icon => {
+               icon.addEventListener('mouseenter', () => {
+                   console.log('Icon hovered:', icon);
+   
+                   const hoverContent = icon.querySelector('.hover-content');
+                   console.log('Hover content:', hoverContent);
+   
+                   const rect = hoverContent.getBoundingClientRect();
+                   const iconRect = icon.getBoundingClientRect();
+   
+                   console.log('Hover content rect:', rect);
+                   console.log('Icon rect:', iconRect);
+   
+                   if (iconRect.bottom + rect.height > window.innerHeight) {
+                       hoverContent.classList.add('above');
+                       console.log('Added class "above" to hover content');
+                   } else {
+                       hoverContent.classList.remove('above');
+                       console.log('Removed class "above" from hover content');
+                   }
+                   
+               });
+           });
+       });
+</script>
 </body>
 </html>

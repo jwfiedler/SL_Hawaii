@@ -1,0 +1,158 @@
+        body {
+            font-family: "open-sans", Helvetica, Arial, sans-serif;
+            color: #222;
+            font-weight: lighter;
+            font-size: 11pt;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #e6e9e98e;
+            margin: 0 auto;
+            margin-top: 20px;
+            font-weight: lighter;
+        }
+        th, td {
+            border: 1px solid #ffffff;
+            padding-left: 8px !important;
+            text-align: left;
+            position: relative;
+            padding: 4px;
+        }
+        th {
+            background-color: #8cb8e2;
+            text-align: center;
+            padding: 8px;
+            /* text-transform: uppercase; */
+            font-size: 13pt;
+            font-weight: normal;
+        }
+        a {
+            text-decoration: none;
+            color: blue;
+        }
+
+        h2 {
+            font-size: 40px;
+            font-weight: bold;
+            margin-top: 30px;
+            font-variant-caps: all-small-caps;
+        }
+
+        h3_custom {
+            font-size: 30px;
+            font-weight: bold;
+            margin-top: 30px;
+            font-variant-caps: all-small-caps;
+            color: red !important;
+            text-align: center;
+            background-color: yellow;
+        }
+        tr:hover {background-color: rgba(185, 216, 238, 0.8);}
+        
+        .hover-content {
+            display: none;
+            position: absolute;
+            background: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            z-index: 100;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .hover-content.above {
+            top: auto;
+            bottom: 100%;
+            transform: translateX(-50%) translateY(0px); /* Adjust translateY value to space it out from the element */
+        }
+        
+        .icon:hover .hover-content,
+        .icon:focus-within .hover-content,
+        .hover-content:hover {
+            display: block;
+        }
+
+        .hover-content img {
+            max-width: 500px;
+            overflow-y: auto;
+        }
+        .hover-content .caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+        .icon {
+            height: 20px;
+            width: 30px;
+            cursor: pointer;
+            position: relative;
+            display: inline-block;
+            margin: 0 5px;
+        }
+        
+        .nav-arrow {
+            cursor: pointer;
+            font-size: 24px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 101;
+            color: black;
+        }
+        .nav-arrow.left {
+            left: 10px;
+        }
+        .nav-arrow.right {
+            right: 10px;
+        }
+        .table-csv{
+            font-size: 9pt;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+        }
+
+        .image-container img {
+            display: flex;
+        }
+        .image-container-multi img {
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: 10px
+        }
+
+        .image-container-multi {
+            flex: 1 1 45%; /* Adjust this value as necessary for proper spacing */
+            text-align: center; /* Center align the images and captions */
+        }
+
+        .image-container-multi .caption {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .container {
+            margin-top: 20px; /* Adjust this to the desired margin */
+            /* other styles... */
+        }
+
+        .html-container {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        #plotly-content-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            background-color: #f9f9f9;
+          }
