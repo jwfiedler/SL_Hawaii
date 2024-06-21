@@ -33,9 +33,14 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_edit_page_button: true
+  home_page_in_navbar: true
   announcement: "In development! Please post issues and suggestions to github."
   comments:
     hypothesis: true
+  extra_navbar: |
+      <div>
+          <a href="https://uhslc.soest.hawaii.edu/jfiedler/SeaLevelIndicators/index.html"> Matrix of Sea Level Indicators </a>
+      </div>
 
 # Parse and render settings
 parse:
