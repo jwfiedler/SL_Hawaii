@@ -13,4 +13,9 @@ dependencies:
   - docutils=0.17.1
   - netcdf4
   - dask
+  - plotly
+  - utide
+  - pyextremes
+  - great_tables
+  - selenium
 prefix: /Users/juliafiedler/anaconda3/envs/SLI39
