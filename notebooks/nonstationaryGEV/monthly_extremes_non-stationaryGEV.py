@@ -1,20 +1,30 @@
-#%%
+"""
+Statistical Model: Time-dependent GEV, Monthly Maxima
+
+This script explores the following steps:
+- step1: seasonal pattern of extreme events (seasonality on location, scale, and shape parameters remain constant)
+- step2: long-term trends in location parameter (linear and a possible acceleration)
+- step3: Checking Covariate (sigma, waves) in the GEV location parameter
+- step4: Checking Covariate (sigma, waves) in the GEV scale parameter
+- step5: Checking Nodal cycle (18.6 year period, waves) in the GEV location parameter
+
+Author: Melisa Menendez, menendezm@unican.es
+Updated for Billy & Ayesha SERDP work: 09-March-2017
+Updated for Python: July 2024
+"""
+
 import pandas as pd
 import numpy as np
 import scipy.io
 from datetime import datetime, timedelta
 from scipy.stats import chi2
-from scipy.optimize import fsolve
+from scipy.optimize import brentq
 import matplotlib.pyplot as plt
 import subprocess
 
-
-
-#%%
-
 #%%
 # Main Functions
-def stepwise(x_inisol):
+def stepwise(x_inisol, modelType='GEV_SeasonalMu'):
     N = len(x_inisol)
 
 
@@ -22,11 +32,10 @@ def stepwise(x_inisol):
 
     x = np.array([x_inisol]) 
     # x = x_inisol # Start with initial solution
-    f, pa = fitness_s(x[cont])  # Compute fitness for initial solution
+    f, pa = fitness(x[cont], modelType)  # Compute fitness for initial solution
     f = np.array([f])
     pa = np.array([pa])
     
-    print(f)
     better = True
     prob = 0.95
     
@@ -41,8 +50,7 @@ def stepwise(x_inisol):
             
             for i in range(len(dum)):
                 x_temp[i, dum[i]] = 1
-                f_temp[i], pa_temp[i] = fitness_s(x_temp[i])
-            print(f_temp)
+                f_temp[i], pa_temp[i] = fitness(x_temp[i], modelType)
             best, indi = np.max(f_temp), np.argmax(f_temp)
             # Check if the improvement is significant with chi2 test
             if (best - f[cont]) >= (0.5 * chi2.ppf(prob, df=(pa_temp[indi] - pa[cont]))):
@@ -50,15 +58,14 @@ def stepwise(x_inisol):
                 x = np.vstack((x, [x_temp[indi]]))
                 f = np.vstack((f, [best]))
                 pa = np.vstack((pa, [pa_temp[indi]]))
-                f[cont], pa[cont] = fitness_s(x[cont])
-                print(f[cont])
+                f[cont], pa[cont] = fitness(x[cont], modelType)
             else:
                 better = False
         else:
             better = False
 
     return x, f
-def fitness_s(x):
+def fitness(x, modelType='GEV_SeasonalMu'):
     # Load parameter limits from a file
     aux = np.loadtxt('limits.txt')
     xmax = np.zeros(len(aux))  # Initialize with NaNs
@@ -68,7 +75,6 @@ def fitness_s(x):
     xmax[:3] = aux[:3, 1]
     cont = 3
     
-    print('x = '+ str(x))
 
     if x[0] == 1:  # Annual cycle
         xmin[cont:cont+2] = [aux[3, 0], aux[4, 0]]  # should use indices 3 and 4 (i.e., aux(4,1) and aux(5,1) in MATLAB)
@@ -84,6 +90,28 @@ def fitness_s(x):
         xmin[cont:cont+2] = [aux[5, 0], aux[6, 0]]  # should use indices 5 and 6 (same as Semiannual cycle)
         xmax[cont:cont+2] = [aux[5, 1], aux[6, 1]]
         cont += 2
+
+    if modelType == 'GEV_S_T_Cv':
+        if x[2] == 1:  # Frequency 4w
+            xmin[cont:cont+2] = [aux[7, 0], aux[8, 0]]  # should use indices 5 and 6 (same as Semiannual cycle)
+            xmax[cont:cont+2] = [aux[7, 1], aux[8, 1]]
+            cont += 2
+        
+        if x[3] == 1:
+            xmin[cont] = aux[9, 0]
+            xmax[cont] = aux[9, 1]
+            cont += 1
+        
+        if x[4] == 1:
+            xmin[cont] = aux[10, 0]
+            xmax[cont] = aux[10, 1]
+            cont += 1
+
+        if x[5] == 1:
+            xmin[cont] = aux[11, 0]
+            xmax[cont] = aux[11, 1]
+            cont += 1
+
 
     xmin = xmin[:cont]
     xmax = xmax[:cont]
@@ -120,14 +148,10 @@ def fitness_s(x):
         for i in range(len(xini)):
             f.write(f"{xini[i]:15.8f} {xmin[i]:15.8f} {xmax[i]:15.8f}\n")        
 
-    #print scein.dat
-    with open('scein.dat', 'r') as f:
-        print(f.read())
-
     
     # Run the external model executable
-    # inputs: scein.dat, ?? what else??
-    subprocess.run(["Model_GEV_SeasonalMu.exe"], check=True)
+    modelName = 'Model_' + modelType + '.exe'
+    subprocess.run([modelName], check=True)
     
     # Read the output
     with open('best.txt', 'r') as file:
@@ -197,10 +221,7 @@ def plottingExtremeSeasonality(Jd, T0, Y, w, mio):
         return y
     
     x0 = np.mean(Y)
-    # t00=0.00001
-    # t11=1.00001
-    YY50 = fsolve(Quantilentime,x0)
-    print(YY50)
+    YY50 = brentq(Quantilentime,x0-5,x0+5) # using bracketing to find the root of Quantilentime function instead of fsolve
     # Start plotting
     plt.figure()
     sss = plt.subplot(1, 1, 1)
@@ -213,7 +234,7 @@ def plottingExtremeSeasonality(Jd, T0, Y, w, mio):
     plt.gca().set_aspect('equal', adjustable='box')
     plt.box(True)
     
-    plt.legend(['R=50 years', 'Prob. R_{50} within a year', '4'])
+    plt.legend(['R=50 years', 'Prob. R_{50} within a year', 'Monthly maxima'])
     plt.ylabel('Sea level (m)')
     
     # Uncomment the next line to save the figure
@@ -252,7 +273,7 @@ print('Modeling Seasonality in Location parameter')
 x_0 = np.array([0, 0, 0])
 
 # Run stepwise optimization and get the last results from the optimization
-x_s, f = stepwise(x_0)
+x_s, f = stepwise(x_0, modelType='GEV_SeasonalMu')
 # x, f = fitness_s(x_s[-1])
 
 # Load best results from text files
@@ -286,5 +307,65 @@ if icromo[2] == 1:
 # %%
 # Make a plot of monthly extremes and 50 year return period with the seasonal model
 plottingExtremeSeasonality(Jd,t,Y,w_s_plot,mio)
+
+# %%
+print('Checking Long-term Trend in Location parameter (Mean Sea Level Rise..)')
+
+x_T = np.concatenate((x_s[-1], [1, 0, 0]))  # Long-term Trend
+
+f_T =fitness(x_T,modelType='GEV_S_T_Cv')
+w_T = np.loadtxt('best.txt')
+mio = np.loadtxt('mio.txt')
+
+np.savez('Result_Trend.npz', w_T=w_T, x_T=x_T)
+
+diffe = w_T[0] - w_s[0]
+p = 1
+SignifTrend = chi2.cdf(2 * diffe, p)
+
+print(f'Statistical Significance of Linear Trend: {SignifTrend*100:.2f}%')
+print(f'Estimated Trend on monthly Maxima values is: {w_T[2]*w_T[-1]*100:.2f} mm/year')
+
+#%%
+print('Checking a covariate in Location parameter')
+
+if SignifTrend > 0.95:
+    x_cvte1 = np.concatenate((x_s[-1], [1, 1, 0]))  # Covariate
+    wcomp = w_T
+else:
+    x_cvte1 = np.concatenate((x_s[-1], [0, 1, 0]))
+    wcomp = w_s
+
+f_cvte1 = fitness(x_cvte1, modelType='GEV_S_T_Cv')
+w_cvte1 = np.loadtxt('best.txt')
+mio = np.loadtxt('mio.txt')
+
+np.savez('Result_CvteLocation.npz', w_cvte1=w_cvte1, x_cvte1=x_cvte1, mio=mio)
+
+diffe = w_cvte1[0] - wcomp[0]
+p = 1
+SignifCvte1 = chi2.cdf(2 * diffe, p)
+print(f'Statistical Significance of Covariate in location param.: {SignifCvte1*100:.2f}%')
+#%%
+print('Checking a covariate in scale parameter')
+if SignifCvte1 > 0.95:
+    x_cvte2 = np.concatenate((x_cvte1[:-1], [1]))  # Covariate
+    wcomp = w_cvte1
+else:
+    x_cvte2 = np.concatenate((x_cvte1[:-2], [0, 1]))  # Covariate
+    wcomp = wcomp
+
+f_cvte2 = fitness(x_cvte2, modelType='GEV_S_T_Cv')
+w_cvte2 = np.loadtxt('best.txt')
+mio = np.loadtxt('mio.txt')
+
+np.savez('Result_CvteScaleP.npz', w_cvte2=w_cvte2, x_cvte2=x_cvte2, mio=mio)
+
+diffe = w_cvte2[0] - wcomp[0]
+p = 1
+SignifCvte2 = chi2.cdf(2 * diffe, p)
+
+print(f'Statistical Significance of Covariate in scale param.: {SignifCvte2*100:.2f}%')
+
 
 # %%
