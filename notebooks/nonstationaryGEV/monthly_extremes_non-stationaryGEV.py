@@ -12,7 +12,7 @@ Author: Melisa Menendez, menendezm@unican.es
 Updated for Billy & Ayesha SERDP work: 09-March-2017
 Updated for Python: July 2024
 """
-
+#%%
 import pandas as pd
 import numpy as np
 import scipy.io
@@ -117,7 +117,7 @@ def fitness(x, modelType='GEV_SeasonalMu'):
         if x[6] == 1:
             xmin[cont:cont+2] = [aux[12, 0], aux[13, 0]]
             xmax[cont:cont+2] = [aux[12, 1], aux[13, 1]]
-            cont += 1
+            cont += 2
 
 
     xmin = xmin[:cont]
@@ -245,7 +245,7 @@ def plottingExtremeSeasonality(Jd, T0, Y, w, mio):
     plt.ylabel('Sea level (m)')
     
     # Uncomment the next line to save the figure
-    # plt.savefig('SeasonalExtremeVariations.png', dpi=250)
+    plt.savefig('SeasonalExtremeVariations.png', dpi=250)
 
     plt.show()
 
@@ -464,7 +464,7 @@ print(f'Statistical Significance of Covariate in scale param.: {SignifCvte2*100:
 # % =========================================
 # % =========================================
 # disp('Checking Nodal cycle in Location parameter ');
-
+#%%
 x_N=np.append(x_s[-1],[1, 0, 0, 1]) # Nodal
 
 f_N =fitness(x_N,modelType='GEV_S_T_Cv_Nodal');
@@ -488,7 +488,8 @@ print(f'Statistical Significance of Nodal cycle: {SignifTrend*100:.2f}%')
 
 
 # %%
-import matplotlib.pyplot as plt
+print(x_s[-1])
+#%%
 
 fig = plt.figure()
 sss = fig.add_subplot(1, 1, 1)
@@ -526,4 +527,6 @@ sss.grid(True)
 # add legend outside the plot
 sss.legend(loc='upper left', bbox_to_anchor=(1, 1))
 
+# save the figure
+plt.savefig('TimeDependentReturnValue.png', dpi=250)
 # %%

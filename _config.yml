@@ -45,7 +45,9 @@ html:
 # Parse and render settings
 parse:
   myst_url_schemes: [mailto, http, https] # URI schemes that will be recognised as external URLs in Markdown links
-
+  myst_enable_extensions:
+    - amsmath
+    - dollarmath
 sphinx:
   config:
     html_js_files:
