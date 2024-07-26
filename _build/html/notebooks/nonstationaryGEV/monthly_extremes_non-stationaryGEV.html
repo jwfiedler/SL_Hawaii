@@ -499,11 +499,13 @@ document.write(`
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-to-the-fitness-function">Input to the fitness function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-seasonality-effect-on-extremes">Plot: Seasonality Effect on Extremes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data-input-to-the-model">Format data input to the model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data-input-to-the-model">Format data input to the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-a-timeseries-of-the-time-dependent-return-values">Extract a timeseries of the time-dependent return values</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model">Plot monthly extremes and 50 year return period with the seasonal model</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">Check if we should include a long-term trend (mean sea level rise) in our location parameter</a></li>
@@ -512,9 +514,9 @@ document.write(`
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-nodal-cycle-in-location-parameter">Check the nodal cycle in Location parameter</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-timeseries">Plot the timeseries</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-timeseries">Plot the timeseries</a></li>
 </ul>
             </nav>
         </div>
@@ -532,8 +534,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b2c76a6-b984-4471-ba7b-78f89d63e755">
-<span class="eqno">(1)<a class="headerlink" href="#equation-5b2c76a6-b984-4471-ba7b-78f89d63e755" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7bc057f4-2d90-4f65-8562-a3bfe6d6979a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7bc057f4-2d90-4f65-8562-a3bfe6d6979a" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -547,8 +549,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5da1073-ce0b-4ecc-8f23-f56b925644db">
-<span class="eqno">(2)<a class="headerlink" href="#equation-b5da1073-ce0b-4ecc-8f23-f56b925644db" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e2cf6147-3fc9-4e3e-9e68-7bf26616d9f6">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e2cf6147-3fc9-4e3e-9e68-7bf26616d9f6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -651,8 +653,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a22d1bbe-44c0-430a-9ceb-b0f595017abe">
-<span class="eqno">(3)<a class="headerlink" href="#equation-a22d1bbe-44c0-430a-9ceb-b0f595017abe" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-46a8a88a-8f2f-43dd-adf4-e461cc150f48">
+<span class="eqno">(3)<a class="headerlink" href="#equation-46a8a88a-8f2f-43dd-adf4-e461cc150f48" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -682,8 +684,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e3d4119-f1a2-4455-80fc-3d758210cd63">
-<span class="eqno">(4)<a class="headerlink" href="#equation-5e3d4119-f1a2-4455-80fc-3d758210cd63" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eb685d55-b15f-4ef0-ba5e-789d5252fc7c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eb685d55-b15f-4ef0-ba5e-789d5252fc7c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -696,8 +698,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-and-covariate-model">
 <h4>Seasonality, Trend, and Covariate Model<a class="headerlink" href="#seasonality-trend-and-covariate-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv model , we’ll allow a long-term trend into the location parameter and a covariate into the scale and location parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-278ead8b-7d36-40fd-8697-401e5ab19003">
-<span class="eqno">(5)<a class="headerlink" href="#equation-278ead8b-7d36-40fd-8697-401e5ab19003" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-88c91a81-3396-4187-8d1f-64a50b2eeab4">
+<span class="eqno">(5)<a class="headerlink" href="#equation-88c91a81-3396-4187-8d1f-64a50b2eeab4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -709,8 +711,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ca97b83-2d97-445a-a91c-4b351c585346">
-<span class="eqno">(6)<a class="headerlink" href="#equation-7ca97b83-2d97-445a-a91c-4b351c585346" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6a4652cf-f90e-491d-8693-96d8c024d943">
+<span class="eqno">(6)<a class="headerlink" href="#equation-6a4652cf-f90e-491d-8693-96d8c024d943" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -939,8 +941,9 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </section>
+</section>
 <section id="format-data-input-to-the-model">
-<h3>Format data input to the model<a class="headerlink" href="#format-data-input-to-the-model" title="Permalink to this heading">#</a></h3>
+<h2>Format data input to the model<a class="headerlink" href="#format-data-input-to-the-model" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll take our sea level data, extract the monthly maxima from our timeseries, and format it for input into the model. We need the yearday of each monthly maximum, and if using a covariate model (e.g. SOI, ENSO, wave height), the yearday of that index.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -960,36 +963,6 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
   _pyproj_global_context_initialize()
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level_mhhw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">])</span>
-
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
-<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span>         <span class="sa">f</span><span class="s2">&quot;backends: </span><span class="si">{</span><span class="n">compatible_engines</span><span class="si">}</span><span class="s2">. But their dependencies may not be installed, see:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/user-guide/io.html </span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/getting-started-guide/installing.html&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
-<span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
-<span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
 </pre></div>
 </div>
 </div>
@@ -1054,7 +1027,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 <section id="prepare-the-covariate-data-timeseries">
-<h4>Prepare the covariate data timeseries.<a class="headerlink" href="#prepare-the-covariate-data-timeseries" title="Permalink to this heading">#</a></h4>
+<h3>Prepare the covariate data timeseries.<a class="headerlink" href="#prepare-the-covariate-data-timeseries" title="Permalink to this heading">#</a></h3>
 <p>In this case, we’ll be using the ONI data we downloaded earlier in the datawrangling notebook.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1090,7 +1063,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </section>
 </section>
 <section id="first-look-modeling-seasonality">
-<h3>First look: Modeling Seasonality<a class="headerlink" href="#first-look-modeling-seasonality" title="Permalink to this heading">#</a></h3>
+<h2>First look: Modeling Seasonality<a class="headerlink" href="#first-look-modeling-seasonality" title="Permalink to this heading">#</a></h2>
 <p>Here we’ll look at seasonality in the location parameter only.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1146,7 +1119,6 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </div>
-</section>
 <section id="extract-a-timeseries-of-the-time-dependent-return-values">
 <h3>Extract a timeseries of the time-dependent return values<a class="headerlink" href="#extract-a-timeseries-of-the-time-dependent-return-values" title="Permalink to this heading">#</a></h3>
 <p>For each time in a timeseries, we’ll evaluate the CDF of the time-dependent GEV at a given return period to get the expected return level.</p>
@@ -1414,15 +1386,18 @@ Estimated Trend on monthly Maxima values is: 0.11 mm/year
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend is significant! 
 Include long-term trend and nodal cycle in final model.
-Statistical Significance of adding Nodal cycle: 99.88%
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of adding Nodal cycle: 99.88%
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 </section>
+</section>
 <section id="plot-the-timeseries">
-<h3>Plot the timeseries<a class="headerlink" href="#plot-the-timeseries" title="Permalink to this heading">#</a></h3>
+<h2>Plot the timeseries<a class="headerlink" href="#plot-the-timeseries" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%</span>
@@ -1486,7 +1461,6 @@ Statistical Significance of adding Nodal cycle: 99.88%
 <img alt="../../_images/b0ec697456d680db88d82592c872b79d57b69df800cbbe340f8fce0b1bf6bc10.png" src="../../_images/b0ec697456d680db88d82592c872b79d57b69df800cbbe340f8fce0b1bf6bc10.png" />
 </div>
 </div>
-</section>
 </section>
 </section>
 
@@ -1566,11 +1540,13 @@ Statistical Significance of adding Nodal cycle: 99.88%
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#input-to-the-fitness-function">Input to the fitness function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-seasonality-effect-on-extremes">Plot: Seasonality Effect on Extremes</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data-input-to-the-model">Format data input to the model</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data-input-to-the-model">Format data input to the model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-a-timeseries-of-the-time-dependent-return-values">Extract a timeseries of the time-dependent return values</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model">Plot monthly extremes and 50 year return period with the seasonal model</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">Check if we should include a long-term trend (mean sea level rise) in our location parameter</a></li>
@@ -1579,9 +1555,9 @@ Statistical Significance of adding Nodal cycle: 99.88%
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-nodal-cycle-in-location-parameter">Check the nodal cycle in Location parameter</a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-timeseries">Plot the timeseries</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-the-timeseries">Plot the timeseries</a></li>
 </ul>
   </nav></div>
 
