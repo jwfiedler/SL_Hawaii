@@ -25,6 +25,7 @@ output_dir = Path('../../output')
 rsl_hourly = xr.open_dataset(data_dir/ 'rsl_hawaii.nc')
 
 rsl_hourly['sea_level_mhhw'] = 0.001*(rsl_hourly['sea_level'] - rsl_hourly['MHHW'])
+
 ------------------
 
 ----- stderr -----

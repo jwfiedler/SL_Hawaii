@@ -528,12 +528,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="nonstationary-extremes">
 <h1>Nonstationary Extremes<a class="headerlink" href="#nonstationary-extremes" title="Permalink to this heading">#</a></h1>
-<p>The Generalized Extreme Value (GEV) distribution is a family of continuous probability distributions developed to combine the Gumbel, Fréchet, and Weibull families, also known as type I, II, and III extreme value distributions, respectively. It is widely used in different fields, particularly for modeling the largest or smallest values among a large set of independent, identically distributed random values (extreme value analysis).</p>
+<p>As with our stationary annual extremes, for the nonstationary extremes we’ll be using the Generalized Extreme Value (GEV) distribution. The GEV is a family of continuous probability distributions developed to combine the Gumbel, Fréchet, and Weibull families, also known as type I, II, and III extreme value distributions, respectively. It is widely used in different fields, particularly for modeling the largest or smallest values among a large set of independent, identically distributed random values (extreme value analysis).</p>
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9dea9259-ecbd-4683-b3e4-76446371e38d">
-<span class="eqno">(1)<a class="headerlink" href="#equation-9dea9259-ecbd-4683-b3e4-76446371e38d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5b2c76a6-b984-4471-ba7b-78f89d63e755">
+<span class="eqno">(1)<a class="headerlink" href="#equation-5b2c76a6-b984-4471-ba7b-78f89d63e755" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -545,10 +545,10 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 <li><p><span class="math notranslate nohighlight">\( \psi \)</span> (scale parameter) is strictly positive and scales the distribution.</p></li>
 <li><p><span class="math notranslate nohighlight">\( \xi \)</span> (shape parameter) describes the tail behavior of the distribution. It can be positive (heavy tail, Fréchet), zero (exponential tail, Gumbel), or negative (bounded tail, Weibull).</p></li>
 </ul>
-<p>Assuming we are not dealing with a random stationary process, each parameter in the above equation can be the combination of one or more time-dependent components (covariates). These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
+<p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6db8899a-a1d0-4277-bb71-325519329433">
-<span class="eqno">(2)<a class="headerlink" href="#equation-6db8899a-a1d0-4277-bb71-325519329433" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b5da1073-ce0b-4ecc-8f23-f56b925644db">
+<span class="eqno">(2)<a class="headerlink" href="#equation-b5da1073-ce0b-4ecc-8f23-f56b925644db" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -564,7 +564,7 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Author: Melisa Menendez, menendezm&#64;unican.es</p>
 <p>Updated for Billy &amp; Ayesha SERDP work: 09-March-2017</p>
-<p>Updated for Python: July 2024</p>
+<p>Updated for Python with some added explanation: July 2024</p>
 <p>Further explanation of this code (and writeup) can be found in:
 Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Monthly Extreme Sea Levels with a Time-Dependent GEV Model. J. Atmos. Oceanic Technol., 24, 894–911, https://doi.org/10.1175/JTECH2009.1.</p>
 <div class="cell docutils container">
@@ -651,8 +651,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2bd3bdc7-45b4-4ad8-806d-05eba0982c97">
-<span class="eqno">(3)<a class="headerlink" href="#equation-2bd3bdc7-45b4-4ad8-806d-05eba0982c97" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a22d1bbe-44c0-430a-9ceb-b0f595017abe">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a22d1bbe-44c0-430a-9ceb-b0f595017abe" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -682,8 +682,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-927947c6-c228-4eef-b578-be61c41c4e3f">
-<span class="eqno">(4)<a class="headerlink" href="#equation-927947c6-c228-4eef-b578-be61c41c4e3f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5e3d4119-f1a2-4455-80fc-3d758210cd63">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5e3d4119-f1a2-4455-80fc-3d758210cd63" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -696,8 +696,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-and-covariate-model">
 <h4>Seasonality, Trend, and Covariate Model<a class="headerlink" href="#seasonality-trend-and-covariate-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv model , we’ll allow a long-term trend into the location parameter and a covariate into the scale and location parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b4e6f5a3-84b1-40c9-879a-b0a6f68c085d">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b4e6f5a3-84b1-40c9-879a-b0a6f68c085d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-278ead8b-7d36-40fd-8697-401e5ab19003">
+<span class="eqno">(5)<a class="headerlink" href="#equation-278ead8b-7d36-40fd-8697-401e5ab19003" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -709,8 +709,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ecc14ec-7b25-4ee5-8517-83129b24f6d6">
-<span class="eqno">(6)<a class="headerlink" href="#equation-0ecc14ec-7b25-4ee5-8517-83129b24f6d6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7ca97b83-2d97-445a-a91c-4b351c585346">
+<span class="eqno">(6)<a class="headerlink" href="#equation-7ca97b83-2d97-445a-a91c-4b351c585346" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -915,26 +915,25 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     
     <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span>
     <span class="n">YY50</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">Quantilentime</span><span class="p">,</span><span class="n">x0</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="n">x0</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># using bracketing to find the root of Quantilentime function instead of fsolve</span>
+    
+    
     <span class="c1"># Start plotting</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">sss</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span> <span class="o">*</span> <span class="n">YY50</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">seaLevelS</span><span class="p">,</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">twinthinyear</span><span class="p">,</span> <span class="n">seaLevel</span><span class="p">,</span> <span class="s1">&#39;+k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span> <span class="o">*</span> <span class="n">YY50</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; years&#39;</span><span class="p">)</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">seaLevelS</span><span class="p">,</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prob. R_{&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span><span class="o">+</span> <span class="s1">&#39;} within a year&#39;</span><span class="p">)</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">twinthinyear</span><span class="p">,</span> <span class="n">seaLevel</span><span class="p">,</span> <span class="s1">&#39;+k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Monthly maxima&#39;</span><span class="p">)</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">*</span><span class="mf">0.05</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.08333</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">])</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">,</span> <span class="n">adjustable</span><span class="o">=</span><span class="s1">&#39;box&#39;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">box</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
     
     
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;R=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; years&#39;</span><span class="p">,</span> <span class="s1">&#39;Prob. R_{&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span><span class="o">+</span> <span class="s1">&#39;} within a year&#39;</span><span class="p">,</span> <span class="s1">&#39;Monthly maxima&#39;</span><span class="p">])</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level (m)&#39;</span><span class="p">)</span>
     
-    <span class="c1"># Uncomment the next line to save the figure</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;SeasonalExtremeVariations.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">sss</span>
 </pre></div>
 </div>
 </div>
@@ -1014,7 +1013,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rid</span> <span class="o">=</span> <span class="mi">3</span>
-
+<span class="n">STNDtoMHHW</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
 <span class="n">sea_level_series</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">]</span>
 
@@ -1236,12 +1235,22 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <h4>Plot monthly extremes and 50 year return period with the seasonal model<a class="headerlink" href="#plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">monthly_max</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">mios</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sss</span> <span class="o">=</span> <span class="n">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">monthly_max</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">mios</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="n">sss</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level (m, STND)&#39;</span><span class="p">)</span>
+
+<span class="c1">#move legend to center top, with 3 columns</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">sss</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sea level extremes at &#39;</span> <span class="o">+</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3fe933020dbbcb256e033a1db4a8bf1c3a5e5d84cc988458cf3b77d3dcb7765a.png" src="../../_images/3fe933020dbbcb256e033a1db4a8bf1c3a5e5d84cc988458cf3b77d3dcb7765a.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sea level extremes at Honolulu, Hawaii&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/595fb6f76e7a0b2914d8bd6f4acfe13fca86f624ca21accb9326c638d450abf1.png" src="../../_images/595fb6f76e7a0b2914d8bd6f4acfe13fca86f624ca21accb9326c638d450abf1.png" />
 </div>
 </div>
 </section>
@@ -1420,7 +1429,6 @@ Statistical Significance of adding Nodal cycle: 99.88%
 
 <span class="c1"># get the first year of t_monthly_max</span>
 <span class="n">year0</span> <span class="o">=</span> <span class="mi">1993</span>
-<span class="n">STNDtoMHHW</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">])</span><span class="o">.</span><span class="n">values</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">sss</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
