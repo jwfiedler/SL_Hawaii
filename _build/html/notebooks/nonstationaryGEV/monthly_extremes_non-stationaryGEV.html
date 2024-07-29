@@ -534,8 +534,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7bc057f4-2d90-4f65-8562-a3bfe6d6979a">
-<span class="eqno">(1)<a class="headerlink" href="#equation-7bc057f4-2d90-4f65-8562-a3bfe6d6979a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e7a73db-38a7-4f71-92f3-74b3eee843fd">
+<span class="eqno">(1)<a class="headerlink" href="#equation-3e7a73db-38a7-4f71-92f3-74b3eee843fd" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -549,8 +549,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e2cf6147-3fc9-4e3e-9e68-7bf26616d9f6">
-<span class="eqno">(2)<a class="headerlink" href="#equation-e2cf6147-3fc9-4e3e-9e68-7bf26616d9f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cbeb755a-d445-4be3-9726-c5bd3fa0c1fc">
+<span class="eqno">(2)<a class="headerlink" href="#equation-cbeb755a-d445-4be3-9726-c5bd3fa0c1fc" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -653,8 +653,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46a8a88a-8f2f-43dd-adf4-e461cc150f48">
-<span class="eqno">(3)<a class="headerlink" href="#equation-46a8a88a-8f2f-43dd-adf4-e461cc150f48" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c516502e-27e4-4bf2-bd65-6f51eee03c86">
+<span class="eqno">(3)<a class="headerlink" href="#equation-c516502e-27e4-4bf2-bd65-6f51eee03c86" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -684,8 +684,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb685d55-b15f-4ef0-ba5e-789d5252fc7c">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eb685d55-b15f-4ef0-ba5e-789d5252fc7c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5357710b-c9ed-4a7d-b5f1-02a85253bfe8">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5357710b-c9ed-4a7d-b5f1-02a85253bfe8" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -698,8 +698,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-and-covariate-model">
 <h4>Seasonality, Trend, and Covariate Model<a class="headerlink" href="#seasonality-trend-and-covariate-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv model , we’ll allow a long-term trend into the location parameter and a covariate into the scale and location parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88c91a81-3396-4187-8d1f-64a50b2eeab4">
-<span class="eqno">(5)<a class="headerlink" href="#equation-88c91a81-3396-4187-8d1f-64a50b2eeab4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ddbb18da-5247-4d3e-bdb8-87858769d4ba">
+<span class="eqno">(5)<a class="headerlink" href="#equation-ddbb18da-5247-4d3e-bdb8-87858769d4ba" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -711,8 +711,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6a4652cf-f90e-491d-8693-96d8c024d943">
-<span class="eqno">(6)<a class="headerlink" href="#equation-6a4652cf-f90e-491d-8693-96d8c024d943" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-49cce869-fec9-4d50-95c1-46e0933cac90">
+<span class="eqno">(6)<a class="headerlink" href="#equation-49cce869-fec9-4d50-95c1-46e0933cac90" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -765,7 +765,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
         <span class="n">cont</span> <span class="o">+=</span> <span class="mi">2</span>
 
     <span class="k">if</span> <span class="n">modelType</span> <span class="o">==</span> <span class="s1">&#39;GEV_S_T_Cv&#39;</span> <span class="ow">or</span> <span class="n">modelType</span> <span class="o">==</span> <span class="s1">&#39;GEV_S_T_Cv_Nodal&#39;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Frequency 4w</span>
+        <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Frequency 4w, for some reason the limits change, so we&#39;ll replace them</span>
             <span class="n">cont</span> <span class="o">-=</span> <span class="mi">2</span>
             <span class="n">xmin</span><span class="p">[</span><span class="n">cont</span><span class="p">:</span><span class="n">cont</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">aux</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">aux</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>  <span class="c1"># </span>
             <span class="n">xmax</span><span class="p">[</span><span class="n">cont</span><span class="p">:</span><span class="n">cont</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">aux</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">aux</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
@@ -848,7 +848,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Next we’ll make an example plot of the seasonality effect on extremes. For each year day, we’ll evaluate the CDF of the GEV at a return period of 50 years to get the the return levels within the year.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">julianDate</span><span class="p">,</span> <span class="n">T0</span><span class="p">,</span> <span class="n">seaLevel</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">mio</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">seaLevel</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">ReturnPeriod</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">SampleRate</span><span class="o">=</span><span class="mi">12</span><span class="p">):</span>
     <span class="n">dx</span> <span class="o">=</span> <span class="mf">0.001</span>
     <span class="n">t2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.101</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
     
@@ -860,14 +860,12 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="n">xi</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
     
     <span class="c1"># Define the time within the year</span>
-    <span class="c1"># dtime  = pd.to_datetime(julianDate-719529, unit=&#39;D&#39;)</span>
-    <span class="c1"># julianDate00 = dtime.dayofyear + dtime.hour/24 + dtime.minute/1440 + dtime.second/86400</span>
-    <span class="c1"># twithinyear = julianDate00 / 367</span>
     <span class="n">twinthinyear</span> <span class="o">=</span><span class="n">T0</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">T0</span><span class="p">)</span>
     
     <span class="n">T</span> <span class="o">=</span> <span class="n">T0</span>
     <span class="n">R</span> <span class="o">=</span> <span class="n">ReturnPeriod</span>
-    <span class="n">seaLevelS</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">-</span> <span class="p">(</span><span class="n">psi</span><span class="o">/</span><span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">R</span><span class="p">)))</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">xi</span><span class="p">))</span>
+    <span class="n">S</span> <span class="o">=</span> <span class="n">SampleRate</span>
+    <span class="n">seaLevelS</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">-</span> <span class="p">(</span><span class="n">psi</span><span class="o">/</span><span class="n">xi</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">S</span><span class="o">*</span><span class="n">R</span><span class="p">))))</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">xi</span><span class="p">))</span>
     
     
     <span class="n">serieCV</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">T</span><span class="p">))</span>
@@ -876,7 +874,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="k">def</span> <span class="nf">Quantilentime</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
         <span class="n">t00</span><span class="p">,</span> <span class="n">t11</span> <span class="o">=</span> <span class="mf">0.00001</span><span class="p">,</span> <span class="mf">1.00001</span>  <span class="c1"># Define the time bounds if not globally available</span>
 
-        <span class="c1"># Variables previously defined as global in MATLAB, handled here locally</span>
+        <span class="c1"># Variables previously defined as global in MATLAB code, handled here locally</span>
         <span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b3</span><span class="p">,</span> <span class="n">b4</span><span class="p">,</span> <span class="n">b5</span><span class="p">,</span> <span class="n">b6</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">w</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
         <span class="n">a0</span><span class="p">,</span> <span class="n">bLT</span><span class="p">,</span> <span class="n">bCI</span><span class="p">,</span> <span class="n">aCI</span><span class="p">,</span> <span class="n">bN1</span><span class="p">,</span> <span class="n">bN2</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
         <span class="n">km</span> <span class="o">=</span> <span class="mi">12</span>
@@ -888,7 +886,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
         <span class="c1"># Replace NaNs with zero (np.interp does this by default if outside the bounds)</span>
         <span class="n">serieCV2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">serieCV2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="c1"># Define mut and other parameters</span>
+        <span class="c1"># Define mut (location(t)) and other parameters</span>
         <span class="n">mut</span> <span class="o">=</span> <span class="p">(</span><span class="n">b0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">bLT</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
                <span class="n">b1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
                <span class="n">b3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> <span class="n">b4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
@@ -904,7 +902,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
         <span class="n">psi</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">+</span> <span class="p">(</span><span class="n">aCI</span> <span class="o">*</span> <span class="n">serieCV2</span><span class="p">)</span>
         <span class="n">xit</span> <span class="o">=</span> <span class="n">xi</span>
 
-        <span class="c1"># Calculate factor</span>
+        <span class="c1"># Calculate factor, equation 10 in Menendez and Woodworth (2009)</span>
         <span class="n">factor</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ti</span><span class="p">)):</span>
             <span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">xit</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mut</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">/</span> <span class="n">psi</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="mf">0.0001</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">/</span> <span class="n">xit</span><span class="p">)</span>
@@ -915,18 +913,18 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
         <span class="n">y</span> <span class="o">=</span> <span class="o">-</span><span class="n">Pr</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">km</span> <span class="o">*</span> <span class="n">factor</span> <span class="o">*</span> <span class="n">dt</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span>
     
-    <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span>
+    <span class="n">x0</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">YY50</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">Quantilentime</span><span class="p">,</span><span class="n">x0</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="n">x0</span><span class="o">+</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># using bracketing to find the root of Quantilentime function instead of fsolve</span>
     
     
     <span class="c1"># Start plotting</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
     <span class="n">sss</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span> <span class="o">*</span> <span class="n">YY50</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; years&#39;</span><span class="p">)</span>
-    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">seaLevelS</span><span class="p">,</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prob. R_{&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span><span class="o">+</span> <span class="s1">&#39;} within a year&#39;</span><span class="p">)</span>
-    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">twinthinyear</span><span class="p">,</span> <span class="n">seaLevel</span><span class="p">,</span> <span class="s1">&#39;+k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Monthly maxima&#39;</span><span class="p">)</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">t2</span><span class="p">))</span> <span class="o">*</span> <span class="n">YY50</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;R=&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; years&#39;</span><span class="p">)</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="n">seaLevelS</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="s1">&#39;--k&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Prob. R_{&#39;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)</span><span class="o">+</span> <span class="s1">&#39;} within a year&#39;</span><span class="p">)</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">twinthinyear</span><span class="p">,</span> <span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="s1">&#39;+k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Monthly maxima&#39;</span><span class="p">)</span>
     <span class="n">sss</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">*</span><span class="mf">0.05</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">)</span><span class="o">*</span><span class="mf">0.05</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">)</span><span class="o">*</span><span class="mf">0.1</span><span class="p">)])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.08333</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">])</span>
     
     
@@ -1089,9 +1087,10 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">w_s</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s</span><span class="p">):</span>
     <span class="c1"># Adjust w_s_plot based on icromo conditions</span>
-    <span class="n">icromo</span> <span class="o">=</span> <span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">w_s_plot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1107,6 +1106,16 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
             <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
         <span class="k">elif</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">icromo</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">icromo</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">icromo</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
+            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="k">if</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">icromo</span><span class="p">[:</span><span class="mi">8</span><span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
     <span class="k">return</span> <span class="n">w_s_plot</span>
 </pre></div>
 </div>
@@ -1115,6 +1124,16 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">w_s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">w_s</span><span class="p">)</span>
+
+<span class="ne">TypeError</span>: adjust_w_for_plotting() takes 2 positional arguments but 3 were given
 </pre></div>
 </div>
 </div>
@@ -1153,17 +1172,19 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
                 <span class="n">km</span> <span class="o">=</span> <span class="mi">12</span>
                 <span class="n">dt</span> <span class="o">=</span> <span class="mf">0.001</span>
                 <span class="n">ti</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">t00</span><span class="p">,</span> <span class="n">t11</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span>
-                <span class="n">bLT</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="c1">#trend in location parameter</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">11</span><span class="p">:</span> <span class="c1">#no covariate in location parameter</span>
-                    <span class="n">bCI</span><span class="o">=</span><span class="mi">0</span>
-                    <span class="n">aCI</span><span class="o">=</span><span class="mi">0</span>
-                <span class="k">else</span><span class="p">:</span>
+                <span class="n">bLT</span><span class="o">=</span> <span class="mi">0</span>
+                <span class="n">bCI</span><span class="o">=</span> <span class="mi">0</span>
+                <span class="n">aCI</span><span class="o">=</span> <span class="mi">0</span>
+                <span class="n">bN1</span><span class="o">=</span><span class="mi">0</span>
+                <span class="n">bN2</span><span class="o">=</span><span class="mi">0</span>
+
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">10</span><span class="p">:</span>
+                    <span class="n">bLT</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="c1">#trend in location parameter</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">11</span><span class="p">:</span>    
                     <span class="n">bCI</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="c1">#covariate in location parameter</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">12</span><span class="p">:</span>    
                     <span class="n">aCI</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="c1">#covariate in scale parameter</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">13</span><span class="p">:</span> <span class="c1">#no nodal component</span>
-                    <span class="n">bN1</span><span class="o">=</span><span class="mi">0</span>
-                    <span class="n">bN2</span><span class="o">=</span><span class="mi">0</span>
-                <span class="k">else</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">13</span><span class="p">:</span>
                     <span class="n">bN1</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="mi">12</span><span class="p">]</span>
                     <span class="n">bN2</span><span class="o">=</span><span class="n">w</span><span class="p">[</span><span class="mi">13</span><span class="p">]</span>
 
@@ -1207,12 +1228,24 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <h4>Plot monthly extremes and 50 year return period with the seasonal model<a class="headerlink" href="#plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model" title="Permalink to this heading">#</a></h4>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sss</span> <span class="o">=</span> <span class="n">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">monthly_max</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">mios</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_s_plot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.9042487)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sss</span> <span class="o">=</span> <span class="n">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">monthly_max</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">SampleRate</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
-<span class="n">sss</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level (m, STND)&#39;</span><span class="p">)</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level (m, MHHW)&#39;</span><span class="p">)</span>
 
-<span class="c1">#move legend to center top, with 3 columns</span>
-<span class="n">sss</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1">#move legend to center top, with 2 columns</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">sss</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sea level extremes at &#39;</span> <span class="o">+</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
 </pre></div>
@@ -1222,25 +1255,17 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sea level extremes at Honolulu, Hawaii&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/595fb6f76e7a0b2914d8bd6f4acfe13fca86f624ca21accb9326c638d450abf1.png" src="../../_images/595fb6f76e7a0b2914d8bd6f4acfe13fca86f624ca21accb9326c638d450abf1.png" />
+<img alt="../../_images/2b2ca0308e5b002cc97e8f41c2c0de91431be8ba416cb2ec43209ed562cfbcdb.png" src="../../_images/2b2ca0308e5b002cc97e8f41c2c0de91431be8ba416cb2ec43209ed562cfbcdb.png" />
 </div>
 </div>
 </section>
 <section id="check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">
 <h4>Check if we should include a long-term trend (mean sea level rise) in our location parameter<a class="headerlink" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter" title="Permalink to this heading">#</a></h4>
 <p>I mean, it’s probably statistically significant, but hey, we should test just in case.</p>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>I have switched the best model to include all seasonal components. This is a bug I’m trying to fix, but if the 3rd component (either <span class="math notranslate nohighlight">\(3\omega\)</span> or <span class="math notranslate nohighlight">\(4\omega\)</span>, we don’t really know) is not included, everything breaks down.</p>
-</div>
-</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
 
-<span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">x_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>  <span class="c1"># Long-term Trend</span>
 
 <span class="n">f_T</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">(</span><span class="n">x_T</span><span class="p">,</span> <span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_S_T_Cv&#39;</span><span class="p">)</span>
@@ -1260,12 +1285,20 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Statistical Significance of Linear Trend: </span><span class="si">{</span><span class="n">SignifTrend</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Estimated Trend on monthly Maxima values is: </span><span class="si">{</span><span class="n">w_T</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">*</span><span class="n">w_T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="mi">1000</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> mm/year&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_s is: </span><span class="si">{</span><span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_T is: </span><span class="si">{</span><span class="n">x_T</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;w_T is: </span><span class="si">{</span><span class="n">w_T</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Linear Trend: 100.00%
 Estimated Trend on monthly Maxima values is: 0.11 mm/year
+x_s is: [1 1 0]
+x_T is: [1 1 0 1 0 0]
+w_T is: [ 4.67039758e+02  1.85962112e+00  6.66646400e-02 -2.22472000e-01
+ -4.22099000e-03 -4.67291700e-02  5.26789800e-02 -6.08231000e-03
+  1.59690000e-03]
 </pre></div>
 </div>
 </div>
@@ -1291,11 +1324,13 @@ Estimated Trend on monthly Maxima values is: 0.11 mm/year
 <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">SignifCvte1</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">diffe</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Statistical Significance of Covariate in location param.: </span><span class="si">{</span><span class="n">SignifCvte1</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_cvte1 is: </span><span class="si">{</span><span class="n">x_cvte1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in location param.: 49.08%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in location param.: 54.60%
+x_cvte1 is: [1 1 0 1 1 0]
 </pre></div>
 </div>
 </div>
@@ -1322,11 +1357,13 @@ Estimated Trend on monthly Maxima values is: 0.11 mm/year
 <span class="n">SignifCvte2</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">diffe</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Statistical Significance of Covariate in scale param.: </span><span class="si">{</span><span class="n">SignifCvte2</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_cvte2 is: </span><span class="si">{</span><span class="n">x_cvte2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 58.10%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 40.86%
+x_cvte2 is: [1 1 0 1 0 1]
 </pre></div>
 </div>
 </div>
@@ -1352,6 +1389,7 @@ Estimated Trend on monthly Maxima values is: 0.11 mm/year
     <span class="n">miot</span> <span class="o">=</span><span class="n">mios</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> 
 
 <span class="n">fitness</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_S_T_Cv_Nodal&#39;</span><span class="p">);</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_N is: </span><span class="si">{</span><span class="n">x_N</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
 <span class="n">w_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;best.txt&#39;</span><span class="p">);</span>
 <span class="n">mion</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;mio.txt&#39;</span><span class="p">);</span>
@@ -1379,6 +1417,7 @@ Estimated Trend on monthly Maxima values is: 0.11 mm/year
 <span class="c1"># Assess standard errors of the parameters</span>
 <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span>
 <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;w_N: </span><span class="si">{</span><span class="n">wc</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1386,9 +1425,11 @@ Estimated Trend on monthly Maxima values is: 0.11 mm/year
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend is significant! 
 Include long-term trend and nodal cycle in final model.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of adding Nodal cycle: 99.88%
+x_N is: [1 1 0 1 0 0 1]
+Statistical Significance of adding Nodal cycle: 99.88%
+w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
+ -3.7349800e-03 -4.6138760e-02  5.3018100e-02 -5.4962600e-03
+  1.3941500e-03 -1.5960120e-02 -8.2272200e-03]
 </pre></div>
 </div>
 </div>
@@ -1398,6 +1439,25 @@ Include long-term trend and nodal cycle in final model.
 </section>
 <section id="plot-the-timeseries">
 <h2>Plot the timeseries<a class="headerlink" href="#plot-the-timeseries" title="Permalink to this heading">#</a></h2>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Something is off in the plotting code.</p>
+</div>
+</aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_cvte1</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0, 1, 1, 0])
+</pre></div>
+</div>
+</div>
+</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%</span>
@@ -1411,28 +1471,32 @@ Include long-term trend and nodal cycle in final model.
 
 <span class="c1"># # Plotting model with only time-dependency within the year (Seasonality only)</span>
 <span class="c1"># best_param = np.append(w_s[1:], [0, 0, 0])</span>
-<span class="n">ReturnPeriod</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
+<span class="c1"># ReturnPeriod = [2,10,50,100]</span>
 <span class="c1"># years, Yr_s = getTimeDependentReturnValue(t, covariate, best_param,ReturnPeriod)</span>
 <span class="c1"># for i in range(len(ReturnPeriod)):</span>
-<span class="c1">#     sss.plot(years[:-1]+0.5+year0, Yr_s[i], &#39;k&#39;, linewidth=2, label=&#39;S, &#39;+str(ReturnPeriod[i])+&#39;y&#39;)</span>
+<span class="c1">#     sss.plot(years[:-1]+0.5+year0, Yr_s[i]-STNDtoMHHW, &#39;k&#39;, linewidth=2, label=&#39;S, &#39;+str(ReturnPeriod[i])+&#39;y&#39;)</span>
 
 <span class="c1"># # Plotting model with Seasonality &amp; Trend</span>
-<span class="c1"># best_param = np.append(w_T[1:], [0, 0])</span>
+<span class="n">best_param</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w_T</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w_T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="c1"># print(best_param)</span>
 <span class="c1"># years, Yr_T = getTimeDependentReturnValue(t, covariate, best_param,ReturnPeriod)</span>
-<span class="c1"># sss.plot(years[:-1]+0.5+year0, Yr_T[0], &#39;b&#39;, linewidth=2, label=&#39;S,T&#39;)</span>
+<span class="c1"># for i in range(len(ReturnPeriod)):</span>
+<span class="c1">#     sss.plot(years[:-1]+0.5+year0, Yr_T[i]-STNDtoMHHW, &#39;b&#39;, linewidth=2, label=&#39;S,T:&#39; + str(ReturnPeriod[i])+&#39;y&#39;)</span>
 
-<span class="c1"># # Plotting cvte influence in location</span>
-<span class="c1"># best_smu = np.append(w_cvte1[1:], [0])</span>
-<span class="c1"># years, Yr_sigMu = getTimeDependentReturnValue(t, covariate, best_smu,ReturnPeriod)</span>
-<span class="c1"># sss.plot(years[:-1]+0.5+year0, Yr_sigMu[0], &#39;g&#39;, linewidth=1, label=&#39;Covariate_location&#39;)</span>
+<span class="c1"># Plotting cvte influence in location</span>
+<span class="n">best_smu</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_cvte1</span><span class="p">,</span><span class="n">w_cvte1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">best_smu</span><span class="p">)</span>
+<span class="n">years</span><span class="p">,</span> <span class="n">Yr_sigMu</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_smu</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">years</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="o">+</span><span class="n">year0</span><span class="p">,</span> <span class="n">Yr_sigMu</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="s1">&#39;g&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Covariate_location&#39;</span><span class="p">)</span>
 
-<span class="c1"># # Plotting cvte influence in scale</span>
-<span class="c1"># best_spsi = np.append(w_cvte2[1:-1], [0, w_cvte2[-1]])</span>
-<span class="c1"># years, Yr_sigPsi = getTimeDependentReturnValue(t, covariate, best_spsi,ReturnPeriod)</span>
-<span class="c1"># sss.plot(years[:-1]+0.5+year0, Yr_sigPsi, &#39;c&#39;, linewidth=1, label=&#39;Covariate_scale&#39;)</span>
+<span class="c1"># Plotting cvte influence in scale</span>
+<span class="n">best_spsi</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_cvte2</span><span class="p">,</span> <span class="n">w_cvte2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">best_spsi</span><span class="p">)</span>
+<span class="n">years</span><span class="p">,</span> <span class="n">Yr_sigPsi</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_spsi</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
+<span class="c1"># sss.plot(years[:-1]+0.5+year0, Yr_sigPsi[0]-STNDtoMHHW, &#39;c&#39;, linewidth=1, label=&#39;Covariate_scale&#39;)</span>
 
-<span class="c1"># Plotting nodal cycle in location</span>
-<span class="n">best_MuN</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w_N</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w_N</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">w_N</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+<span class="c1"># Plotting nodal cycle in location, will need to add back in the covariate terms as zeros</span>
+<span class="n">best_MuN</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">w_N</span><span class="p">)</span>
 <span class="n">years</span><span class="p">,</span> <span class="n">Yr_muN</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_MuN</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
 <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;viridis&#39;</span><span class="p">)</span>
 
@@ -1458,7 +1522,17 @@ Include long-term trend and nodal cycle in final model.
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b0ec697456d680db88d82592c872b79d57b69df800cbbe340f8fce0b1bf6bc10.png" src="../../_images/b0ec697456d680db88d82592c872b79d57b69df800cbbe340f8fce0b1bf6bc10.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.85948129e+00  6.66563900e-02 -2.23241300e-01 -4.34724000e-03
+ -4.68163900e-02  5.26746400e-02 -6.31040000e-03  0.00000000e+00
+  0.00000000e+00  1.59789000e-03 -3.05871000e-03  0.00000000e+00
+  0.00000000e+00  0.00000000e+00]
+[ 1.85980728e+00  6.65007700e-02 -2.20907310e-01 -4.56656000e-03
+ -4.65019800e-02  5.22530300e-02 -5.81734000e-03  0.00000000e+00
+  0.00000000e+00  1.58449000e-03  0.00000000e+00 -1.85746000e-03
+  0.00000000e+00  0.00000000e+00]
+</pre></div>
+</div>
+<img alt="../../_images/4da7415e8bb9c99203ac53222f8092497afb1e7c1900af9598c00a4749fd93de.png" src="../../_images/4da7415e8bb9c99203ac53222f8092497afb1e7c1900af9598c00a4749fd93de.png" />
 </div>
 </div>
 </section>
