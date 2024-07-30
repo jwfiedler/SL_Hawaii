@@ -534,8 +534,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0d71cc1a-d90f-4a86-9f74-30047041ceea">
-<span class="eqno">(1)<a class="headerlink" href="#equation-0d71cc1a-d90f-4a86-9f74-30047041ceea" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-425cdd5b-2824-4528-abb4-2635671ed77b">
+<span class="eqno">(1)<a class="headerlink" href="#equation-425cdd5b-2824-4528-abb4-2635671ed77b" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -549,8 +549,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2fbb217f-c781-41bb-bc9d-e1bf6c4743c3">
-<span class="eqno">(2)<a class="headerlink" href="#equation-2fbb217f-c781-41bb-bc9d-e1bf6c4743c3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3812cb98-456f-4c7f-88c5-2b4176e93260">
+<span class="eqno">(2)<a class="headerlink" href="#equation-3812cb98-456f-4c7f-88c5-2b4176e93260" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -653,8 +653,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ee4f8aa-f9a6-423e-be4b-be28d6ba6a64">
-<span class="eqno">(3)<a class="headerlink" href="#equation-2ee4f8aa-f9a6-423e-be4b-be28d6ba6a64" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-318c1672-4b2a-4223-9f23-49895dd99cc5">
+<span class="eqno">(3)<a class="headerlink" href="#equation-318c1672-4b2a-4223-9f23-49895dd99cc5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -684,8 +684,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-97b973b1-abb8-40fc-a197-7650a63086df">
-<span class="eqno">(4)<a class="headerlink" href="#equation-97b973b1-abb8-40fc-a197-7650a63086df" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1984aeb7-c779-4613-b7b4-592254dbde8c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-1984aeb7-c779-4613-b7b4-592254dbde8c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -698,8 +698,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-and-covariate-model">
 <h4>Seasonality, Trend, and Covariate Model<a class="headerlink" href="#seasonality-trend-and-covariate-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv model , we’ll allow a long-term trend into the location parameter and a covariate into the scale and location parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8cc7689b-f2d2-4865-a2d5-6c8980663da6">
-<span class="eqno">(5)<a class="headerlink" href="#equation-8cc7689b-f2d2-4865-a2d5-6c8980663da6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f1707499-2bcb-4415-b3b6-1d605cb6241b">
+<span class="eqno">(5)<a class="headerlink" href="#equation-f1707499-2bcb-4415-b3b6-1d605cb6241b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -711,8 +711,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-451f6d0f-de08-41e9-8cea-f5a70991d5fa">
-<span class="eqno">(6)<a class="headerlink" href="#equation-451f6d0f-de08-41e9-8cea-f5a70991d5fa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b34e45cb-f796-43f5-923c-1fb7690b9852">
+<span class="eqno">(6)<a class="headerlink" href="#equation-b34e45cb-f796-43f5-923c-1fb7690b9852" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -1248,13 +1248,13 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">sss</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="n">sss</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Sea level extremes at &#39;</span> <span class="o">+</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
+
+<span class="c1"># save the figure</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;SeasonalExtremeVariations.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Sea level extremes at Honolulu, Hawaii&#39;)
-</pre></div>
-</div>
 <img alt="../../_images/2b2ca0308e5b002cc97e8f41c2c0de91431be8ba416cb2ec43209ed562cfbcdb.png" src="../../_images/2b2ca0308e5b002cc97e8f41c2c0de91431be8ba416cb2ec43209ed562cfbcdb.png" />
 </div>
 </div>
