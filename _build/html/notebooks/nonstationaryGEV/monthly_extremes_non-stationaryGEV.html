@@ -534,8 +534,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-425cdd5b-2824-4528-abb4-2635671ed77b">
-<span class="eqno">(1)<a class="headerlink" href="#equation-425cdd5b-2824-4528-abb4-2635671ed77b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b601429c-f81d-483f-9759-1af2b9c927f3">
+<span class="eqno">(1)<a class="headerlink" href="#equation-b601429c-f81d-483f-9759-1af2b9c927f3" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -549,8 +549,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3812cb98-456f-4c7f-88c5-2b4176e93260">
-<span class="eqno">(2)<a class="headerlink" href="#equation-3812cb98-456f-4c7f-88c5-2b4176e93260" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-306986c5-0e9a-40af-8b88-14797203ae11">
+<span class="eqno">(2)<a class="headerlink" href="#equation-306986c5-0e9a-40af-8b88-14797203ae11" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -653,8 +653,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-318c1672-4b2a-4223-9f23-49895dd99cc5">
-<span class="eqno">(3)<a class="headerlink" href="#equation-318c1672-4b2a-4223-9f23-49895dd99cc5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5d9e0828-8154-4178-9b38-d5a251dbfd9c">
+<span class="eqno">(3)<a class="headerlink" href="#equation-5d9e0828-8154-4178-9b38-d5a251dbfd9c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -684,8 +684,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1984aeb7-c779-4613-b7b4-592254dbde8c">
-<span class="eqno">(4)<a class="headerlink" href="#equation-1984aeb7-c779-4613-b7b4-592254dbde8c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ce885ca1-ccf4-4d82-abdd-0d9d60dfc80f">
+<span class="eqno">(4)<a class="headerlink" href="#equation-ce885ca1-ccf4-4d82-abdd-0d9d60dfc80f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -698,33 +698,33 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-and-covariate-model">
 <h4>Seasonality, Trend, and Covariate Model<a class="headerlink" href="#seasonality-trend-and-covariate-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv model , we’ll allow a long-term trend into the location parameter and a covariate into the scale and location parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f1707499-2bcb-4415-b3b6-1d605cb6241b">
-<span class="eqno">(5)<a class="headerlink" href="#equation-f1707499-2bcb-4415-b3b6-1d605cb6241b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-14d50b85-2633-4caf-9ace-cf3897344290">
+<span class="eqno">(5)<a class="headerlink" href="#equation-14d50b85-2633-4caf-9ace-cf3897344290" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
-&amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t),\\
+&amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
 \xi &amp;=  \gamma_0 
 \end{align}\]</div>
 <p>and we’ll arrange our vector of 12 regression parameters within the fitness function like so:</p>
-<p><span class="math notranslate nohighlight">\(\theta = [\beta_0, \alpha_0, \gamma_0, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5, \beta_6,\beta_{LT},\beta_{SOI},\alpha_{ONI}].\)</span></p>
+<p><span class="math notranslate nohighlight">\(\theta = [\beta_0, \alpha_0, \gamma_0, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5, \beta_6,\beta_{LT},\beta_{ONI},\alpha_{ONI}].\)</span></p>
 </section>
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b34e45cb-f796-43f5-923c-1fb7690b9852">
-<span class="eqno">(6)<a class="headerlink" href="#equation-b34e45cb-f796-43f5-923c-1fb7690b9852" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-51aa4b22-ca49-4652-b3d8-2eaa3f5432ce">
+<span class="eqno">(6)<a class="headerlink" href="#equation-51aa4b22-ca49-4652-b3d8-2eaa3f5432ce" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
-&amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{SOI}SOI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
+&amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
 \xi &amp;=  \gamma_0 
 \end{align}\]</div>
 <p>and we’ll arrange our vector of 14 regression parameters within the fitness function like so:</p>
-<p><span class="math notranslate nohighlight">\(\theta = [\beta_0, \alpha_0, \gamma_0, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5, \beta_6,\beta_{LT},\beta_{SOI},\alpha_{SOI},\beta_{N1},\beta_{N2}].\)</span></p>
+<p><span class="math notranslate nohighlight">\(\theta = [\beta_0, \alpha_0, \gamma_0, \beta_1, \beta_2, \beta_3, \beta_4, \beta_5, \beta_6,\beta_{LT},\beta_{ONI},\alpha_{ONI},\beta_{N1},\beta_{N2}].\)</span></p>
 </section>
 </section>
 <section id="input-to-the-fitness-function">
 <h3>Input to the fitness function<a class="headerlink" href="#input-to-the-fitness-function" title="Permalink to this heading">#</a></h3>
-<p>Note that the input “x” to the fitness function works like a switch - if it is a parameter to include, it is 1 (True). If it is not used, it is 0 (False). It is at most 7 units long.</p>
+<p>Note that the input “x” to the fitness function works like a switch - if it is a parameter to include, it is 1 (True). If it is not used, it is 0 (False). It is at most 7 elements long.</p>
 <ul class="simple">
 <li><p>x: [1/0 1/0 1/0 1/0 1/0 1/0 1/0]</p></li>
 <li><p>x[0]: annual cycle, location parameter.</p></li>
@@ -1077,45 +1077,68 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">mios</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;mio.txt&#39;</span><span class="p">)</span>  <span class="c1"># LABEL</span>
 
 <span class="n">icromo</span> <span class="o">=</span> <span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="c1"># Prepare data for plotting</span>
-<span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">w_s_plot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s</span><span class="p">):</span>
-    <span class="c1"># Adjust w_s_plot based on icromo conditions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adjusts the w array based on the icromo conditions and returns an array with 14 elements.</span>
+
+<span class="sd">    Parameters:</span>
+<span class="sd">        icromo (list): A list representing the conditions that influence the adjustment of w.</span>
+<span class="sd">        w (array-like): An array of values to be adjusted based on icromo.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        np.ndarray: A 14-element array with adjusted values.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Initialize the output array with 14 elements set to zero</span>
     <span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
-    <span class="n">w_s_plot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-    <span class="k">elif</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">8</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">8</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-    <span class="k">if</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">icromo</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">icromo</span><span class="p">[:</span><span class="mi">7</span><span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">icromo</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>
-            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-            <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="mi">0</span><span class="p">]</span>
-            <span class="k">elif</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-                <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">10</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-    <span class="k">if</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">icromo</span><span class="p">[:</span><span class="mi">8</span><span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span><span class="n">w_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="c1"># Ensure icromo is 7 elements long</span>
+    <span class="n">icromo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">icromo</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">icromo</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="c1"># Fill the rest with zeros</span>
+        <span class="n">icromo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">7</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">icromo</span><span class="p">)))</span>
+
+    <span class="c1"># Always present terms (mu, psi, xi)</span>
+    <span class="n">w_s_plot</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+    
+    <span class="c1"># Initialize the index for the input w</span>
+    <span class="n">idx</span> <span class="o">=</span> <span class="mi">4</span>
+
+    <span class="c1"># Assign terms based on icromo conditions</span>
+    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># annual</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">:</span><span class="n">idx</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">2</span>
+        
+    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># semiannual</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">:</span><span class="n">idx</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1">#triannual</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">7</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">:</span><span class="n">idx</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">2</span>
+
+    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># long-term trend</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1"># covariate, location</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1">#covariate, scale</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">if</span> <span class="n">icromo</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span> <span class="c1">#nodal</span>
+        <span class="n">w_s_plot</span><span class="p">[</span><span class="mi">12</span><span class="p">:</span><span class="mi">14</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="n">idx</span><span class="p">:</span><span class="n">idx</span><span class="o">+</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">idx</span> <span class="o">+=</span> <span class="mi">2</span>
+
+    <span class="c1"># Return the adjusted array with 14 elements</span>
     <span class="k">return</span> <span class="n">w_s_plot</span>
 </pre></div>
 </div>
@@ -1123,17 +1146,33 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">w_s</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">icromo</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">TypeError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">11</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">w_s</span><span class="p">)</span>
-
-<span class="ne">TypeError</span>: adjust_w_for_plotting() takes 2 positional arguments but 3 were given
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 1, 0])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_s_plot</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span><span class="n">w_s</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_s_plot</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.9042487 ,  0.07156924, -0.2137741 , -0.00414452, -0.04658967,
+        0.05267449, -0.00683141,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ])
 </pre></div>
 </div>
 </div>
@@ -1193,18 +1232,18 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
                 <span class="c1"># Replace NaNs with zero (np.interp does this by default if outside the bounds)</span>
                 <span class="n">serieCV2</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">serieCV2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">0</span>
                 <span class="c1"># Define mut and other parameters</span>
-                <span class="c1"># mut = (b0 * np.exp(bLT * ti) +</span>
-                <span class="c1">#        b1 * np.cos(2 * np.pi * ti) + b2 * np.sin(2 * np.pi * ti) +</span>
-                <span class="c1">#        b3 * np.cos(4 * np.pi * ti) + b4 * np.sin(4 * np.pi * ti) +</span>
-                <span class="c1">#        b5 * np.cos(8 * np.pi * ti) + b6 * np.sin(8 * np.pi * ti) +</span>
-                <span class="c1">#        bN1 * np.cos((2 * np.pi / 18.61) * ti) + bN2 * np.sin((2 * np.pi / 18.61) * ti) +</span>
-                <span class="c1">#        (bCI * serieCV2))</span>
-                <span class="n">mut</span> <span class="o">=</span> <span class="p">((</span><span class="n">b0</span>  <span class="o">+</span>
+                <span class="n">mut</span> <span class="o">=</span> <span class="p">(</span><span class="n">b0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">bLT</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
                        <span class="n">b1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> <span class="n">b2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
                        <span class="n">b3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> <span class="n">b4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
-                       <span class="n">b5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> <span class="n">b6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">))</span><span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">bLT</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> 
+                       <span class="n">b5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> <span class="n">b6</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
                        <span class="n">bN1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">18.61</span><span class="p">)</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span> <span class="n">bN2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">18.61</span><span class="p">)</span> <span class="o">*</span> <span class="n">ti</span><span class="p">)</span> <span class="o">+</span>
                        <span class="p">(</span><span class="n">bCI</span> <span class="o">*</span> <span class="n">serieCV2</span><span class="p">))</span>
+                <span class="c1"># mut = ((b0  +</span>
+                <span class="c1">#        b1 * np.cos(2 * np.pi * ti) + b2 * np.sin(2 * np.pi * ti) +</span>
+                <span class="c1">#        b3 * np.cos(4 * np.pi * ti) + b4 * np.sin(4 * np.pi * ti) +</span>
+                <span class="c1">#        b5 * np.cos(8 * np.pi * ti) + b6 * np.sin(8 * np.pi * ti))* np.exp(bLT * ti) + </span>
+                <span class="c1">#        bN1 * np.cos((2 * np.pi / 18.61) * ti) + bN2 * np.sin((2 * np.pi / 18.61) * ti) +</span>
+                <span class="c1">#        (bCI * serieCV2))</span>
                 <span class="n">psi</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">+</span> <span class="p">(</span><span class="n">aCI</span> <span class="o">*</span> <span class="n">serieCV2</span><span class="p">)</span>
                 <span class="n">xit</span> <span class="o">=</span> <span class="n">xi</span>
 
@@ -1425,7 +1464,9 @@ x_cvte2 is: [1 1 0 1 0 1]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend is significant! 
 Include long-term trend and nodal cycle in final model.
-x_N is: [1 1 0 1 0 0 1]
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_N is: [1 1 0 1 0 0 1]
 Statistical Significance of adding Nodal cycle: 99.88%
 w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
  -3.7349800e-03 -4.6138760e-02  5.3018100e-02 -5.4962600e-03
@@ -1459,27 +1500,26 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 
 <span class="c1"># # Plotting model with only time-dependency within the year (Seasonality only)</span>
 <span class="c1"># best_param = np.append(w_s[1:], [0, 0, 0])</span>
-<span class="c1"># ReturnPeriod = [2,10,50,100]</span>
+<span class="n">best_param</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_s</span><span class="p">,</span> <span class="n">w_s</span><span class="p">)</span>
+<span class="n">ReturnPeriod</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">]</span>
 <span class="c1"># years, Yr_s = getTimeDependentReturnValue(t, covariate, best_param,ReturnPeriod)</span>
 <span class="c1"># for i in range(len(ReturnPeriod)):</span>
 <span class="c1">#     sss.plot(years[:-1]+0.5+year0, Yr_s[i]-STNDtoMHHW, &#39;k&#39;, linewidth=2, label=&#39;S, &#39;+str(ReturnPeriod[i])+&#39;y&#39;)</span>
 
 <span class="c1"># # Plotting model with Seasonality &amp; Trend</span>
-<span class="n">best_param</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w_T</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w_T</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">best_T</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_T</span><span class="p">,</span> <span class="n">w_T</span><span class="p">)</span>
 <span class="c1"># print(best_param)</span>
-<span class="c1"># years, Yr_T = getTimeDependentReturnValue(t, covariate, best_param,ReturnPeriod)</span>
+<span class="c1"># years, Yr_T = getTimeDependentReturnValue(t, covariate, best_T,ReturnPeriod)</span>
 <span class="c1"># for i in range(len(ReturnPeriod)):</span>
 <span class="c1">#     sss.plot(years[:-1]+0.5+year0, Yr_T[i]-STNDtoMHHW, &#39;b&#39;, linewidth=2, label=&#39;S,T:&#39; + str(ReturnPeriod[i])+&#39;y&#39;)</span>
 
 <span class="c1"># Plotting cvte influence in location</span>
 <span class="n">best_smu</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_cvte1</span><span class="p">,</span><span class="n">w_cvte1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">best_smu</span><span class="p">)</span>
 <span class="n">years</span><span class="p">,</span> <span class="n">Yr_sigMu</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_smu</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
 <span class="c1"># sss.plot(years[:-1]+0.5+year0, Yr_sigMu[0]-STNDtoMHHW, &#39;g&#39;, linewidth=1, label=&#39;Covariate_location&#39;)</span>
 
 <span class="c1"># Plotting cvte influence in scale</span>
 <span class="n">best_spsi</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_cvte2</span><span class="p">,</span> <span class="n">w_cvte2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">best_spsi</span><span class="p">)</span>
 <span class="n">years</span><span class="p">,</span> <span class="n">Yr_sigPsi</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_spsi</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
 <span class="c1"># sss.plot(years[:-1]+0.5+year0, Yr_sigPsi[0]-STNDtoMHHW, &#39;c&#39;, linewidth=1, label=&#39;Covariate_scale&#39;)</span>
 
@@ -1512,17 +1552,7 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[ 1.85948129e+00  6.66563900e-02 -2.23241300e-01 -4.34724000e-03
- -4.68163900e-02  5.26746400e-02 -6.31040000e-03  0.00000000e+00
-  0.00000000e+00  1.59789000e-03 -3.05871000e-03  0.00000000e+00
-  0.00000000e+00  0.00000000e+00]
-[ 1.85980728e+00  6.65007700e-02 -2.20907310e-01 -4.56656000e-03
- -4.65019800e-02  5.22530300e-02 -5.81734000e-03  0.00000000e+00
-  0.00000000e+00  1.58449000e-03  0.00000000e+00 -1.85746000e-03
-  0.00000000e+00  0.00000000e+00]
-</pre></div>
-</div>
-<img alt="../../_images/bf0b3f4e4bbead1440d3571cb2375de4e92cbea063c19cd5b942b2e2511de283.png" src="../../_images/bf0b3f4e4bbead1440d3571cb2375de4e92cbea063c19cd5b942b2e2511de283.png" />
+<img alt="../../_images/f57af607ea6f345a3e6f39b25f443ac7d50248b89eb17a784bf012d66ab4bc97.png" src="../../_images/f57af607ea6f345a3e6f39b25f443ac7d50248b89eb17a784bf012d66ab4bc97.png" />
 </div>
 </div>
 </section>
