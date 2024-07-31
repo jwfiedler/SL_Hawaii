@@ -502,12 +502,15 @@ document.write(`
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data-input-to-the-model">Format data input to the model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adjust-data-for-storm-year">Adjust data for storm year</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-a-timeseries-of-the-time-dependent-return-values">Extract a timeseries of the time-dependent return values</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model">Plot monthly extremes and 50 year return period with the seasonal model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-given-year-return-period-with-the-seasonal-model">Plot monthly extremes and given year return period with the seasonal model</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">Check if we should include a long-term trend (mean sea level rise) in our location parameter</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-covariate-in-the-location-parameter">Check the covariate in the location parameter.</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-covariate-in-scale-parameter">Check the covariate in scale parameter</a></li>
@@ -534,8 +537,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b601429c-f81d-483f-9759-1af2b9c927f3">
-<span class="eqno">(1)<a class="headerlink" href="#equation-b601429c-f81d-483f-9759-1af2b9c927f3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-243bc64b-2613-46ef-a756-02672211326c">
+<span class="eqno">(1)<a class="headerlink" href="#equation-243bc64b-2613-46ef-a756-02672211326c" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -549,8 +552,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-306986c5-0e9a-40af-8b88-14797203ae11">
-<span class="eqno">(2)<a class="headerlink" href="#equation-306986c5-0e9a-40af-8b88-14797203ae11" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-810841ec-bf0e-413f-a187-055df7e80967">
+<span class="eqno">(2)<a class="headerlink" href="#equation-810841ec-bf0e-413f-a187-055df7e80967" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -653,8 +656,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d9e0828-8154-4178-9b38-d5a251dbfd9c">
-<span class="eqno">(3)<a class="headerlink" href="#equation-5d9e0828-8154-4178-9b38-d5a251dbfd9c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-16665f7f-b3bf-4a33-9122-53e8e38e5c5b">
+<span class="eqno">(3)<a class="headerlink" href="#equation-16665f7f-b3bf-4a33-9122-53e8e38e5c5b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -684,8 +687,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce885ca1-ccf4-4d82-abdd-0d9d60dfc80f">
-<span class="eqno">(4)<a class="headerlink" href="#equation-ce885ca1-ccf4-4d82-abdd-0d9d60dfc80f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bfb9989b-9172-498d-9314-0a229cb85574">
+<span class="eqno">(4)<a class="headerlink" href="#equation-bfb9989b-9172-498d-9314-0a229cb85574" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -698,8 +701,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-and-covariate-model">
 <h4>Seasonality, Trend, and Covariate Model<a class="headerlink" href="#seasonality-trend-and-covariate-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv model , we’ll allow a long-term trend into the location parameter and a covariate into the scale and location parameter:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-14d50b85-2633-4caf-9ace-cf3897344290">
-<span class="eqno">(5)<a class="headerlink" href="#equation-14d50b85-2633-4caf-9ace-cf3897344290" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8974cb5f-8efc-41fe-aedb-56c175bd05f2">
+<span class="eqno">(5)<a class="headerlink" href="#equation-8974cb5f-8efc-41fe-aedb-56c175bd05f2" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -711,8 +714,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-51aa4b22-ca49-4652-b3d8-2eaa3f5432ce">
-<span class="eqno">(6)<a class="headerlink" href="#equation-51aa4b22-ca49-4652-b3d8-2eaa3f5432ce" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f5c8b910-b1d3-4b10-8baf-8f6775990cf9">
+<span class="eqno">(6)<a class="headerlink" href="#equation-f5c8b910-b1d3-4b10-8baf-8f6775990cf9" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]e^{[\beta_{LT}(t)]} + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -953,8 +956,6 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
 <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
 <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-
-<span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level_mhhw&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -964,6 +965,443 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </pre></div>
 </div>
 </div>
+</div>
+<section id="adjust-data-for-storm-year">
+<h3>Adjust data for storm year<a class="headerlink" href="#adjust-data-for-storm-year" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># add storm_time to the dataset</span>
+
+<span class="n">storm_time</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">to_series</span><span class="p">()</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=-</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="n">storm_time_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span><span class="n">storm_time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">dims</span><span class="o">=</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">coords</span><span class="o">=</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+
+<span class="c1"># Add &#39;storm_time&#39; as a coordinate to the dataset</span>
+<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">storm_time</span><span class="o">=</span><span class="n">storm_time_da</span><span class="p">)</span>
+
+<span class="c1"># Make &#39;storm_time&#39; a dimension</span>
+<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">swap_dims</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="s1">&#39;storm_time&#39;</span><span class="p">})</span>
+
+<span class="c1"># Sort by &#39;storm_time&#39; to ensure monotonic order</span>
+<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sortby</span><span class="p">(</span><span class="s1">&#39;storm_time&#39;</span><span class="p">)</span>
+
+<span class="n">rsl_hourly</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
+<defs>
+<symbol id="icon-database" viewBox="0 0 32 32">
+<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
+<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
+</symbol>
+<symbol id="icon-file-text2" viewBox="0 0 32 32">
+<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
+<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
+</symbol>
+</defs>
+</svg>
+<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
+ *
+ */
+
+:root {
+  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
+  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
+  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
+  --xr-border-color: var(--jp-border-color2, #e0e0e0);
+  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
+  --xr-background-color: var(--jp-layout-color0, white);
+  --xr-background-color-row-even: var(--jp-layout-color1, white);
+  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
+}
+
+html[theme=dark],
+body[data-theme=dark],
+body.vscode-dark {
+  --xr-font-color0: rgba(255, 255, 255, 1);
+  --xr-font-color2: rgba(255, 255, 255, 0.54);
+  --xr-font-color3: rgba(255, 255, 255, 0.38);
+  --xr-border-color: #1F1F1F;
+  --xr-disabled-color: #515151;
+  --xr-background-color: #111111;
+  --xr-background-color-row-even: #111111;
+  --xr-background-color-row-odd: #313131;
+}
+
+.xr-wrap {
+  display: block !important;
+  min-width: 300px;
+  max-width: 700px;
+}
+
+.xr-text-repr-fallback {
+  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
+  display: none;
+}
+
+.xr-header {
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+  border-bottom: solid 1px var(--xr-border-color);
+}
+
+.xr-header > div,
+.xr-header > ul {
+  display: inline;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.xr-obj-type,
+.xr-array-name {
+  margin-left: 2px;
+  margin-right: 10px;
+}
+
+.xr-obj-type {
+  color: var(--xr-font-color2);
+}
+
+.xr-sections {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: 150px auto auto 1fr 20px 20px;
+}
+
+.xr-section-item {
+  display: contents;
+}
+
+.xr-section-item input {
+  display: none;
+}
+
+.xr-section-item input + label {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-item input:enabled + label {
+  cursor: pointer;
+  color: var(--xr-font-color2);
+}
+
+.xr-section-item input:enabled + label:hover {
+  color: var(--xr-font-color0);
+}
+
+.xr-section-summary {
+  grid-column: 1;
+  color: var(--xr-font-color2);
+  font-weight: 500;
+}
+
+.xr-section-summary > span {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.xr-section-summary-in:disabled + label {
+  color: var(--xr-font-color2);
+}
+
+.xr-section-summary-in + label:before {
+  display: inline-block;
+  content: '►';
+  font-size: 11px;
+  width: 15px;
+  text-align: center;
+}
+
+.xr-section-summary-in:disabled + label:before {
+  color: var(--xr-disabled-color);
+}
+
+.xr-section-summary-in:checked + label:before {
+  content: '▼';
+}
+
+.xr-section-summary-in:checked + label > span {
+  display: none;
+}
+
+.xr-section-summary,
+.xr-section-inline-details {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.xr-section-inline-details {
+  grid-column: 2 / -1;
+}
+
+.xr-section-details {
+  display: none;
+  grid-column: 1 / -1;
+  margin-bottom: 5px;
+}
+
+.xr-section-summary-in:checked ~ .xr-section-details {
+  display: contents;
+}
+
+.xr-array-wrap {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 20px auto;
+}
+
+.xr-array-wrap > label {
+  grid-column: 1;
+  vertical-align: top;
+}
+
+.xr-preview {
+  color: var(--xr-font-color3);
+}
+
+.xr-array-preview,
+.xr-array-data {
+  padding: 0 5px !important;
+  grid-column: 2;
+}
+
+.xr-array-data,
+.xr-array-in:checked ~ .xr-array-preview {
+  display: none;
+}
+
+.xr-array-in:checked ~ .xr-array-data,
+.xr-array-preview {
+  display: inline-block;
+}
+
+.xr-dim-list {
+  display: inline-block !important;
+  list-style: none;
+  padding: 0 !important;
+  margin: 0;
+}
+
+.xr-dim-list li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+
+.xr-dim-list:before {
+  content: '(';
+}
+
+.xr-dim-list:after {
+  content: ')';
+}
+
+.xr-dim-list li:not(:last-child):after {
+  content: ',';
+  padding-right: 5px;
+}
+
+.xr-has-index {
+  font-weight: bold;
+}
+
+.xr-var-list,
+.xr-var-item {
+  display: contents;
+}
+
+.xr-var-item > div,
+.xr-var-item label,
+.xr-var-item > .xr-var-name span {
+  background-color: var(--xr-background-color-row-even);
+  margin-bottom: 0;
+}
+
+.xr-var-item > .xr-var-name:hover span {
+  padding-right: 5px;
+}
+
+.xr-var-list > li:nth-child(odd) > div,
+.xr-var-list > li:nth-child(odd) > label,
+.xr-var-list > li:nth-child(odd) > .xr-var-name span {
+  background-color: var(--xr-background-color-row-odd);
+}
+
+.xr-var-name {
+  grid-column: 1;
+}
+
+.xr-var-dims {
+  grid-column: 2;
+}
+
+.xr-var-dtype {
+  grid-column: 3;
+  text-align: right;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-preview {
+  grid-column: 4;
+}
+
+.xr-index-preview {
+  grid-column: 2 / 5;
+  color: var(--xr-font-color2);
+}
+
+.xr-var-name,
+.xr-var-dims,
+.xr-var-dtype,
+.xr-preview,
+.xr-attrs dt {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 10px;
+}
+
+.xr-var-name:hover,
+.xr-var-dims:hover,
+.xr-var-dtype:hover,
+.xr-attrs dt:hover {
+  overflow: visible;
+  width: auto;
+  z-index: 1;
+}
+
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  display: none;
+  background-color: var(--xr-background-color) !important;
+  padding-bottom: 5px !important;
+}
+
+.xr-var-attrs-in:checked ~ .xr-var-attrs,
+.xr-var-data-in:checked ~ .xr-var-data,
+.xr-index-data-in:checked ~ .xr-index-data {
+  display: block;
+}
+
+.xr-var-data > table {
+  float: right;
+}
+
+.xr-var-name span,
+.xr-var-data,
+.xr-index-name div,
+.xr-index-data,
+.xr-attrs {
+  padding-left: 25px !important;
+}
+
+.xr-attrs,
+.xr-var-attrs,
+.xr-var-data,
+.xr-index-data {
+  grid-column: 1 / -1;
+}
+
+dl.xr-attrs {
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: 125px auto;
+}
+
+.xr-attrs dt,
+.xr-attrs dd {
+  padding: 0;
+  margin: 0;
+  float: left;
+  padding-right: 10px;
+  width: auto;
+}
+
+.xr-attrs dt {
+  font-weight: normal;
+  grid-column: 1;
+}
+
+.xr-attrs dt:hover span {
+  display: inline-block;
+  background: var(--xr-background-color);
+  padding-right: 10px;
+}
+
+.xr-attrs dd {
+  grid-column: 2;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.xr-icon-database,
+.xr-icon-file-text2,
+.xr-no-icon {
+  display: inline-block;
+  vertical-align: middle;
+  width: 1em;
+  height: 1.5em !important;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 63MB
+Dimensions:               (storm_time: 1046774, record_id: 11)
+Coordinates:
+    time                  (storm_time) datetime64[ns] 8MB 1905-01-01T10:00:00...
+  * record_id             (record_id) int16 22B 140 500 520 ... 5470 5480 5520
+  * storm_time            (storm_time) datetime64[ns] 8MB 1904-09-01T10:00:00...
+Data variables:
+    sea_level             (record_id, storm_time) float32 46MB ...
+    lat                   (record_id) float32 44B ...
+    lon                   (record_id) float32 44B ...
+    station_name          (record_id) &lt;U17 748B ...
+    station_country       (record_id) &lt;U30 1kB ...
+    station_country_code  (record_id) float32 44B ...
+    uhslc_id              (record_id) float32 44B ...
+    gloss_id              (record_id) float32 44B ...
+    ssc_id                (record_id) &lt;U4 176B ...
+    last_rq_date          (record_id) datetime64[ns] 88B ...
+    MHHW                  (record_id) float64 88B ...
+    MSL                   (record_id) float64 88B ...
+Attributes:
+    title:                  UHSLC Fast Delivery Tide Gauge Data (hourly)
+    ncei_template_version:  NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0
+    featureType:            timeSeries
+    Conventions:            CF-1.6, ACDD-1.3
+    date_created:           2024-07-23T14:48:45Z
+    publisher_name:         University of Hawaii Sea Level Center (UHSLC)
+    publisher_email:        philiprt@hawaii.edu, markm@soest.hawaii.edu
+    publisher_url:          http://uhslc.soest.hawaii.edu
+    summary:                The UHSLC assembles and distributes the Fast Deli...
+    processing_level:       Fast Delivery (FD) data undergo a level 1 quality...
+    acknowledgment:         The UHSLC Fast Delivery database is supported by ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-2b0a0c5f-b102-4e51-bc09-7d071309c905' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2b0a0c5f-b102-4e51-bc09-7d071309c905' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>storm_time</span>: 1046774</li><li><span class='xr-has-index'>record_id</span>: 11</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-f7c6b145-2531-448e-a131-a4feaa7e09c9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f7c6b145-2531-448e-a131-a4feaa7e09c9' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>time</span></div><div class='xr-var-dims'>(storm_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1905-01-01T10:00:00.028800 ... 2...</div><input id='attrs-f3a9bd24-20ff-4d89-b674-78807c75935a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f3a9bd24-20ff-4d89-b674-78807c75935a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bc9e4114-fb5a-4516-bfb5-fd6bf87921e3' class='xr-var-data-in' type='checkbox'><label for='data-bc9e4114-fb5a-4516-bfb5-fd6bf87921e3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1905-01-01T10:00:00.028800000&#x27;, &#x27;1905-01-01T10:59:59.971200000&#x27;,
+       &#x27;1905-01-01T12:00:00.000000000&#x27;, ..., &#x27;2024-05-31T21:00:00.000000000&#x27;,
+       &#x27;2024-05-31T22:00:00.028800000&#x27;, &#x27;2024-05-31T22:59:59.971200000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-db7b08e5-8300-40e7-b60c-32c5636d0a89' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-db7b08e5-8300-40e7-b60c-32c5636d0a89' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e4f6e2bc-1d6d-4983-9df3-cfdb6ed54c04' class='xr-var-data-in' type='checkbox'><label for='data-e4f6e2bc-1d6d-4983-9df3-cfdb6ed54c04' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
+      dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>storm_time</span></div><div class='xr-var-dims'>(storm_time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1904-09-01T10:00:00.028800 ... 2...</div><input id='attrs-6d0d9fce-9858-4e7f-8595-74615b9888f7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6d0d9fce-9858-4e7f-8595-74615b9888f7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-497d3c40-8e47-4c98-bf8e-1034f245902e' class='xr-var-data-in' type='checkbox'><label for='data-497d3c40-8e47-4c98-bf8e-1034f245902e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1904-09-01T10:00:00.028800000&#x27;, &#x27;1904-09-01T10:59:59.971200000&#x27;,
+       &#x27;1904-09-01T12:00:00.000000000&#x27;, ..., &#x27;2024-01-31T21:00:00.000000000&#x27;,
+       &#x27;2024-01-31T22:00:00.028800000&#x27;, &#x27;2024-01-31T22:59:59.971200000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bf90f53b-0750-41e6-a3e8-e518779a621e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bf90f53b-0750-41e6-a3e8-e518779a621e' class='xr-section-summary' >Data variables: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(record_id, storm_time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c6e009ec-ee88-47b3-8982-2f36a1508028' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c6e009ec-ee88-47b3-8982-2f36a1508028' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fa9b04a1-69ee-4c59-be15-55a6f277d74e' class='xr-var-data-in' type='checkbox'><label for='data-fa9b04a1-69ee-4c59-be15-55a6f277d74e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>millimeters</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[11514514 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4cbd2ebd-311a-4a91-8406-2ee16de74f88' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4cbd2ebd-311a-4a91-8406-2ee16de74f88' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b3fb8d48-6b30-4ddb-adf3-3358d9bb30c5' class='xr-var-data-in' type='checkbox'><label for='data-b3fb8d48-6b30-4ddb-adf3-3358d9bb30c5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-5c505946-f613-4b57-9f29-2d20ef4ec0a0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5c505946-f613-4b57-9f29-2d20ef4ec0a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1e118ad0-4ec4-4dc1-a9b3-36521e22ba5c' class='xr-var-data-in' type='checkbox'><label for='data-1e118ad0-4ec4-4dc1-a9b3-36521e22ba5c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8c404c01-a61d-4dd5-8541-485d89782926' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8c404c01-a61d-4dd5-8541-485d89782926' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4f6a11d4-d9e2-4f08-aaa3-8d7edfdbd27c' class='xr-var-data-in' type='checkbox'><label for='data-4f6a11d4-d9e2-4f08-aaa3-8d7edfdbd27c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U30</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ea1dbb3a-4837-48fb-9404-7806a927c6ce' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ea1dbb3a-4837-48fb-9404-7806a927c6ce' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c94b132c-4d86-48d5-85d3-5be10d788df1' class='xr-var-data-in' type='checkbox'><label for='data-c94b132c-4d86-48d5-85d3-5be10d788df1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country (ISO 3166-1)</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U30]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country_code</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-bad73ea8-3674-4eee-8ded-32041a6c83cd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bad73ea8-3674-4eee-8ded-32041a6c83cd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a172a13b-6e08-400a-b54d-fa55eedf63a6' class='xr-var-data-in' type='checkbox'><label for='data-a172a13b-6e08-400a-b54d-fa55eedf63a6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country code (ISO 3166-1 numeric)</dd><dt><span>comment :</span></dt><dd>These are 3-digit country codes (e.g., 003) stored as integers.</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uhslc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1e61e822-6611-44d1-9bae-8ff824aad828' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1e61e822-6611-44d1-9bae-8ff824aad828' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b7c89bcb-0501-4063-a8b2-452433ae1f98' class='xr-var-data-in' type='checkbox'><label for='data-b7c89bcb-0501-4063-a8b2-452433ae1f98' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the University of Hawaii Sea Level Center (UHSLC)</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gloss_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4d587d26-d985-48a3-b1f3-8bdbf3530364' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4d587d26-d985-48a3-b1f3-8bdbf3530364' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3e5379f9-385e-4125-a7a5-ba7c48734441' class='xr-var-data-in' type='checkbox'><label for='data-3e5379f9-385e-4125-a7a5-ba7c48734441' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the WMO/IOC Global Sea Level Observing System (GLOSS)</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ssc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U4</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f2bb8ca4-4dee-459e-8c87-4ff92d0eaf08' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f2bb8ca4-4dee-459e-8c87-4ff92d0eaf08' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-54c2ba46-c282-4499-820f-68f1afe22915' class='xr-var-data-in' type='checkbox'><label for='data-54c2ba46-c282-4499-820f-68f1afe22915' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID code in the Sealevel Station Catalog (SSC) produced by the WMO/IOC Sea Level Monitoring Facility (VLIZ)</dd><dt><span>comment :</span></dt><dd>Note that SSC IDs vary in length. The IDs are padded with space characters to produce the retangular character matrix provided here.</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U4]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>last_rq_date</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-3b2429fa-5d28-4a7e-bc48-2b3c547ecb1e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3b2429fa-5d28-4a7e-bc48-2b3c547ecb1e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4a5dd4a2-a382-42c6-a7f3-5d758ea7955e' class='xr-var-data-in' type='checkbox'><label for='data-4a5dd4a2-a382-42c6-a7f3-5d758ea7955e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>date of last Research Quality sea level value</dd><dt><span>comment :</span></dt><dd>Values in last_rq_date correspond to an identical value in the time vector. Dates less than or equal to last_rq_date for a given station correspond to Research Quality (RQ) data. Dates after last_rq_date correspond to Fast Delivery (FD) data. Missing values indicate no RQ data for a station.</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=datetime64[ns]]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-d871b70e-2d0d-4308-a765-3b3fc09ceab1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-d871b70e-2d0d-4308-a765-3b3fc09ceab1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-44da1ac2-f13c-44e4-acc5-f3208cb75895' class='xr-var-data-in' type='checkbox'><label for='data-44da1ac2-f13c-44e4-acc5-f3208cb75895' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm</dd><dt><span>long_name :</span></dt><dd>Mean Higher High Water, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float64]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MSL</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-5e650b26-99be-488b-a7d5-c09f42bd1334' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5e650b26-99be-488b-a7d5-c09f42bd1334' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-72cf6a2c-9c6e-4360-9b0a-d2396bc26d85' class='xr-var-data-in' type='checkbox'><label for='data-72cf6a2c-9c6e-4360-9b0a-d2396bc26d85' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm</dd><dt><span>long_name :</span></dt><dd>Mean Sea Level, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f27bbd02-16c8-4144-ace5-402306b296ad' class='xr-section-summary-in' type='checkbox'  ><label for='section-f27bbd02-16c8-4144-ace5-402306b296ad' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-942fa749-dbee-4912-a4dd-ba5ca210902d' class='xr-index-data-in' type='checkbox'/><label for='index-942fa749-dbee-4912-a4dd-ba5ca210902d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>storm_time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d96905cb-af0d-43bb-af3b-0a190cf8c97d' class='xr-index-data-in' type='checkbox'/><label for='index-d96905cb-af0d-43bb-af3b-0a190cf8c97d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1904-09-01 10:00:00.028800&#x27;, &#x27;1904-09-01 10:59:59.971200&#x27;,
+                      &#x27;1904-09-01 12:00:00&#x27;, &#x27;1904-09-01 13:00:00.028800&#x27;,
+               &#x27;1904-09-01 13:59:59.971200&#x27;,        &#x27;1904-09-01 15:00:00&#x27;,
+               &#x27;1904-09-01 16:00:00.028800&#x27;, &#x27;1904-09-01 16:59:59.971200&#x27;,
+                      &#x27;1904-09-01 18:00:00&#x27;, &#x27;1904-09-01 19:00:00.028800&#x27;,
+               ...
+               &#x27;2024-01-31 13:59:59.971200&#x27;,        &#x27;2024-01-31 15:00:00&#x27;,
+               &#x27;2024-01-31 16:00:00.028800&#x27;, &#x27;2024-01-31 16:59:59.971200&#x27;,
+                      &#x27;2024-01-31 18:00:00&#x27;, &#x27;2024-01-31 19:00:00.028800&#x27;,
+               &#x27;2024-01-31 19:59:59.971200&#x27;,        &#x27;2024-01-31 21:00:00&#x27;,
+               &#x27;2024-01-31 22:00:00.028800&#x27;, &#x27;2024-01-31 22:59:59.971200&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;storm_time&#x27;, length=1046774, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-508a12e3-7d37-4544-89f9-85ab996ed5d9' class='xr-section-summary-in' type='checkbox'  ><label for='section-508a12e3-7d37-4544-89f9-85ab996ed5d9' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>UHSLC Fast Delivery Tide Gauge Data (hourly)</dd><dt><span>ncei_template_version :</span></dt><dd>NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0</dd><dt><span>featureType :</span></dt><dd>timeSeries</dd><dt><span>Conventions :</span></dt><dd>CF-1.6, ACDD-1.3</dd><dt><span>date_created :</span></dt><dd>2024-07-23T14:48:45Z</dd><dt><span>publisher_name :</span></dt><dd>University of Hawaii Sea Level Center (UHSLC)</dd><dt><span>publisher_email :</span></dt><dd>philiprt@hawaii.edu, markm@soest.hawaii.edu</dd><dt><span>publisher_url :</span></dt><dd>http://uhslc.soest.hawaii.edu</dd><dt><span>summary :</span></dt><dd>The UHSLC assembles and distributes the Fast Delivery (FD) dataset of hourly- and daily-averaged tide gauge water-level observations. Tide gauge operators, or data creators, provide FD data to UHSLC after a level 1 quality assessment (see processing_level attribute). The UHSLC provides an independent quality assessment of the time series and makes FD data available within 4-6 weeks of collection. This is a &quot;fast&quot; turnaround time compared to Research Quality (RQ) data, which are available on an annual cycle after a level 2 quality assessment. RQ data replace FD data in the data stream as the former becomes available. This file contains hybrid time series composed of RQ data when available with FD data appended to the end of each RQ series.</dd><dt><span>processing_level :</span></dt><dd>Fast Delivery (FD) data undergo a level 1 quality assessment (e.g., unit and timing evaluation, outlier detection, combination of multiple channels into a primary channel, etc.). In this file, FD data are appended to Research Quality (RQ) data that have received a level 2 quality assessment (e.g., tide gauge datum evaluation, assessment of level ties to tide gauge benchmarks, comparison with nearby stations, etc.).</dd><dt><span>acknowledgment :</span></dt><dd>The UHSLC Fast Delivery database is supported by the National Oceanic and Atmospheric Administration (NOAA) Office of Climate Observations (OCO).</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Let’s print the station names that correspond to order of the data, because I keep forgetting.</p>
 <div class="cell docutils container">
@@ -981,6 +1419,10 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 <p>And let’s select a record id (“rid”) to use for the rest of this example.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>TO DO: Adjust monthly maxima timeseries such that high water levels from the same event are not doubly counted.</p>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rid</span> <span class="o">=</span> <span class="mi">3</span>
@@ -989,22 +1431,22 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">sea_level_series</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">]</span>
 
 <span class="c1">#get only data from 1993 to 2023</span>
-<span class="n">sea_level_series</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1993&#39;</span><span class="p">,</span> <span class="s1">&#39;2023&#39;</span><span class="p">))</span>
+<span class="n">sea_level_series</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">storm_time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1993&#39;</span><span class="p">,</span> <span class="s1">&#39;2023&#39;</span><span class="p">))</span>
 
 <span class="c1"># Step 1: extract the monthly maxima</span>
-<span class="n">monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">storm_time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
 <span class="c1"># get exact time of the monthly maxima</span>
-<span class="n">t_monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">argmax</span><span class="p">()])</span>
+<span class="n">t_monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">storm_time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">storm_time</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">argmax</span><span class="p">()])</span>
 
 <span class="c1"># To ensure it&#39;s in datetime format and to access datetime properties</span>
-<span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;storm_time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
 <span class="c1"># Now extract the day of the year (using fractional days)</span>
-<span class="n">t_yearDay</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span><span class="o">/</span><span class="mi">24</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">minute</span><span class="o">/</span><span class="mi">1440</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">second</span><span class="o">/</span><span class="mi">86400</span>
+<span class="n">t_yearDay</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;storm_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;storm_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span><span class="o">/</span><span class="mi">24</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;storm_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">minute</span><span class="o">/</span><span class="mi">1440</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">second</span><span class="o">/</span><span class="mi">86400</span>
 
 <span class="c1"># get year of t_monthly_max</span>
-<span class="n">t_year</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">t_year</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;storm_time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
 
 <span class="c1"># convert t_yearDay and monthly_max to float</span>
 <span class="n">t_yearDay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_yearDay</span><span class="p">)</span>
@@ -1025,8 +1467,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 <section id="prepare-the-covariate-data-timeseries">
-<h3>Prepare the covariate data timeseries.<a class="headerlink" href="#prepare-the-covariate-data-timeseries" title="Permalink to this heading">#</a></h3>
-<p>In this case, we’ll be using the ONI data we downloaded earlier in the datawrangling notebook.</p>
+<h4>Prepare the covariate data timeseries.<a class="headerlink" href="#prepare-the-covariate-data-timeseries" title="Permalink to this heading">#</a></h4>
+<p>In this case, we’ll be using the ONI data we downloaded earlier in the datawrangling notebook. We’ll also reindex everything to storm year (May-April).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ONI_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;ONI.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
@@ -1036,6 +1478,25 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 
 <span class="c1"># Set the Date as the index for easier slicing and access</span>
 <span class="n">ONI_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># add new column to ONI_df for storm_time</span>
+
+<span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">year</span>
+<span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">month</span> <span class="o">-</span><span class="mi">4</span> <span class="c1"># subtract 4 to make May the first month of the storm year</span>
+<span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;day&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">day</span>
+
+<span class="c1"># where month is less than 1, add 12 to month and subtract 1 from year</span>
+<span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+<span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">12</span><span class="p">,</span> <span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">])</span>
+
+
+<span class="c1"># replace year in ONI_df.Date with year in ONI_df.year</span>
+<span class="n">ONI_df</span><span class="p">[</span><span class="s1">&#39;StormDate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ONI_df</span><span class="p">[[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">]])</span>
+
+<span class="c1"># set StormDate as index</span>
+<span class="n">ONI_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;StormDate&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># remove year, month and day columns</span>
+<span class="n">ONI_df</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;day&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># Reindex to include all necessary dates from t_monthly_max for interpolation</span>
 <span class="n">all_dates</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">)</span>
@@ -1058,6 +1519,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </div>
+</section>
 </section>
 </section>
 <section id="first-look-modeling-seasonality">
@@ -1170,8 +1632,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.9042487 ,  0.07156924, -0.2137741 , -0.00414452, -0.04658967,
-        0.05267449, -0.00683141,  0.        ,  0.        ,  0.        ,
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 1.90346292,  0.07170348, -0.21471463, -0.03926711,  0.02695984,
+       -0.0200357 ,  0.0486174 ,  0.        ,  0.        ,  0.        ,
         0.        ,  0.        ,  0.        ,  0.        ])
 </pre></div>
 </div>
@@ -1263,25 +1725,19 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </div>
-<section id="plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model">
-<h4>Plot monthly extremes and 50 year return period with the seasonal model<a class="headerlink" href="#plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model" title="Permalink to this heading">#</a></h4>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w_s_plot</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.9042487)
-</pre></div>
-</div>
-</div>
-</div>
+<section id="plot-monthly-extremes-and-given-year-return-period-with-the-seasonal-model">
+<h4>Plot monthly extremes and given year return period with the seasonal model<a class="headerlink" href="#plot-monthly-extremes-and-given-year-return-period-with-the-seasonal-model" title="Permalink to this heading">#</a></h4>
+<p>Note that we are plotting stuff according to storm year, which runs from May-April (and thus on the plot, January Storm Year corresponds to May in the calendar year.)</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>The concept of storm year here is hard for me to wrap my head around. I think it depends on who this plot is made for!!</p>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sss</span> <span class="o">=</span> <span class="n">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">monthly_max</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">SampleRate</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="n">sss</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level (m, MHHW)&#39;</span><span class="p">)</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Month in Storm Year&#39;</span><span class="p">)</span>
 
 <span class="c1">#move legend to center top, with 2 columns</span>
 <span class="n">sss</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1294,7 +1750,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/2b2ca0308e5b002cc97e8f41c2c0de91431be8ba416cb2ec43209ed562cfbcdb.png" src="../../_images/2b2ca0308e5b002cc97e8f41c2c0de91431be8ba416cb2ec43209ed562cfbcdb.png" />
+<img alt="../../_images/215270f8b9c5b33fe3d16b41f0084a4a17909949123564857c2357a3f1f8fe81.png" src="../../_images/215270f8b9c5b33fe3d16b41f0084a4a17909949123564857c2357a3f1f8fe81.png" />
 </div>
 </div>
 </section>
@@ -1335,9 +1791,9 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 Estimated Trend on monthly Maxima values is: 0.11 mm/year
 x_s is: [1 1 0]
 x_T is: [1 1 0 1 0 0]
-w_T is: [ 4.67039758e+02  1.85962112e+00  6.66646400e-02 -2.22472000e-01
- -4.22099000e-03 -4.67291700e-02  5.26789800e-02 -6.08231000e-03
-  1.59690000e-03]
+w_T is: [ 4.70484368e+02  1.85593416e+00  6.59381000e-02 -2.18536070e-01
+ -3.99294900e-02  2.82110000e-02 -2.04067500e-02  4.86738800e-02
+  1.70215000e-03]
 </pre></div>
 </div>
 </div>
@@ -1368,7 +1824,7 @@ w_T is: [ 4.67039758e+02  1.85962112e+00  6.66646400e-02 -2.22472000e-01
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in location param.: 54.60%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in location param.: 55.33%
 x_cvte1 is: [1 1 0 1 1 0]
 </pre></div>
 </div>
@@ -1401,7 +1857,7 @@ x_cvte1 is: [1 1 0 1 1 0]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 40.86%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 66.62%
 x_cvte2 is: [1 1 0 1 0 1]
 </pre></div>
 </div>
@@ -1467,10 +1923,10 @@ Include long-term trend and nodal cycle in final model.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x_N is: [1 1 0 1 0 0 1]
-Statistical Significance of adding Nodal cycle: 99.88%
-w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
- -3.7349800e-03 -4.6138760e-02  5.3018100e-02 -5.4962600e-03
-  1.3941500e-03 -1.5960120e-02 -8.2272200e-03]
+Statistical Significance of adding Nodal cycle: 99.95%
+w_N: [ 4.78165400e+02  1.86195742e+00  6.47928700e-02 -2.18465430e-01
+ -3.97900900e-02  2.76960600e-02 -2.10035300e-02  4.88459600e-02
+  1.49068000e-03 -1.82028900e-02 -5.47847000e-03]
 </pre></div>
 </div>
 </div>
@@ -1543,6 +1999,7 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 
 <span class="c1"># add title of station name</span>
 <span class="n">sss</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nonstationary GEV Return Levels: &#39;</span> <span class="o">+</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Storm Year&#39;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
@@ -1552,7 +2009,7 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/f57af607ea6f345a3e6f39b25f443ac7d50248b89eb17a784bf012d66ab4bc97.png" src="../../_images/f57af607ea6f345a3e6f39b25f443ac7d50248b89eb17a784bf012d66ab4bc97.png" />
+<img alt="../../_images/211dc5a70e2c3aef370a304636bb1f702e49f7aa350822221dc848ec35de7bbe.png" src="../../_images/211dc5a70e2c3aef370a304636bb1f702e49f7aa350822221dc848ec35de7bbe.png" />
 </div>
 </div>
 </section>
@@ -1637,12 +2094,15 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#format-data-input-to-the-model">Format data input to the model</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adjust-data-for-storm-year">Adjust data for storm year</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#prepare-the-covariate-data-timeseries">Prepare the covariate data timeseries.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-a-timeseries-of-the-time-dependent-return-values">Extract a timeseries of the time-dependent return values</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-50-year-return-period-with-the-seasonal-model">Plot monthly extremes and 50 year return period with the seasonal model</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-given-year-return-period-with-the-seasonal-model">Plot monthly extremes and given year return period with the seasonal model</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">Check if we should include a long-term trend (mean sea level rise) in our location parameter</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-covariate-in-the-location-parameter">Check the covariate in the location parameter.</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-covariate-in-scale-parameter">Check the covariate in scale parameter</a></li>
