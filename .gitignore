@@ -7,4 +7,4 @@ data/*.nc
 playground/
 notebooks/nonstationaryGEV/*.exe
 notebooks/nonstationaryGEV/*.dat
-notebooks/nonstationaryGEV/*.txt
+
