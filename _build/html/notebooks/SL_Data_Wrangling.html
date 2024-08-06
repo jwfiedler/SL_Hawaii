@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
@@ -35,12 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -114,15 +118,13 @@
 </form></div>
   </div>
 
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
-</aside>
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
+  </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -146,8 +148,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../intro.html">
   
@@ -169,7 +169,7 @@
 
  <script>
  document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -188,15 +188,15 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../gettingStarted.html">Getting Started</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../gettingStarted.html">Getting Started</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Data Wrangling</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ANNUAL</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="SL_annual.html">Sea Level Magnitude</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="SL_annual.html">Sea Level Magnitude</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Trend.html">Sea Level Trend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Rankings_annual.html">Annual Sea Level Rankings</a></li>
@@ -204,26 +204,26 @@
 <li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Components_annual.html">Components of Sea Level</a></li>
 <li class="toctree-l2"><a class="reference internal" href="nonstationaryGEV/monthly_extremes_non-stationaryGEV.html">Nonstationary Extremes</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Flood.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Flood.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="FloodFrequency.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FloodDuration.html">Flood Duration</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">INTRA-ANNUAL</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="SL_intra-annual.html">Sea Level Magnitude</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="SL_intra-annual.html">Sea Level Magnitude</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_anomaly_intra-annual.html">Intra-Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Extremes_intra-annual.html">Intra-Annual Extremes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Components_intra-annual.html">Components of Sea Level</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="Flood_intra-annual.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Flood_intra-annual.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="FloodFrequency_intra-annual.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="FloodDuration_intra-annual.html">Flood Duration</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 
     </div>
@@ -239,7 +239,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -248,14 +248,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -280,14 +280,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/SL_Data_Wrangling.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
+    <img src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -446,10 +446,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -457,14 +457,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -521,12 +521,6 @@ document.write(`
     <span class="k">if</span> <span class="ow">not</span> <span class="n">d</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
         <span class="n">d</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
         
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
-  _pyproj_global_context_initialize()
 </pre></div>
 </div>
 </div>
@@ -599,7 +593,7 @@ RQD undergo thorough and time-consuming QC, and are usually released 1-2 years a
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WindowsPath(&#39;../data&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>PosixPath(&#39;../data&#39;)
 </pre></div>
 </div>
 </div>
@@ -1001,12 +995,12 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 54MB
-Dimensions:               (time: 1046774, record_id: 11)
+Dimensions:               (time: 1043870, record_id: 11)
 Coordinates:
   * time                  (time) datetime64[ns] 8MB 1905-01-01T10:00:00.02880...
   * record_id             (record_id) int16 22B 140 500 520 ... 5470 5480 5520
 Data variables:
-    sea_level             (record_id, time) float32 46MB nan nan ... 1.259e+03
+    sea_level             (record_id, time) float32 46MB nan nan nan ... nan nan
     lat                   (record_id) float32 44B 23.87 28.22 ... 20.78 20.03
     lon                   (record_id) float32 44B 193.7 182.6 ... 203.0 204.2
     station_name          (record_id) &lt;U17 748B &#x27;French Frigate&#x27; ... &#x27;Kawaihae&#x27;
@@ -1021,52 +1015,52 @@ Attributes:
     ncei_template_version:  NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0
     featureType:            timeSeries
     Conventions:            CF-1.6, ACDD-1.3
-    date_created:           2024-07-23T14:48:45Z
+    date_created:           2024-03-07T14:27:49Z
     publisher_name:         University of Hawaii Sea Level Center (UHSLC)
     publisher_email:        philiprt@hawaii.edu, markm@soest.hawaii.edu
     publisher_url:          http://uhslc.soest.hawaii.edu
     summary:                The UHSLC assembles and distributes the Fast Deli...
     processing_level:       Fast Delivery (FD) data undergo a level 1 quality...
-    acknowledgment:         The UHSLC Fast Delivery database is supported by ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-1a0a04d3-acae-47c6-a5da-1e775cdcf61e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-1a0a04d3-acae-47c6-a5da-1e775cdcf61e' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1046774</li><li><span class='xr-has-index'>record_id</span>: 11</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-bcf2694d-a5d6-455d-aeff-fbfb5809921f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bcf2694d-a5d6-455d-aeff-fbfb5809921f' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1905-01-01T10:00:00.028800 ... 2...</div><input id='attrs-e69ac4c0-68ac-44e5-a92a-728c6b0965bc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e69ac4c0-68ac-44e5-a92a-728c6b0965bc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5d446844-cdf4-46f0-9d76-afafc3e65438' class='xr-var-data-in' type='checkbox'><label for='data-5d446844-cdf4-46f0-9d76-afafc3e65438' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1905-01-01T10:00:00.028800000&#x27;, &#x27;1905-01-01T10:59:59.971200000&#x27;,
-       &#x27;1905-01-01T12:00:00.000000000&#x27;, ..., &#x27;2024-05-31T21:00:00.000000000&#x27;,
-       &#x27;2024-05-31T22:00:00.028800000&#x27;, &#x27;2024-05-31T22:59:59.971200000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-6a241945-ab2e-43b3-ac08-3581f3080ccd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6a241945-ab2e-43b3-ac08-3581f3080ccd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-18541a46-0df2-4c48-92b7-f3793366ece7' class='xr-var-data-in' type='checkbox'><label for='data-18541a46-0df2-4c48-92b7-f3793366ece7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
-      dtype=int16)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-671bdaef-f624-43d6-ab23-78732a0ff202' class='xr-section-summary-in' type='checkbox'  checked><label for='section-671bdaef-f624-43d6-ab23-78732a0ff202' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan ... 1.258e+03 1.259e+03</div><input id='attrs-c189058a-aefe-4e95-9cfc-7a561c2c45b4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c189058a-aefe-4e95-9cfc-7a561c2c45b4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-46a72445-4278-4baf-8f2b-1110d2728241' class='xr-var-data-in' type='checkbox'><label for='data-46a72445-4278-4baf-8f2b-1110d2728241' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>millimeters</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[  nan,   nan,   nan, ...,   nan,   nan,   nan],
-       [  nan,   nan,   nan, ..., 1092., 1100., 1088.],
-       [  nan,   nan,   nan, ..., 1047., 1142., 1184.],
+    acknowledgment:         The UHSLC Fast Delivery database is supported by ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-09bb65ce-e087-46a0-930d-52839f575807' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-09bb65ce-e087-46a0-930d-52839f575807' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1043870</li><li><span class='xr-has-index'>record_id</span>: 11</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-5469050d-f058-4a6d-b452-b0c9409dd9ce' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5469050d-f058-4a6d-b452-b0c9409dd9ce' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1905-01-01T10:00:00.028800 ... 2...</div><input id='attrs-5b525747-3634-4d9a-b193-97f4a4c6e752' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5b525747-3634-4d9a-b193-97f4a4c6e752' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f6740b99-e9c0-4121-ba08-8221483a8a34' class='xr-var-data-in' type='checkbox'><label for='data-f6740b99-e9c0-4121-ba08-8221483a8a34' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1905-01-01T10:00:00.028800000&#x27;, &#x27;1905-01-01T10:59:59.971200000&#x27;,
+       &#x27;1905-01-01T12:00:00.000000000&#x27;, ..., &#x27;2024-01-31T21:00:00.000000000&#x27;,
+       &#x27;2024-01-31T22:00:00.028800000&#x27;, &#x27;2024-01-31T22:59:59.971200000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-92b744d6-71ed-4c43-8f1d-2aa6dfda9190' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-92b744d6-71ed-4c43-8f1d-2aa6dfda9190' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-613f7b16-9bbc-4ef3-9d28-be9db3320f87' class='xr-var-data-in' type='checkbox'><label for='data-613f7b16-9bbc-4ef3-9d28-be9db3320f87' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
+      dtype=int16)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-3472ae28-2821-49d7-85af-fa756b1bb079' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3472ae28-2821-49d7-85af-fa756b1bb079' class='xr-section-summary' >Data variables: <span>(10)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-5edc5796-b48d-4169-8131-94640f020238' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5edc5796-b48d-4169-8131-94640f020238' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-38490de3-63ac-4018-b31a-659de38d3cf5' class='xr-var-data-in' type='checkbox'><label for='data-38490de3-63ac-4018-b31a-659de38d3cf5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>millimeters</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[  nan,   nan,   nan, ...,   nan,   nan,   nan],
+       [  nan,   nan,   nan, ..., 1140., 1070.,  994.],
+       [  nan,   nan,   nan, ..., 1124.,  997.,  859.],
        ...,
-       [  nan,   nan,   nan, ..., 3617., 3624., 3590.],
+       [  nan,   nan,   nan, ..., 3517., 3433., 3373.],
        [  nan,   nan,   nan, ...,   nan,   nan,   nan],
-       [  nan,   nan,   nan, ..., 1227., 1258., 1259.]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 20.78 20.03</div><input id='attrs-9b097741-70f4-4c9e-8700-f7cb9612e528' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9b097741-70f4-4c9e-8700-f7cb9612e528' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-62de3a69-f14f-4d56-9e59-abca53b6ce7e' class='xr-var-data-in' type='checkbox'><label for='data-62de3a69-f14f-4d56-9e59-abca53b6ce7e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433,
-       21.322, 20.783, 20.033], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 203.0 204.2</div><input id='attrs-122a9167-deb9-4f1b-a479-082a53439d6b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-122a9167-deb9-4f1b-a479-082a53439d6b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-17b949a8-43b1-4b9d-8857-59878fa38123' class='xr-var-data-in' type='checkbox'><label for='data-17b949a8-43b1-4b9d-8857-59878fa38123' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 202.133, 200.65 , 203.533, 204.933,
-       202.2  , 201.88 , 203.   , 204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;French Frigate&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-e66d0004-a166-409b-99f6-915919ffa20c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e66d0004-a166-409b-99f6-915919ffa20c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3b3977dc-bd9d-4d28-aacb-ca97c860d46a' class='xr-var-data-in' type='checkbox'><label for='data-3b3977dc-bd9d-4d28-aacb-ca97c860d46a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;French Frigate&#x27;, &#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;,
+       [  nan,   nan,   nan, ...,   nan,   nan,   nan]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 20.78 20.03</div><input id='attrs-1545520b-c8ee-4c61-b1f1-06e3789da13c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1545520b-c8ee-4c61-b1f1-06e3789da13c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b3e7aff6-2cc3-4374-8c07-9401f1abcf68' class='xr-var-data-in' type='checkbox'><label for='data-b3e7aff6-2cc3-4374-8c07-9401f1abcf68' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433,
+       21.322, 20.783, 20.033], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 203.0 204.2</div><input id='attrs-60afd69a-0466-413d-b597-5532ba9f0c2f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-60afd69a-0466-413d-b597-5532ba9f0c2f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-038dd618-3263-4b6b-9f89-e7369ccd1038' class='xr-var-data-in' type='checkbox'><label for='data-038dd618-3263-4b6b-9f89-e7369ccd1038' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 202.133, 200.65 , 203.533, 204.933,
+       202.2  , 201.88 , 203.   , 204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;French Frigate&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-60bca4d4-5c8e-44fa-b7d8-6bffd7b6f96e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-60bca4d4-5c8e-44fa-b7d8-6bffd7b6f96e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2285286-468e-4dd0-843c-49e876b8071e' class='xr-var-data-in' type='checkbox'><label for='data-a2285286-468e-4dd0-843c-49e876b8071e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;French Frigate&#x27;, &#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;,
        &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;, &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;,
-       &#x27;Barbers Point, HI&#x27;, &#x27;Kaumalapau, HI&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U30</div><div class='xr-var-preview xr-preview'>&#x27;United States of America (the)&#x27;...</div><input id='attrs-5e96164b-bf8d-47d0-a9ab-a59102a417cc' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5e96164b-bf8d-47d0-a9ab-a59102a417cc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d31c479f-af99-4bac-9874-5a7945862c3c' class='xr-var-data-in' type='checkbox'><label for='data-d31c479f-af99-4bac-9874-5a7945862c3c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country (ISO 3166-1)</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
+       &#x27;Barbers Point, HI&#x27;, &#x27;Kaumalapau, HI&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U30</div><div class='xr-var-preview xr-preview'>&#x27;United States of America (the)&#x27;...</div><input id='attrs-8f9c4d96-88e8-49d9-b8d1-6800ce51f261' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8f9c4d96-88e8-49d9-b8d1-6800ce51f261' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5bae6838-668c-4402-b967-c45417f36860' class='xr-var-data-in' type='checkbox'><label for='data-5bae6838-668c-4402-b967-c45417f36860' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country (ISO 3166-1)</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
-       &#x27;United States of America (the)&#x27;], dtype=&#x27;&lt;U30&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country_code</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>840.0 840.0 840.0 ... 840.0 840.0</div><input id='attrs-45349ccc-450f-4cb2-a2ea-2a3bb22e2123' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-45349ccc-450f-4cb2-a2ea-2a3bb22e2123' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-96f8dada-4242-4111-b0cf-888eadba4899' class='xr-var-data-in' type='checkbox'><label for='data-96f8dada-4242-4111-b0cf-888eadba4899' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country code (ISO 3166-1 numeric)</dd><dt><span>comment :</span></dt><dd>These are 3-digit country codes (e.g., 003) stored as integers.</dd></dl></div><div class='xr-var-data'><pre>array([840., 840., 840., 840., 840., 840., 840., 840., 840., 840., 840.],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uhslc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>14.0 50.0 52.0 ... 548.0 552.0</div><input id='attrs-b9413e3a-fd60-45c9-ac5d-99eaa631df84' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b9413e3a-fd60-45c9-ac5d-99eaa631df84' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-66c08b2c-180d-4b1e-972d-939901dc20b1' class='xr-var-data-in' type='checkbox'><label for='data-66c08b2c-180d-4b1e-972d-939901dc20b1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the University of Hawaii Sea Level Center (UHSLC)</dd></dl></div><div class='xr-var-data'><pre>array([ 14.,  50.,  52.,  57.,  58.,  59.,  60.,  61., 547., 548., 552.],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gloss_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>107.0 106.0 109.0 ... nan nan nan</div><input id='attrs-f2b3f06e-2933-4799-8a84-abe206ef2cbd' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f2b3f06e-2933-4799-8a84-abe206ef2cbd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-15aac9e0-fb17-4de3-b68e-c693b0220614' class='xr-var-data-in' type='checkbox'><label for='data-15aac9e0-fb17-4de3-b68e-c693b0220614' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the WMO/IOC Global Sea Level Observing System (GLOSS)</dd></dl></div><div class='xr-var-data'><pre>array([107., 106., 109., 108.,  nan,  nan, 287.,  nan,  nan,  nan,  nan],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ssc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U4</div><div class='xr-var-preview xr-preview'>&#x27;fren&#x27; &#x27;midx&#x27; ... &#x27;kaum&#x27; &#x27;kawa&#x27;</div><input id='attrs-b261bc32-c16b-461f-b995-2c2bd17e52f3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b261bc32-c16b-461f-b995-2c2bd17e52f3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ff5b7a49-f119-47e6-94d4-08984682c3e1' class='xr-var-data-in' type='checkbox'><label for='data-ff5b7a49-f119-47e6-94d4-08984682c3e1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID code in the Sealevel Station Catalog (SSC) produced by the WMO/IOC Sea Level Monitoring Facility (VLIZ)</dd><dt><span>comment :</span></dt><dd>Note that SSC IDs vary in length. The IDs are padded with space characters to produce the retangular character matrix provided here.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;fren&#x27;, &#x27;midx&#x27;, &#x27;john&#x27;, &#x27;hono&#x27;, &#x27;nawi&#x27;, &#x27;kahu&#x27;, &#x27;hilo&#x27;, &#x27;moku&#x27;,
-       &#x27;brpt&#x27;, &#x27;kaum&#x27;, &#x27;kawa&#x27;], dtype=&#x27;&lt;U4&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>last_rq_date</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-10-03T22:59:59.971200 ... 2...</div><input id='attrs-a10bf9c6-9cf2-45bd-8b96-862ef3b3796f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a10bf9c6-9cf2-45bd-8b96-862ef3b3796f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ac678d1b-dd41-432c-bb08-b57a136c5362' class='xr-var-data-in' type='checkbox'><label for='data-ac678d1b-dd41-432c-bb08-b57a136c5362' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>date of last Research Quality sea level value</dd><dt><span>comment :</span></dt><dd>Values in last_rq_date correspond to an identical value in the time vector. Dates less than or equal to last_rq_date for a given station correspond to Research Quality (RQ) data. Dates after last_rq_date correspond to Fast Delivery (FD) data. Missing values indicate no RQ data for a station.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2018-10-03T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
-       &#x27;2018-12-31T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
-       &#x27;2021-12-31T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
-       &#x27;2021-12-31T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
+       &#x27;United States of America (the)&#x27;], dtype=&#x27;&lt;U30&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country_code</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>840.0 840.0 840.0 ... 840.0 840.0</div><input id='attrs-06132b51-6d4b-4eff-801b-d924385ac8a9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-06132b51-6d4b-4eff-801b-d924385ac8a9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a9ffb770-6bb2-4480-b310-8a2061fe4730' class='xr-var-data-in' type='checkbox'><label for='data-a9ffb770-6bb2-4480-b310-8a2061fe4730' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country code (ISO 3166-1 numeric)</dd><dt><span>comment :</span></dt><dd>These are 3-digit country codes (e.g., 003) stored as integers.</dd></dl></div><div class='xr-var-data'><pre>array([840., 840., 840., 840., 840., 840., 840., 840., 840., 840., 840.],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uhslc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>14.0 50.0 52.0 ... 548.0 552.0</div><input id='attrs-fd1a3ff5-c932-4017-8ab9-97378714c894' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fd1a3ff5-c932-4017-8ab9-97378714c894' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-24a85fc8-9a67-4165-9c58-3eee7c5a53a0' class='xr-var-data-in' type='checkbox'><label for='data-24a85fc8-9a67-4165-9c58-3eee7c5a53a0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the University of Hawaii Sea Level Center (UHSLC)</dd></dl></div><div class='xr-var-data'><pre>array([ 14.,  50.,  52.,  57.,  58.,  59.,  60.,  61., 547., 548., 552.],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gloss_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>107.0 106.0 109.0 ... nan nan nan</div><input id='attrs-159a2fd3-e46e-46f3-b5e7-79e1f8a9f6e8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-159a2fd3-e46e-46f3-b5e7-79e1f8a9f6e8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-45bc84a2-4e63-463a-96bf-6675fbc9a522' class='xr-var-data-in' type='checkbox'><label for='data-45bc84a2-4e63-463a-96bf-6675fbc9a522' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the WMO/IOC Global Sea Level Observing System (GLOSS)</dd></dl></div><div class='xr-var-data'><pre>array([107., 106., 109., 108.,  nan,  nan, 287.,  nan,  nan,  nan,  nan],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ssc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U4</div><div class='xr-var-preview xr-preview'>&#x27;fren&#x27; &#x27;midx&#x27; ... &#x27;kaum&#x27; &#x27;kawa&#x27;</div><input id='attrs-380cc384-5212-4dcd-b9bf-97336e5d7f7b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-380cc384-5212-4dcd-b9bf-97336e5d7f7b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8b069462-a4f6-4f3a-a06d-85c2ac1242ad' class='xr-var-data-in' type='checkbox'><label for='data-8b069462-a4f6-4f3a-a06d-85c2ac1242ad' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID code in the Sealevel Station Catalog (SSC) produced by the WMO/IOC Sea Level Monitoring Facility (VLIZ)</dd><dt><span>comment :</span></dt><dd>Note that SSC IDs vary in length. The IDs are padded with space characters to produce the retangular character matrix provided here.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;fren&#x27;, &#x27;midx&#x27;, &#x27;john&#x27;, &#x27;hono&#x27;, &#x27;nawi&#x27;, &#x27;kahu&#x27;, &#x27;hilo&#x27;, &#x27;moku&#x27;,
+       &#x27;brpt&#x27;, &#x27;kaum&#x27;, &#x27;kawa&#x27;], dtype=&#x27;&lt;U4&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>last_rq_date</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-10-03T22:59:59.971200 ... 2...</div><input id='attrs-dc29272f-a546-4302-abe1-50d43222a537' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-dc29272f-a546-4302-abe1-50d43222a537' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-117eb2d7-05ae-4de3-a465-fe2799b1608a' class='xr-var-data-in' type='checkbox'><label for='data-117eb2d7-05ae-4de3-a465-fe2799b1608a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>date of last Research Quality sea level value</dd><dt><span>comment :</span></dt><dd>Values in last_rq_date correspond to an identical value in the time vector. Dates less than or equal to last_rq_date for a given station correspond to Research Quality (RQ) data. Dates after last_rq_date correspond to Fast Delivery (FD) data. Missing values indicate no RQ data for a station.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2018-10-03T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
+       &#x27;2018-12-31T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
+       &#x27;2019-12-31T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
+       &#x27;2019-12-31T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
        &#x27;2018-12-30T22:59:59.971200000&#x27;, &#x27;2015-03-22T22:59:59.971200000&#x27;,
-       &#x27;2022-12-31T22:59:59.971200000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d90891f2-293c-42a9-a7e5-722e0d29cb65' class='xr-section-summary-in' type='checkbox'  ><label for='section-d90891f2-293c-42a9-a7e5-722e0d29cb65' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-2d2af33c-4c06-47fa-ab5d-8e899e72fc11' class='xr-index-data-in' type='checkbox'/><label for='index-2d2af33c-4c06-47fa-ab5d-8e899e72fc11' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1905-01-01 10:00:00.028800&#x27;, &#x27;1905-01-01 10:59:59.971200&#x27;,
+       &#x27;2019-12-31T22:59:59.971200000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6fad1a80-e478-454b-b460-d126475f0afe' class='xr-section-summary-in' type='checkbox'  ><label for='section-6fad1a80-e478-454b-b460-d126475f0afe' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5b93ad4e-231a-4cc1-82e6-850e4dacdb83' class='xr-index-data-in' type='checkbox'/><label for='index-5b93ad4e-231a-4cc1-82e6-850e4dacdb83' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1905-01-01 10:00:00.028800&#x27;, &#x27;1905-01-01 10:59:59.971200&#x27;,
                       &#x27;1905-01-01 12:00:00&#x27;, &#x27;1905-01-01 13:00:00.028800&#x27;,
                &#x27;1905-01-01 13:59:59.971200&#x27;,        &#x27;1905-01-01 15:00:00&#x27;,
                &#x27;1905-01-01 16:00:00.028800&#x27;, &#x27;1905-01-01 16:59:59.971200&#x27;,
                       &#x27;1905-01-01 18:00:00&#x27;, &#x27;1905-01-01 19:00:00.028800&#x27;,
                ...
-               &#x27;2024-05-31 13:59:59.971200&#x27;,        &#x27;2024-05-31 15:00:00&#x27;,
-               &#x27;2024-05-31 16:00:00.028800&#x27;, &#x27;2024-05-31 16:59:59.971200&#x27;,
-                      &#x27;2024-05-31 18:00:00&#x27;, &#x27;2024-05-31 19:00:00.028800&#x27;,
-               &#x27;2024-05-31 19:59:59.971200&#x27;,        &#x27;2024-05-31 21:00:00&#x27;,
-               &#x27;2024-05-31 22:00:00.028800&#x27;, &#x27;2024-05-31 22:59:59.971200&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=1046774, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-987a904e-f751-493d-85fd-8eaa91b59115' class='xr-index-data-in' type='checkbox'/><label for='index-987a904e-f751-493d-85fd-8eaa91b59115' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0b5cee10-3d68-4849-90cc-b2569d15fb88' class='xr-section-summary-in' type='checkbox'  ><label for='section-0b5cee10-3d68-4849-90cc-b2569d15fb88' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>UHSLC Fast Delivery Tide Gauge Data (hourly)</dd><dt><span>ncei_template_version :</span></dt><dd>NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0</dd><dt><span>featureType :</span></dt><dd>timeSeries</dd><dt><span>Conventions :</span></dt><dd>CF-1.6, ACDD-1.3</dd><dt><span>date_created :</span></dt><dd>2024-07-23T14:48:45Z</dd><dt><span>publisher_name :</span></dt><dd>University of Hawaii Sea Level Center (UHSLC)</dd><dt><span>publisher_email :</span></dt><dd>philiprt@hawaii.edu, markm@soest.hawaii.edu</dd><dt><span>publisher_url :</span></dt><dd>http://uhslc.soest.hawaii.edu</dd><dt><span>summary :</span></dt><dd>The UHSLC assembles and distributes the Fast Delivery (FD) dataset of hourly- and daily-averaged tide gauge water-level observations. Tide gauge operators, or data creators, provide FD data to UHSLC after a level 1 quality assessment (see processing_level attribute). The UHSLC provides an independent quality assessment of the time series and makes FD data available within 4-6 weeks of collection. This is a &quot;fast&quot; turnaround time compared to Research Quality (RQ) data, which are available on an annual cycle after a level 2 quality assessment. RQ data replace FD data in the data stream as the former becomes available. This file contains hybrid time series composed of RQ data when available with FD data appended to the end of each RQ series.</dd><dt><span>processing_level :</span></dt><dd>Fast Delivery (FD) data undergo a level 1 quality assessment (e.g., unit and timing evaluation, outlier detection, combination of multiple channels into a primary channel, etc.). In this file, FD data are appended to Research Quality (RQ) data that have received a level 2 quality assessment (e.g., tide gauge datum evaluation, assessment of level ties to tide gauge benchmarks, comparison with nearby stations, etc.).</dd><dt><span>acknowledgment :</span></dt><dd>The UHSLC Fast Delivery database is supported by the National Oceanic and Atmospheric Administration (NOAA) Office of Climate Observations (OCO).</dd></dl></div></li></ul></div></div></div></div>
+               &#x27;2024-01-31 13:59:59.971200&#x27;,        &#x27;2024-01-31 15:00:00&#x27;,
+               &#x27;2024-01-31 16:00:00.028800&#x27;, &#x27;2024-01-31 16:59:59.971200&#x27;,
+                      &#x27;2024-01-31 18:00:00&#x27;, &#x27;2024-01-31 19:00:00.028800&#x27;,
+               &#x27;2024-01-31 19:59:59.971200&#x27;,        &#x27;2024-01-31 21:00:00&#x27;,
+               &#x27;2024-01-31 22:00:00.028800&#x27;, &#x27;2024-01-31 22:59:59.971200&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=1043870, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c3601abc-e019-4642-90bd-81956d5c1877' class='xr-index-data-in' type='checkbox'/><label for='index-c3601abc-e019-4642-90bd-81956d5c1877' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-dba9253b-a25c-410f-b67f-cc25afb16d54' class='xr-section-summary-in' type='checkbox'  ><label for='section-dba9253b-a25c-410f-b67f-cc25afb16d54' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>UHSLC Fast Delivery Tide Gauge Data (hourly)</dd><dt><span>ncei_template_version :</span></dt><dd>NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0</dd><dt><span>featureType :</span></dt><dd>timeSeries</dd><dt><span>Conventions :</span></dt><dd>CF-1.6, ACDD-1.3</dd><dt><span>date_created :</span></dt><dd>2024-03-07T14:27:49Z</dd><dt><span>publisher_name :</span></dt><dd>University of Hawaii Sea Level Center (UHSLC)</dd><dt><span>publisher_email :</span></dt><dd>philiprt@hawaii.edu, markm@soest.hawaii.edu</dd><dt><span>publisher_url :</span></dt><dd>http://uhslc.soest.hawaii.edu</dd><dt><span>summary :</span></dt><dd>The UHSLC assembles and distributes the Fast Delivery (FD) dataset of hourly- and daily-averaged tide gauge water-level observations. Tide gauge operators, or data creators, provide FD data to UHSLC after a level 1 quality assessment (see processing_level attribute). The UHSLC provides an independent quality assessment of the time series and makes FD data available within 4-6 weeks of collection. This is a &quot;fast&quot; turnaround time compared to Research Quality (RQ) data, which are available on an annual cycle after a level 2 quality assessment. RQ data replace FD data in the data stream as the former becomes available. This file contains hybrid time series composed of RQ data when available with FD data appended to the end of each RQ series.</dd><dt><span>processing_level :</span></dt><dd>Fast Delivery (FD) data undergo a level 1 quality assessment (e.g., unit and timing evaluation, outlier detection, combination of multiple channels into a primary channel, etc.). In this file, FD data are appended to Research Quality (RQ) data that have received a level 2 quality assessment (e.g., tide gauge datum evaluation, assessment of level ties to tide gauge benchmarks, comparison with nearby stations, etc.).</dd><dt><span>acknowledgment :</span></dt><dd>The UHSLC Fast Delivery database is supported by the National Oceanic and Atmospheric Administration (NOAA) Office of Climate Observations (OCO).</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1492,12 +1486,12 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 54MB
-Dimensions:               (time: 1046774, record_id: 11)
+Dimensions:               (time: 1043870, record_id: 11)
 Coordinates:
   * time                  (time) datetime64[ns] 8MB 1905-01-01T10:00:00.02880...
   * record_id             (record_id) int16 22B 140 500 520 ... 5470 5480 5520
 Data variables:
-    sea_level             (record_id, time) float32 46MB nan nan ... 1.259e+03
+    sea_level             (record_id, time) float32 46MB nan nan nan ... nan nan
     lat                   (record_id) float32 44B 23.87 28.22 ... 20.78 20.03
     lon                   (record_id) float32 44B 193.7 182.6 ... 203.0 204.2
     station_name          (record_id) &lt;U17 748B &#x27;French Frigate&#x27; ... &#x27;Kawaihae&#x27;
@@ -1514,59 +1508,165 @@ Attributes:
     ncei_template_version:  NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0
     featureType:            timeSeries
     Conventions:            CF-1.6, ACDD-1.3
-    date_created:           2024-07-23T14:48:45Z
+    date_created:           2024-03-07T14:27:49Z
     publisher_name:         University of Hawaii Sea Level Center (UHSLC)
     publisher_email:        philiprt@hawaii.edu, markm@soest.hawaii.edu
     publisher_url:          http://uhslc.soest.hawaii.edu
     summary:                The UHSLC assembles and distributes the Fast Deli...
     processing_level:       Fast Delivery (FD) data undergo a level 1 quality...
-    acknowledgment:         The UHSLC Fast Delivery database is supported by ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-c2e1caa2-b5aa-462d-991c-f10192eb4059' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-c2e1caa2-b5aa-462d-991c-f10192eb4059' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1046774</li><li><span class='xr-has-index'>record_id</span>: 11</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-fc50b623-9da8-4973-8b45-af4297e3a7f0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-fc50b623-9da8-4973-8b45-af4297e3a7f0' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1905-01-01T10:00:00.028800 ... 2...</div><input id='attrs-eb93d7d2-cd63-4d15-896e-116105adb548' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-eb93d7d2-cd63-4d15-896e-116105adb548' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4df0b591-03d5-484d-80ef-4774143d98ac' class='xr-var-data-in' type='checkbox'><label for='data-4df0b591-03d5-484d-80ef-4774143d98ac' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1905-01-01T10:00:00.028800000&#x27;, &#x27;1905-01-01T10:59:59.971200000&#x27;,
-       &#x27;1905-01-01T12:00:00.000000000&#x27;, ..., &#x27;2024-05-31T21:00:00.000000000&#x27;,
-       &#x27;2024-05-31T22:00:00.028800000&#x27;, &#x27;2024-05-31T22:59:59.971200000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-76dceebf-9fe4-4c2b-8617-74ce3c7c7d84' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-76dceebf-9fe4-4c2b-8617-74ce3c7c7d84' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d2463b91-c048-456b-88f0-30a2af90fa72' class='xr-var-data-in' type='checkbox'><label for='data-d2463b91-c048-456b-88f0-30a2af90fa72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
-      dtype=int16)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6dba7d39-b32e-4b56-87c0-907f0c6c5073' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6dba7d39-b32e-4b56-87c0-907f0c6c5073' class='xr-section-summary' >Data variables: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan ... 1.258e+03 1.259e+03</div><input id='attrs-8ba5ea8f-4e47-4ac1-9f54-434264d5b13b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8ba5ea8f-4e47-4ac1-9f54-434264d5b13b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-71f1e1fa-ba56-417b-be98-07c63f71cef0' class='xr-var-data-in' type='checkbox'><label for='data-71f1e1fa-ba56-417b-be98-07c63f71cef0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>millimeters</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[  nan,   nan,   nan, ...,   nan,   nan,   nan],
-       [  nan,   nan,   nan, ..., 1092., 1100., 1088.],
-       [  nan,   nan,   nan, ..., 1047., 1142., 1184.],
+    acknowledgment:         The UHSLC Fast Delivery database is supported by ...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-a9a00f6a-5af9-4123-a6f6-805ddc564308' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-a9a00f6a-5af9-4123-a6f6-805ddc564308' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 1043870</li><li><span class='xr-has-index'>record_id</span>: 11</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-84fa7e3d-5ee6-4125-9538-59aea9cba5f6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-84fa7e3d-5ee6-4125-9538-59aea9cba5f6' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1905-01-01T10:00:00.028800 ... 2...</div><input id='attrs-b14798f6-b5c9-4357-9a64-5c6f23290f24' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b14798f6-b5c9-4357-9a64-5c6f23290f24' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2e22d032-ab21-448e-9620-28fd3965b334' class='xr-var-data-in' type='checkbox'><label for='data-2e22d032-ab21-448e-9620-28fd3965b334' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1905-01-01T10:00:00.028800000&#x27;, &#x27;1905-01-01T10:59:59.971200000&#x27;,
+       &#x27;1905-01-01T12:00:00.000000000&#x27;, ..., &#x27;2024-01-31T21:00:00.000000000&#x27;,
+       &#x27;2024-01-31T22:00:00.028800000&#x27;, &#x27;2024-01-31T22:59:59.971200000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-ac142160-6535-4def-b0fe-f21386922287' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ac142160-6535-4def-b0fe-f21386922287' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-020d719c-90b2-411b-9de7-99997966884c' class='xr-var-data-in' type='checkbox'><label for='data-020d719c-90b2-411b-9de7-99997966884c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
+      dtype=int16)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9a0275b8-115a-4244-907c-47e619f2a47a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9a0275b8-115a-4244-907c-47e619f2a47a' class='xr-section-summary' >Data variables: <span>(12)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>nan nan nan nan ... nan nan nan nan</div><input id='attrs-7e8fd411-fb12-4620-8cbc-2dfc0781864d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7e8fd411-fb12-4620-8cbc-2dfc0781864d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ca726519-0ba7-4405-8f18-8e0ab15dc500' class='xr-var-data-in' type='checkbox'><label for='data-ca726519-0ba7-4405-8f18-8e0ab15dc500' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>millimeters</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>array([[  nan,   nan,   nan, ...,   nan,   nan,   nan],
+       [  nan,   nan,   nan, ..., 1140., 1070.,  994.],
+       [  nan,   nan,   nan, ..., 1124.,  997.,  859.],
        ...,
-       [  nan,   nan,   nan, ..., 3617., 3624., 3590.],
+       [  nan,   nan,   nan, ..., 3517., 3433., 3373.],
        [  nan,   nan,   nan, ...,   nan,   nan,   nan],
-       [  nan,   nan,   nan, ..., 1227., 1258., 1259.]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 20.78 20.03</div><input id='attrs-8604884e-d617-4641-9447-c26be8b7ee08' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8604884e-d617-4641-9447-c26be8b7ee08' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a7590db6-aa9f-4c1f-ba16-656ab16d84c4' class='xr-var-data-in' type='checkbox'><label for='data-a7590db6-aa9f-4c1f-ba16-656ab16d84c4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433,
-       21.322, 20.783, 20.033], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 203.0 204.2</div><input id='attrs-a688ce55-700e-4ff6-8eca-ad06ffb24052' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a688ce55-700e-4ff6-8eca-ad06ffb24052' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bf2b6e54-5cc3-4216-b1c0-7948dcb4215c' class='xr-var-data-in' type='checkbox'><label for='data-bf2b6e54-5cc3-4216-b1c0-7948dcb4215c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 202.133, 200.65 , 203.533, 204.933,
-       202.2  , 201.88 , 203.   , 204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;French Frigate&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-be3f22a5-690d-46b2-ae02-2ef0381e3d85' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-be3f22a5-690d-46b2-ae02-2ef0381e3d85' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b33c7582-7269-4e2a-baf0-d70e540922cf' class='xr-var-data-in' type='checkbox'><label for='data-b33c7582-7269-4e2a-baf0-d70e540922cf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;French Frigate&#x27;, &#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;,
+       [  nan,   nan,   nan, ...,   nan,   nan,   nan]], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 20.78 20.03</div><input id='attrs-ff67770b-08b5-4698-b25f-3ca92f58d5e2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ff67770b-08b5-4698-b25f-3ca92f58d5e2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0a9b060b-def0-45a8-ac11-d1eeecc542c1' class='xr-var-data-in' type='checkbox'><label for='data-0a9b060b-def0-45a8-ac11-d1eeecc542c1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433,
+       21.322, 20.783, 20.033], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 203.0 204.2</div><input id='attrs-e4db9f29-350c-4bad-a25c-76765b394b7a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e4db9f29-350c-4bad-a25c-76765b394b7a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d9c27b39-a03a-44c5-96fb-0535ec67805b' class='xr-var-data-in' type='checkbox'><label for='data-d9c27b39-a03a-44c5-96fb-0535ec67805b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 202.133, 200.65 , 203.533, 204.933,
+       202.2  , 201.88 , 203.   , 204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;French Frigate&#x27; ... &#x27;Kawaihae&#x27;</div><input id='attrs-4b81606e-b584-4173-a5e5-e09c0b5fbe3c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4b81606e-b584-4173-a5e5-e09c0b5fbe3c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e8332ecb-57a2-4d70-b898-c8cffc79e17c' class='xr-var-data-in' type='checkbox'><label for='data-e8332ecb-57a2-4d70-b898-c8cffc79e17c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;French Frigate&#x27;, &#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Honolulu, Hawaii&#x27;,
        &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;, &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;,
-       &#x27;Barbers Point, HI&#x27;, &#x27;Kaumalapau, HI&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U30</div><div class='xr-var-preview xr-preview'>&#x27;United States of America (the)&#x27;...</div><input id='attrs-6c60c560-d0af-4e39-84e7-573b9ba52d6a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6c60c560-d0af-4e39-84e7-573b9ba52d6a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-28a5bf2b-91b6-482d-8fa2-a646a5229d0b' class='xr-var-data-in' type='checkbox'><label for='data-28a5bf2b-91b6-482d-8fa2-a646a5229d0b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country (ISO 3166-1)</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
+       &#x27;Barbers Point, HI&#x27;, &#x27;Kaumalapau, HI&#x27;, &#x27;Kawaihae&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U30</div><div class='xr-var-preview xr-preview'>&#x27;United States of America (the)&#x27;...</div><input id='attrs-1cac40c7-73b2-411d-8b0a-4a5f69abae1e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1cac40c7-73b2-411d-8b0a-4a5f69abae1e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c0a935c6-5cc8-4a68-9ff2-ea8ee10df234' class='xr-var-data-in' type='checkbox'><label for='data-c0a935c6-5cc8-4a68-9ff2-ea8ee10df234' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country (ISO 3166-1)</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
        &#x27;United States of America (the)&#x27;, &#x27;United States of America (the)&#x27;,
-       &#x27;United States of America (the)&#x27;], dtype=&#x27;&lt;U30&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country_code</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>840.0 840.0 840.0 ... 840.0 840.0</div><input id='attrs-2c84d922-d869-43c0-8b5f-a92e1038ff06' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2c84d922-d869-43c0-8b5f-a92e1038ff06' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3b605fcf-57a3-481e-8886-8642db3e9da2' class='xr-var-data-in' type='checkbox'><label for='data-3b605fcf-57a3-481e-8886-8642db3e9da2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country code (ISO 3166-1 numeric)</dd><dt><span>comment :</span></dt><dd>These are 3-digit country codes (e.g., 003) stored as integers.</dd></dl></div><div class='xr-var-data'><pre>array([840., 840., 840., 840., 840., 840., 840., 840., 840., 840., 840.],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uhslc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>14.0 50.0 52.0 ... 548.0 552.0</div><input id='attrs-23ae22f2-71b9-4eec-8dd6-bc97ee24eac6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-23ae22f2-71b9-4eec-8dd6-bc97ee24eac6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-11d185ce-511e-4d73-a940-473fb621d259' class='xr-var-data-in' type='checkbox'><label for='data-11d185ce-511e-4d73-a940-473fb621d259' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the University of Hawaii Sea Level Center (UHSLC)</dd></dl></div><div class='xr-var-data'><pre>array([ 14.,  50.,  52.,  57.,  58.,  59.,  60.,  61., 547., 548., 552.],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gloss_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>107.0 106.0 109.0 ... nan nan nan</div><input id='attrs-f9596af1-1afa-4d87-8ac1-2c054bbf45a3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f9596af1-1afa-4d87-8ac1-2c054bbf45a3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d8ce2bc2-0bb8-4b09-84b6-b52582a55f1d' class='xr-var-data-in' type='checkbox'><label for='data-d8ce2bc2-0bb8-4b09-84b6-b52582a55f1d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the WMO/IOC Global Sea Level Observing System (GLOSS)</dd></dl></div><div class='xr-var-data'><pre>array([107., 106., 109., 108.,  nan,  nan, 287.,  nan,  nan,  nan,  nan],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ssc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U4</div><div class='xr-var-preview xr-preview'>&#x27;fren&#x27; &#x27;midx&#x27; ... &#x27;kaum&#x27; &#x27;kawa&#x27;</div><input id='attrs-e6674761-b3ac-4f54-b618-4254312a7cf6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e6674761-b3ac-4f54-b618-4254312a7cf6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f7cd790-350e-4571-9bf7-4d30c69abad1' class='xr-var-data-in' type='checkbox'><label for='data-5f7cd790-350e-4571-9bf7-4d30c69abad1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID code in the Sealevel Station Catalog (SSC) produced by the WMO/IOC Sea Level Monitoring Facility (VLIZ)</dd><dt><span>comment :</span></dt><dd>Note that SSC IDs vary in length. The IDs are padded with space characters to produce the retangular character matrix provided here.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;fren&#x27;, &#x27;midx&#x27;, &#x27;john&#x27;, &#x27;hono&#x27;, &#x27;nawi&#x27;, &#x27;kahu&#x27;, &#x27;hilo&#x27;, &#x27;moku&#x27;,
-       &#x27;brpt&#x27;, &#x27;kaum&#x27;, &#x27;kawa&#x27;], dtype=&#x27;&lt;U4&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>last_rq_date</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-10-03T22:59:59.971200 ... 2...</div><input id='attrs-54da021b-3259-49fb-9aae-bf86f9608569' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-54da021b-3259-49fb-9aae-bf86f9608569' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f158b76-37f3-4aff-83f0-5c9110b9b3e0' class='xr-var-data-in' type='checkbox'><label for='data-5f158b76-37f3-4aff-83f0-5c9110b9b3e0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>date of last Research Quality sea level value</dd><dt><span>comment :</span></dt><dd>Values in last_rq_date correspond to an identical value in the time vector. Dates less than or equal to last_rq_date for a given station correspond to Research Quality (RQ) data. Dates after last_rq_date correspond to Fast Delivery (FD) data. Missing values indicate no RQ data for a station.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2018-10-03T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
-       &#x27;2018-12-31T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
-       &#x27;2021-12-31T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
-       &#x27;2021-12-31T22:59:59.971200000&#x27;, &#x27;2021-12-31T22:59:59.971200000&#x27;,
+       &#x27;United States of America (the)&#x27;], dtype=&#x27;&lt;U30&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country_code</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>840.0 840.0 840.0 ... 840.0 840.0</div><input id='attrs-fdd167f4-bf5e-4302-83af-3ab95b1d5dde' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fdd167f4-bf5e-4302-83af-3ab95b1d5dde' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e65cca37-518e-4cb7-ae04-e10a56d89898' class='xr-var-data-in' type='checkbox'><label for='data-e65cca37-518e-4cb7-ae04-e10a56d89898' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station country code (ISO 3166-1 numeric)</dd><dt><span>comment :</span></dt><dd>These are 3-digit country codes (e.g., 003) stored as integers.</dd></dl></div><div class='xr-var-data'><pre>array([840., 840., 840., 840., 840., 840., 840., 840., 840., 840., 840.],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>uhslc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>14.0 50.0 52.0 ... 548.0 552.0</div><input id='attrs-4a75142d-872c-4125-b533-7552ac607115' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4a75142d-872c-4125-b533-7552ac607115' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-310fbeac-9c56-4cb3-8fd7-d67a23283b34' class='xr-var-data-in' type='checkbox'><label for='data-310fbeac-9c56-4cb3-8fd7-d67a23283b34' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the University of Hawaii Sea Level Center (UHSLC)</dd></dl></div><div class='xr-var-data'><pre>array([ 14.,  50.,  52.,  57.,  58.,  59.,  60.,  61., 547., 548., 552.],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>gloss_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>107.0 106.0 109.0 ... nan nan nan</div><input id='attrs-48780dbc-7f30-4c33-9986-7f2bc9ef48d1' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-48780dbc-7f30-4c33-9986-7f2bc9ef48d1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-48fc1336-b0a3-42ce-b903-15b44fdd9059' class='xr-var-data-in' type='checkbox'><label for='data-48fc1336-b0a3-42ce-b903-15b44fdd9059' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID number used by the WMO/IOC Global Sea Level Observing System (GLOSS)</dd></dl></div><div class='xr-var-data'><pre>array([107., 106., 109., 108.,  nan,  nan, 287.,  nan,  nan,  nan,  nan],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>ssc_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U4</div><div class='xr-var-preview xr-preview'>&#x27;fren&#x27; &#x27;midx&#x27; ... &#x27;kaum&#x27; &#x27;kawa&#x27;</div><input id='attrs-ebf0606a-e3eb-49f2-b907-5365854c578e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ebf0606a-e3eb-49f2-b907-5365854c578e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-532aac00-3360-4bdc-b5e1-d48c6f65f664' class='xr-var-data-in' type='checkbox'><label for='data-532aac00-3360-4bdc-b5e1-d48c6f65f664' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique station ID code in the Sealevel Station Catalog (SSC) produced by the WMO/IOC Sea Level Monitoring Facility (VLIZ)</dd><dt><span>comment :</span></dt><dd>Note that SSC IDs vary in length. The IDs are padded with space characters to produce the retangular character matrix provided here.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;fren&#x27;, &#x27;midx&#x27;, &#x27;john&#x27;, &#x27;hono&#x27;, &#x27;nawi&#x27;, &#x27;kahu&#x27;, &#x27;hilo&#x27;, &#x27;moku&#x27;,
+       &#x27;brpt&#x27;, &#x27;kaum&#x27;, &#x27;kawa&#x27;], dtype=&#x27;&lt;U4&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>last_rq_date</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2018-10-03T22:59:59.971200 ... 2...</div><input id='attrs-07f886b6-a487-4851-8b36-db0e6089ad5d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-07f886b6-a487-4851-8b36-db0e6089ad5d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c2796d28-efc4-4b60-b98e-bbb3906fbf29' class='xr-var-data-in' type='checkbox'><label for='data-c2796d28-efc4-4b60-b98e-bbb3906fbf29' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>date of last Research Quality sea level value</dd><dt><span>comment :</span></dt><dd>Values in last_rq_date correspond to an identical value in the time vector. Dates less than or equal to last_rq_date for a given station correspond to Research Quality (RQ) data. Dates after last_rq_date correspond to Fast Delivery (FD) data. Missing values indicate no RQ data for a station.</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2018-10-03T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
+       &#x27;2018-12-31T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
+       &#x27;2019-12-31T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
+       &#x27;2019-12-31T22:59:59.971200000&#x27;, &#x27;2019-12-31T22:59:59.971200000&#x27;,
        &#x27;2018-12-30T22:59:59.971200000&#x27;, &#x27;2015-03-22T22:59:59.971200000&#x27;,
-       &#x27;2022-12-31T22:59:59.971200000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>997.0 1.204e+03 ... 1.406e+03</div><input id='attrs-fd1436a6-48de-4471-9183-13b63dc745e6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fd1436a6-48de-4471-9183-13b63dc745e6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a387a601-ba1a-453e-943e-7a24f2f985aa' class='xr-var-data-in' type='checkbox'><label for='data-a387a601-ba1a-453e-943e-7a24f2f985aa' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm</dd><dt><span>long_name :</span></dt><dd>Mean Higher High Water, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>array([ 997., 1204., 1225., 1722., 1240., 1364., 1912., 1533., 3865.,
-       2261., 1406.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MSL</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>777.0 1.02e+03 ... 1.053e+03</div><input id='attrs-50b85347-e27f-4662-8304-2e12f02ffe60' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-50b85347-e27f-4662-8304-2e12f02ffe60' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a2117225-0a02-4228-806e-a2667eef3078' class='xr-var-data-in' type='checkbox'><label for='data-a2117225-0a02-4228-806e-a2667eef3078' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm</dd><dt><span>long_name :</span></dt><dd>Mean Sea Level, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>array([ 777., 1020.,  875., 1412.,  949., 1075., 1545., 1211., 3531.,
-       1891., 1053.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e7384c88-35d4-45ce-bc18-fdcfdd358c35' class='xr-section-summary-in' type='checkbox'  ><label for='section-e7384c88-35d4-45ce-bc18-fdcfdd358c35' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-eeab02bd-f7b2-4f6b-8bfc-00a7e4c8aa3b' class='xr-index-data-in' type='checkbox'/><label for='index-eeab02bd-f7b2-4f6b-8bfc-00a7e4c8aa3b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1905-01-01 10:00:00.028800&#x27;, &#x27;1905-01-01 10:59:59.971200&#x27;,
+       &#x27;2019-12-31T22:59:59.971200000&#x27;], dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>997.0 1.204e+03 ... 1.406e+03</div><input id='attrs-7980004e-ceef-427b-b5ee-ea8e3ee9d59a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7980004e-ceef-427b-b5ee-ea8e3ee9d59a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-86904d17-673f-4b03-97a7-5adbb9bb88a0' class='xr-var-data-in' type='checkbox'><label for='data-86904d17-673f-4b03-97a7-5adbb9bb88a0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm</dd><dt><span>long_name :</span></dt><dd>Mean Higher High Water, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>array([ 997., 1204., 1225., 1722., 1240., 1364., 1912., 1533., 3865.,
+       2261., 1406.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MSL</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>777.0 1.02e+03 ... 1.053e+03</div><input id='attrs-9dc4c434-0124-43e5-aedb-71623a188037' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9dc4c434-0124-43e5-aedb-71623a188037' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ab52deda-f95b-43ad-827a-489865553768' class='xr-var-data-in' type='checkbox'><label for='data-ab52deda-f95b-43ad-827a-489865553768' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>mm</dd><dt><span>long_name :</span></dt><dd>Mean Sea Level, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>array([ 777., 1020.,  875., 1412.,  949., 1075., 1545., 1211., 3531.,
+       1891., 1053.])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ac0fa101-1db2-4dcf-bb18-45837cc00b59' class='xr-section-summary-in' type='checkbox'  ><label for='section-ac0fa101-1db2-4dcf-bb18-45837cc00b59' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-91b4377d-a63a-4801-aee9-b3228b68ecf3' class='xr-index-data-in' type='checkbox'/><label for='index-91b4377d-a63a-4801-aee9-b3228b68ecf3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1905-01-01 10:00:00.028800&#x27;, &#x27;1905-01-01 10:59:59.971200&#x27;,
                       &#x27;1905-01-01 12:00:00&#x27;, &#x27;1905-01-01 13:00:00.028800&#x27;,
                &#x27;1905-01-01 13:59:59.971200&#x27;,        &#x27;1905-01-01 15:00:00&#x27;,
                &#x27;1905-01-01 16:00:00.028800&#x27;, &#x27;1905-01-01 16:59:59.971200&#x27;,
                       &#x27;1905-01-01 18:00:00&#x27;, &#x27;1905-01-01 19:00:00.028800&#x27;,
                ...
-               &#x27;2024-05-31 13:59:59.971200&#x27;,        &#x27;2024-05-31 15:00:00&#x27;,
-               &#x27;2024-05-31 16:00:00.028800&#x27;, &#x27;2024-05-31 16:59:59.971200&#x27;,
-                      &#x27;2024-05-31 18:00:00&#x27;, &#x27;2024-05-31 19:00:00.028800&#x27;,
-               &#x27;2024-05-31 19:59:59.971200&#x27;,        &#x27;2024-05-31 21:00:00&#x27;,
-               &#x27;2024-05-31 22:00:00.028800&#x27;, &#x27;2024-05-31 22:59:59.971200&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=1046774, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-5b0af373-0b01-482c-9428-5aa937083993' class='xr-index-data-in' type='checkbox'/><label for='index-5b0af373-0b01-482c-9428-5aa937083993' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4aed70ef-8f08-489c-99aa-6fa5b65d1631' class='xr-section-summary-in' type='checkbox'  ><label for='section-4aed70ef-8f08-489c-99aa-6fa5b65d1631' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>UHSLC Fast Delivery Tide Gauge Data (hourly)</dd><dt><span>ncei_template_version :</span></dt><dd>NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0</dd><dt><span>featureType :</span></dt><dd>timeSeries</dd><dt><span>Conventions :</span></dt><dd>CF-1.6, ACDD-1.3</dd><dt><span>date_created :</span></dt><dd>2024-07-23T14:48:45Z</dd><dt><span>publisher_name :</span></dt><dd>University of Hawaii Sea Level Center (UHSLC)</dd><dt><span>publisher_email :</span></dt><dd>philiprt@hawaii.edu, markm@soest.hawaii.edu</dd><dt><span>publisher_url :</span></dt><dd>http://uhslc.soest.hawaii.edu</dd><dt><span>summary :</span></dt><dd>The UHSLC assembles and distributes the Fast Delivery (FD) dataset of hourly- and daily-averaged tide gauge water-level observations. Tide gauge operators, or data creators, provide FD data to UHSLC after a level 1 quality assessment (see processing_level attribute). The UHSLC provides an independent quality assessment of the time series and makes FD data available within 4-6 weeks of collection. This is a &quot;fast&quot; turnaround time compared to Research Quality (RQ) data, which are available on an annual cycle after a level 2 quality assessment. RQ data replace FD data in the data stream as the former becomes available. This file contains hybrid time series composed of RQ data when available with FD data appended to the end of each RQ series.</dd><dt><span>processing_level :</span></dt><dd>Fast Delivery (FD) data undergo a level 1 quality assessment (e.g., unit and timing evaluation, outlier detection, combination of multiple channels into a primary channel, etc.). In this file, FD data are appended to Research Quality (RQ) data that have received a level 2 quality assessment (e.g., tide gauge datum evaluation, assessment of level ties to tide gauge benchmarks, comparison with nearby stations, etc.).</dd><dt><span>acknowledgment :</span></dt><dd>The UHSLC Fast Delivery database is supported by the National Oceanic and Atmospheric Administration (NOAA) Office of Climate Observations (OCO).</dd></dl></div></li></ul></div></div></div></div>
+               &#x27;2024-01-31 13:59:59.971200&#x27;,        &#x27;2024-01-31 15:00:00&#x27;,
+               &#x27;2024-01-31 16:00:00.028800&#x27;, &#x27;2024-01-31 16:59:59.971200&#x27;,
+                      &#x27;2024-01-31 18:00:00&#x27;, &#x27;2024-01-31 19:00:00.028800&#x27;,
+               &#x27;2024-01-31 19:59:59.971200&#x27;,        &#x27;2024-01-31 21:00:00&#x27;,
+               &#x27;2024-01-31 22:00:00.028800&#x27;, &#x27;2024-01-31 22:59:59.971200&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=1043870, freq=None))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-65d1b1ff-6a63-42fd-b1cb-eb71b5111b72' class='xr-index-data-in' type='checkbox'/><label for='index-65d1b1ff-6a63-42fd-b1cb-eb71b5111b72' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ff37093d-d2f2-46f6-b8f1-5ed9f259a24d' class='xr-section-summary-in' type='checkbox'  ><label for='section-ff37093d-d2f2-46f6-b8f1-5ed9f259a24d' class='xr-section-summary' >Attributes: <span>(11)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>title :</span></dt><dd>UHSLC Fast Delivery Tide Gauge Data (hourly)</dd><dt><span>ncei_template_version :</span></dt><dd>NCEI_NetCDF_TimeSeries_Orthogonal_Template_v2.0</dd><dt><span>featureType :</span></dt><dd>timeSeries</dd><dt><span>Conventions :</span></dt><dd>CF-1.6, ACDD-1.3</dd><dt><span>date_created :</span></dt><dd>2024-03-07T14:27:49Z</dd><dt><span>publisher_name :</span></dt><dd>University of Hawaii Sea Level Center (UHSLC)</dd><dt><span>publisher_email :</span></dt><dd>philiprt@hawaii.edu, markm@soest.hawaii.edu</dd><dt><span>publisher_url :</span></dt><dd>http://uhslc.soest.hawaii.edu</dd><dt><span>summary :</span></dt><dd>The UHSLC assembles and distributes the Fast Delivery (FD) dataset of hourly- and daily-averaged tide gauge water-level observations. Tide gauge operators, or data creators, provide FD data to UHSLC after a level 1 quality assessment (see processing_level attribute). The UHSLC provides an independent quality assessment of the time series and makes FD data available within 4-6 weeks of collection. This is a &quot;fast&quot; turnaround time compared to Research Quality (RQ) data, which are available on an annual cycle after a level 2 quality assessment. RQ data replace FD data in the data stream as the former becomes available. This file contains hybrid time series composed of RQ data when available with FD data appended to the end of each RQ series.</dd><dt><span>processing_level :</span></dt><dd>Fast Delivery (FD) data undergo a level 1 quality assessment (e.g., unit and timing evaluation, outlier detection, combination of multiple channels into a primary channel, etc.). In this file, FD data are appended to Research Quality (RQ) data that have received a level 2 quality assessment (e.g., tide gauge datum evaluation, assessment of level ties to tide gauge benchmarks, comparison with nearby stations, etc.).</dd><dt><span>acknowledgment :</span></dt><dd>The UHSLC Fast Delivery database is supported by the National Oceanic and Atmospheric Administration (NOAA) Office of Climate Observations (OCO).</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#save rsl to the data directory</span>
 <span class="n">rsl</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc&#39;,), &#39;a&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;14328a3e-b9dc-4561-8221-f93ffbbd0e56&#39;]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">PermissionError</span><span class="g g-Whitespace">                           </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1">#save rsl to the data directory</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">rsl</span><span class="o">.</span><span class="n">to_netcdf</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:2298,</span> in <span class="ni">Dataset.to_netcdf</span><span class="nt">(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf)</span>
+<span class="g g-Whitespace">   </span><span class="mi">2295</span>     <span class="n">encoding</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="g g-Whitespace">   </span><span class="mi">2296</span> <span class="kn">from</span> <span class="nn">xarray.backends.api</span> <span class="kn">import</span> <span class="n">to_netcdf</span>
+<span class="ne">-&gt; </span><span class="mi">2298</span> <span class="k">return</span> <span class="n">to_netcdf</span><span class="p">(</span>  <span class="c1"># type: ignore  # mypy cannot resolve the overloads:(</span>
+<span class="g g-Whitespace">   </span><span class="mi">2299</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2300</span>     <span class="n">path</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2301</span>     <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2302</span>     <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2303</span>     <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2304</span>     <span class="n">engine</span><span class="o">=</span><span class="n">engine</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2305</span>     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2306</span>     <span class="n">unlimited_dims</span><span class="o">=</span><span class="n">unlimited_dims</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2307</span>     <span class="n">compute</span><span class="o">=</span><span class="n">compute</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2308</span>     <span class="n">multifile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2309</span>     <span class="n">invalid_netcdf</span><span class="o">=</span><span class="n">invalid_netcdf</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">2310</span> <span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:1322,</span> in <span class="ni">to_netcdf</span><span class="nt">(dataset, path_or_file, mode, format, group, engine, encoding, unlimited_dims, compute, multifile, invalid_netcdf)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1318</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1319</span>         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1320</span>             <span class="sa">f</span><span class="s2">&quot;unrecognized option &#39;invalid_netcdf&#39; for engine </span><span class="si">{</span><span class="n">engine</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">1321</span>         <span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1322</span> <span class="n">store</span> <span class="o">=</span> <span class="n">store_open</span><span class="p">(</span><span class="n">target</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="nb">format</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1324</span> <span class="k">if</span> <span class="n">unlimited_dims</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1325</span>     <span class="n">unlimited_dims</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">encoding</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;unlimited_dims&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">409</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
+<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+<span class="ne">--&gt; </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
+<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span>     <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+
+<span class="ne">PermissionError</span>: [Errno 13] Permission denied: &#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc&#39;
 </pre></div>
 </div>
 </div>
@@ -1590,18 +1690,6 @@ Attributes:
 <span class="c1">#make a dictionary of all stations in hawaii with station name: station id</span>
 <span class="n">stationdictNOAA</span>  <span class="o">=</span> <span class="p">{</span><span class="n">station</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]:</span> <span class="n">station</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">hawaii_stations</span><span class="p">}</span>
 <span class="n">stationdictNOAA</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Nawiliwili&#39;: &#39;1611400&#39;,
- &#39;Honolulu&#39;: &#39;1612340&#39;,
- &#39;Pearl Harbor&#39;: &#39;1612401&#39;,
- &#39;Mokuoloe&#39;: &#39;1612480&#39;,
- &#39;Kahului, Kahului Harbor&#39;: &#39;1615680&#39;,
- &#39;Kawaihae&#39;: &#39;1617433&#39;,
- &#39;Hilo, Hilo Bay, Kuhio Bay&#39;: &#39;1617760&#39;,
- &#39;Sand Island, Midway Islands&#39;: &#39;1619910&#39;}
 </pre></div>
 </div>
 </div>
@@ -1738,18 +1826,6 @@ Attributes:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Data for Nawiliwili already exists, skipping.
-Data for Honolulu already exists, skipping.
-Data for Pearl Harbor already exists, skipping.
-Data for Mokuoloe already exists, skipping.
-Data for Kahului, Kahului Harbor already exists, skipping.
-Data for Kawaihae already exists, skipping.
-Data for Hilo, Hilo Bay, Kuhio Bay already exists, skipping.
-Data for Sand Island, Midway Islands already exists, skipping.
-</pre></div>
-</div>
-</div>
 </div>
 <p>As before, we’ll combine them into one dataset.</p>
 <div class="cell docutils container">
@@ -1780,409 +1856,6 @@ Data for Sand Island, Midway Islands already exists, skipping.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
-<defs>
-<symbol id="icon-database" viewBox="0 0 32 32">
-<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
-<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-</symbol>
-<symbol id="icon-file-text2" viewBox="0 0 32 32">
-<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
-<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-</symbol>
-</defs>
-</svg>
-<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
- *
- */
-
-:root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
-}
-
-html[theme=dark],
-body[data-theme=dark],
-body.vscode-dark {
-  --xr-font-color0: rgba(255, 255, 255, 1);
-  --xr-font-color2: rgba(255, 255, 255, 0.54);
-  --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
-  --xr-disabled-color: #515151;
-  --xr-background-color: #111111;
-  --xr-background-color-row-even: #111111;
-  --xr-background-color-row-odd: #313131;
-}
-
-.xr-wrap {
-  display: block !important;
-  min-width: 300px;
-  max-width: 700px;
-}
-
-.xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
-  display: none;
-}
-
-.xr-header {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-bottom: 4px;
-  border-bottom: solid 1px var(--xr-border-color);
-}
-
-.xr-header > div,
-.xr-header > ul {
-  display: inline;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.xr-obj-type,
-.xr-array-name {
-  margin-left: 2px;
-  margin-right: 10px;
-}
-
-.xr-obj-type {
-  color: var(--xr-font-color2);
-}
-
-.xr-sections {
-  padding-left: 0 !important;
-  display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
-}
-
-.xr-section-item {
-  display: contents;
-}
-
-.xr-section-item input {
-  display: none;
-}
-
-.xr-section-item input + label {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-item input:enabled + label {
-  cursor: pointer;
-  color: var(--xr-font-color2);
-}
-
-.xr-section-item input:enabled + label:hover {
-  color: var(--xr-font-color0);
-}
-
-.xr-section-summary {
-  grid-column: 1;
-  color: var(--xr-font-color2);
-  font-weight: 500;
-}
-
-.xr-section-summary > span {
-  display: inline-block;
-  padding-left: 0.5em;
-}
-
-.xr-section-summary-in:disabled + label {
-  color: var(--xr-font-color2);
-}
-
-.xr-section-summary-in + label:before {
-  display: inline-block;
-  content: '►';
-  font-size: 11px;
-  width: 15px;
-  text-align: center;
-}
-
-.xr-section-summary-in:disabled + label:before {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-summary-in:checked + label:before {
-  content: '▼';
-}
-
-.xr-section-summary-in:checked + label > span {
-  display: none;
-}
-
-.xr-section-summary,
-.xr-section-inline-details {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.xr-section-inline-details {
-  grid-column: 2 / -1;
-}
-
-.xr-section-details {
-  display: none;
-  grid-column: 1 / -1;
-  margin-bottom: 5px;
-}
-
-.xr-section-summary-in:checked ~ .xr-section-details {
-  display: contents;
-}
-
-.xr-array-wrap {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 20px auto;
-}
-
-.xr-array-wrap > label {
-  grid-column: 1;
-  vertical-align: top;
-}
-
-.xr-preview {
-  color: var(--xr-font-color3);
-}
-
-.xr-array-preview,
-.xr-array-data {
-  padding: 0 5px !important;
-  grid-column: 2;
-}
-
-.xr-array-data,
-.xr-array-in:checked ~ .xr-array-preview {
-  display: none;
-}
-
-.xr-array-in:checked ~ .xr-array-data,
-.xr-array-preview {
-  display: inline-block;
-}
-
-.xr-dim-list {
-  display: inline-block !important;
-  list-style: none;
-  padding: 0 !important;
-  margin: 0;
-}
-
-.xr-dim-list li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.xr-dim-list:before {
-  content: '(';
-}
-
-.xr-dim-list:after {
-  content: ')';
-}
-
-.xr-dim-list li:not(:last-child):after {
-  content: ',';
-  padding-right: 5px;
-}
-
-.xr-has-index {
-  font-weight: bold;
-}
-
-.xr-var-list,
-.xr-var-item {
-  display: contents;
-}
-
-.xr-var-item > div,
-.xr-var-item label,
-.xr-var-item > .xr-var-name span {
-  background-color: var(--xr-background-color-row-even);
-  margin-bottom: 0;
-}
-
-.xr-var-item > .xr-var-name:hover span {
-  padding-right: 5px;
-}
-
-.xr-var-list > li:nth-child(odd) > div,
-.xr-var-list > li:nth-child(odd) > label,
-.xr-var-list > li:nth-child(odd) > .xr-var-name span {
-  background-color: var(--xr-background-color-row-odd);
-}
-
-.xr-var-name {
-  grid-column: 1;
-}
-
-.xr-var-dims {
-  grid-column: 2;
-}
-
-.xr-var-dtype {
-  grid-column: 3;
-  text-align: right;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-preview {
-  grid-column: 4;
-}
-
-.xr-index-preview {
-  grid-column: 2 / 5;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-name,
-.xr-var-dims,
-.xr-var-dtype,
-.xr-preview,
-.xr-attrs dt {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
-}
-
-.xr-var-name:hover,
-.xr-var-dims:hover,
-.xr-var-dtype:hover,
-.xr-attrs dt:hover {
-  overflow: visible;
-  width: auto;
-  z-index: 1;
-}
-
-.xr-var-attrs,
-.xr-var-data,
-.xr-index-data {
-  display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
-}
-
-.xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data,
-.xr-index-data-in:checked ~ .xr-index-data {
-  display: block;
-}
-
-.xr-var-data > table {
-  float: right;
-}
-
-.xr-var-name span,
-.xr-var-data,
-.xr-index-name div,
-.xr-index-data,
-.xr-attrs {
-  padding-left: 25px !important;
-}
-
-.xr-attrs,
-.xr-var-attrs,
-.xr-var-data,
-.xr-index-data {
-  grid-column: 1 / -1;
-}
-
-dl.xr-attrs {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 125px auto;
-}
-
-.xr-attrs dt,
-.xr-attrs dd {
-  padding: 0;
-  margin: 0;
-  float: left;
-  padding-right: 10px;
-  width: auto;
-}
-
-.xr-attrs dt {
-  font-weight: normal;
-  grid-column: 1;
-}
-
-.xr-attrs dt:hover span {
-  display: inline-block;
-  background: var(--xr-background-color);
-  padding-right: 10px;
-}
-
-.xr-attrs dd {
-  grid-column: 2;
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.xr-icon-database,
-.xr-icon-file-text2,
-.xr-no-icon {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  height: 1.5em !important;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 19MB
-Dimensions:          (station_id: 8, time: 260809)
-Coordinates:
-  * time             (time) datetime64[ns] 2MB 1994-03-31 ... 2023-12-31
-  * station_id       (station_id) &lt;U7 224B &#x27;1611400&#x27; &#x27;1612340&#x27; ... &#x27;1619910&#x27;
-Data variables:
-    sea_level        (station_id, time) float64 17MB nan nan nan ... 1.209 1.165
-    station_name     (station_id) &lt;U27 864B &#x27;Nawiliwili&#x27; ... &#x27;Sand Island, Mi...
-    station_country  (station_id) &lt;U3 96B &#x27;USA&#x27; &#x27;USA&#x27; &#x27;USA&#x27; ... &#x27;USA&#x27; &#x27;USA&#x27;
-    lat              (station_id) float64 64B 21.95 21.3 21.37 ... 19.73 28.21
-    lon              (station_id) float64 64B -159.4 -157.9 ... -155.1 -177.4</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-60335da2-908d-48fb-bb04-12d49d5a4fb5' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-60335da2-908d-48fb-bb04-12d49d5a4fb5' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>station_id</span>: 8</li><li><span class='xr-has-index'>time</span>: 260809</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-89b293df-ea01-40af-9480-1f341f729060' class='xr-section-summary-in' type='checkbox'  checked><label for='section-89b293df-ea01-40af-9480-1f341f729060' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1994-03-31 ... 2023-12-31</div><input id='attrs-193c6039-40a9-44dc-ad16-0f27636ad803' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-193c6039-40a9-44dc-ad16-0f27636ad803' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b217dd26-5692-4dfb-977d-7179abc7ac96' class='xr-var-data-in' type='checkbox'><label for='data-b217dd26-5692-4dfb-977d-7179abc7ac96' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1994-03-31T00:00:00.000000000&#x27;, &#x27;1994-03-31T01:00:00.000000000&#x27;,
-       &#x27;1994-03-31T02:00:00.000000000&#x27;, ..., &#x27;2023-12-30T22:00:00.000000000&#x27;,
-       &#x27;2023-12-30T23:00:00.000000000&#x27;, &#x27;2023-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>station_id</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>&lt;U7</div><div class='xr-var-preview xr-preview'>&#x27;1611400&#x27; &#x27;1612340&#x27; ... &#x27;1619910&#x27;</div><input id='attrs-a824128b-7580-4c02-beb8-c592c4fcef8f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a824128b-7580-4c02-beb8-c592c4fcef8f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e8d87533-aafe-4d4a-b45f-288b5399691e' class='xr-var-data-in' type='checkbox'><label for='data-e8d87533-aafe-4d4a-b45f-288b5399691e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1611400&#x27;, &#x27;1612340&#x27;, &#x27;1612401&#x27;, &#x27;1612480&#x27;, &#x27;1615680&#x27;, &#x27;1617433&#x27;,
-       &#x27;1617760&#x27;, &#x27;1619910&#x27;], dtype=&#x27;&lt;U7&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9bc38d42-1fb2-4f97-a508-983758f2d16e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9bc38d42-1fb2-4f97-a508-983758f2d16e' class='xr-section-summary' >Data variables: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(station_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan ... 1.255 1.209 1.165</div><input id='attrs-829164e0-5ee4-41e7-b6b5-b819820e320d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-829164e0-5ee4-41e7-b6b5-b819820e320d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8aef62ae-59c9-40fc-b568-aeab8ed27329' class='xr-var-data-in' type='checkbox'><label for='data-8aef62ae-59c9-40fc-b568-aeab8ed27329' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>Sea level, relative to station datum</dd></dl></div><div class='xr-var-data'><pre>array([[  nan,   nan,   nan, ..., 0.885, 0.85 , 0.83 ],
-       [  nan,   nan,   nan, ..., 1.332, 1.264, 1.232],
-       [  nan,   nan,   nan, ..., 7.234, 7.178, 7.162],
-       ...,
-       [  nan,   nan,   nan, ..., 1.019, 0.973, 0.957],
-       [  nan,   nan,   nan, ..., 1.567, 1.564, 1.542],
-       [0.762, 0.817, 0.897, ..., 1.255, 1.209, 1.165]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>&lt;U27</div><div class='xr-var-preview xr-preview'>&#x27;Nawiliwili&#x27; ... &#x27;Sand Island, M...</div><input id='attrs-8044b3dc-9e4d-4b2a-8ecb-ab54b1d43c4f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8044b3dc-9e4d-4b2a-8ecb-ab54b1d43c4f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8c14e5f5-cdb6-4776-b7a6-596ec1413aa9' class='xr-var-data-in' type='checkbox'><label for='data-8c14e5f5-cdb6-4776-b7a6-596ec1413aa9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Nawiliwili&#x27;, &#x27;Honolulu&#x27;, &#x27;Pearl Harbor&#x27;, &#x27;Mokuoloe&#x27;,
-       &#x27;Kahului, Kahului Harbor&#x27;, &#x27;Kawaihae&#x27;, &#x27;Hilo, Hilo Bay, Kuhio Bay&#x27;,
-       &#x27;Sand Island, Midway Islands&#x27;], dtype=&#x27;&lt;U27&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>&lt;U3</div><div class='xr-var-preview xr-preview'>&#x27;USA&#x27; &#x27;USA&#x27; &#x27;USA&#x27; ... &#x27;USA&#x27; &#x27;USA&#x27;</div><input id='attrs-dd4bff14-618d-447d-bfe0-5b883704fe87' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dd4bff14-618d-447d-bfe0-5b883704fe87' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-512c542e-3aaa-42f2-8a85-68fb5e61c33e' class='xr-var-data-in' type='checkbox'><label for='data-512c542e-3aaa-42f2-8a85-68fb5e61c33e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;],
-      dtype=&#x27;&lt;U3&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>21.95 21.3 21.37 ... 19.73 28.21</div><input id='attrs-229d7825-060a-428a-b39e-80716248f01f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-229d7825-060a-428a-b39e-80716248f01f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-264542e9-f331-46d6-a3d8-d535f1363457' class='xr-var-data-in' type='checkbox'><label for='data-264542e9-f331-46d6-a3d8-d535f1363457' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([21.9544  , 21.303333, 21.3675  , 21.433056, 20.895   , 20.0366  ,
-       19.73028 , 28.211667])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-159.4 -157.9 ... -155.1 -177.4</div><input id='attrs-ac6bb1fa-b9c4-45ea-b76d-70af50cb12e6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ac6bb1fa-b9c4-45ea-b76d-70af50cb12e6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d63df8c4-e5ab-4df3-92fe-f408e15feafe' class='xr-var-data-in' type='checkbox'><label for='data-d63df8c4-e5ab-4df3-92fe-f408e15feafe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([-159.3561  , -157.864528, -157.963898, -157.79    , -156.469167,
-       -155.8294  , -155.06    , -177.36    ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-08dfcefe-e554-46fd-88f4-07217454f54a' class='xr-section-summary-in' type='checkbox'  ><label for='section-08dfcefe-e554-46fd-88f4-07217454f54a' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4e9594ad-1cbf-4768-96d6-9f6536b978ca' class='xr-index-data-in' type='checkbox'/><label for='index-4e9594ad-1cbf-4768-96d6-9f6536b978ca' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1994-03-31 00:00:00&#x27;, &#x27;1994-03-31 01:00:00&#x27;,
-               &#x27;1994-03-31 02:00:00&#x27;, &#x27;1994-03-31 03:00:00&#x27;,
-               &#x27;1994-03-31 04:00:00&#x27;, &#x27;1994-03-31 05:00:00&#x27;,
-               &#x27;1994-03-31 06:00:00&#x27;, &#x27;1994-03-31 07:00:00&#x27;,
-               &#x27;1994-03-31 08:00:00&#x27;, &#x27;1994-03-31 09:00:00&#x27;,
-               ...
-               &#x27;2023-12-30 15:00:00&#x27;, &#x27;2023-12-30 16:00:00&#x27;,
-               &#x27;2023-12-30 17:00:00&#x27;, &#x27;2023-12-30 18:00:00&#x27;,
-               &#x27;2023-12-30 19:00:00&#x27;, &#x27;2023-12-30 20:00:00&#x27;,
-               &#x27;2023-12-30 21:00:00&#x27;, &#x27;2023-12-30 22:00:00&#x27;,
-               &#x27;2023-12-30 23:00:00&#x27;, &#x27;2023-12-31 00:00:00&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=260809, freq=&#x27;h&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>station_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1021cf79-8b2c-4187-89d0-e891b040faa2' class='xr-index-data-in' type='checkbox'/><label for='index-1021cf79-8b2c-4187-89d0-e891b040faa2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([&#x27;1611400&#x27;, &#x27;1612340&#x27;, &#x27;1612401&#x27;, &#x27;1612480&#x27;, &#x27;1615680&#x27;, &#x27;1617433&#x27;,
-       &#x27;1617760&#x27;, &#x27;1619910&#x27;],
-      dtype=&#x27;object&#x27;, name=&#x27;station_id&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bbdcdafa-ae06-41a5-ade1-2e289d2ea01b' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-bbdcdafa-ae06-41a5-ade1-2e289d2ea01b' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <p>Let’s add some more metadata to this dataset, including MSL and MHHW datums for each gauge.</p>
 <div class="cell docutils container">
@@ -2234,411 +1907,6 @@ Data variables:
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div><svg style="position: absolute; width: 0; height: 0; overflow: hidden">
-<defs>
-<symbol id="icon-database" viewBox="0 0 32 32">
-<path d="M16 0c-8.837 0-16 2.239-16 5v4c0 2.761 7.163 5 16 5s16-2.239 16-5v-4c0-2.761-7.163-5-16-5z"></path>
-<path d="M16 17c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-<path d="M16 26c-8.837 0-16-2.239-16-5v6c0 2.761 7.163 5 16 5s16-2.239 16-5v-6c0 2.761-7.163 5-16 5z"></path>
-</symbol>
-<symbol id="icon-file-text2" viewBox="0 0 32 32">
-<path d="M28.681 7.159c-0.694-0.947-1.662-2.053-2.724-3.116s-2.169-2.030-3.116-2.724c-1.612-1.182-2.393-1.319-2.841-1.319h-15.5c-1.378 0-2.5 1.121-2.5 2.5v27c0 1.378 1.122 2.5 2.5 2.5h23c1.378 0 2.5-1.122 2.5-2.5v-19.5c0-0.448-0.137-1.23-1.319-2.841zM24.543 5.457c0.959 0.959 1.712 1.825 2.268 2.543h-4.811v-4.811c0.718 0.556 1.584 1.309 2.543 2.268zM28 29.5c0 0.271-0.229 0.5-0.5 0.5h-23c-0.271 0-0.5-0.229-0.5-0.5v-27c0-0.271 0.229-0.5 0.5-0.5 0 0 15.499-0 15.5 0v7c0 0.552 0.448 1 1 1h7v19.5z"></path>
-<path d="M23 26h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 22h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-<path d="M23 18h-14c-0.552 0-1-0.448-1-1s0.448-1 1-1h14c0.552 0 1 0.448 1 1s-0.448 1-1 1z"></path>
-</symbol>
-</defs>
-</svg>
-<style>/* CSS stylesheet for displaying xarray objects in jupyterlab.
- *
- */
-
-:root {
-  --xr-font-color0: var(--jp-content-font-color0, rgba(0, 0, 0, 1));
-  --xr-font-color2: var(--jp-content-font-color2, rgba(0, 0, 0, 0.54));
-  --xr-font-color3: var(--jp-content-font-color3, rgba(0, 0, 0, 0.38));
-  --xr-border-color: var(--jp-border-color2, #e0e0e0);
-  --xr-disabled-color: var(--jp-layout-color3, #bdbdbd);
-  --xr-background-color: var(--jp-layout-color0, white);
-  --xr-background-color-row-even: var(--jp-layout-color1, white);
-  --xr-background-color-row-odd: var(--jp-layout-color2, #eeeeee);
-}
-
-html[theme=dark],
-body[data-theme=dark],
-body.vscode-dark {
-  --xr-font-color0: rgba(255, 255, 255, 1);
-  --xr-font-color2: rgba(255, 255, 255, 0.54);
-  --xr-font-color3: rgba(255, 255, 255, 0.38);
-  --xr-border-color: #1F1F1F;
-  --xr-disabled-color: #515151;
-  --xr-background-color: #111111;
-  --xr-background-color-row-even: #111111;
-  --xr-background-color-row-odd: #313131;
-}
-
-.xr-wrap {
-  display: block !important;
-  min-width: 300px;
-  max-width: 700px;
-}
-
-.xr-text-repr-fallback {
-  /* fallback to plain text repr when CSS is not injected (untrusted notebook) */
-  display: none;
-}
-
-.xr-header {
-  padding-top: 6px;
-  padding-bottom: 6px;
-  margin-bottom: 4px;
-  border-bottom: solid 1px var(--xr-border-color);
-}
-
-.xr-header > div,
-.xr-header > ul {
-  display: inline;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-.xr-obj-type,
-.xr-array-name {
-  margin-left: 2px;
-  margin-right: 10px;
-}
-
-.xr-obj-type {
-  color: var(--xr-font-color2);
-}
-
-.xr-sections {
-  padding-left: 0 !important;
-  display: grid;
-  grid-template-columns: 150px auto auto 1fr 20px 20px;
-}
-
-.xr-section-item {
-  display: contents;
-}
-
-.xr-section-item input {
-  display: none;
-}
-
-.xr-section-item input + label {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-item input:enabled + label {
-  cursor: pointer;
-  color: var(--xr-font-color2);
-}
-
-.xr-section-item input:enabled + label:hover {
-  color: var(--xr-font-color0);
-}
-
-.xr-section-summary {
-  grid-column: 1;
-  color: var(--xr-font-color2);
-  font-weight: 500;
-}
-
-.xr-section-summary > span {
-  display: inline-block;
-  padding-left: 0.5em;
-}
-
-.xr-section-summary-in:disabled + label {
-  color: var(--xr-font-color2);
-}
-
-.xr-section-summary-in + label:before {
-  display: inline-block;
-  content: '►';
-  font-size: 11px;
-  width: 15px;
-  text-align: center;
-}
-
-.xr-section-summary-in:disabled + label:before {
-  color: var(--xr-disabled-color);
-}
-
-.xr-section-summary-in:checked + label:before {
-  content: '▼';
-}
-
-.xr-section-summary-in:checked + label > span {
-  display: none;
-}
-
-.xr-section-summary,
-.xr-section-inline-details {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-.xr-section-inline-details {
-  grid-column: 2 / -1;
-}
-
-.xr-section-details {
-  display: none;
-  grid-column: 1 / -1;
-  margin-bottom: 5px;
-}
-
-.xr-section-summary-in:checked ~ .xr-section-details {
-  display: contents;
-}
-
-.xr-array-wrap {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: 20px auto;
-}
-
-.xr-array-wrap > label {
-  grid-column: 1;
-  vertical-align: top;
-}
-
-.xr-preview {
-  color: var(--xr-font-color3);
-}
-
-.xr-array-preview,
-.xr-array-data {
-  padding: 0 5px !important;
-  grid-column: 2;
-}
-
-.xr-array-data,
-.xr-array-in:checked ~ .xr-array-preview {
-  display: none;
-}
-
-.xr-array-in:checked ~ .xr-array-data,
-.xr-array-preview {
-  display: inline-block;
-}
-
-.xr-dim-list {
-  display: inline-block !important;
-  list-style: none;
-  padding: 0 !important;
-  margin: 0;
-}
-
-.xr-dim-list li {
-  display: inline-block;
-  padding: 0;
-  margin: 0;
-}
-
-.xr-dim-list:before {
-  content: '(';
-}
-
-.xr-dim-list:after {
-  content: ')';
-}
-
-.xr-dim-list li:not(:last-child):after {
-  content: ',';
-  padding-right: 5px;
-}
-
-.xr-has-index {
-  font-weight: bold;
-}
-
-.xr-var-list,
-.xr-var-item {
-  display: contents;
-}
-
-.xr-var-item > div,
-.xr-var-item label,
-.xr-var-item > .xr-var-name span {
-  background-color: var(--xr-background-color-row-even);
-  margin-bottom: 0;
-}
-
-.xr-var-item > .xr-var-name:hover span {
-  padding-right: 5px;
-}
-
-.xr-var-list > li:nth-child(odd) > div,
-.xr-var-list > li:nth-child(odd) > label,
-.xr-var-list > li:nth-child(odd) > .xr-var-name span {
-  background-color: var(--xr-background-color-row-odd);
-}
-
-.xr-var-name {
-  grid-column: 1;
-}
-
-.xr-var-dims {
-  grid-column: 2;
-}
-
-.xr-var-dtype {
-  grid-column: 3;
-  text-align: right;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-preview {
-  grid-column: 4;
-}
-
-.xr-index-preview {
-  grid-column: 2 / 5;
-  color: var(--xr-font-color2);
-}
-
-.xr-var-name,
-.xr-var-dims,
-.xr-var-dtype,
-.xr-preview,
-.xr-attrs dt {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding-right: 10px;
-}
-
-.xr-var-name:hover,
-.xr-var-dims:hover,
-.xr-var-dtype:hover,
-.xr-attrs dt:hover {
-  overflow: visible;
-  width: auto;
-  z-index: 1;
-}
-
-.xr-var-attrs,
-.xr-var-data,
-.xr-index-data {
-  display: none;
-  background-color: var(--xr-background-color) !important;
-  padding-bottom: 5px !important;
-}
-
-.xr-var-attrs-in:checked ~ .xr-var-attrs,
-.xr-var-data-in:checked ~ .xr-var-data,
-.xr-index-data-in:checked ~ .xr-index-data {
-  display: block;
-}
-
-.xr-var-data > table {
-  float: right;
-}
-
-.xr-var-name span,
-.xr-var-data,
-.xr-index-name div,
-.xr-index-data,
-.xr-attrs {
-  padding-left: 25px !important;
-}
-
-.xr-attrs,
-.xr-var-attrs,
-.xr-var-data,
-.xr-index-data {
-  grid-column: 1 / -1;
-}
-
-dl.xr-attrs {
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 125px auto;
-}
-
-.xr-attrs dt,
-.xr-attrs dd {
-  padding: 0;
-  margin: 0;
-  float: left;
-  padding-right: 10px;
-  width: auto;
-}
-
-.xr-attrs dt {
-  font-weight: normal;
-  grid-column: 1;
-}
-
-.xr-attrs dt:hover span {
-  display: inline-block;
-  background: var(--xr-background-color);
-  padding-right: 10px;
-}
-
-.xr-attrs dd {
-  grid-column: 2;
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.xr-icon-database,
-.xr-icon-file-text2,
-.xr-no-icon {
-  display: inline-block;
-  vertical-align: middle;
-  width: 1em;
-  height: 1.5em !important;
-  stroke-width: 0;
-  stroke: currentColor;
-  fill: currentColor;
-}
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 19MB
-Dimensions:          (station_id: 8, time: 260809)
-Coordinates:
-  * time             (time) datetime64[ns] 2MB 1994-03-31 ... 2023-12-31
-  * station_id       (station_id) &lt;U7 224B &#x27;1611400&#x27; &#x27;1612340&#x27; ... &#x27;1619910&#x27;
-Data variables:
-    sea_level        (station_id, time) float64 17MB nan nan nan ... 1.209 1.165
-    station_name     (station_id) &lt;U27 864B &#x27;Nawiliwili&#x27; ... &#x27;Sand Island, Mi...
-    station_country  (station_id) &lt;U3 96B &#x27;USA&#x27; &#x27;USA&#x27; &#x27;USA&#x27; ... &#x27;USA&#x27; &#x27;USA&#x27;
-    lat              (station_id) float64 64B 21.95 21.3 21.37 ... 19.73 28.21
-    lon              (station_id) float64 64B 200.6 202.1 202.0 ... 204.9 182.6
-    MHHW             (station_id) float64 64B 1.255 1.741 7.673 ... 1.927 1.206
-    MSL              (station_id) float64 64B 0.949 1.412 7.338 ... 1.545 1.02</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-e0c9bdd1-1412-4000-b861-8f140813ecac' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-e0c9bdd1-1412-4000-b861-8f140813ecac' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>station_id</span>: 8</li><li><span class='xr-has-index'>time</span>: 260809</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-de88d487-2a8e-4b96-813b-dad8b0d143ed' class='xr-section-summary-in' type='checkbox'  checked><label for='section-de88d487-2a8e-4b96-813b-dad8b0d143ed' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1994-03-31 ... 2023-12-31</div><input id='attrs-38f5d203-7cf3-4234-ad0d-3292c6abfb95' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-38f5d203-7cf3-4234-ad0d-3292c6abfb95' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1a2d8384-d235-49f7-9ed3-708dffe0e4fa' class='xr-var-data-in' type='checkbox'><label for='data-1a2d8384-d235-49f7-9ed3-708dffe0e4fa' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1994-03-31T00:00:00.000000000&#x27;, &#x27;1994-03-31T01:00:00.000000000&#x27;,
-       &#x27;1994-03-31T02:00:00.000000000&#x27;, ..., &#x27;2023-12-30T22:00:00.000000000&#x27;,
-       &#x27;2023-12-30T23:00:00.000000000&#x27;, &#x27;2023-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>station_id</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>&lt;U7</div><div class='xr-var-preview xr-preview'>&#x27;1611400&#x27; &#x27;1612340&#x27; ... &#x27;1619910&#x27;</div><input id='attrs-65883088-3557-4090-b27d-322d5490fe88' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-65883088-3557-4090-b27d-322d5490fe88' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b5783b74-2224-47aa-8c87-af146bb70456' class='xr-var-data-in' type='checkbox'><label for='data-b5783b74-2224-47aa-8c87-af146bb70456' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1611400&#x27;, &#x27;1612340&#x27;, &#x27;1612401&#x27;, &#x27;1612480&#x27;, &#x27;1615680&#x27;, &#x27;1617433&#x27;,
-       &#x27;1617760&#x27;, &#x27;1619910&#x27;], dtype=&#x27;&lt;U7&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8fe6bbfc-a4a6-4b4f-962c-bf39638f0c70' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8fe6bbfc-a4a6-4b4f-962c-bf39638f0c70' class='xr-section-summary' >Data variables: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>sea_level</span></div><div class='xr-var-dims'>(station_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan ... 1.255 1.209 1.165</div><input id='attrs-95d77e65-4d1c-49da-aebc-7e30a15914ea' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-95d77e65-4d1c-49da-aebc-7e30a15914ea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-feee129e-2584-45e9-b82b-c48c02b7d0a0' class='xr-var-data-in' type='checkbox'><label for='data-feee129e-2584-45e9-b82b-c48c02b7d0a0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>Sea level, relative to station datum</dd></dl></div><div class='xr-var-data'><pre>array([[  nan,   nan,   nan, ..., 0.885, 0.85 , 0.83 ],
-       [  nan,   nan,   nan, ..., 1.332, 1.264, 1.232],
-       [  nan,   nan,   nan, ..., 7.234, 7.178, 7.162],
-       ...,
-       [  nan,   nan,   nan, ..., 1.019, 0.973, 0.957],
-       [  nan,   nan,   nan, ..., 1.567, 1.564, 1.542],
-       [0.762, 0.817, 0.897, ..., 1.255, 1.209, 1.165]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>&lt;U27</div><div class='xr-var-preview xr-preview'>&#x27;Nawiliwili&#x27; ... &#x27;Sand Island, M...</div><input id='attrs-2e3b1742-5146-4574-8d83-aa385daedcdf' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2e3b1742-5146-4574-8d83-aa385daedcdf' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9b0e1434-07e5-4445-8654-ee56f95cb2d8' class='xr-var-data-in' type='checkbox'><label for='data-9b0e1434-07e5-4445-8654-ee56f95cb2d8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Nawiliwili&#x27;, &#x27;Honolulu&#x27;, &#x27;Pearl Harbor&#x27;, &#x27;Mokuoloe&#x27;,
-       &#x27;Kahului, Kahului Harbor&#x27;, &#x27;Kawaihae&#x27;, &#x27;Hilo, Hilo Bay, Kuhio Bay&#x27;,
-       &#x27;Sand Island, Midway Islands&#x27;], dtype=&#x27;&lt;U27&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_country</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>&lt;U3</div><div class='xr-var-preview xr-preview'>&#x27;USA&#x27; &#x27;USA&#x27; &#x27;USA&#x27; ... &#x27;USA&#x27; &#x27;USA&#x27;</div><input id='attrs-4a726a00-28fa-4284-8b6e-fc629d4c0335' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4a726a00-28fa-4284-8b6e-fc629d4c0335' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9893f31c-c058-4be1-8327-aef75d9c6e1e' class='xr-var-data-in' type='checkbox'><label for='data-9893f31c-c058-4be1-8327-aef75d9c6e1e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;, &#x27;USA&#x27;],
-      dtype=&#x27;&lt;U3&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>21.95 21.3 21.37 ... 19.73 28.21</div><input id='attrs-65b74cc9-a864-4f19-82de-7e9586fc43be' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-65b74cc9-a864-4f19-82de-7e9586fc43be' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-35e26100-aaaf-4c5f-8c97-8afa263ccda0' class='xr-var-data-in' type='checkbox'><label for='data-35e26100-aaaf-4c5f-8c97-8afa263ccda0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([21.9544  , 21.303333, 21.3675  , 21.433056, 20.895   , 20.0366  ,
-       19.73028 , 28.211667])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>200.6 202.1 202.0 ... 204.9 182.6</div><input id='attrs-702b6c00-2ce7-4a0a-997f-13bb38b4bdeb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-702b6c00-2ce7-4a0a-997f-13bb38b4bdeb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7c22ace7-98a4-4b13-823a-7ac4f4f56ce8' class='xr-var-data-in' type='checkbox'><label for='data-7c22ace7-98a4-4b13-823a-7ac4f4f56ce8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([200.6439  , 202.135472, 202.036102, 202.21    , 203.530833,
-       204.1706  , 204.94    , 182.64    ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.255 1.741 7.673 ... 1.927 1.206</div><input id='attrs-2b349b45-90bb-43fc-b5d4-1a6c1399e1c0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2b349b45-90bb-43fc-b5d4-1a6c1399e1c0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f6122ac5-7465-41fd-b25b-dcda033f3141' class='xr-var-data-in' type='checkbox'><label for='data-f6122ac5-7465-41fd-b25b-dcda033f3141' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>Mean Higher High Water, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>array([1.255, 1.741, 7.673, 1.536, 1.422, 1.444, 1.927, 1.206])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MSL</span></div><div class='xr-var-dims'>(station_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.949 1.412 7.338 ... 1.545 1.02</div><input id='attrs-53000f28-ba6e-4926-95bc-8071c90cae1a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-53000f28-ba6e-4926-95bc-8071c90cae1a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-80e0c65a-2762-400c-839e-0fc46727c375' class='xr-var-data-in' type='checkbox'><label for='data-80e0c65a-2762-400c-839e-0fc46727c375' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>m</dd><dt><span>long_name :</span></dt><dd>Mean Sea Level, rel. to station datum</dd></dl></div><div class='xr-var-data'><pre>array([0.949, 1.412, 7.338, 1.21 , 1.075, 1.08 , 1.545, 1.02 ])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f1ec6655-e00b-4bea-bc04-384048df509f' class='xr-section-summary-in' type='checkbox'  ><label for='section-f1ec6655-e00b-4bea-bc04-384048df509f' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-171d0e43-0625-4002-bf1f-2361c4395f7b' class='xr-index-data-in' type='checkbox'/><label for='index-171d0e43-0625-4002-bf1f-2361c4395f7b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1994-03-31 00:00:00&#x27;, &#x27;1994-03-31 01:00:00&#x27;,
-               &#x27;1994-03-31 02:00:00&#x27;, &#x27;1994-03-31 03:00:00&#x27;,
-               &#x27;1994-03-31 04:00:00&#x27;, &#x27;1994-03-31 05:00:00&#x27;,
-               &#x27;1994-03-31 06:00:00&#x27;, &#x27;1994-03-31 07:00:00&#x27;,
-               &#x27;1994-03-31 08:00:00&#x27;, &#x27;1994-03-31 09:00:00&#x27;,
-               ...
-               &#x27;2023-12-30 15:00:00&#x27;, &#x27;2023-12-30 16:00:00&#x27;,
-               &#x27;2023-12-30 17:00:00&#x27;, &#x27;2023-12-30 18:00:00&#x27;,
-               &#x27;2023-12-30 19:00:00&#x27;, &#x27;2023-12-30 20:00:00&#x27;,
-               &#x27;2023-12-30 21:00:00&#x27;, &#x27;2023-12-30 22:00:00&#x27;,
-               &#x27;2023-12-30 23:00:00&#x27;, &#x27;2023-12-31 00:00:00&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=260809, freq=&#x27;h&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>station_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-b091f0d1-a97a-4f4c-845c-9d6138040328' class='xr-index-data-in' type='checkbox'/><label for='index-b091f0d1-a97a-4f4c-845c-9d6138040328' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([&#x27;1611400&#x27;, &#x27;1612340&#x27;, &#x27;1612401&#x27;, &#x27;1612480&#x27;, &#x27;1615680&#x27;, &#x27;1617433&#x27;,
-       &#x27;1617760&#x27;, &#x27;1619910&#x27;],
-      dtype=&#x27;object&#x27;, name=&#x27;station_id&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-66b69856-cc82-473b-824d-e65a490dbfd3' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-66b69856-cc82-473b-824d-e65a490dbfd3' class='xr-section-summary'  title='Expand/collapse section'>Attributes: <span>(0)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2733,45 +2001,6 @@ Data variables:
     <span class="n">get_CMEMS_data</span><span class="p">(</span><span class="n">minlat</span><span class="p">,</span> <span class="n">maxlat</span><span class="p">,</span> <span class="n">minlon</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">)</span> <span class="c1">#&lt;&lt;--- COMMENT OUT TO AVOID ACCIDENTAL DATA DOWNLOADS.</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CMEMS data already downloaded, good to go!&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>You will need to download the CMEMS data in a separate script
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">21</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="n">fname_cmems</span><span class="p">):</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;You will need to download the CMEMS data in a separate script&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">4</span>     <span class="n">get_CMEMS_data</span><span class="p">(</span><span class="n">minlat</span><span class="p">,</span> <span class="n">maxlat</span><span class="p">,</span> <span class="n">minlon</span><span class="p">,</span> <span class="n">maxlon</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">)</span> <span class="c1">#&lt;&lt;--- COMMENT OUT TO AVOID ACCIDENTAL DATA DOWNLOADS.</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;CMEMS data already downloaded, good to go!&#39;</span><span class="p">)</span>
-
-<span class="nn">Cell In[20], line 31,</span> in <span class="ni">get_CMEMS_data</span><span class="nt">(minlat, maxlat, minlon, maxlon, data_dir)</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">data_dir</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span><span class="sd"> Retrieves Copernicus Marine data for a specified region and time period.</span>
-<span class="g g-Whitespace">     </span><span class="mi">18</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">     </span><span class="mi">29</span><span class="sd">     str: The filename of the retrieved data.</span>
-<span class="g g-Whitespace">     </span><span class="mi">30</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="ne">---&gt; </span><span class="mi">31</span> <span class="n">copernicusmarine</span><span class="o">.</span><span class="n">subset</span><span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">32</span>     <span class="n">dataset_id</span><span class="o">=</span><span class="s2">&quot;cmems_obs-sl_glo_phy-ssh_my_allsat-l4-duacs-0.25deg_P1D&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">33</span>     <span class="n">dataset_version</span><span class="o">=</span><span class="s2">&quot;202112&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">34</span>     <span class="n">variables</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;sla&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">     </span><span class="mi">35</span>     <span class="n">minimum_longitude</span><span class="o">=</span><span class="n">minlon</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">36</span>     <span class="n">maximum_longitude</span><span class="o">=</span><span class="n">maxlon</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">37</span>     <span class="n">minimum_latitude</span><span class="o">=</span><span class="n">minlat</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">38</span>     <span class="n">maximum_latitude</span><span class="o">=</span><span class="n">maxlat</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">39</span>     <span class="n">start_datetime</span><span class="o">=</span><span class="n">start_date_str</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">40</span>     <span class="n">end_datetime</span><span class="o">=</span><span class="n">end_date_str</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="n">output_directory</span><span class="o">=</span><span class="n">data_dir</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">42</span>     <span class="n">output_filename</span><span class="o">=</span><span class="s2">&quot;cmems_L4_SSH_0.25deg_&quot;</span> <span class="o">+</span> <span class="n">start_date_str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;_&quot;</span> <span class="o">+</span> <span class="n">end_date_str</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;.nc&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;copernicusmarine&#39; is not defined
 </pre></div>
 </div>
 </div>
@@ -3175,7 +2404,7 @@ Data variables:
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -3269,8 +2498,8 @@ By Playground Coordinator
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

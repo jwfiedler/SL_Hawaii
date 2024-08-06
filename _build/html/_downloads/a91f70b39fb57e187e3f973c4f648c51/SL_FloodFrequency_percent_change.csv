@@ -3,12 +3,12 @@
 # threshold: Threshold in cm above MHHW
 # percent_change_days: Percent change in flood days per year
 # percent_change_hours: Percent change in flood hours per year
-station,country,threshold,percent_change_days,percent_change_hours
-Johnston,United States of America (the),18.3,151.7766497461919,278.5927646863628
-"Hilo, Hawaii",United States of America (the),20.6,567.123287671241,1368.4045226130875
-Kawaihae,United States of America (the),27.7,7926.132404181135,19354.35540069684
-Kahului,United States of America (the),23.7,371.5844510115924,764.8905250920241
-"Honolulu, Hawaii",United States of America (the),19.5,503.1150667514317,1153.7537537537048
-Mokuoloe,United States of America (the),18.3,439.9299474605967,976.1608425083601
-Nawiliwili,United States of America (the),19.5,665.0544135429079,1832.3879983559157
-Midway,United States of America (the),20.8,2451.954022988307,953.1527323680021
+station,country,threshold,percent_change_days,percent_change_hours
+Johnston,United States of America (the),18.3,151.7766497461919,278.5927646863628
+"Hilo, Hawaii",United States of America (the),20.6,567.123287671241,1368.4045226130875
+Kawaihae,United States of America (the),27.7,7926.132404181135,19354.35540069684
+Kahului,United States of America (the),23.7,371.5844510115924,764.8905250920241
+"Honolulu, Hawaii",United States of America (the),19.5,503.1150667514317,1153.7537537537048
+Mokuoloe,United States of America (the),18.3,439.9299474605967,976.1608425083601
+Nawiliwili,United States of America (the),19.5,665.0544135429079,1832.3879983559157
+Midway,United States of America (the),20.8,2451.954022988307,953.1527323680021
