@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
@@ -35,12 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -77,27 +77,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -120,13 +116,15 @@
 </form></div>
   </div>
 
-
-  <div class="bd-header-announcement container-fluid bd-header-announcement">
-    <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
-  </div>
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+<aside class="bd-header-announcement" aria-label="Announcement">
+  <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
+</aside>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -150,6 +148,8 @@
         <div class="sidebar-primary-item">
 
   
+    
+  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -171,7 +171,7 @@
 
  <script>
  document.write(`
-   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -190,15 +190,15 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../gettingStarted.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gettingStarted.html">Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../setup.html">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../SL_Data_Wrangling.html">Data Wrangling</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ANNUAL</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../SL_annual.html">Sea Level Magnitude</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../SL_annual.html">Sea Level Magnitude</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Trend.html">Sea Level Trend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Rankings_annual.html">Annual Sea Level Rankings</a></li>
@@ -206,26 +206,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Components_annual.html">Components of Sea Level</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Nonstationary Extremes</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FloodFrequency.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FloodDuration.html">Flood Duration</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">INTRA-ANNUAL</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../SL_intra-annual.html">Sea Level Magnitude</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../SL_intra-annual.html">Sea Level Magnitude</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_anomaly_intra-annual.html">Intra-Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Extremes_intra-annual.html">Intra-Annual Extremes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Components_intra-annual.html">Components of Sea Level</a></li>
 </ul>
-</li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood_intra-annual.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood_intra-annual.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FloodFrequency_intra-annual.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FloodDuration_intra-annual.html">Flood Duration</a></li>
 </ul>
-</li>
+</details></li>
 </ul>
 
     </div>
@@ -241,7 +241,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -250,14 +250,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -282,14 +282,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -448,10 +448,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
-    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
   </button>
 `);
 </script>
@@ -459,14 +459,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -540,8 +540,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6aea7140-6b3b-4630-a286-2956b61fb6ba">
-<span class="eqno">(1)<a class="headerlink" href="#equation-6aea7140-6b3b-4630-a286-2956b61fb6ba" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-35502452-7e58-45cd-a10e-41cfb8d4ef64">
+<span class="eqno">(1)<a class="headerlink" href="#equation-35502452-7e58-45cd-a10e-41cfb8d4ef64" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -555,8 +555,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6dfb1c2-efec-408e-bba6-e79b703b76ba">
-<span class="eqno">(2)<a class="headerlink" href="#equation-f6dfb1c2-efec-408e-bba6-e79b703b76ba" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0cc402ad-b657-40d3-b42f-bf7c08ee33a2">
+<span class="eqno">(2)<a class="headerlink" href="#equation-0cc402ad-b657-40d3-b42f-bf7c08ee33a2" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -585,6 +585,7 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 <span class="kn">from</span> <span class="nn">scipy.optimize</span> <span class="kn">import</span> <span class="n">brentq</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">json</span>
 </pre></div>
 </div>
 </div>
@@ -665,8 +666,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-32ec3e72-1a74-4eff-bff6-4c41b335f5b0">
-<span class="eqno">(3)<a class="headerlink" href="#equation-32ec3e72-1a74-4eff-bff6-4c41b335f5b0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ff12db81-390d-47ae-8f71-ed636c1adc5a">
+<span class="eqno">(3)<a class="headerlink" href="#equation-ff12db81-390d-47ae-8f71-ed636c1adc5a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -696,8 +697,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1afc99d0-a46c-4e6d-804a-880a7078a2e0">
-<span class="eqno">(4)<a class="headerlink" href="#equation-1afc99d0-a46c-4e6d-804a-880a7078a2e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6430b311-56cd-4df6-98f8-fca30322488f">
+<span class="eqno">(4)<a class="headerlink" href="#equation-6430b311-56cd-4df6-98f8-fca30322488f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -716,8 +717,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-9e243135-236b-4b60-9486-542b5373e28e">
-<span class="eqno">(5)<a class="headerlink" href="#equation-9e243135-236b-4b60-9486-542b5373e28e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5c4e6783-404e-4778-9173-fc48990b7886">
+<span class="eqno">(5)<a class="headerlink" href="#equation-5c4e6783-404e-4778-9173-fc48990b7886" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= e^{\beta_{LT}t}[\beta_0  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]   + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -729,8 +730,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10d65b5f-020d-481e-9864-9b9022326f60">
-<span class="eqno">(6)<a class="headerlink" href="#equation-10d65b5f-020d-481e-9864-9b9022326f60" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3a2df456-85a8-427d-bf84-145d3dfe9e51">
+<span class="eqno">(6)<a class="headerlink" href="#equation-3a2df456-85a8-427d-bf84-145d3dfe9e51" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= e^{\beta_{LT}t}[\beta_0  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)] + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -953,9 +954,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
         <span class="n">x0</span> <span class="o">=</span> <span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">YY</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">Quantilentime</span><span class="p">,</span> <span class="n">x0</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="n">x0</span><span class="o">+</span><span class="mi">5</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">R</span><span class="p">,))</span>  <span class="c1"># using bracketing to find the root of Quantilentime function instead of fsolve</span>
     
-    <span class="c1"># Start plotting</span>
-    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-    <span class="n">sss</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
+   <span class="c1"># Start plotting</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">sss</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
     <span class="n">cmap</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">(</span><span class="s2">&quot;viridis&quot;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">))</span>
 
@@ -968,16 +968,18 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="n">sss</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 
     <span class="c1"># arrange yaxis for breathing room</span>
-    <span class="n">meanmaxSL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">)</span>
-    <span class="n">stdmaxSL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">)</span>  <span class="c1"># Standard deviation of the maxima</span>
+    <span class="n">meanmaxSL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">seaLevel</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">)</span>
+    <span class="n">rangemaxSL</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">seaLevel</span><span class="p">)</span> <span class="c1"># Range</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">,</span> <span class="n">meanmaxSL</span><span class="o">-</span><span class="mi">3</span><span class="o">*</span><span class="n">stdmaxSL</span><span class="p">,</span> <span class="n">meanmaxSL</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">stdmaxSL</span><span class="p">])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">,</span> <span class="n">meanmaxSL</span><span class="o">-</span><span class="n">rangemaxSL</span><span class="p">,</span> <span class="n">meanmaxSL</span><span class="o">+</span><span class="n">rangemaxSL</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.08333</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="mi">6</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;Jan&#39;</span><span class="p">,</span> <span class="s1">&#39;Mar&#39;</span><span class="p">,</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span> <span class="s1">&#39;Jul&#39;</span><span class="p">,</span> <span class="s1">&#39;Sep&#39;</span><span class="p">,</span> <span class="s1">&#39;Nov&#39;</span><span class="p">])</span>
     
+    <span class="c1"># add legend</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">))</span>
 
     
     <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Sea level (m, MHHW)&#39;</span><span class="p">)</span>
-    
+    <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">cmap</span>
 </pre></div>
@@ -998,30 +1000,53 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="o">%</span><span class="k">run</span> ../plotting_functions.ipynb
 
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
+<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output/extremes&#39;</span><span class="p">)</span> 
+<span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_input&#39;</span><span class="p">)</span>
+<span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_output&#39;</span><span class="p">)</span>
 <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
 
-<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="c1"># check if output directory exists, if not create it</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="n">output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># check if model output directory exists, if not create it</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">model_output_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+    <span class="n">model_output_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># make sub-directories for each station in rsl_hourly in model_output_dir</span>
+<span class="k">for</span> <span class="n">rid</span> <span class="ow">in</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="p">:</span>
+    <span class="n">ridString</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rid</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="c1"># maybe needs some leading zeros, for now we&#39;ll leave it.</span>
+    <span class="n">station_dir</span> <span class="o">=</span> <span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">station_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+        <span class="n">station_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
+  _pyproj_global_context_initialize()
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">8</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
-<span class="ne">----&gt; </span><span class="mi">8</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_input&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_output&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># check if output directory exists, if not create it</span>
 
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">554</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
 <span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
@@ -1081,58 +1106,56 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </div>
-<p>And let’s select a record id (“rid”) to use for the rest of this example.</p>
+<p>The following function reads in the hourly timeseries for a given station (rid = record id) from the rsl_hourly dataset. It returns a dataframe of monthly max sea level values (in STND datum), and time in decimal years, such that the first year of the record starts at 0, and each subsequent time step is fraction of that year.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <p>TO DO: Adjust monthly maxima timeseries such that high water levels from the same event are not doubly counted.</p>
 </aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rid</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="n">STNDtoMHHW</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_monthly_max_time_series</span><span class="p">(</span><span class="n">rid</span><span class="p">,</span><span class="n">rsl_hourly</span><span class="p">):</span>
+    <span class="n">station_name</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
 
-<span class="n">sea_level_series</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">]</span>
+    <span class="n">STNDtoMHHW</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
-<span class="c1">#get only data from 1993 to 2023</span>
-<span class="n">sea_level_series</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1993&#39;</span><span class="p">,</span> <span class="s1">&#39;2023&#39;</span><span class="p">))</span>
+    <span class="n">sea_level_series</span> <span class="o">=</span> <span class="mf">0.001</span><span class="o">*</span><span class="n">rsl_hourly</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">][</span><span class="n">rid</span><span class="p">]</span>
 
-<span class="c1"># Step 1: extract the monthly maxima</span>
-<span class="n">monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+    <span class="c1">#get only data from 1993 to 2023</span>
+    <span class="n">sea_level_series</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1993&#39;</span><span class="p">,</span> <span class="s1">&#39;2023&#39;</span><span class="p">))</span>
 
-<span class="c1"># get exact time of the monthly maxima</span>
-<span class="n">t_monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">argmax</span><span class="p">()])</span>
+    <span class="c1"># remove nans</span>
+    <span class="n">sea_level_series</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 
-<span class="c1"># To ensure it&#39;s in datetime format and to access datetime properties</span>
-<span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    <span class="c1"># Step 1: extract the monthly maxima</span>
+    <span class="n">monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
 
-<span class="c1"># Now extract the day of the year (using fractional days)</span>
-<span class="n">t_yearDay</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span><span class="o">/</span><span class="mi">24</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">minute</span><span class="o">/</span><span class="mi">1440</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">second</span><span class="o">/</span><span class="mi">86400</span>
+    <span class="c1"># get exact time of the monthly maxima</span>
+    <span class="n">t_monthly_max</span> <span class="o">=</span> <span class="n">sea_level_series</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1ME&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">argmax</span><span class="p">()])</span>
 
-<span class="c1"># get year of t_monthly_max</span>
-<span class="n">t_year</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+    <span class="c1"># To ensure it&#39;s in datetime format and to access datetime properties</span>
+    <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-<span class="c1"># convert t_yearDay and monthly_max to float</span>
-<span class="n">t_yearDay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_yearDay</span><span class="p">)</span>
-<span class="n">monthly_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">monthly_max</span><span class="p">)</span>
-<span class="n">t_monthly_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">)</span>
-<span class="n">t_year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_year</span><span class="p">)</span>
+    <span class="c1"># Now extract the day of the year (using fractional days)</span>
+    <span class="n">t_yearDay</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">dayofyear</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span><span class="o">/</span><span class="mi">24</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">minute</span><span class="o">/</span><span class="mi">1440</span> <span class="o">+</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">second</span><span class="o">/</span><span class="mi">86400</span>
 
+    <span class="c1"># get year of t_monthly_max</span>
+    <span class="n">t_year</span> <span class="o">=</span> <span class="n">t_monthly_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
 
-<span class="c1"># get decimal year such that t = year_monthly_max + t_yearDay/366</span>
-<span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_year</span><span class="o">-</span><span class="n">t_year</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">t_yearDay</span><span class="o">/</span><span class="mi">366</span>
+    <span class="c1"># convert t_yearDay and monthly_max to float</span>
+    <span class="n">t_yearDay</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_yearDay</span><span class="p">)</span>
+    <span class="n">monthly_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">monthly_max</span><span class="p">)</span>
+    <span class="n">t_monthly_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">)</span>
+    <span class="n">t_year</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t_year</span><span class="p">)</span>
 
+    <span class="c1"># get decimal year such that t = year_monthly_max + t_yearDay/366</span>
+    <span class="n">t</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_year</span><span class="o">-</span><span class="n">t_year</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">t_yearDay</span><span class="o">/</span><span class="mi">366</span>
 
-<span class="c1"># save the data to a text file for the external model under model_input directory</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">t</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;T.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">monthly_max</span><span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Y.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:668: FutureWarning: &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
-  index_grouper = pd.Grouper(
-/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:668: FutureWarning: &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
-  index_grouper = pd.Grouper(
+    <span class="c1"># save t and monthly_max to data frame</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;t&#39;</span><span class="p">:</span> <span class="n">t</span><span class="p">,</span> <span class="s1">&#39;monthly_max&#39;</span><span class="p">:</span> <span class="n">monthly_max</span><span class="p">,</span> <span class="s1">&#39;t_monthly_max&#39;</span><span class="p">:</span> <span class="n">t_monthly_max</span><span class="p">})</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">df</span><span class="p">,</span> <span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">station_name</span>
 </pre></div>
 </div>
 </div>
@@ -1142,51 +1165,75 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>In this case, we’ll be using the ONI data we downloaded earlier in the datawrangling notebook. We’ll also reindex everything to storm year (May-April).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ONI_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;ONI.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_covariate</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
+    <span class="n">ONI_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;ONI.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
 
-<span class="c1"># drop last 2 columns</span>
-<span class="n">ONI_df</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">ONI_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="c1"># drop last 2 columns</span>
+    <span class="n">ONI_df</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">ONI_df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="c1"># Set the Date as the index for easier slicing and access</span>
-<span class="n">ONI_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1"># add new column to ONI_df for storm_time</span>
+    <span class="c1"># Set the Date as the index for easier slicing and access</span>
+    <span class="n">ONI_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># Commenting out if we are not using storm_time</span>
-<span class="c1"># ONI_df[&#39;year&#39;] = ONI_df.index.year</span>
-<span class="c1"># ONI_df[&#39;month&#39;] = ONI_df.index.month -4 # subtract 4 to make May the first month of the storm year</span>
-<span class="c1"># ONI_df[&#39;day&#39;] = ONI_df.index.day</span>
+    <span class="c1"># Reindex to include all necessary dates from t_monthly_max for interpolation</span>
+    <span class="n">all_dates</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">)</span>
 
-<span class="c1"># # where month is less than 1, add 12 to month and subtract 1 from year</span>
-<span class="c1"># ONI_df[&#39;year&#39;] = np.where(ONI_df[&#39;month&#39;] &lt; 1, ONI_df[&#39;year&#39;] - 1, ONI_df[&#39;year&#39;])</span>
-<span class="c1"># ONI_df[&#39;month&#39;] = np.where(ONI_df[&#39;month&#39;] &lt; 1, ONI_df[&#39;month&#39;] + 12, ONI_df[&#39;month&#39;])</span>
+    <span class="c1"># Reindex the DataFrame with the union of dates</span>
+    <span class="n">ONI_df</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">all_dates</span><span class="p">)</span>
 
+    <span class="c1"># Now interpolate </span>
+    <span class="n">ONI_interp_df</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
 
-<span class="c1"># # replace year in ONI_df.Date with year in ONI_df.year</span>
-<span class="c1"># ONI_df[&#39;StormDate&#39;] = pd.to_datetime(ONI_df[[&#39;year&#39;, &#39;month&#39;, &#39;day&#39;]])</span>
+    <span class="c1"># retrieve the ONI value for the monthly maxima</span>
+    <span class="n">ONI_interp</span> <span class="o">=</span> <span class="n">ONI_interp_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">t_monthly_max</span><span class="p">]</span>
 
-<span class="c1"># # set StormDate as index</span>
-<span class="c1"># ONI_df.set_index(&#39;StormDate&#39;, inplace=True)</span>
+    <span class="c1"># Save ONI_interp as &#39;covariate&#39; as a 1D numpy array</span>
+    <span class="n">covariate</span> <span class="o">=</span> <span class="n">ONI_interp</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 
-<span class="c1"># # remove year, month and day columns</span>
-<span class="c1"># ONI_df = ONI_df.drop([&#39;year&#39;, &#39;month&#39;, &#39;day&#39;], axis=1)</span>
+    <span class="k">return</span> <span class="n">covariate</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">rid</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="p">)):</span>
+    <span class="n">df</span><span class="p">,</span> <span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">station_name</span> <span class="o">=</span> <span class="n">get_monthly_max_time_series</span><span class="p">(</span><span class="n">rid</span><span class="p">,</span><span class="n">rsl_hourly</span><span class="p">)</span>
 
-<span class="c1"># Reindex to include all necessary dates from t_monthly_max for interpolation</span>
-<span class="n">all_dates</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">)</span>
+    <span class="c1"># add covariate to the data frame</span>
+    <span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">data_dir</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ONI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">covariate</span>
+    <span class="c1"># save the data frame to a csv file with station record_id</span>
+    <span class="n">savename</span> <span class="o">=</span> <span class="s1">&#39;monthly_max_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+    
+    <span class="n">savepath</span> <span class="o">=</span> <span class="n">input_dir</span> <span class="o">/</span> <span class="n">savename</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ii</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">df</span><span class="p">,</span> <span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">station_name</span> <span class="o">=</span> <span class="n">get_monthly_max_time_series</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">rsl_hourly</span><span class="p">)</span>
+<span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">data_dir</span><span class="p">)</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;station_name&quot;</span><span class="p">,</span> <span class="n">station_name</span><span class="p">)</span>
+<span class="n">ridString</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
-<span class="c1"># Reindex the DataFrame with the union of dates</span>
-<span class="n">ONI_df</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">all_dates</span><span class="p">)</span>
+<span class="n">savename</span> <span class="o">=</span> <span class="s1">&#39;monthly_max_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+<span class="n">savepath</span> <span class="o">=</span> <span class="n">input_dir</span> <span class="o">/</span> <span class="n">savename</span>
 
-<span class="c1"># Now interpolate </span>
-<span class="n">ONI_interp_df</span> <span class="o">=</span> <span class="n">ONI_df</span><span class="o">.</span><span class="n">interpolate</span><span class="p">()</span>
+<span class="c1"># write the data in the csv to text file for model input</span>
 
-<span class="c1"># retrieve the ONI value for the monthly maxima</span>
-<span class="n">ONI_interp</span> <span class="o">=</span> <span class="n">ONI_interp_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">t_monthly_max</span><span class="p">]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">savepath</span><span class="p">)</span>
 
-<span class="c1"># save the ONI values to a text file for the external model under model_input directory</span>
-<span class="n">ONI_interp</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;CI.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Save ONI_interp as &#39;covariate&#39; as a 1D numpy array</span>
-<span class="n">covariate</span> <span class="o">=</span> <span class="n">ONI_interp</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;T.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;monthly_max&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Y.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;ONI&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;CI.txt&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Honolulu, Hawaii&#39;
 </pre></div>
 </div>
 </div>
@@ -1227,8 +1274,16 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="n">mios</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;mio.txt&#39;</span><span class="p">)</span>
     <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;mios.txt&#39;</span><span class="p">,</span> <span class="n">mios</span><span class="p">)</span>
 
+<span class="c1"># Assess standard errors of the parameters</span>
+<span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mios</span><span class="p">)</span>
+<span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
 
 <span class="n">icromo</span> <span class="o">=</span> <span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">w_s</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;mio&#39;</span><span class="p">:</span> <span class="n">mios</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;standard_error&#39;</span><span class="p">:</span> <span class="n">standard_error</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_s</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
+<span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span><span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;seasonal_params.json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1406,16 +1461,17 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <h3>Plot monthly extremes and given year return period with the seasonal model<a class="headerlink" href="#plot-monthly-extremes-and-given-year-return-period-with-the-seasonal-model" title="Permalink to this heading">#</a></h3>
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="n">monthly_max</span><span class="p">,</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span><span class="n">SampleRate</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">cmap</span> <span class="o">=</span> <span class="n">plottingExtremeSeasonality</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;monthly_max&#39;</span><span class="p">],</span><span class="n">w_s_plot</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">],</span><span class="n">SampleRate</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 
 <span class="c1"># sss.set_xlabel(&#39;Month in Year&#39;)</span>
 
-<span class="c1"># put the legend on the bottom center outside the plot</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sea level extremes at &#39;</span> <span class="o">+</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Sea level extremes at &#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
 
 <span class="c1"># save the figure</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;SeasonalExtremeVariations.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">250</span><span class="p">)</span>
+<span class="n">savename</span> <span class="o">=</span> <span class="s1">&#39;SeasonalExtremeVariations_&#39;</span><span class="o">+</span> <span class="n">ridString</span> <span class="o">+</span><span class="s1">&#39;.png&#39;</span>
+<span class="n">savedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">savename</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">savedir</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">250</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;seasonal_extreme_variations&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
@@ -1427,14 +1483,14 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/7160e05c1a0b3e54186a15999a401a1931cc65d74a549339ee1e25dfcb3f23b4.png" src="../../_images/7160e05c1a0b3e54186a15999a401a1931cc65d74a549339ee1e25dfcb3f23b4.png" />
+<img alt="../../_images/bc7f74d07b2893ec27c0f4818d3a036d26cab24ce3c73bfc5b30bdfbb21c2065.png" src="../../_images/bc7f74d07b2893ec27c0f4818d3a036d26cab24ce3c73bfc5b30bdfbb21c2065.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="seasonal-extreme-variations">
-<img alt="../../_images/7160e05c1a0b3e54186a15999a401a1931cc65d74a549339ee1e25dfcb3f23b4.png" src="../../_images/7160e05c1a0b3e54186a15999a401a1931cc65d74a549339ee1e25dfcb3f23b4.png" />
+<img alt="../../_images/bc7f74d07b2893ec27c0f4818d3a036d26cab24ce3c73bfc5b30bdfbb21c2065.png" src="../../_images/bc7f74d07b2893ec27c0f4818d3a036d26cab24ce3c73bfc5b30bdfbb21c2065.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">A climatology of extreme sea levels at the Honolulu tide gauge. Monthly maxima (+), determined from hourly sea level data, are shown from 1993-2023. The solid line corresponds to projected sea level return levels at 2,10,50 and 100 years, using this 30-year chunk of data. This line uses a nonstationary GEV to take the seasonal variations of sea level into account. The 2, 10, 50 and 100-year return levels are shown to vary throughout the year (dashed line), with the lowest extremes occuring in March, and highest extremes peaking in July. No long-term trend is used in this model, and the scale and location parameters are held constant.</span><a class="headerlink" href="#seasonal-extreme-variations" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">A climatology of extreme sea levels at the <span class="pasted-text">Honolulu, Hawaii</span> tide gauge. Monthly maxima (+), determined from hourly sea level data, are shown from 1993-2023. The solid line corresponds to projected sea level return levels at 2,10,50 and 100 years, using this 30-year chunk of data. This line uses a nonstationary GEV to take the seasonal variations of sea level into account. The 2, 10, 50 and 100-year return levels are shown to vary throughout the year (dashed line), with the lowest extremes occuring in March, and highest extremes peaking in July. No long-term trend is used in this model, and the scale and location parameters are held constant.</span><a class="headerlink" href="#seasonal-extreme-variations" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1453,6 +1509,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="k">else</span><span class="p">:</span>
     <span class="n">f_T</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">(</span><span class="n">x_T</span><span class="p">,</span> <span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_S_T_Cv&#39;</span><span class="p">)</span>
     <span class="n">w_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;best.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">mio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;mio.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;w_T.txt&#39;</span><span class="p">,</span> <span class="n">w_T</span><span class="p">)</span>
 
 <span class="n">aux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;limits.txt&#39;</span><span class="p">)</span>
@@ -1461,6 +1518,11 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">wT</span><span class="p">)):</span>
     <span class="k">if</span> <span class="n">wT</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">aux</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="ow">or</span> <span class="n">wT</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="n">aux</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Trend Run: Parameter #</span><span class="si">{</span><span class="n">j</span><span class="si">}</span><span class="s1"> is at the limit: </span><span class="si">{</span><span class="n">wT</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Assess standard errors of the parameters</span>
+<span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span>
+<span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
 
 <span class="n">diffe</span> <span class="o">=</span> <span class="n">w_T</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">w_s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
@@ -1471,14 +1533,19 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_s is: </span><span class="si">{</span><span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_T is: </span><span class="si">{</span><span class="n">x_T</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;w_T is: </span><span class="si">{</span><span class="n">w_T</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">w_T</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;mio&#39;</span><span class="p">:</span> <span class="n">mio</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;standard_error&#39;</span><span class="p">:</span> <span class="n">standard_error</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_T</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
+<span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span><span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;trend_params.json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Linear Trend: 100.00%
 Estimated Trend on monthly Maxima values is: 2.97 mm/year
-x_s is: [1. 1. 0.]
-x_T is: [1. 1. 0. 1. 0. 0.]
+x_s is: [1 1 0]
+x_T is: [1 1 0 1 0 0]
 w_T is: [ 4.67039758e+02  1.85962112e+00  6.66646400e-02 -2.22472000e-01
  -4.22099000e-03 -4.67291700e-02  5.26789800e-02 -6.08231000e-03
   1.59690000e-03]
@@ -1499,25 +1566,37 @@ w_T is: [ 4.67039758e+02  1.85962112e+00  6.66646400e-02 -2.22472000e-01
     <span class="n">wcomp</span> <span class="o">=</span> <span class="n">w_s</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="c1"># Check if the results are already saved</span>
-<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;w_cvte1.txt&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">runWithoutModel</span><span class="p">:</span>
-    <span class="n">w_cvte1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;w_cvte1.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span><span class="s1">&#39;w_cvte1.txt&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">runWithoutModel</span><span class="p">:</span>
+    <span class="n">w_cvte1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;w_cvte1.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">f_cvte1</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">(</span><span class="n">x_cvte1</span><span class="p">,</span> <span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_S_T_Cv&#39;</span><span class="p">)</span>
     <span class="n">w_cvte1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;best.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;w_cvte1.txt&#39;</span><span class="p">,</span> <span class="n">w_cvte1</span><span class="p">)</span>
+    <span class="n">mio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;mio.txt&#39;</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;w_cvte1.txt&#39;</span><span class="p">,</span> <span class="n">w_cvte1</span><span class="p">)</span>
 
+<span class="c1"># Assess standard errors of the parameters</span>
+<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span>
+    <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nans</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w_cvte1</span><span class="p">))</span>
 
 <span class="n">diffe</span> <span class="o">=</span> <span class="n">w_cvte1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">wcomp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">SignifCvte1</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">diffe</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Statistical Significance of Covariate in location param.: </span><span class="si">{</span><span class="n">SignifCvte1</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_cvte1 is: </span><span class="si">{</span><span class="n">x_cvte1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">w_cvte1</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;mio&#39;</span><span class="p">:</span> <span class="n">mio</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;standard_error&#39;</span><span class="p">:</span> <span class="n">standard_error</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_cvte1</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
+<span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span><span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;cvte_location_params.json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in location param.: 54.60%
-x_cvte1 is: [1. 1. 0. 1. 1. 0.]
+x_cvte1 is: [1 1 0 1 1 0]
 </pre></div>
 </div>
 </div>
@@ -1542,20 +1621,33 @@ x_cvte1 is: [1. 1. 0. 1. 1. 0.]
 <span class="k">else</span><span class="p">:</span>
     <span class="n">f_cvte2</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">(</span><span class="n">x_cvte2</span><span class="p">,</span> <span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_S_T_Cv&#39;</span><span class="p">)</span>
     <span class="n">w_cvte2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;best.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">mio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;mio.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
     <span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="s1">&#39;w_cvte2.txt&#39;</span><span class="p">,</span> <span class="n">w_cvte2</span><span class="p">)</span>
 
 <span class="n">diffe</span> <span class="o">=</span> <span class="n">w_cvte2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">wcomp</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">p</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">SignifCvte2</span> <span class="o">=</span> <span class="n">chi2</span><span class="o">.</span><span class="n">cdf</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">diffe</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
 
+<span class="c1"># Assess standard errors of the parameters</span>
+<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span>
+    <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w_cvte2</span><span class="p">))</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Statistical Significance of Covariate in scale param.: </span><span class="si">{</span><span class="n">SignifCvte2</span><span class="o">*</span><span class="mi">100</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_cvte2 is: </span><span class="si">{</span><span class="n">x_cvte2</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">w_cvte2</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;mio&#39;</span><span class="p">:</span> <span class="n">mio</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;standard_error&#39;</span><span class="p">:</span> <span class="n">standard_error</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_cvte2</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
+<span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span><span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;cvte_scale_params.json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 40.86%
-x_cvte2 is: [1. 1. 0. 1. 0. 1.]
+x_cvte2 is: [1 1 0 1 0 1]
 </pre></div>
 </div>
 </div>
@@ -1615,6 +1707,12 @@ x_cvte2 is: [1. 1. 0. 1. 0. 1.]
 <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mioN</span><span class="p">)</span>
 <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;w_N: </span><span class="si">{</span><span class="n">wc</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># save w_N, mioN, standard_error, x_N as json file</span>
+<span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">w_N</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;mio&#39;</span><span class="p">:</span> <span class="n">mioN</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;standard_error&#39;</span><span class="p">:</span> <span class="n">standard_error</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_N</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
+<span class="n">savepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span><span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;nodal_params.json&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">savepath</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1622,6 +1720,7 @@ x_cvte2 is: [1. 1. 0. 1. 0. 1.]
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend is significant! 
 Include long-term trend and nodal cycle in final model.
+x_N is: [1 1 0 1 0 0 1]
 Statistical Significance of adding Nodal cycle: 99.88%
 w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
  -3.7349800e-03 -4.6138760e-02  5.3018100e-02 -5.4962600e-03
@@ -1645,7 +1744,7 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># %%</span>
-
+<span class="n">t</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
 <span class="c1"># # Plotting model with only time-dependency within the year (Seasonality only)</span>
 <span class="c1"># best_param = np.append(w_s[1:], [0, 0, 0])</span>
 <span class="n">best_param</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_s</span><span class="p">,</span> <span class="n">w_s</span><span class="p">)</span>
@@ -1674,6 +1773,24 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 <span class="c1"># Plotting nodal cycle in location, will need to add back in the covariate terms as zeros</span>
 <span class="n">best_MuN</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">w_N</span><span class="p">)</span>
 <span class="n">years</span><span class="p">,</span> <span class="n">Yr_muN</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_MuN</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
+
+<span class="c1"># get error bars</span>
+<span class="n">best_MuN</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">w_N</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">standard_error</span><span class="p">]))</span>
+<span class="n">years</span><span class="p">,</span> <span class="n">Yr_muN_low</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_MuN</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
+
+
+<span class="c1"># get error bars</span>
+<span class="n">best_MuN</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">w_N</span><span class="o">+</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">standard_error</span><span class="p">]))</span>
+<span class="n">years</span><span class="p">,</span> <span class="n">Yr_muN_high</span> <span class="o">=</span> <span class="n">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">covariate</span><span class="p">,</span> <span class="n">best_MuN</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get error bars</span>
+<span class="c1"># best_MuN = adjust_w_for_plotting(x_N,w_N-2*[0,standard_error])</span>
+<span class="n">w_N_high</span> <span class="o">=</span> <span class="n">w_N</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">standard_error</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
@@ -1684,11 +1801,15 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 <div class="cell tag_hide-output docutils container">
 <div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get the first year of t_monthly_max</span>
-<span class="n">year0</span> <span class="o">=</span> <span class="mi">1993</span>
+<span class="n">year0</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">year</span>
+<span class="n">glue</span><span class="p">(</span><span class="s2">&quot;year0&quot;</span><span class="p">,</span> <span class="n">year0</span><span class="p">)</span>
 
-<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">year0plot</span> <span class="o">=</span> <span class="mi">1993</span>
+
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">sss</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">year0</span><span class="p">,</span> <span class="n">monthly_max</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="s1">&#39;+k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Monthly Maxima&#39;</span><span class="p">)</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="o">+</span><span class="n">year0</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;monthly_max&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="s1">&#39;+k&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Monthly Maxima&#39;</span><span class="p">)</span>
 
 <span class="c1"># cmap = plt.get_cmap(&#39;viridis&#39;)</span>
 
@@ -1704,7 +1825,10 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 <span class="n">Yr_muN_2008</span> <span class="o">=</span> <span class="n">Yr_muN</span><span class="p">[:,</span><span class="n">idx_2008</span><span class="p">]</span> <span class="o">-</span> <span class="n">STNDtoMHHW</span>
 <span class="n">Yr_muN_2020</span> <span class="o">=</span> <span class="n">Yr_muN</span><span class="p">[:,</span><span class="n">idx_2020</span><span class="p">]</span> <span class="o">-</span> <span class="n">STNDtoMHHW</span>
 
-  
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)):</span>
+    <span class="c1"># add shaded error bars for Yr_muN_high to Yr_muN_low</span>
+    <span class="n">sss</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">years</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mf">0.5</span><span class="o">+</span><span class="n">year0</span><span class="p">,</span> <span class="n">Yr_muN_low</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">Yr_muN_high</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">-</span><span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+
 
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ReturnPeriod</span><span class="p">)):</span>
@@ -1722,18 +1846,22 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 
 
 <span class="c1"># add title of station name</span>
-<span class="n">sss</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nonstationary GEV Return Levels: &#39;</span> <span class="o">+</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="n">rid</span><span class="p">])</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Nonstationary GEV Return Levels: &#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="c1"># extract the return levels for 2008 and 2020</span>
 
+<span class="c1"># set the x-axis to be years, with minimum year as year0plot</span>
+<span class="n">sss</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">year0plot</span><span class="p">,</span> <span class="mi">2023</span><span class="p">)</span>
 
 
 <span class="c1"># add legend outside the plot</span>
 <span class="n">sss</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="c1"># save the figure</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;TimeDependentReturnValue.png&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">savename</span> <span class="o">=</span> <span class="s1">&#39;TimeDependentReturnValue_&#39;</span><span class="o">+</span> <span class="n">ridString</span> <span class="o">+</span><span class="s1">&#39;.png&#39;</span>
+<span class="n">savedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">savename</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">savedir</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 
 <span class="c1"># glue the figure</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;TimeDependentReturnValue&quot;</span><span class="p">,</span> <span class="n">fig</span><span class="p">,</span> <span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1746,14 +1874,17 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/2707e32cf8266c56886df9753639bdd6b677f9272b49a6860ba2ecce8f3fcceb.png" src="../../_images/2707e32cf8266c56886df9753639bdd6b677f9272b49a6860ba2ecce8f3fcceb.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1993
+</pre></div>
+</div>
+<img alt="../../_images/ccfaf6eddc98dd1d2f4f32273e4ce0111d435bb4f1fda15ada6ff3df3883e61e.png" src="../../_images/ccfaf6eddc98dd1d2f4f32273e4ce0111d435bb4f1fda15ada6ff3df3883e61e.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="timedependentreturnvalue">
-<img alt="../../_images/2707e32cf8266c56886df9753639bdd6b677f9272b49a6860ba2ecce8f3fcceb.png" src="../../_images/2707e32cf8266c56886df9753639bdd6b677f9272b49a6860ba2ecce8f3fcceb.png" />
+<img alt="../../_images/ccfaf6eddc98dd1d2f4f32273e4ce0111d435bb4f1fda15ada6ff3df3883e61e.png" src="../../_images/ccfaf6eddc98dd1d2f4f32273e4ce0111d435bb4f1fda15ada6ff3df3883e61e.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for Honolulu, Hawaii. The monthly maxima (+) are displayed from 1993 to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. No covariates are used for this particular best-fit model.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines, with the shaded lines bounding +/- the standard error. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. No covariates are used for this particular best-fit model.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1773,7 +1904,7 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/nonstationaryGEV"
+            path: "./notebooks\nonstationaryGEV"
         },
         predefinedOutput: true
     }
@@ -1787,7 +1918,7 @@ w_N: [ 4.7373511e+02  1.8658365e+00  6.5572790e-02 -2.2047758e-01
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1908,8 +2039,8 @@ By Playground Coordinator
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>
