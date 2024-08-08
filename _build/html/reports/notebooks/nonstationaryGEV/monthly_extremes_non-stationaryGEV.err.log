@@ -26,7 +26,7 @@ input_dir = Path('./model_input')
 model_output_dir = Path('./model_output')
 rsl_hourly = xr.open_dataset(data_dir/ 'rsl_hawaii.nc')
 
-runWithoutModel = False
+runWithoutModel = True
 
 # check if output directory exists, if not create it
 if not output_dir.exists():
@@ -44,6 +44,12 @@ for rid in rsl_hourly.record_id:
     if not station_dir.exists():
         station_dir.mkdir(parents=True)
 
+# remove best.txt, T.txt, CI.txt, Y.txt, mio.txt, scein.dat, and sceout.dat from working directory
+for file in ['best.txt', 'T.txt', 'CI.txt', 'Y.txt', 'mio.txt', 'scein.dat', 'sceout.dat']:
+    if (Path(file)).exists():
+        (Path(file)).unlink()
+
+
 ------------------
 
 ----- stderr -----
@@ -57,7 +63,7 @@ Cell [1;32mIn[5], line 10[0m
 [0;32m      8[0m input_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m./model_input[39m[38;5;124m'[39m)
 [0;32m      9[0m model_output_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m./model_output[39m[38;5;124m'[39m)
 [1;32m---> 10[0m rsl_hourly [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[0;32m     12[0m runWithoutModel [38;5;241m=[39m [38;5;28;01mFalse[39;00m
+[0;32m     12[0m runWithoutModel [38;5;241m=[39m [38;5;28;01mTrue[39;00m
 [0;32m     14[0m [38;5;66;03m# check if output directory exists, if not create it[39;00m
 
 File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552[0m, in [0;36mopen_dataset[1;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
