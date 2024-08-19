@@ -9,6 +9,7 @@ notebooks/nonstationaryGEV/*.exe
 notebooks/nonstationaryGEV/model_output/*/*
 notebooks/nonstationaryGEV/*.txt
 notebooks/nonstationaryGEV/*.dat
+/notebooks/nonstationaryGEV/model_input/*.csv
 
 /notebooks/nonstationaryGEV/model_output
 /notebooks/nonstationaryGEV/model_output
