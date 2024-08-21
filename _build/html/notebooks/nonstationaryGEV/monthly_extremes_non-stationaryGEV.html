@@ -544,8 +544,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b2657ba3-dbdf-427b-b281-8cdbbd13c10f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-b2657ba3-dbdf-427b-b281-8cdbbd13c10f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-57035349-7fc6-4bce-8cae-c86729c500b9">
+<span class="eqno">(1)<a class="headerlink" href="#equation-57035349-7fc6-4bce-8cae-c86729c500b9" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -559,8 +559,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9fe78fb5-aa10-460e-a0de-37a7e6f8c229">
-<span class="eqno">(2)<a class="headerlink" href="#equation-9fe78fb5-aa10-460e-a0de-37a7e6f8c229" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5e10e5a8-0ef6-4d30-9745-ca26084a5777">
+<span class="eqno">(2)<a class="headerlink" href="#equation-5e10e5a8-0ef6-4d30-9745-ca26084a5777" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -670,8 +670,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8909052d-1212-476a-9068-4ec4d97b33d2">
-<span class="eqno">(3)<a class="headerlink" href="#equation-8909052d-1212-476a-9068-4ec4d97b33d2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0063ccee-a948-4673-8ba4-d365f1e165fe">
+<span class="eqno">(3)<a class="headerlink" href="#equation-0063ccee-a948-4673-8ba4-d365f1e165fe" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -701,8 +701,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85f32d7b-4a76-4f7d-ac04-972ed880a176">
-<span class="eqno">(4)<a class="headerlink" href="#equation-85f32d7b-4a76-4f7d-ac04-972ed880a176" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-633e54c5-236c-491f-be11-9cc9d98ae8ff">
+<span class="eqno">(4)<a class="headerlink" href="#equation-633e54c5-236c-491f-be11-9cc9d98ae8ff" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -721,8 +721,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-50b54ee9-6839-49da-a402-e5b207540f5c">
-<span class="eqno">(5)<a class="headerlink" href="#equation-50b54ee9-6839-49da-a402-e5b207540f5c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b53396ed-a3d6-451e-984b-c7f65adb04dc">
+<span class="eqno">(5)<a class="headerlink" href="#equation-b53396ed-a3d6-451e-984b-c7f65adb04dc" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= e^{\beta_{LT}t}[\beta_0  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]   + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -734,8 +734,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-24f9afe5-afb1-4cb8-acce-34538ff83724">
-<span class="eqno">(6)<a class="headerlink" href="#equation-24f9afe5-afb1-4cb8-acce-34538ff83724" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bbbd582b-d4ea-496d-9eb9-b694a1866882">
+<span class="eqno">(6)<a class="headerlink" href="#equation-bbbd582b-d4ea-496d-9eb9-b694a1866882" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= e^{\beta_{LT}t}[\beta_0  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)] + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -2148,7 +2148,7 @@ Model saved to netcdf file at:  model_output\57\RL_muN.nc
 <figure class="align-default" id="timedependentreturnvalue">
 <img alt="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" src="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) is shown only for the 2 year return level. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <strong><span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span></strong>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) is shown only for the 2 year return level. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
