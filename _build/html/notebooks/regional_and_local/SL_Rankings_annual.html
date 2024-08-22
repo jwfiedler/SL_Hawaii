@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -47,21 +47,24 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/regional_and_local/SL_Rankings_annual';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Annual Extremes" href="SL_Extremes_annual.html" />
@@ -165,18 +168,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -253,9 +245,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -280,14 +272,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/regional_and_local/SL_Rankings_annual.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+    <img src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -462,9 +454,9 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -518,7 +510,7 @@ document.write(`
 <figure class="align-center">
 <a class="reference internal image-reference" href="../../_images/b827930c2a1f087092d409b27247bd84656d3504ee2990e12526b27172528ed7.png"><img alt="../../_images/b827930c2a1f087092d409b27247bd84656d3504ee2990e12526b27172528ed7.png" src="../../_images/b827930c2a1f087092d409b27247bd84656d3504ee2990e12526b27172528ed7.png" style="width: 695.2px; height: 300.8px;" /></a>
 </figure>
-<p>In this notebook, we’ll be creating a <a class="reference internal" href="#sl-rankings-results"><span class="std std-ref">table</span></a>, a <a class="reference internal" href="#SL_rankings_map"><span class="xref myst">map</span></a>, and a time series <a class="reference internal" href="#sl-rankings-timeseries"><span class="std std-ref">plot</span></a> of sea level rankings at Hawaiian Islands tide gauge stations from 1993-2023.</p>
+<p>In this notebook, we’ll be creating a <a class="reference internal" href="#sl-rankings-results"><span class="std std-ref">table</span></a>, a <span class="xref myst">map</span>, and a time series <a class="reference internal" href="#sl-rankings-timeseries"><span class="std std-ref">plot</span></a> of sea level rankings at Hawaiian Islands tide gauge stations from 1993-2023.</p>
 <p>Download Files:
 <a class="reference download internal" download="" href="../../_downloads/6b6b476a12b953087d6436c209994cd4/SL_rankings_map.png"><span class="xref download myst">Map</span></a> |
 <a class="reference download internal" download="" href="../../_downloads/77302484f2e5c3e6ab75e8234e449ef6/SL_rankings_Kahului.png"><span class="xref download myst">Time Series Plot</span></a> |
@@ -563,11 +555,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rsl_hawaii.nc found in ..\..\data. Proceed.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
-  _pyproj_global_context_initialize()
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rsl_hawaii.nc found in ../../data. Proceed.
 </pre></div>
 </div>
 </div>
@@ -606,14 +594,14 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1993&#39;</span><span class="p">,</span><span class="s1">&#39;2023&#39;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">data_coverage</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:553,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">550</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">553</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
 <span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
@@ -623,7 +611,7 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;, &#39;pydap&#39;, &#39;zarr&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
 <span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
 <span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
 </pre></div>
@@ -1531,7 +1519,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks\regional_and_local"
+            path: "./notebooks/regional_and_local"
         },
         predefinedOutput: true
     }

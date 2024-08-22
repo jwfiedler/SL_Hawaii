@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -47,23 +47,26 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Minor Flood Frequency and Duration" href="../Flood.html" />
@@ -167,18 +170,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -255,9 +247,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -282,14 +274,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+    <img src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -464,9 +456,9 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -544,8 +536,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-57035349-7fc6-4bce-8cae-c86729c500b9">
-<span class="eqno">(1)<a class="headerlink" href="#equation-57035349-7fc6-4bce-8cae-c86729c500b9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-32369d8b-28f0-476c-a13f-321d37d23a69">
+<span class="eqno">(1)<a class="headerlink" href="#equation-32369d8b-28f0-476c-a13f-321d37d23a69" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -559,8 +551,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5e10e5a8-0ef6-4d30-9745-ca26084a5777">
-<span class="eqno">(2)<a class="headerlink" href="#equation-5e10e5a8-0ef6-4d30-9745-ca26084a5777" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-44d3e156-8404-4d84-9003-916662f097ce">
+<span class="eqno">(2)<a class="headerlink" href="#equation-44d3e156-8404-4d84-9003-916662f097ce" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -670,8 +662,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0063ccee-a948-4673-8ba4-d365f1e165fe">
-<span class="eqno">(3)<a class="headerlink" href="#equation-0063ccee-a948-4673-8ba4-d365f1e165fe" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-27899c49-1c5b-4044-b950-637923b76cf6">
+<span class="eqno">(3)<a class="headerlink" href="#equation-27899c49-1c5b-4044-b950-637923b76cf6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -701,8 +693,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>The series here is n=1,2,4. WHY.</p>
 </aside>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-633e54c5-236c-491f-be11-9cc9d98ae8ff">
-<span class="eqno">(4)<a class="headerlink" href="#equation-633e54c5-236c-491f-be11-9cc9d98ae8ff" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3fdd53af-699e-4059-8bbf-35e26fdf91af">
+<span class="eqno">(4)<a class="headerlink" href="#equation-3fdd53af-699e-4059-8bbf-35e26fdf91af" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -721,8 +713,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-b53396ed-a3d6-451e-984b-c7f65adb04dc">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b53396ed-a3d6-451e-984b-c7f65adb04dc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-57a2b7ec-1209-4f7c-a326-c2adb56b33af">
+<span class="eqno">(5)<a class="headerlink" href="#equation-57a2b7ec-1209-4f7c-a326-c2adb56b33af" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= e^{\beta_{LT}t}[\beta_0  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)]   + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -734,8 +726,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bbbd582b-d4ea-496d-9eb9-b694a1866882">
-<span class="eqno">(6)<a class="headerlink" href="#equation-bbbd582b-d4ea-496d-9eb9-b694a1866882" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9792c5de-05fd-41ce-87e9-c7be5e34e047">
+<span class="eqno">(6)<a class="headerlink" href="#equation-9792c5de-05fd-41ce-87e9-c7be5e34e047" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= e^{\beta_{LT}t}[\beta_0  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(6\pi t) + \beta_6 sin(6\pi t)] + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -1006,10 +998,17 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
 <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output/extremes&#39;</span><span class="p">)</span> 
 <span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_input&#39;</span><span class="p">)</span>
-<span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_output&#39;</span><span class="p">)</span>
+<span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span><span class="s1">&#39;GEV_model_output&#39;</span><span class="p">)</span>
 <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
 
-<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># remove stations 547,548, 14</span>
+<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=~</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">547</span><span class="p">,</span><span class="mi">548</span><span class="p">,</span><span class="mi">14</span><span class="p">]))</span>
+
+<span class="c1"># close the file</span>
+<span class="n">rsl_hourly</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># check if output directory exists, if not create it</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -1040,27 +1039,23 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
-  _pyproj_global_context_initialize()
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
 <span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_input&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_output&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span><span class="s1">&#39;GEV_model_output&#39;</span><span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># check if output directory exists, if not create it</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># remove stations 547,548, 14</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=~</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">547</span><span class="p">,</span><span class="mi">548</span><span class="p">,</span><span class="mi">14</span><span class="p">]))</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:553,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">550</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">553</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
 <span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
@@ -1070,7 +1065,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;, &#39;pydap&#39;, &#39;zarr&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
 <span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
 <span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
 </pre></div>
@@ -1114,9 +1109,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;French Frigate&#39; &#39;Midway&#39; &#39;Johnston&#39; &#39;Honolulu, Hawaii&#39; &#39;Nawiliwili&#39;
- &#39;Kahului&#39; &#39;Hilo, Hawaii&#39; &#39;Mokuoloe&#39; &#39;Barbers Point, HI&#39; &#39;Kaumalapau, HI&#39;
- &#39;Kawaihae&#39;]
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Midway&#39; &#39;Johnston&#39; &#39;Honolulu, Hawaii&#39; &#39;Nawiliwili&#39; &#39;Kahului&#39;
+ &#39;Hilo, Hawaii&#39; &#39;Mokuoloe&#39; &#39;Kawaihae&#39;]
 </pre></div>
 </div>
 </div>
@@ -1229,7 +1223,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ii</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ii</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">mm</span><span class="p">,</span> <span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">year0</span> <span class="o">=</span> <span class="n">get_monthly_max_time_series</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">rsl_hourly</span><span class="p">)</span>
 <span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">mm</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">data_dir</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;station_name&quot;</span><span class="p">,</span> <span class="n">station_name</span><span class="p">)</span>
@@ -1682,16 +1676,26 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" src="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" />
+<img alt="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" src="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="seasonal-extreme-variations">
-<img alt="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" src="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" />
+<img alt="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" src="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 9 </span><span class="caption-text">A climatology of extreme sea levels at the <span class="pasted-text">Honolulu, Hawaii</span> tide gauge. Monthly maxima (+), determined from hourly sea level data, are shown from 1993-2023. The solid line corresponds to projected sea level return levels at 2,10,50 and 100 years, using this 30-year chunk of data. This line uses a nonstationary GEV to take the seasonal variations of sea level into account. The 2, 10, 50 and 100-year return levels are shown to vary throughout the year (dashed line), with the lowest extremes occuring in March, and highest extremes peaking in July. No long-term trend is used in this model, and the scale and location parameters are held constant.</span><a class="headerlink" href="#seasonal-extreme-variations" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Note that the original code for this plot has the dotted line much lower - the 2 year return, for example, runs through the middle of the data. This corresponds to a 2-month return level, and makes sense if you are looking at each month in isolation (every other year the value is exceeded). Accounting for the fact that you are sampling monthly data moves the within-a-year return level up to more closely align with the ‘stationary’ solid line.</p>
+</div>
+</aside>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
 </section>
 <section id="check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">
 <h3>Check if we should include a long-term trend (mean sea level rise) in our location parameter<a class="headerlink" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter" title="Permalink to this heading">#</a></h3>
@@ -2025,10 +2029,8 @@ Model already saved to netcdf file.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running Nodal cycle model...
-x_N is: [1 1 0 1 0 0 1]
-Statistical Significance of adding Nodal cycle: 99.88%
-Model saved to netcdf file at:  model_output\57\RL_muN.nc
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of adding Nodal cycle: 99.88%
+Model exists:  ../../data/GEV_model_output/57/RL_muN.nc
 </pre></div>
 </div>
 </div>
@@ -2141,16 +2143,20 @@ Model saved to netcdf file at:  model_output\57\RL_muN.nc
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1993.0
 </pre></div>
 </div>
-<img alt="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" src="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" />
+<img alt="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" src="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="timedependentreturnvalue">
-<img alt="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" src="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" />
+<img alt="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" src="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) is shown only for the 2 year return level. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) is shown only for the 2 year return level (<strong>NEEDS CHECKING</strong>). Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Caution: Confidence Intervals still getting tweaked!!</p>
+</aside>
 </section>
 </section>
 <section id="create-a-combined-dataset-for-further-plotting-and-analysis">
@@ -2603,167 +2609,163 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 32kB
-Dimensions:       (record_id: 10, ReturnPeriod: 4, Year: 31, x_dim: 7)
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+Dimensions:       (record_id: 8, ReturnPeriod: 4, Year: 31, x_dim: 7)
 Coordinates:
-  * Year          (Year) float64 248B 1.993e+03 1.994e+03 ... 2.023e+03
-  * ReturnPeriod  (ReturnPeriod) int64 32B 2 10 50 100
-  * record_id     (record_id) int64 80B 14 50 52 547 548 57 58 59 60 61
+  * record_id     (record_id) int64 61 59 50 57 58 60 552 52
+  * Year          (Year) float64 1.993e+03 1.994e+03 ... 2.022e+03 2.023e+03
+  * ReturnPeriod  (ReturnPeriod) int64 2 10 50 100
 Dimensions without coordinates: x_dim
 Data variables:
-    ReturnLevel   (record_id, ReturnPeriod, Year) float64 10kB nan nan ... 2.062
-    RL_low        (record_id, ReturnPeriod, Year) float64 10kB nan nan ... 2.021
-    RL_high       (record_id, ReturnPeriod, Year) float64 10kB nan nan ... 2.107
-    x             (record_id, x_dim) int64 560B 1 1 0 1 0 0 1 ... 1 1 0 1 0 0 1
-    lat           (record_id) float32 40B 23.87 28.22 16.75 ... 20.9 19.73 21.43
-    lon           (record_id) float32 40B 193.7 182.6 190.5 ... 204.9 202.2
-    MHHW          (record_id) float64 80B 0.997 1.204 1.225 ... 1.912 1.533
-    station_name  (record_id) &lt;U17 680B &#x27;French Frigate&#x27; &#x27;Midway&#x27; ... &#x27;Mokuoloe&#x27;
+    ReturnLevel   (record_id, ReturnPeriod, Year) float64 1.826 1.828 ... 1.833
+    RL_low        (record_id, ReturnPeriod, Year) float64 1.779 1.777 ... 1.738
+    RL_high       (record_id, ReturnPeriod, Year) float64 1.873 1.879 ... 1.928
+    x             (record_id, x_dim) int64 1 1 0 1 0 0 1 1 1 ... 0 1 0 1 0 0 0 1
+    lat           (record_id) float32 21.43 20.9 28.22 ... 19.73 20.03 16.75
+    lon           (record_id) float32 202.2 203.5 182.6 ... 204.9 204.2 190.5
+    MHHW          (record_id) float64 1.533 1.364 1.204 ... 1.912 1.406 1.225
+    station_name  (record_id) &lt;U17 &#x27;Mokuoloe&#x27; &#x27;Kahului&#x27; ... &#x27;Johnston&#x27;
 Attributes:
     description:  Time-dependent return values for the GEV model with seasona...
     datum:        STND
-    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-03677d64-7e4c-4e59-9b77-6b783b3d6883' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-03677d64-7e4c-4e59-9b77-6b783b3d6883' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 10</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-8f8741e7-b7be-4580-adda-6a4242b4fcd2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8f8741e7-b7be-4580-adda-6a4242b4fcd2' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-f091eadf-ebc0-4b15-be84-8510bc9c7379' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f091eadf-ebc0-4b15-be84-8510bc9c7379' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9a0feddc-910b-4aab-84e7-3517a6c6dee1' class='xr-var-data-in' type='checkbox'><label for='data-9a0feddc-910b-4aab-84e7-3517a6c6dee1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
+    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-b52e6de0-43d3-4709-a7d3-0cf4fc719810' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-b52e6de0-43d3-4709-a7d3-0cf4fc719810' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-098d81c0-d4ef-462c-8051-8421f955f137' class='xr-section-summary-in' type='checkbox'  checked><label for='section-098d81c0-d4ef-462c-8051-8421f955f137' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>61 59 50 57 58 60 552 52</div><input id='attrs-1533e477-2d58-4d77-9587-30d63b69a1e3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1533e477-2d58-4d77-9587-30d63b69a1e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6a66fb1d-b769-4f12-b5de-c413ec9e0c1d' class='xr-var-data-in' type='checkbox'><label for='data-6a66fb1d-b769-4f12-b5de-c413ec9e0c1d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 61,  59,  50,  57,  58,  60, 552,  52])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-89292c4b-8a2d-46a1-8327-1186f054b9ef' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-89292c4b-8a2d-46a1-8327-1186f054b9ef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-226700bb-1885-4970-acfa-5c073fad9571' class='xr-var-data-in' type='checkbox'><label for='data-226700bb-1885-4970-acfa-5c073fad9571' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
        2003., 2004., 2005., 2006., 2007., 2008., 2009., 2010., 2011., 2012.,
        2013., 2014., 2015., 2016., 2017., 2018., 2019., 2020., 2021., 2022.,
-       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-63d03dbf-4a09-4b8b-aec5-efba1aa5f128' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-63d03dbf-4a09-4b8b-aec5-efba1aa5f128' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a101997e-0032-4721-a586-c0bf220a8aa1' class='xr-var-data-in' type='checkbox'><label for='data-a101997e-0032-4721-a586-c0bf220a8aa1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 547 548 57 58 59 60 61</div><input id='attrs-a33c4ef6-bbfa-4937-a48e-b29ac1224c63' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a33c4ef6-bbfa-4937-a48e-b29ac1224c63' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8fe2cfa3-62d2-4a78-83c6-bea4cb281946' class='xr-var-data-in' type='checkbox'><label for='data-8fe2cfa3-62d2-4a78-83c6-bea4cb281946' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52, 547, 548,  57,  58,  59,  60,  61])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7f187144-968b-46e7-b2ba-534e04743447' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7f187144-968b-46e7-b2ba-534e04743447' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan ... 2.059 2.061 2.062</div><input id='attrs-bb2bdacc-8c04-442e-8bb3-676f62ca6d54' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-bb2bdacc-8c04-442e-8bb3-676f62ca6d54' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-427d8b21-f9d2-4327-bed7-e31381b4f919' class='xr-var-data-in' type='checkbox'><label for='data-427d8b21-f9d2-4327-bed7-e31381b4f919' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[       nan,        nan,        nan, ..., 1.3817754 ,
-         1.37458051, 1.36049136],
-        [       nan,        nan,        nan, ..., 1.45883169,
-         1.4515115 , 1.437376  ],
-        [       nan,        nan,        nan, ..., 1.51168997,
-         1.50427071, 1.49012224],
-        [       nan,        nan,        nan, ..., 1.53073001,
-         1.52327002, 1.50912298]],
-
-       [[1.5980741 , 1.60147388, 1.60488241, ..., 1.69664968,
-         1.70030311, 1.70396594],
-        [1.74172163, 1.74512137, 1.74852985, ..., 1.84029598,
-         1.84394936, 1.84761215],
-        [1.85501292, 1.85841262, 1.86182106, ..., 1.95358605,
-         1.95723939, 1.96090213],
-        [1.89965813, 1.90305781, 1.90646623, ..., 1.99823071,
-         2.00188403, 2.00554674]],
-
-       [[1.60708413, 1.61076709, 1.61609544, ..., 1.64331595,
-         1.63949827, 1.63408159],
+       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-4ba4365d-b0b1-47c9-a15f-dfa701580fea' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4ba4365d-b0b1-47c9-a15f-dfa701580fea' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3364f02f-8500-4cee-98f4-4f9670be509f' class='xr-var-data-in' type='checkbox'><label for='data-3364f02f-8500-4cee-98f4-4f9670be509f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-45581523-48ae-4e81-af2e-995349231aa5' class='xr-section-summary-in' type='checkbox'  checked><label for='section-45581523-48ae-4e81-af2e-995349231aa5' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.826 1.828 1.832 ... 1.839 1.833</div><input id='attrs-ce9ff8ba-63d5-49ab-ad83-9fb54f950287' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ce9ff8ba-63d5-49ab-ad83-9fb54f950287' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ec32d140-abf8-4138-9be1-aac1167e56f5' class='xr-var-data-in' type='checkbox'><label for='data-ec32d140-abf8-4138-9be1-aac1167e56f5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.82616591, 1.82783093, 1.83161189, 1.83746744, 1.84473262,
+         1.85296904, 1.86149771, 1.86947382, 1.87651172, 1.8819388 ,
+         1.88540116, 1.88676507, 1.88613127, 1.88382399, 1.88035582,
+         1.87649445, 1.87270113, 1.86978639, 1.86834105, 1.86879061,
+         1.87134534, 1.8759754 , 1.88241431, 1.89019031, 1.89868143,
+         1.9071874 , 1.91500942, 1.9215286 , 1.92627431, 1.92897552,
+         1.92958993],
+        [1.89606886, 1.89776674, 1.90158251, 1.90746304, 1.91475231,
+         1.92299997, 1.93152463, 1.93948872, 1.94649667, 1.95188766,
+         1.95531356, 1.95664562, 1.95598776, 1.95366546, 1.95019105,
+         1.94632195, 1.94253789, 1.93963982, 1.93821849, 1.93869856,
+         1.941288  , 1.94595295, 1.95242172, 1.9602173 , 1.96871388,
+         1.97720985, 1.98500803, 1.99149373, 1.99620197, 1.99886741,
+         1.99945216],
+        [1.9424434 , 1.94417151, 1.94802045, 1.95392822, 1.96124137,
+         1.96950008, 1.97802027, 1.98596861, 1.99294617, 1.99830137,
+         2.00169231, 2.00299526, 2.00231696, 1.99998327, 1.99650533,
+         1.99263216, 1.98885646, 1.98597262, 1.98457212, 1.98507973,
+         1.98770173, 1.99240041, 1.99889862, 2.00671364, 2.01521539,
+         2.02370078, 2.03147446, 2.03792639, 2.04259781, 2.04522938,
 ...
-        [1.84559112, 1.84808623, 1.85058528, ..., 1.91696748,
-         1.91957556, 1.92218776]],
-
-       [[2.23998197, 2.24339433, 2.24851223, ..., 2.34811034,
-         2.35002903, 2.35027549],
-        [2.29590257, 2.29933108, 2.3044662 , ..., 2.40400138,
-         2.40590778, 2.40614952],
-        [2.32789161, 2.33134896, 2.33651499, ..., 2.43595722,
-         2.43784106, 2.43807184],
-        [2.33807648, 2.34155441, 2.34674239, ..., 2.44612699,
-         2.44799419, 2.44821566]],
-
-       [[1.82603698, 1.82769959, 1.8314782 , ..., 1.92601097,
-         1.92871699, 1.92933595],
-        [1.89594814, 1.8976431 , 1.90145603, ..., 1.99595385,
-         1.9986251 , 1.99921536],
-        [1.94232804, 1.94405264, 1.94789818, ..., 2.04235899,
-         2.04499751, 2.04556227],
-        [1.95865139, 1.96039068, 1.9642526 , ..., 2.05869522,
-         2.06131739, 2.0618696 ]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan ... 2.018 2.021 2.021</div><input id='attrs-83af9c76-ede2-4921-b1aa-c6ba80c4f7f2' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-83af9c76-ede2-4921-b1aa-c6ba80c4f7f2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ac570df6-66a3-4607-8271-2e0d8e73e797' class='xr-var-data-in' type='checkbox'><label for='data-ac570df6-66a3-4607-8271-2e0d8e73e797' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[       nan,        nan,        nan, ..., 1.32343412,
-         1.30892782, 1.28668951],
-        [       nan,        nan,        nan, ..., 1.38804176,
-         1.37325983, 1.35088649],
-        [       nan,        nan,        nan, ..., 1.4300872 ,
-         1.41507036, 1.39261642],
-        [       nan,        nan,        nan, ..., 1.44474822,
-         1.4296354 , 1.40715966]],
-
-       [[1.56182604, 1.56464727, 1.56747457, ..., 1.64315917,
-         1.64615546, 1.6491582 ],
-        [1.68367539, 1.68649661, 1.6893239 , ..., 1.76500832,
-         1.7680046 , 1.77100733],
-        [1.77443698, 1.77725819, 1.78008547, ..., 1.85576963,
-         1.8587659 , 1.86176862],
-        [1.80888298, 1.81170418, 1.81453146, ..., 1.89021549,
-         1.89321175, 1.89621447]],
-
-       [[1.57950651, 1.58151713, 1.58623705, ..., 1.63124144,
-         1.62900669, 1.62411887],
+         1.7362299 , 1.74130729, 1.74456743, 1.74583188, 1.74486198,
+         1.74176606, 1.73688926, 1.73077649, 1.72411345, 1.7176512 ,
+         1.71221312, 1.70824788, 1.70629891, 1.70658973, 1.70908733,
+         1.71350603, 1.71934136, 1.72592945, 1.73252412, 1.73838216,
+         1.74284659, 1.74541899, 1.74581324, 1.74398597, 1.74014091,
+         1.73470697],
+        [1.7797649 , 1.78351248, 1.78888897, 1.79536765, 1.80204791,
+         1.80826206, 1.81331269, 1.81655283, 1.81778251, 1.81678097,
+         1.81365986, 1.80876607, 1.80264497, 1.79598199, 1.78952785,
+         1.78409226, 1.78015027, 1.77823068, 1.77855457, 1.78108513,
+         1.78553204, 1.79138625, 1.79798053, 1.80456745, 1.81040496,
+         1.81483952, 1.81737743, 1.81773761, 1.81588089, 1.81201369,
+         1.80656612],
+        [1.80637798, 1.81013873, 1.81552522, 1.8220034 , 1.82868282,
+         1.83489029, 1.83992956, 1.8431611 , 1.84437604, 1.84336118,
+         1.84022959, 1.8353288 , 1.82920427, 1.82254126, 1.8160903 ,
+         1.81065552, 1.80672299, 1.80481558, 1.80515339, 1.80769802,
+         1.8121571 , 1.81801957, 1.82461668, 1.83120041, 1.83702923,
+         1.84145107, 1.84397434, 1.84432013, 1.84245107, 1.8385747 ,
+         1.83312154]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.779 1.777 1.78 ... 1.744 1.738</div><input id='attrs-674b11ed-e76b-485a-bbc1-7220610fe3cd' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-674b11ed-e76b-485a-bbc1-7220610fe3cd' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-11c43ace-05e1-4d24-ab08-0c11732dd472' class='xr-var-data-in' type='checkbox'><label for='data-11c43ace-05e1-4d24-ab08-0c11732dd472' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.77929752, 1.77680467, 1.78048475, 1.78824314, 1.7987713 ,
+         1.81092618, 1.8233819 , 1.83473706, 1.84395871, 1.85011922,
+         1.85280065, 1.85201262, 1.84811077, 1.84173187, 1.83375545,
+         1.82531021, 1.81743428, 1.81131412, 1.80790591, 1.80787596,
+         1.81151298, 1.818685  , 1.82884597, 1.84108985, 1.85424549,
+         1.86700538, 1.87808746, 1.88642665, 1.8913537 , 1.89267027,
+         1.89058832],
+        [1.82434281, 1.82061432, 1.82346116, 1.83048558, 1.84033597,
+         1.85185873, 1.86378262, 1.87480459, 1.88397583, 1.89039894,
+         1.89356799, 1.89333401, 1.88991195, 1.88386417, 1.87605424,
+         1.86761053, 1.85962578, 1.85329526, 1.84959298, 1.8491957 ,
+         1.8523956 , 1.85906098, 1.86865127, 1.88028462, 1.89284876,
+         1.90513972, 1.91600856, 1.92449348, 1.92991788, 1.93194581,
+         1.93060049],
+        [1.8487548 , 1.84420673, 1.84657384, 1.85325144, 1.86285696,
+         1.87421069, 1.88604184, 1.8970592 , 1.90629452, 1.91283772,
+         1.91614784, 1.91603699, 1.91268912, 1.90664946, 1.8987776 ,
+         1.89019473, 1.8820335 , 1.87549342, 1.871567  , 1.87094708,
+         1.87393714, 1.88041233, 1.88983768, 1.90134028, 1.91382285,
+         1.92610012, 1.93703703, 1.9456698 , 1.95129826, 1.95354651,
 ...
-        [1.8154991 , 1.81762956, 1.81976291, ..., 1.87625802,
-         1.87847095, 1.88068688]],
-
-       [[2.21328904, 2.21514433, 2.21959343, ..., 2.32181534,
-         2.32426883, 2.32416855],
-        [2.26194044, 2.26385217, 2.2683645 , ..., 2.37051239,
-         2.37290512, 2.37275902],
-        [2.28856455, 2.29055409, 2.29515604, ..., 2.3972038 ,
-         2.39951243, 2.39930478],
-        [2.29677556, 2.29881458, 2.30347347, ..., 2.40546347,
-         2.40771884, 2.40747155]],
-
-       [[1.80165916, 1.80184139, 1.80495259, ..., 1.90201321,
-         1.90526877, 1.90563127],
-        [1.86374914, 1.86399633, 1.86717966, ..., 1.96423233,
-         1.96741368, 1.96771031],
-        [1.90338801, 1.9036973 , 1.90695189, ..., 2.00399178,
-         2.00709924, 2.00733283],
-        [1.91700337, 1.91734386, 1.92063465, ..., 2.01766823,
-         2.02073815, 2.02094002]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan nan nan ... 2.104 2.106 2.107</div><input id='attrs-32e3e833-c8e4-4e17-9bc6-8e47ff95ffd5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-32e3e833-c8e4-4e17-9bc6-8e47ff95ffd5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-65b6e874-7574-4d57-8adf-708b8def9274' class='xr-var-data-in' type='checkbox'><label for='data-65b6e874-7574-4d57-8adf-708b8def9274' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[       nan,        nan,        nan, ..., 1.44549643,
-         1.44570119, 1.43991199],
-        [       nan,        nan,        nan, ..., 1.53750535,
-         1.53766633, 1.53187146],
-        [       nan,        nan,        nan, ..., 1.60409104,
-         1.60421832, 1.59843054],
-        [       nan,        nan,        nan, ..., 1.62890493,
-         1.62901852, 1.62323668]],
-
-       [[1.63666545, 1.64065286, 1.6446522 , ..., 1.75294498,
-         1.75728054, 1.76162907],
-        [1.80599725, 1.80998462, 1.81398393, ..., 1.92227566,
-         1.92661118, 1.93095967],
-        [1.94792351, 1.95191084, 1.95591011, ..., 2.06420088,
-         2.06853636, 2.07288482],
-        [2.00615598, 2.0101433 , 2.01414256, ..., 2.12243291,
-         2.12676837, 2.13111681]],
-
-       [[1.6365855 , 1.64200484, 1.64801795, ..., 1.65760407,
-         1.65212569, 1.64609814],
+         1.66342312, 1.67295054, 1.6808702 , 1.68637929, 1.68882405,
+         1.68791924, 1.68374541, 1.67675278, 1.66772232, 1.65767966,
+         1.64780011, 1.63916405, 1.63278494, 1.62938772, 1.6293526 ,
+         1.63267274, 1.63895841, 1.64748649, 1.6572879 , 1.66726078,
+         1.67629426, 1.6833882 , 1.6877566 , 1.68890729, 1.68669521,
+         1.68134698],
+        [1.67018146, 1.67222113, 1.67748172, 1.68536626, 1.69494593,
+         1.70515993, 1.71487554, 1.72300628, 1.72868938, 1.73126948,
+         1.73043721, 1.72625484, 1.71916701, 1.70996526, 1.69970069,
+         1.68956239, 1.68070739, 1.67415681, 1.67065274, 1.6705807 ,
+         1.67392964, 1.68029969, 1.68895552, 1.6989164 , 1.70906987,
+         1.718294  , 1.72557419, 1.73010459, 1.73136897, 1.72919949,
+         1.72380877],
+        [1.68403618, 1.68608058, 1.69137221, 1.69929972, 1.70894638,
+         1.71923606, 1.7290298 , 1.73724336, 1.74298905, 1.74561305,
+         1.74479946, 1.74060635, 1.73347764, 1.72420841, 1.71385777,
+         1.70361804, 1.69467623, 1.68805685, 1.6845101 , 1.68442492,
+         1.68778927, 1.69419922, 1.70291368, 1.71294568, 1.72317653,
+         1.73247799, 1.73982867, 1.74441536, 1.74571461, 1.74355275,
+         1.73813947]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.873 1.879 1.883 ... 1.934 1.928</div><input id='attrs-1aa27eac-3d10-4057-839d-4c3fc688f1fe' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1aa27eac-3d10-4057-839d-4c3fc688f1fe' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d0d4a39c-8933-4933-9819-bf19a47c7236' class='xr-var-data-in' type='checkbox'><label for='data-d0d4a39c-8933-4933-9819-bf19a47c7236' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.8730343 , 1.87885718, 1.88273904, 1.88669175, 1.89069395,
+         1.8950119 , 1.89961351, 1.90421059, 1.90906472, 1.91375839,
+         1.91800167, 1.92151752, 1.92415177, 1.92591611, 1.92695618,
+         1.92767869, 1.92796798, 1.92825866, 1.9287762 , 1.92970527,
+         1.9311777 , 1.93326579, 1.93598265, 1.93929076, 1.94311737,
+         1.94736942, 1.95193138, 1.95663054, 1.96119492, 1.96528077,
+         1.96859154],
+        [1.96779492, 1.97491916, 1.97970387, 1.9844405 , 1.98916864,
+         1.99414121, 1.99926664, 2.00417285, 2.0090175 , 2.01337638,
+         2.01705914, 2.01995723, 2.02206358, 2.02346675, 2.02432786,
+         2.02503336, 2.02545   , 2.02598438, 2.026844  , 2.02820142,
+         2.0301804 , 2.03284493, 2.03619217, 2.04014997, 2.044579  ,
+         2.04927997, 2.0540075 , 2.05849397, 2.06248606, 2.06578901,
+         2.06830383],
+        [2.03613199, 2.04413628, 2.04946706, 2.054605  , 2.05962578,
+         2.06478947, 2.06999869, 2.07487802, 2.07959782, 2.08376503,
+         2.08723678, 2.08995353, 2.0919448 , 2.09331709, 2.09423305,
+         2.09506959, 2.09567941, 2.09645181, 2.09757724, 2.09921239,
+         2.10146633, 2.1043885 , 2.10795956, 2.11208699, 2.11660793,
+         2.12130143, 2.12591188, 2.13018297, 2.13389736, 2.13691224,
 ...
-        [1.878943  , 1.88180587, 1.88467392, ..., 1.96109109,
-         1.96410249, 1.96711935]],
-
-       [[2.26817498, 2.27319764, 2.2790465 , ..., 2.37629923,
-         2.37763489, 2.37817703],
-        [2.33219265, 2.33721193, 2.34305757, ..., 2.44030462,
-         2.44164887, 2.44219964],
-        [2.3703449 , 2.37536436, 2.38120962, ..., 2.47843454,
-         2.47978676, 2.48034643],
-        [2.38284466, 2.38786668, 2.39371376, ..., 2.49091825,
-         2.49227301, 2.49283622]],
-
-       [[1.85164349, 1.85482907, 1.85932539, ..., 1.95160152,
-         1.95372199, 1.95455849],
-        [1.9302795 , 1.93347598, 1.9379826 , ..., 2.03022512,
-         2.03233587, 2.03316584],
-        [1.9844007 , 1.98760643, 1.9921221 , ..., 2.08433228,
-         2.08643521, 2.08726071],
-        [2.00390893, 2.00711903, 2.01163907, ..., 2.10383388,
-         2.10593318, 2.10675673]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 0 1 1 ... 1 1 1 0 1 0 0 1</div><input id='attrs-e91c6c27-be84-4711-b8b1-71933ddd013d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e91c6c27-be84-4711-b8b1-71933ddd013d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e0486b80-a5e3-4cff-97fd-9e1f1b1c103a' class='xr-var-data-in' type='checkbox'><label for='data-e0486b80-a5e3-4cff-97fd-9e1f1b1c103a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 0, 1],
+         1.80903669, 1.80966404, 1.80826465, 1.80528447, 1.8008999 ,
+         1.79561288, 1.79003311, 1.7848002 , 1.78050458, 1.77762275,
+         1.77662612, 1.77733172, 1.77981289, 1.78379173, 1.78882205,
+         1.79433932, 1.79972431, 1.80437241, 1.80776034, 1.80950353,
+         1.80939893, 1.80744978, 1.80386988, 1.79906466, 1.79358661,
+         1.78806697],
+        [1.88934834, 1.89480384, 1.90029623, 1.90536903, 1.90914989,
+         1.91136418, 1.91174984, 1.91009938, 1.90687564, 1.90229245,
+         1.89688251, 1.89127731, 1.88612292, 1.88199872, 1.87935501,
+         1.87862214, 1.87959316, 1.88230456, 1.8864564 , 1.89158956,
+         1.89713443, 1.90247281, 1.90700554, 1.91021849, 1.91174005,
+         1.91138504, 1.90918067, 1.90537063, 1.9003928 , 1.89482789,
+         1.88932348],
+        [1.92871978, 1.93419687, 1.93967823, 1.94470707, 1.94841926,
+         1.95054453, 1.95082932, 1.94907883, 1.94576303, 1.94110932,
+         1.93565972, 1.93005126, 1.9249309 , 1.9208741 , 1.91832284,
+         1.91769299, 1.91876975, 1.9215743 , 1.92579667, 1.93097112,
+         1.93652493, 1.94183991, 1.94631968, 1.94945514, 1.95088193,
+         1.95042416, 1.94812   , 1.94422489, 1.93918753, 1.93359664,
+         1.92810361]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 0 1 1 ... 0 1 0 1 0 0 0 1</div><input id='attrs-ee59ffc3-cc93-496f-93b8-88ca338733ce' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ee59ffc3-cc93-496f-93b8-88ca338733ce' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bbdb9f07-8168-4580-ad2b-79ada5acebfb' class='xr-var-data-in' type='checkbox'><label for='data-bbdb9f07-8168-4580-ad2b-79ada5acebfb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 0, 1],
+       [1, 1, 0, 1, 1, 0, 0],
+       [1, 1, 0, 1, 0, 1, 0],
+       [1, 1, 0, 1, 0, 0, 1],
+       [1, 1, 0, 1, 0, 1, 1],
+       [1, 1, 0, 1, 1, 0, 1],
        [1, 1, 0, 1, 0, 0, 0],
-       [1, 0, 1, 0, 0, 0, 1],
-       [1, 1, 1, 1, 0, 0, 0],
-       [1, 1, 0, 0, 0, 0, 0],
-       [1, 1, 0, 1, 0, 0, 1],
-       [1, 1, 0, 1, 0, 0, 1],
-       [1, 1, 0, 1, 0, 0, 0],
-       [1, 1, 0, 1, 0, 0, 1],
-       [1, 1, 0, 1, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 19.73 21.43</div><input id='attrs-d3b069a8-9f5b-4fe6-9961-d1f4a4d90b09' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d3b069a8-9f5b-4fe6-9961-d1f4a4d90b09' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d6978454-fbb2-414b-aafd-091484918451' class='xr-var-data-in' type='checkbox'><label for='data-d6978454-fbb2-414b-aafd-091484918451' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.322, 20.783, 21.307, 21.967, 20.9  ,
-       19.733, 21.433], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 204.9 202.2</div><input id='attrs-0a883e9a-cf7d-4424-aecd-60880037f7ec' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0a883e9a-cf7d-4424-aecd-60880037f7ec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8a883e5c-eace-453b-8d7c-1839c42afc81' class='xr-var-data-in' type='checkbox'><label for='data-8a883e5c-eace-453b-8d7c-1839c42afc81' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 201.88 , 203.   , 202.133, 200.65 ,
-       203.533, 204.933, 202.2  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.997 1.204 1.225 ... 1.912 1.533</div><input id='attrs-dbed7885-21d9-49d3-ab49-4606fc871022' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dbed7885-21d9-49d3-ab49-4606fc871022' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e44925ff-fba8-4ea1-b990-962420ce92df' class='xr-var-data-in' type='checkbox'><label for='data-e44925ff-fba8-4ea1-b990-962420ce92df' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([0.997, 1.204, 1.225, 3.865, 2.261, 1.722, 1.24 , 1.364, 1.912,
-       1.533])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;French Frigate&#x27; ... &#x27;Mokuoloe&#x27;</div><input id='attrs-1acfa787-0fe9-432a-954f-6969c14fa390' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1acfa787-0fe9-432a-954f-6969c14fa390' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32f6e2cb-35af-4a2b-a761-ce0041e0805d' class='xr-var-data-in' type='checkbox'><label for='data-32f6e2cb-35af-4a2b-a761-ce0041e0805d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;French Frigate&#x27;, &#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Barbers Point, HI&#x27;,
-       &#x27;Kaumalapau, HI&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;, &#x27;Kahului&#x27;,
-       &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-34bd87f6-7023-4e80-82f5-1f6a06428eef' class='xr-section-summary-in' type='checkbox'  ><label for='section-34bd87f6-7023-4e80-82f5-1f6a06428eef' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ef32700f-e934-4e8c-be36-f99dd095b4ea' class='xr-index-data-in' type='checkbox'/><label for='index-ef32700f-e934-4e8c-be36-f99dd095b4ea' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
+       [1, 0, 1, 0, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>21.43 20.9 28.22 ... 20.03 16.75</div><input id='attrs-00de98fc-e1bd-4a77-beb6-ca2425207d3d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-00de98fc-e1bd-4a77-beb6-ca2425207d3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-19f07425-3c4f-4aef-81df-3d1ebcb7c601' class='xr-var-data-in' type='checkbox'><label for='data-19f07425-3c4f-4aef-81df-3d1ebcb7c601' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([21.433, 20.9  , 28.217, 21.307, 21.967, 19.733, 20.033, 16.75 ],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>202.2 203.5 182.6 ... 204.2 190.5</div><input id='attrs-a9cf1f02-6e0a-4b32-8c4f-b50c88b3e158' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a9cf1f02-6e0a-4b32-8c4f-b50c88b3e158' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a59b5645-f7b8-4578-9db7-b543c4278754' class='xr-var-data-in' type='checkbox'><label for='data-a59b5645-f7b8-4578-9db7-b543c4278754' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([202.2  , 203.533, 182.633, 202.133, 200.65 , 204.933, 204.167,
+       190.483], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.533 1.364 1.204 ... 1.406 1.225</div><input id='attrs-9e71ae2b-cf24-4ddc-b991-30b0f55e2acb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-9e71ae2b-cf24-4ddc-b991-30b0f55e2acb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c975f913-675b-448b-b934-61309a522e34' class='xr-var-data-in' type='checkbox'><label for='data-c975f913-675b-448b-b934-61309a522e34' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.533, 1.364, 1.204, 1.722, 1.24 , 1.912, 1.406, 1.225])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Mokuoloe&#x27; &#x27;Kahului&#x27; ... &#x27;Johnston&#x27;</div><input id='attrs-6ce0b272-05f2-4db0-a6e8-067f84418819' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6ce0b272-05f2-4db0-a6e8-067f84418819' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b77de4a9-2723-43ca-8f7f-de5644d47c40' class='xr-var-data-in' type='checkbox'><label for='data-b77de4a9-2723-43ca-8f7f-de5644d47c40' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Mokuoloe&#x27;, &#x27;Kahului&#x27;, &#x27;Midway&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;,
+       &#x27;Hilo, Hawaii&#x27;, &#x27;Kawaihae&#x27;, &#x27;Johnston&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c41ac3ba-b300-4b01-84b8-c14b9ae92c75' class='xr-section-summary-in' type='checkbox'  ><label for='section-c41ac3ba-b300-4b01-84b8-c14b9ae92c75' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ebda6337-0578-441e-9f8f-564ef384c67f' class='xr-index-data-in' type='checkbox'/><label for='index-ebda6337-0578-441e-9f8f-564ef384c67f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([61, 59, 50, 57, 58, 60, 552, 52], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9e6f99ea-143e-4f68-ab2b-62da4aacce58' class='xr-index-data-in' type='checkbox'/><label for='index-9e6f99ea-143e-4f68-ab2b-62da4aacce58' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
        2002.0, 2003.0, 2004.0, 2005.0, 2006.0, 2007.0, 2008.0, 2009.0, 2010.0,
        2011.0, 2012.0, 2013.0, 2014.0, 2015.0, 2016.0, 2017.0, 2018.0, 2019.0,
        2020.0, 2021.0, 2022.0, 2023.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c0d1a828-4e16-4562-86f6-b2d4d95c94de' class='xr-index-data-in' type='checkbox'/><label for='index-c0d1a828-4e16-4562-86f6-b2d4d95c94de' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9f9bdbb0-4f32-4865-859b-7e0afc1f808e' class='xr-index-data-in' type='checkbox'/><label for='index-9f9bdbb0-4f32-4865-859b-7e0afc1f808e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 547, 548, 57, 58, 59, 60, 61], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-6ed2eb9f-ebe0-442b-aa9f-a142b264dc25' class='xr-section-summary-in' type='checkbox'  checked><label for='section-6ed2eb9f-ebe0-442b-aa9f-a142b264dc25' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-723a38d1-29a4-417f-81cc-20f48351a4f3' class='xr-index-data-in' type='checkbox'/><label for='index-723a38d1-29a4-417f-81cc-20f48351a4f3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-da894da1-b58a-48f6-8748-3c1e6f5bea1d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-da894da1-b58a-48f6-8748-3c1e6f5bea1d' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="create-a-map">
@@ -2835,12 +2837,12 @@ Attributes:
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/9475976ec5bcfca30c63a3d2793143d2eb977777d960f2ff27471d751f3442ec.png" src="../../_images/9475976ec5bcfca30c63a3d2793143d2eb977777d960f2ff27471d751f3442ec.png" />
+<img alt="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" src="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="timedependentreturnvaluemap">
-<img alt="../../_images/9475976ec5bcfca30c63a3d2793143d2eb977777d960f2ff27471d751f3442ec.png" src="../../_images/9475976ec5bcfca30c63a3d2793143d2eb977777d960f2ff27471d751f3442ec.png" />
+<img alt="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" src="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 11 </span><span class="caption-text">Map of the nonstationary GEV-based extreme water level return values for Hawaiian Island region stations. Year 2020 is shown here. Each nonstationary model includes some combination of seasonality, a long-term trend, and the 18.6 nodal-cycle, provided each parameter improves the significance of the GEV fit. No covariates are used for these particular best-fit models.</span><a class="headerlink" href="#timedependentreturnvaluemap" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -2907,7 +2909,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/946472dd20b88571c225071c1a5499e07358d6e6419ebfbf7f1c9850e57d9925.png" src="../../_images/946472dd20b88571c225071c1a5499e07358d6e6419ebfbf7f1c9850e57d9925.png" />
+<img alt="../../_images/57481334949fd3b3d1bff68739521d381ae14150b58554161738f60e8a8f870d.png" src="../../_images/57481334949fd3b3d1bff68739521d381ae14150b58554161738f60e8a8f870d.png" />
 </div>
 </div>
 </section>
@@ -2926,7 +2928,7 @@ Attributes:
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks\nonstationaryGEV"
+            path: "./notebooks/nonstationaryGEV"
         },
         predefinedOutput: true
     }

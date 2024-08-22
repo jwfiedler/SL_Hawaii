@@ -1,49 +1,88 @@
 Traceback (most recent call last):
-  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
     executenb(
-  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 1314, in execute
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "C:\Users\julia\anaconda3\envs\SLI39\lib\asyncio\base_events.py", line 647, in run_until_complete
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
     return future.result()
-  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 709, in async_execute
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
     await self.async_execute_cell(
-  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# load the data
-rsl = xr.open_dataset(data_dir / 'rsl_hawaii.nc')
+# take only a subset of the data: Hilo, Kawaihae, Kahului, Mokuoloe, Honolulu, Nawiliwili, Johnston and Midway Island
+subset = rsl.sel(record_id=[500,520,570,580,590,600,610,5520])
+
+subset = subset.sortby('lat')
+
+fig, ax = plt.subplots(sharex=True, figsize=(10, 10))
+fig.autofmt_xdate()
+# ax.plot(rsl.time.values,rsl.sea_level_MHHW.T.values/10)
+# ax.set_ylabel(rsl['sea_level_MHHW'].long_name) #divide by 10 to convert to cm
+# # add legend to bottom of plot
+# ax.legend(rsl['station_name'].values, bbox_to_anchor=(0.5, -0.2), loc='upper center', ncol=3)  
+# Initial offset
+offset = 0
+# The amount to offset each successive line
+offset_increment = 150  # Adjust this value based on your data scale and visual preference
+
+for i, record_id in enumerate(subset['record_id'].values):
+    # Extract the series for this station
+    sea_level_data = subset.sea_level_MHHW.isel(record_id=i).values / 10  # Convert to cm
+    # Plot, adding the offset
+    #add horizontal line for each station
+    ax.axhline(offset, color='black', linewidth=0.5, linestyle=':')
+    ax.plot(subset.time.values, sea_level_data + offset, label=subset['station_name'].values[i])
+    ax.text(subset.time.values[0], offset-20, subset['station_name'].values[i], color='black', fontsize=10, ha='left', va='top')
+    # Increment the offset for the next series
+    offset += offset_increment
+
+ax.set_ylabel(subset['sea_level_MHHW'].long_name + ' (cm, offset by 150cm per station)')
 ------------------
 
 
-[1;31m---------------------------------------------------------------------------[0m
-[1;31mValueError[0m                                Traceback (most recent call last)
-Cell [1;32mIn[2], line 2[0m
-[0;32m      1[0m [38;5;66;03m# load the data[39;00m
-[1;32m----> 2[0m rsl [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[8], line 2[0m
+[1;32m      1[0m [38;5;66;03m# take only a subset of the data: Hilo, Kawaihae, Kahului, Mokuoloe, Honolulu, Nawiliwili, Johnston and Midway Island[39;00m
+[0;32m----> 2[0m subset [38;5;241m=[39m [43mrsl[49m[38;5;241;43m.[39;49m[43msel[49m[43m([49m[43mrecord_id[49m[38;5;241;43m=[39;49m[43m[[49m[38;5;241;43m500[39;49m[43m,[49m[38;5;241;43m520[39;49m[43m,[49m[38;5;241;43m570[39;49m[43m,[49m[38;5;241;43m580[39;49m[43m,[49m[38;5;241;43m590[39;49m[43m,[49m[38;5;241;43m600[39;49m[43m,[49m[38;5;241;43m610[39;49m[43m,[49m[38;5;241;43m5520[39;49m[43m][49m[43m)[49m
+[1;32m      4[0m subset [38;5;241m=[39m subset[38;5;241m.[39msortby([38;5;124m'[39m[38;5;124mlat[39m[38;5;124m'[39m)
+[1;32m      6[0m fig, ax [38;5;241m=[39m plt[38;5;241m.[39msubplots(sharex[38;5;241m=[39m[38;5;28;01mTrue[39;00m, figsize[38;5;241m=[39m([38;5;241m10[39m, [38;5;241m10[39m))
 
-File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552[0m, in [0;36mopen_dataset[1;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
-[0;32m    549[0m     kwargs[38;5;241m.[39mupdate(backend_kwargs)
-[0;32m    551[0m [38;5;28;01mif[39;00m engine [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[1;32m--> 552[0m     engine [38;5;241m=[39m [43mplugins[49m[38;5;241;43m.[39;49m[43mguess_engine[49m[43m([49m[43mfilename_or_obj[49m[43m)[49m
-[0;32m    554[0m [38;5;28;01mif[39;00m from_array_kwargs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m    555[0m     from_array_kwargs [38;5;241m=[39m {}
+File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:3074[0m, in [0;36mDataset.sel[0;34m(self, indexers, method, tolerance, drop, **indexers_kwargs)[0m
+[1;32m   3006[0m [38;5;250m[39m[38;5;124;03m"""Returns a new dataset with each array indexed by tick labels[39;00m
+[1;32m   3007[0m [38;5;124;03malong the specified dimension(s).[39;00m
+[1;32m   3008[0m 
+[0;32m   (...)[0m
+[1;32m   3071[0m 
+[1;32m   3072[0m [38;5;124;03m"""[39;00m
+[1;32m   3073[0m indexers [38;5;241m=[39m either_dict_or_kwargs(indexers, indexers_kwargs, [38;5;124m"[39m[38;5;124msel[39m[38;5;124m"[39m)
+[0;32m-> 3074[0m query_results [38;5;241m=[39m [43mmap_index_queries[49m[43m([49m
+[1;32m   3075[0m [43m    [49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mindexers[49m[38;5;241;43m=[39;49m[43mindexers[49m[43m,[49m[43m [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m[43m [49m[43mtolerance[49m[38;5;241;43m=[39;49m[43mtolerance[49m
+[1;32m   3076[0m [43m[49m[43m)[49m
+[1;32m   3078[0m [38;5;28;01mif[39;00m drop:
+[1;32m   3079[0m     no_scalar_variables [38;5;241m=[39m {}
 
-File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197[0m, in [0;36mguess_engine[1;34m(store_spec)[0m
-[0;32m    189[0m [38;5;28;01melse[39;00m:
-[0;32m    190[0m     error_msg [38;5;241m=[39m (
-[0;32m    191[0m         [38;5;124m"[39m[38;5;124mfound the following matches with the input file in xarray[39m[38;5;124m'[39m[38;5;124ms IO [39m[38;5;124m"[39m
-[0;32m    192[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mbackends: [39m[38;5;132;01m{[39;00mcompatible_engines[38;5;132;01m}[39;00m[38;5;124m. But their dependencies may not be installed, see:[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[0;32m    193[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/user-guide/io.html [39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[0;32m    194[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/getting-started-guide/installing.html[39m[38;5;124m"[39m
-[0;32m    195[0m     )
-[1;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
+File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/indexing.py:193[0m, in [0;36mmap_index_queries[0;34m(obj, indexers, method, tolerance, **indexers_kwargs)[0m
+[1;32m    191[0m         results[38;5;241m.[39mappend(IndexSelResult(labels))
+[1;32m    192[0m     [38;5;28;01melse[39;00m:
+[0;32m--> 193[0m         results[38;5;241m.[39mappend([43mindex[49m[38;5;241;43m.[39;49m[43msel[49m[43m([49m[43mlabels[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m)[49m)
+[1;32m    195[0m merged [38;5;241m=[39m merge_sel_results(results)
+[1;32m    197[0m [38;5;66;03m# drop dimension coordinates found in dimension indexers[39;00m
+[1;32m    198[0m [38;5;66;03m# (also drop multi-index if any)[39;00m
+[1;32m    199[0m [38;5;66;03m# (.sel() already ensures alignment)[39;00m
 
-[1;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
-https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
-https://docs.xarray.dev/en/stable/user-guide/io.html
+File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/indexes.py:784[0m, in [0;36mPandasIndex.sel[0;34m(self, labels, method, tolerance)[0m
+[1;32m    782[0m     indexer [38;5;241m=[39m get_indexer_nd([38;5;28mself[39m[38;5;241m.[39mindex, label_array, method, tolerance)
+[1;32m    783[0m     [38;5;28;01mif[39;00m np[38;5;241m.[39many(indexer [38;5;241m<[39m [38;5;241m0[39m):
+[0;32m--> 784[0m         [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mnot all values found in index [39m[38;5;132;01m{[39;00mcoord_name[38;5;132;01m!r}[39;00m[38;5;124m"[39m)
+[1;32m    786[0m [38;5;66;03m# attach dimension names and/or coordinates to positional indexer[39;00m
+[1;32m    787[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(label, Variable):
+
+[0;31mKeyError[0m: "not all values found in index 'record_id'"
 
