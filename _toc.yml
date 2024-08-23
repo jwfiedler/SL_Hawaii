@@ -22,6 +22,7 @@ parts:
       - file: notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV.ipynb
     - file: notebooks/Flood.md
       sections:
+      - file: notebooks/FloodFrequency_setup.ipynb
       - file: notebooks/FloodFrequency.ipynb
       - file: notebooks/FloodDuration.ipynb  
   - caption: INTRA-ANNUAL
