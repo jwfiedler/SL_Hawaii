@@ -1,17 +1,17 @@
 Traceback (most recent call last):
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\asyncio\base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -33,7 +33,7 @@ rsl_hourly = rsl_hourly.sel(record_id=~rsl_hourly.record_id.isin([547,548,14]))
 rsl_hourly.close()
 
 
-runWithoutModel = True
+runWithoutModel = False
 
 # check if output directory exists, if not create it
 if not output_dir.exists():
@@ -59,34 +59,38 @@ for file in ['best.txt', 'T.txt', 'CI.txt', 'Y.txt', 'mio.txt', 'scein.dat', 'sc
 
 ------------------
 
+----- stderr -----
+C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
+  _pyproj_global_context_initialize()
+------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[5], line 10[0m
-[1;32m      8[0m input_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m./model_input[39m[38;5;124m'[39m)
-[1;32m      9[0m model_output_dir [38;5;241m=[39m Path(data_dir,[38;5;124m'[39m[38;5;124mGEV_model_output[39m[38;5;124m'[39m)
-[0;32m---> 10[0m rsl_hourly [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[1;32m     12[0m [38;5;66;03m# remove stations 547,548, 14[39;00m
-[1;32m     13[0m rsl_hourly [38;5;241m=[39m rsl_hourly[38;5;241m.[39msel(record_id[38;5;241m=[39m[38;5;241m~[39mrsl_hourly[38;5;241m.[39mrecord_id[38;5;241m.[39misin([[38;5;241m547[39m,[38;5;241m548[39m,[38;5;241m14[39m]))
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+Cell [1;32mIn[5], line 10[0m
+[0;32m      8[0m input_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m./model_input[39m[38;5;124m'[39m)
+[0;32m      9[0m model_output_dir [38;5;241m=[39m Path(data_dir,[38;5;124m'[39m[38;5;124mGEV_model_output[39m[38;5;124m'[39m)
+[1;32m---> 10[0m rsl_hourly [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[0;32m     12[0m [38;5;66;03m# remove stations 547,548, 14[39;00m
+[0;32m     13[0m rsl_hourly [38;5;241m=[39m rsl_hourly[38;5;241m.[39msel(record_id[38;5;241m=[39m[38;5;241m~[39mrsl_hourly[38;5;241m.[39mrecord_id[38;5;241m.[39misin([[38;5;241m547[39m,[38;5;241m548[39m,[38;5;241m14[39m]))
 
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:553[0m, in [0;36mopen_dataset[0;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
-[1;32m    550[0m     kwargs[38;5;241m.[39mupdate(backend_kwargs)
-[1;32m    552[0m [38;5;28;01mif[39;00m engine [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m--> 553[0m     engine [38;5;241m=[39m [43mplugins[49m[38;5;241;43m.[39;49m[43mguess_engine[49m[43m([49m[43mfilename_or_obj[49m[43m)[49m
-[1;32m    555[0m [38;5;28;01mif[39;00m from_array_kwargs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[1;32m    556[0m     from_array_kwargs [38;5;241m=[39m {}
+File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552[0m, in [0;36mopen_dataset[1;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
+[0;32m    549[0m     kwargs[38;5;241m.[39mupdate(backend_kwargs)
+[0;32m    551[0m [38;5;28;01mif[39;00m engine [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m--> 552[0m     engine [38;5;241m=[39m [43mplugins[49m[38;5;241;43m.[39;49m[43mguess_engine[49m[43m([49m[43mfilename_or_obj[49m[43m)[49m
+[0;32m    554[0m [38;5;28;01mif[39;00m from_array_kwargs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m    555[0m     from_array_kwargs [38;5;241m=[39m {}
 
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197[0m, in [0;36mguess_engine[0;34m(store_spec)[0m
-[1;32m    189[0m [38;5;28;01melse[39;00m:
-[1;32m    190[0m     error_msg [38;5;241m=[39m (
-[1;32m    191[0m         [38;5;124m"[39m[38;5;124mfound the following matches with the input file in xarray[39m[38;5;124m'[39m[38;5;124ms IO [39m[38;5;124m"[39m
-[1;32m    192[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mbackends: [39m[38;5;132;01m{[39;00mcompatible_engines[38;5;132;01m}[39;00m[38;5;124m. But their dependencies may not be installed, see:[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[1;32m    193[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/user-guide/io.html [39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[1;32m    194[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/getting-started-guide/installing.html[39m[38;5;124m"[39m
-[1;32m    195[0m     )
-[0;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
+File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197[0m, in [0;36mguess_engine[1;34m(store_spec)[0m
+[0;32m    189[0m [38;5;28;01melse[39;00m:
+[0;32m    190[0m     error_msg [38;5;241m=[39m (
+[0;32m    191[0m         [38;5;124m"[39m[38;5;124mfound the following matches with the input file in xarray[39m[38;5;124m'[39m[38;5;124ms IO [39m[38;5;124m"[39m
+[0;32m    192[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mbackends: [39m[38;5;132;01m{[39;00mcompatible_engines[38;5;132;01m}[39;00m[38;5;124m. But their dependencies may not be installed, see:[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[0;32m    193[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/user-guide/io.html [39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[0;32m    194[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/getting-started-guide/installing.html[39m[38;5;124m"[39m
+[0;32m    195[0m     )
+[1;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
 
-[0;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy', 'pydap', 'zarr']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+[1;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
 https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
 https://docs.xarray.dev/en/stable/user-guide/io.html
 

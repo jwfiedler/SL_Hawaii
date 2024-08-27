@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -47,26 +47,23 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Minor Flood Frequency and Duration" href="../Flood.html" />
@@ -170,7 +167,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -247,9 +255,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -274,14 +282,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -456,9 +464,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -502,8 +510,8 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-a-timeseries-of-the-time-dependent-return-values">Extract a timeseries of the time-dependent return values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettimedependentreturnvalue">getTimeDependentReturnValue</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-an-error-estimation">Make an error estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-confidence-intervals">Calculate Confidence Intervals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-time-dependent-return-value">Calculate the Time Dependent Return Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-given-year-return-period-with-the-seasonal-model">Plot monthly extremes and given year return period with the seasonal model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">Check if we should include a long-term trend (mean sea level rise) in our location parameter</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-covariate-in-the-location-parameter">Check the covariate in the location parameter.</a></li>
@@ -536,8 +544,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc9393dc-9f19-4fc4-9bc1-bf2b3e314916">
-<span class="eqno">(1)<a class="headerlink" href="#equation-fc9393dc-9f19-4fc4-9bc1-bf2b3e314916" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e3277651-28a5-4d5a-bae6-e8147bb660e0">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e3277651-28a5-4d5a-bae6-e8147bb660e0" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -551,8 +559,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53b0bd0c-dded-4361-bd03-59c49eb8774c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-53b0bd0c-dded-4361-bd03-59c49eb8774c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6615ec0f-a618-4fcd-b727-5427ffe95274">
+<span class="eqno">(2)<a class="headerlink" href="#equation-6615ec0f-a618-4fcd-b727-5427ffe95274" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -662,8 +670,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ef7a7fc0-bc81-4c97-a029-d46a6b8bfc73">
-<span class="eqno">(3)<a class="headerlink" href="#equation-ef7a7fc0-bc81-4c97-a029-d46a6b8bfc73" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a313de60-3573-4d37-b91f-54e9e3604536">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a313de60-3573-4d37-b91f-54e9e3604536" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -689,8 +697,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-in-location-model">
 <h4>Seasonality in Location Model<a class="headerlink" href="#seasonality-in-location-model" title="Permalink to this heading">#</a></h4>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-989a5f26-8d0f-4330-941e-dcbfd762136f">
-<span class="eqno">(4)<a class="headerlink" href="#equation-989a5f26-8d0f-4330-941e-dcbfd762136f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-50a31d9b-29e3-4a6d-93e2-c16bf145e040">
+<span class="eqno">(4)<a class="headerlink" href="#equation-50a31d9b-29e3-4a6d-93e2-c16bf145e040" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -709,8 +717,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-fc07c981-81c1-46d7-a657-38d835c37d11">
-<span class="eqno">(5)<a class="headerlink" href="#equation-fc07c981-81c1-46d7-a657-38d835c37d11" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ee89bd40-36ae-48e0-ad6d-a25d1f37db1c">
+<span class="eqno">(5)<a class="headerlink" href="#equation-ee89bd40-36ae-48e0-ad6d-a25d1f37db1c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0e^{\beta_{LT}(t)}  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t)   + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -722,8 +730,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-58ced939-a5e1-40c6-ae6f-f7974d114dee">
-<span class="eqno">(6)<a class="headerlink" href="#equation-58ced939-a5e1-40c6-ae6f-f7974d114dee" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-518c81ef-a3cc-4bbf-bc51-17bda8204260">
+<span class="eqno">(6)<a class="headerlink" href="#equation-518c81ef-a3cc-4bbf-bc51-17bda8204260" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0 e^{\beta_{LT}(t)} + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t) + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -1003,7 +1011,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="c1"># check if output directory exists, if not create it</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -1034,6 +1042,10 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
+  _pyproj_global_context_initialize()
+</pre></div>
+</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
@@ -1043,14 +1055,14 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># remove stations 547,548, 14</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=~</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">547</span><span class="p">,</span><span class="mi">548</span><span class="p">,</span><span class="mi">14</span><span class="p">]))</span>
 
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:553,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">550</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">552</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">553</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">556</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
 <span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
@@ -1060,7 +1072,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;, &#39;pydap&#39;, &#39;zarr&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
 <span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
 <span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
 </pre></div>
@@ -1441,12 +1453,15 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </div>
-<p>This next codes will calculate the derivative of the previous prediction, using the perturbation method. We will get be getting the derivative for each parameter, with the goal of solving the total variance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ed2e6b05-f424-4e7a-b19d-6eea2636f2d6">
-<span class="eqno">(7)<a class="headerlink" href="#equation-ed2e6b05-f424-4e7a-b19d-6eea2636f2d6" title="Permalink to this equation">#</a></span>\[\begin{align}
+</section>
+<section id="calculate-confidence-intervals">
+<h3>Calculate Confidence Intervals<a class="headerlink" href="#calculate-confidence-intervals" title="Permalink to this heading">#</a></h3>
+<p>These next codes will calculate the derivative of the previous prediction, using the perturbation method. We will get be getting the derivative for each parameter, with the goal of solving the total variance:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fd710ec6-dd0e-44a9-b93e-6077dfcaf044">
+<span class="eqno">(7)<a class="headerlink" href="#equation-fd710ec6-dd0e-44a9-b93e-6077dfcaf044" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma^2_{L(\theta| t_i)} = \sum_{i=1}^{m}\sum_{i=1}^m \frac{\delta L}{\delta \theta_i}\frac{\delta L}{\delta \theta_j}[J_\theta]_{i,j},
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(L\)</span> likelihood function of the PDF of equation 1, and <span class="math notranslate nohighlight">\(J\)</span> is the inverse of the <span class="math notranslate nohighlight">\(m\)</span> x <span class="math notranslate nohighlight">\(m\)</span> covariance matrix of the parameter estimates in <span class="math notranslate nohighlight">\(L\)</span>. Note that because this is an estimate at a given time, we will need to calculate this for all timesteps.</p>
+<p>where <span class="math notranslate nohighlight">\(L\)</span> likelihood function of the PDF of equation 1, and <span class="math notranslate nohighlight">\(J\)</span> is the inverse of the <span class="math notranslate nohighlight">\(m\)</span> x <span class="math notranslate nohighlight">\(m\)</span> covariance-variance matrix of the parameter estimates in <span class="math notranslate nohighlight">\(L\)</span>. Note that because this is an estimate at a given time, we will need to calculate this for all timesteps. Thus, we’ll define a function so that we can run this for each timestep.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivative_first_order</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t00</span><span class="p">,</span> <span class="n">t11</span><span class="p">,</span> <span class="n">return_period</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">covariate</span><span class="p">):</span>
@@ -1475,10 +1490,10 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </div>
-<p>Now that we have the derivative function, we will use this to craft our variance, for each timestep. For each (i,j) pair (the ith and jth parameters in w), we will multiply these derivates by the inverse of the covariance matrix, and finally sum over all (i,j) pairs. The square root of this is our standard error.</p>
+<p>Now that we have the derivative function, we will use this to craft our variance, for each timestep. For each (i,j) pair (the ith and jth parameters in w), we will multiply these derivates by the inverse of the covariance matrix, and finally sum over all (i,j) pairs. The square root of this is our standard deviation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_confidence_intervals</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t00</span><span class="p">,</span><span class="n">t11</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="n">serieCV</span><span class="p">,</span> <span class="n">mio</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_std</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t00</span><span class="p">,</span><span class="n">t11</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="n">serieCV</span><span class="p">,</span> <span class="n">mio</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
     
     <span class="c1"># only consider the first 3 elements of mio</span>
     <span class="c1"># n = 1</span>
@@ -1488,6 +1503,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="n">J_inv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span>
     <span class="n">ic</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+    <span class="c1"># print(&#39;n:&#39;, n)</span>
     <span class="c1"># n = 9</span>
     <span class="n">Zp1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
@@ -1496,6 +1512,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="c1"># print(&#39;w:&#39;, w)</span>
     <span class="c1"># print(&#39;Zp1:&#39;, Zp1)</span>
     <span class="n">Zbest</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Zp1</span><span class="p">)</span>
+    <span class="c1"># Zbest[12:] = [0,0] #nodal</span>
     <span class="n">Zbest</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">Zbest</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span> <span class="c1">#long-term trend (really depends what mio is, I am not sure if this is right!!)</span>
     <span class="n">wbest</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
 
@@ -1506,6 +1523,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 
     <span class="c1"># Multiply Z_col by its transpose ( should be a square matrix, nxn)</span>
     <span class="n">ZZ</span><span class="o">=</span> <span class="n">Z_col</span> <span class="o">@</span> <span class="n">Z_col</span><span class="o">.</span><span class="n">T</span>
+    <span class="c1"># print(&#39;ZZ.shape:&#39;, ZZ.shape)</span>
 
     <span class="n">ic</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ZZ</span> <span class="o">@</span> <span class="n">J_inv</span><span class="p">)</span>
     <span class="n">ic_sqrt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span>
@@ -1521,9 +1539,10 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 </section>
-<section id="gettimedependentreturnvalue">
-<h3>getTimeDependentReturnValue<a class="headerlink" href="#gettimedependentreturnvalue" title="Permalink to this heading">#</a></h3>
+<section id="calculate-the-time-dependent-return-value">
+<h3>Calculate the Time Dependent Return Value<a class="headerlink" href="#calculate-the-time-dependent-return-value" title="Permalink to this heading">#</a></h3>
 <p>With confidence intervals!</p>
+<p>This code evaluates the likelihood function using the modeled parameters for a given set of years and return periods (in years). It will also return the 95% confidence intervals, with the assumption of Guassian distribution (<span class="math notranslate nohighlight">\(\pm 1.96 \sigma\)</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">getTimeDependentReturnValue</span><span class="p">(</span><span class="n">T0</span><span class="p">,</span> <span class="n">serieCV</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">ReturnPeriod</span><span class="p">):</span>
@@ -1545,75 +1564,14 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
             <span class="c1"># Call the Quantilentime function for each year interval</span>
             <span class="n">YR</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">brentq</span><span class="p">(</span><span class="n">Quantilentime</span><span class="p">,</span> <span class="n">x0</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x0</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">wbest</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t00</span><span class="p">,</span> <span class="n">t11</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">serieCV</span><span class="p">))</span>
             <span class="n">x0</span> <span class="o">=</span> <span class="n">YR</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span>
-
             <span class="c1"># print(&#39;calculating return value for year interval:&#39;, t00, t11)  </span>
             <span class="c1"># Calculate the confidence intervals</span>
-            <span class="n">ic_sqrt</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">calculate_confidence_intervals</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t00</span><span class="p">,</span><span class="n">t11</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="n">serieCV</span><span class="p">,</span> <span class="n">mio</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
+            <span class="n">ic_sqrt</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">calculate_std</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t00</span><span class="p">,</span><span class="n">t11</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span><span class="n">serieCV</span><span class="p">,</span> <span class="n">mio</span><span class="p">,</span> <span class="n">r</span><span class="p">)</span>
             <span class="c1"># print(&#39;ic_sqrt:&#39;, ic_sqrt[idx,i])</span>
             <span class="n">upper_confidence</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">YR</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">ic_sqrt</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
             <span class="n">lower_confidence</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">YR</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="mf">1.96</span><span class="o">*</span><span class="n">ic_sqrt</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span><span class="n">i</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">years</span><span class="p">,</span> <span class="n">YR</span><span class="p">,</span> <span class="n">upper_confidence</span><span class="p">,</span> <span class="n">lower_confidence</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="make-an-error-estimation">
-<h3>Make an error estimation<a class="headerlink" href="#make-an-error-estimation" title="Permalink to this heading">#</a></h3>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>This is a TO-DO. The error shown on the plots is currently (probably) incorrect. Needs a second pair of eyes.</p>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">adjust_mio</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">mioN</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Adjusts the mioN matrix based on the x conditions and returns a 14x14 matrix.</span>
-
-<span class="sd">    Parameters:</span>
-<span class="sd">        x (list): A list representing the conditions that influence the adjustment of mioN.</span>
-<span class="sd">        mioN (np.ndarray): A 9x9 covariance matrix to be adjusted based on x.</span>
-
-<span class="sd">    Returns:</span>
-<span class="sd">        np.ndarray: A 14x14 matrix with adjusted values.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Initialize the output matrix with 14x14 elements set to zero</span>
-    <span class="n">mioN_full</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">))</span>
-
-    <span class="c1"># Ensure icromo is 7 elements long</span>
-    <span class="n">icromo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">icromo</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">7</span><span class="p">:</span>
-        <span class="c1"># Fill the rest with zeros</span>
-        <span class="n">icromo</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">icromo</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">7</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">icromo</span><span class="p">)))</span>
-
-    <span class="c1"># Mapping of indices for mioN_plot</span>
-    <span class="n">idx_map</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="mi">0</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>   <span class="c1"># annual (indices 3 and 4)</span>
-        <span class="mi">1</span><span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>   <span class="c1"># semiannual (indices 5 and 6)</span>
-        <span class="mi">2</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>   <span class="c1"># triannual (indices 7 and 8)</span>
-        <span class="mi">3</span><span class="p">:</span> <span class="p">[</span><span class="mi">9</span><span class="p">],</span>      <span class="c1"># long-term trend (index 9)</span>
-        <span class="mi">4</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">],</span>     <span class="c1"># covariate, location (index 10)</span>
-        <span class="mi">5</span><span class="p">:</span> <span class="p">[</span><span class="mi">11</span><span class="p">],</span>     <span class="c1"># covariate, scale (index 11)</span>
-        <span class="mi">6</span><span class="p">:</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">]</span>  <span class="c1"># nodal (indices 12 and 13)</span>
-    <span class="p">}</span>
-
-    <span class="c1"># List to keep track of the expanded indices in mioN_plot</span>
-    <span class="n">expanded_indices</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="c1"># Populate the indices list based on icromo</span>
-    <span class="n">expanded_indices</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>  <span class="c1"># mu, psi, xi are always included</span>
-    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">include</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">icromo</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">include</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">expanded_indices</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">idx_map</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-
-    <span class="c1"># Now map mioN to mioN_plot using the expanded_indices</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mioN</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mioN</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
-            <span class="n">mioN_full</span><span class="p">[</span><span class="n">expanded_indices</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">expanded_indices</span><span class="p">[</span><span class="n">j</span><span class="p">]]</span> <span class="o">=</span> <span class="n">mioN</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
-
-    <span class="c1"># Return the adjusted 14x14 covariance matrix</span>
-    <span class="k">return</span> <span class="n">mioN_full</span>
 </pre></div>
 </div>
 </div>
@@ -1625,7 +1583,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p class="sidebar-title"></p>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Note that the original code for this plot has the dotted line much lower - the 2 year return, for example, runs through the middle of the data. This corresponds to a 2-month return level, and makes sense if you are looking at each month in isolation (every other year the value is exceeded). This is the case in Méndez et al 2007 (and following papers), and likely comes down to an interpretation of what this line is actually meant to portray. Accounting for the fact that you are sampling monthly data moves the within-a-year return level up to more closely align with the ‘stationary’ solid line (and the sinusoid formed by the seasonal cycle then varies about the stationary return level).</p>
+<p>Note that the original code for this plot has the dotted line much lower - the 2 year return, for example, runs through the middle of the data. This corresponds to a 2-month return level, and makes sense if you are looking at each month in isolation (every other year the value is exceeded). This is the case in Méndez et al 2007 (and following papers), and likely comes down to an interpretation of what this line is actually meant to portray. Accounting for the fact that you are sampling monthly data moves the within-a-year return level up to more closely align with the ‘stationary’ solid line (and the sinusoid formed by the seasonal cycle then varies about the stationary return level). (Julia’s opinion here): because this plot is dimensionless (time goes from 0 to 1), we must normalize our data by removing the time component. In this case, the time element is the monthly sampling, so we must scale our probabilities accordingly by (1/12).</p>
 </div>
 </aside>
 <div class="cell tag_hide-output docutils container">
@@ -1654,12 +1612,12 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" src="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" />
+<img alt="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" src="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="seasonal-extreme-variations">
-<img alt="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" src="../../_images/0b5291fbbdc4c092cf294688bda7df3a5226c5d4511e894e676950bf5d4d8a29.png" />
+<img alt="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" src="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 9 </span><span class="caption-text">A climatology of extreme sea levels at the <span class="pasted-text">Honolulu, Hawaii</span> tide gauge. Monthly maxima (+), determined from hourly sea level data, are shown from 1993-2023. The solid line corresponds to projected sea level return levels at 2,10,50 and 100 years, using this 30-year chunk of data. This line uses a nonstationary GEV to take the seasonal variations of sea level into account. The 2, 10, 50 and 100-year return levels are shown to vary throughout the year (dashed line), with the lowest extremes occuring in March, and highest extremes peaking in July. No long-term trend is used in this model, and the scale and location parameters are held constant.</span><a class="headerlink" href="#seasonal-extreme-variations" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1842,7 +1800,8 @@ Model already saved to netcdf file.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in location param.: 54.60%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model did not finish! Setting standard errors to 0.
+Statistical Significance of Covariate in location param.: 54.60%
 x_cvte1 is: [1 1 0 1 1 0]
 Model already saved to netcdf file.
 </pre></div>
@@ -1907,7 +1866,8 @@ Model already saved to netcdf file.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 40.86%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model did not finish! Setting standard errors to 0.
+Statistical Significance of Covariate in scale param.: 40.86%
 x_cvte2 is: [1 1 0 1 0 1]
 Model already saved to netcdf file.
 </pre></div>
@@ -1991,14 +1951,15 @@ Model already saved to netcdf file.
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model exists: &#39;</span><span class="p">,</span> <span class="n">savepath</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">w_N</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="p">,</span><span class="n">standard_error</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv_N.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>
- 
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of adding Nodal cycle: 99.88%
-Model exists:  ../../data/GEV_model_output/57/RL_muN.nc
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running Nodal cycle model...
+x_N is: [1 1 0 1 0 0 1]
+Statistical Significance of adding Nodal cycle: 99.88%
+Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
 </pre></div>
 </div>
 </div>
@@ -2111,12 +2072,12 @@ Model exists:  ../../data/GEV_model_output/57/RL_muN.nc
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1993.0
 </pre></div>
 </div>
-<img alt="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" src="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" />
+<img alt="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" src="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="timedependentreturnvalue">
-<img alt="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" src="../../_images/e3e2f80cc8818d9902163a2de6c5c76cd32e28e05de5feb7d9b094e9cc69f11c.png" />
+<img alt="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" src="../../_images/9975db1de8b073482dab8850286b9f9547721768297376d779ab4c76721035f9.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) also varies in time, and is shown only for the 2 year return level (<strong>NEEDS CHECKING</strong>). Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -2577,36 +2538,49 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 25kB
 Dimensions:       (record_id: 8, ReturnPeriod: 4, Year: 31, x_dim: 7)
 Coordinates:
-  * record_id     (record_id) int64 61 59 50 57 58 60 552 52
-  * Year          (Year) float64 1.993e+03 1.994e+03 ... 2.022e+03 2.023e+03
-  * ReturnPeriod  (ReturnPeriod) int64 2 10 50 100
+  * record_id     (record_id) int64 64B 50 52 552 57 58 59 60 61
+  * Year          (Year) float64 248B 1.993e+03 1.994e+03 ... 2.023e+03
+  * ReturnPeriod  (ReturnPeriod) int64 32B 2 10 50 100
 Dimensions without coordinates: x_dim
 Data variables:
-    ReturnLevel   (record_id, ReturnPeriod, Year) float64 1.826 1.828 ... 1.833
-    RL_low        (record_id, ReturnPeriod, Year) float64 1.779 1.777 ... 1.738
-    RL_high       (record_id, ReturnPeriod, Year) float64 1.873 1.879 ... 1.928
-    x             (record_id, x_dim) int64 1 1 0 1 0 0 1 1 1 ... 0 1 0 1 0 0 0 1
-    lat           (record_id) float32 21.43 20.9 28.22 ... 19.73 20.03 16.75
-    lon           (record_id) float32 202.2 203.5 182.6 ... 204.9 204.2 190.5
-    MHHW          (record_id) float64 1.533 1.364 1.204 ... 1.912 1.406 1.225
-    station_name  (record_id) &lt;U17 &#x27;Mokuoloe&#x27; &#x27;Kahului&#x27; ... &#x27;Johnston&#x27;
+    ReturnLevel   (record_id, ReturnPeriod, Year) float64 8kB 1.609 ... 2.062
+    RL_low        (record_id, ReturnPeriod, Year) float64 8kB 1.53 ... 1.959
+    RL_high       (record_id, ReturnPeriod, Year) float64 8kB 1.687 ... 2.165
+    x             (record_id, x_dim) int64 448B 1 1 0 1 0 1 0 ... 1 1 0 1 0 0 1
+    lat           (record_id) float32 32B 28.22 16.75 20.03 ... 20.9 19.73 21.43
+    lon           (record_id) float32 32B 182.6 190.5 204.2 ... 204.9 202.2
+    MHHW          (record_id) float64 64B 1.204 1.225 1.406 ... 1.912 1.533
+    station_name  (record_id) &lt;U17 544B &#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Mokuoloe&#x27;
 Attributes:
     description:  Time-dependent return values for the GEV model with seasona...
     datum:        STND
-    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-98c26eb2-e4c3-4ff7-bbb0-bbf2f971a51f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-98c26eb2-e4c3-4ff7-bbb0-bbf2f971a51f' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-75147381-ab91-4ffc-a185-db9d5a8f8bbd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-75147381-ab91-4ffc-a185-db9d5a8f8bbd' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>61 59 50 57 58 60 552 52</div><input id='attrs-d9061c0a-941b-4727-aee4-ce2bf226594b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d9061c0a-941b-4727-aee4-ce2bf226594b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-85fdae41-11b6-486c-ac3d-5e89e6528e27' class='xr-var-data-in' type='checkbox'><label for='data-85fdae41-11b6-486c-ac3d-5e89e6528e27' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 61,  59,  50,  57,  58,  60, 552,  52])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-a182360c-c2cd-4260-a064-bae4c74e71c1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a182360c-c2cd-4260-a064-bae4c74e71c1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4a52149c-7706-4d5b-82dc-7a990a50de13' class='xr-var-data-in' type='checkbox'><label for='data-4a52149c-7706-4d5b-82dc-7a990a50de13' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
+    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-af64bcc8-6fed-4bff-bd10-d9974e99d0b3' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-af64bcc8-6fed-4bff-bd10-d9974e99d0b3' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-979bcabe-997a-48b0-9039-6e39c4ba297a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-979bcabe-997a-48b0-9039-6e39c4ba297a' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>50 52 552 57 58 59 60 61</div><input id='attrs-5b198b3f-9fea-4d8c-be3f-3289e71cb1ab' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5b198b3f-9fea-4d8c-be3f-3289e71cb1ab' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8e703a19-d92e-4daa-83fe-98be776f0483' class='xr-var-data-in' type='checkbox'><label for='data-8e703a19-d92e-4daa-83fe-98be776f0483' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 50,  52, 552,  57,  58,  59,  60,  61])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-2f002329-3dce-4294-b31a-c75afa5ed12f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2f002329-3dce-4294-b31a-c75afa5ed12f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f84b2c2-5272-40d2-9b56-5b5fc3dd7b8c' class='xr-var-data-in' type='checkbox'><label for='data-5f84b2c2-5272-40d2-9b56-5b5fc3dd7b8c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
        2003., 2004., 2005., 2006., 2007., 2008., 2009., 2010., 2011., 2012.,
        2013., 2014., 2015., 2016., 2017., 2018., 2019., 2020., 2021., 2022.,
-       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-67015b3b-14ba-42b7-9fb2-935deea34614' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-67015b3b-14ba-42b7-9fb2-935deea34614' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e94c5a3d-8397-407f-a240-0aaa661550b6' class='xr-var-data-in' type='checkbox'><label for='data-e94c5a3d-8397-407f-a240-0aaa661550b6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b58ff34d-3503-4f82-b8cf-ecb40d933444' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b58ff34d-3503-4f82-b8cf-ecb40d933444' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.826 1.828 1.832 ... 1.839 1.833</div><input id='attrs-4996eaa4-9dd6-45a0-9e5d-1a4704934647' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4996eaa4-9dd6-45a0-9e5d-1a4704934647' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-68675411-d02d-4597-89df-9e7011ec39a6' class='xr-var-data-in' type='checkbox'><label for='data-68675411-d02d-4597-89df-9e7011ec39a6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.82616591, 1.82783093, 1.83161189, 1.83746744, 1.84473262,
-         1.85296904, 1.86149771, 1.86947382, 1.87651172, 1.8819388 ,
-         1.88540116, 1.88676507, 1.88613127, 1.88382399, 1.88035582,
-         1.87649445, 1.87270113, 1.86978639, 1.86834105, 1.86879061,
-         1.87134534, 1.8759754 , 1.88241431, 1.89019031, 1.89868143,
-         1.9071874 , 1.91500942, 1.9215286 , 1.92627431, 1.92897552,
-         1.92958993],
-        [1.89606886, 1.89776674, 1.90158251, 1.90746304, 1.91475231,
+       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-7cdf904b-4fda-4ee3-a335-9528052d7c90' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7cdf904b-4fda-4ee3-a335-9528052d7c90' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-97876cda-5dfa-48d5-aed0-b3601abc941c' class='xr-var-data-in' type='checkbox'><label for='data-97876cda-5dfa-48d5-aed0-b3601abc941c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-7f5b2ba7-cf50-4f09-a5eb-25601b5d52d3' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7f5b2ba7-cf50-4f09-a5eb-25601b5d52d3' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.609 1.616 1.608 ... 2.062 2.062</div><input id='attrs-2a59b8b1-bc95-49b0-a309-f4d6030593ad' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2a59b8b1-bc95-49b0-a309-f4d6030593ad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c2ffec5a-ca58-47a6-80da-a08441911103' class='xr-var-data-in' type='checkbox'><label for='data-c2ffec5a-ca58-47a6-80da-a08441911103' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.60863699, 1.6164796 , 1.60819215, 1.60250053, 1.63817341,
+         1.62372674, 1.5968824 , 1.60742884, 1.62159594, 1.64261855,
+         1.64337426, 1.64810082, 1.64209168, 1.64594998, 1.63799074,
+         1.63341748, 1.6611676 , 1.65371707, 1.64144892, 1.65920982,
+         1.66185377, 1.67298777, 1.70508639, 1.69000438, 1.67402457,
+         1.68434789, 1.69921924, 1.68531464, 1.67824819, 1.6801307 ,
+         1.71711954],
+        [1.75893306, 1.77083993, 1.75769288, 1.74224171, 1.80258119,
+         1.78476635, 1.72637454, 1.74193967, 1.76381352, 1.79690893,
+         1.79793964, 1.80219363, 1.79109389, 1.79519081, 1.78267902,
+         1.76816088, 1.81500545, 1.80704927, 1.77458265, 1.80208327,
+         1.80537609, 1.82199544, 1.87430184, 1.85341469, 1.81593549,
+         1.83298329, 1.85505646, 1.83161195, 1.81420091, 1.81633048,
+         1.87705349],
+        [1.87941691, 1.89508115, 1.87965784, 1.85427129, 1.93757487,
+         1.92066266, 1.83013878, 1.84989323, 1.87784605, 1.92109237,
+         1.92250803, 1.92593648, 1.91164039, 1.91618147, 1.90145173,
+         1.87654489, 1.94062864, 1.93532074, 1.88123394, 1.91669333,
+         1.92053123, 1.9419794 , 2.0118368 , 1.98925898, 1.92975366,
+         1.95358568, 1.98034189, 1.95070135, 1.92310149, 1.92572532,
+...
          1.92299997, 1.93152463, 1.93948872, 1.94649667, 1.95188766,
          1.95531356, 1.95664562, 1.95598776, 1.95366546, 1.95019105,
          1.94632195, 1.94253789, 1.93963982, 1.93821849, 1.93869856,
@@ -2619,34 +2593,34 @@ Attributes:
          1.99263216, 1.98885646, 1.98597262, 1.98457212, 1.98507973,
          1.98770173, 1.99240041, 1.99889862, 2.00671364, 2.01521539,
          2.02370078, 2.03147446, 2.03792639, 2.04259781, 2.04522938,
+         2.04578754],
+        [1.95876474, 1.96050782, 1.96437342, 1.97029569, 1.97762104,
+         1.98588547, 1.99440348, 2.00234323, 2.00930542, 2.01464258,
+         2.018016  , 2.01930455, 2.01861634, 2.0162773 , 2.01279781,
+         2.00892331, 2.00515153, 2.00227439, 2.00088388, 2.00140496,
+         2.00404318, 2.00875887, 2.01527205, 2.02309705, 2.03160153,
+         2.04008163, 2.04784293, 2.05427781, 2.05893071, 2.06154538,
+         2.06209048]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.53 1.523 1.528 ... 1.96 1.959</div><input id='attrs-a259bad4-7de2-4a3f-9f64-fd7b3f9c6dec' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a259bad4-7de2-4a3f-9f64-fd7b3f9c6dec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2fa651fe-a141-4517-a6e8-c569704f224b' class='xr-var-data-in' type='checkbox'><label for='data-2fa651fe-a141-4517-a6e8-c569704f224b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.53003573, 1.52312742, 1.52773245, 1.53423916, 1.51796821,
+         1.528523  , 1.5471733 , 1.54556602, 1.54223767, 1.53541464,
+         1.54036812, 1.54159212, 1.54802915, 1.55173891, 1.5590224 ,
+         1.56685138, 1.55767568, 1.56489149, 1.57588409, 1.57140338,
+         1.57548464, 1.57447376, 1.56206235, 1.5746589 , 1.58635558,
+         1.58772108, 1.58443269, 1.59542706, 1.60428029, 1.60900824,
+         1.59382529],
+        [1.6068489 , 1.59401929, 1.60068154, 1.61828472, 1.57159379,
+         1.58426468, 1.6417376 , 1.63271639, 1.62045719, 1.60042836,
+         1.6076336 , 1.6078251 , 1.61683539, 1.62130377, 1.63106515,
+         1.65027721, 1.62193777, 1.62686031, 1.66029789, 1.64486407,
+         1.65018088, 1.64364513, 1.61127787, 1.62899549, 1.65906626,
+         1.65601996, 1.64716407, 1.66419793, 1.68418255, 1.69006054,
+         1.64900239],
+        [1.65185442, 1.63275777, 1.6400535 , 1.67418594, 1.58891775,
+         1.60208716, 1.71327403, 1.69386718, 1.67084516, 1.63456955,
+         1.64425945, 1.64406783, 1.65505774, 1.65965441, 1.67096163,
+         1.70772505, 1.65322419, 1.6531507 , 1.72072727, 1.690599  ,
+         1.69753887, 1.68364554, 1.6268515 , 1.64753326, 1.70452277,
+         1.69367646, 1.68019574, 1.70255024, 1.73946747, 1.74626601,
 ...
-         1.7362299 , 1.74130729, 1.74456743, 1.74583188, 1.74486198,
-         1.74176606, 1.73688926, 1.73077649, 1.72411345, 1.7176512 ,
-         1.71221312, 1.70824788, 1.70629891, 1.70658973, 1.70908733,
-         1.71350603, 1.71934136, 1.72592945, 1.73252412, 1.73838216,
-         1.74284659, 1.74541899, 1.74581324, 1.74398597, 1.74014091,
-         1.73470697],
-        [1.7797649 , 1.78351248, 1.78888897, 1.79536765, 1.80204791,
-         1.80826206, 1.81331269, 1.81655283, 1.81778251, 1.81678097,
-         1.81365986, 1.80876607, 1.80264497, 1.79598199, 1.78952785,
-         1.78409226, 1.78015027, 1.77823068, 1.77855457, 1.78108513,
-         1.78553204, 1.79138625, 1.79798053, 1.80456745, 1.81040496,
-         1.81483952, 1.81737743, 1.81773761, 1.81588089, 1.81201369,
-         1.80656612],
-        [1.80637798, 1.81013873, 1.81552522, 1.8220034 , 1.82868282,
-         1.83489029, 1.83992956, 1.8431611 , 1.84437604, 1.84336118,
-         1.84022959, 1.8353288 , 1.82920427, 1.82254126, 1.8160903 ,
-         1.81065552, 1.80672299, 1.80481558, 1.80515339, 1.80769802,
-         1.8121571 , 1.81801957, 1.82461668, 1.83120041, 1.83702923,
-         1.84145107, 1.84397434, 1.84432013, 1.84245107, 1.8385747 ,
-         1.83312154]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.779 1.777 1.78 ... 1.744 1.738</div><input id='attrs-50cbc9bc-203e-4ab4-adf9-8419360fc9a7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-50cbc9bc-203e-4ab4-adf9-8419360fc9a7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-61b9235d-62f6-40ef-8181-4131af8e3007' class='xr-var-data-in' type='checkbox'><label for='data-61b9235d-62f6-40ef-8181-4131af8e3007' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.77929752, 1.77680467, 1.78048475, 1.78824314, 1.7987713 ,
-         1.81092618, 1.8233819 , 1.83473706, 1.84395871, 1.85011922,
-         1.85280065, 1.85201262, 1.84811077, 1.84173187, 1.83375545,
-         1.82531021, 1.81743428, 1.81131412, 1.80790591, 1.80787596,
-         1.81151298, 1.818685  , 1.82884597, 1.84108985, 1.85424549,
-         1.86700538, 1.87808746, 1.88642665, 1.8913537 , 1.89267027,
-         1.89058832],
-        [1.82434281, 1.82061432, 1.82346116, 1.83048558, 1.84033597,
          1.85185873, 1.86378262, 1.87480459, 1.88397583, 1.89039894,
          1.89356799, 1.89333401, 1.88991195, 1.88386417, 1.87605424,
          1.86761053, 1.85962578, 1.85329526, 1.84959298, 1.8491957 ,
@@ -2659,34 +2633,34 @@ Attributes:
          1.89019473, 1.8820335 , 1.87549342, 1.871567  , 1.87094708,
          1.87393714, 1.88041233, 1.88983768, 1.90134028, 1.91382285,
          1.92610012, 1.93703703, 1.9456698 , 1.95129826, 1.95354651,
+         1.9523952 ],
+        [1.85623296, 1.85142992, 1.85366127, 1.86025408, 1.8698133 ,
+         1.88114352, 1.89296809, 1.9039959 , 1.91324718, 1.91980998,
+         1.92313641, 1.92303183, 1.91967506, 1.91360844, 1.90569108,
+         1.89704045, 1.88880603, 1.8821889 , 1.87818984, 1.87750877,
+         1.88045322, 1.88689894, 1.89630919, 1.90780885, 1.92029953,
+         1.93259606, 1.94356321, 1.95223488, 1.95790558, 1.96019207,
+         1.95906753]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.687 1.71 1.689 ... 2.163 2.165</div><input id='attrs-1d5c948f-fa5e-4cd5-bac0-627926755a46' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1d5c948f-fa5e-4cd5-bac0-627926755a46' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-139af4d3-f47e-40e9-86f9-cc0aa1771087' class='xr-var-data-in' type='checkbox'><label for='data-139af4d3-f47e-40e9-86f9-cc0aa1771087' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.68723826, 1.70983178, 1.68865185, 1.6707619 , 1.75837862,
+         1.71893047, 1.64659151, 1.66929165, 1.70095422, 1.74982246,
+         1.74638041, 1.75460951, 1.73615421, 1.74016105, 1.71695909,
+         1.69998358, 1.76465953, 1.74254264, 1.70701376, 1.74701627,
+         1.74822289, 1.77150179, 1.84811043, 1.80534986, 1.76169356,
+         1.7809747 , 1.81400579, 1.77520223, 1.75221609, 1.75125315,
+         1.84041379],
+        [1.91101722, 1.94766057, 1.91470422, 1.8661987 , 2.03356859,
+         1.98526803, 1.81101149, 1.85116295, 1.90716986, 1.9933895 ,
+         1.98824569, 1.99656217, 1.9653524 , 1.96907786, 1.93429289,
+         1.88604456, 2.00807313, 1.98723824, 1.88886741, 1.95930248,
+         1.96057129, 2.00034576, 2.13732581, 2.07783389, 1.97280473,
+         2.00994661, 2.06294886, 1.99902596, 1.94421928, 1.94260042,
+         2.10510459],
+        [2.1069794 , 2.15740452, 2.11926218, 2.03435664, 2.28623198,
+         2.23923817, 1.94700353, 2.00591929, 2.08484693, 2.20761519,
+         2.20075662, 2.20780512, 2.16822303, 2.17270854, 2.13194183,
+         2.04536473, 2.22803309, 2.21749078, 2.0417406 , 2.14278766,
+         2.14352359, 2.20031325, 2.39682209, 2.33098469, 2.15498456,
+         2.21349491, 2.28048804, 2.19885246, 2.10673551, 2.10518463,
 ...
-         1.66342312, 1.67295054, 1.6808702 , 1.68637929, 1.68882405,
-         1.68791924, 1.68374541, 1.67675278, 1.66772232, 1.65767966,
-         1.64780011, 1.63916405, 1.63278494, 1.62938772, 1.6293526 ,
-         1.63267274, 1.63895841, 1.64748649, 1.6572879 , 1.66726078,
-         1.67629426, 1.6833882 , 1.6877566 , 1.68890729, 1.68669521,
-         1.68134698],
-        [1.67018146, 1.67222113, 1.67748172, 1.68536626, 1.69494593,
-         1.70515993, 1.71487554, 1.72300628, 1.72868938, 1.73126948,
-         1.73043721, 1.72625484, 1.71916701, 1.70996526, 1.69970069,
-         1.68956239, 1.68070739, 1.67415681, 1.67065274, 1.6705807 ,
-         1.67392964, 1.68029969, 1.68895552, 1.6989164 , 1.70906987,
-         1.718294  , 1.72557419, 1.73010459, 1.73136897, 1.72919949,
-         1.72380877],
-        [1.68403618, 1.68608058, 1.69137221, 1.69929972, 1.70894638,
-         1.71923606, 1.7290298 , 1.73724336, 1.74298905, 1.74561305,
-         1.74479946, 1.74060635, 1.73347764, 1.72420841, 1.71385777,
-         1.70361804, 1.69467623, 1.68805685, 1.6845101 , 1.68442492,
-         1.68778927, 1.69419922, 1.70291368, 1.71294568, 1.72317653,
-         1.73247799, 1.73982867, 1.74441536, 1.74571461, 1.74355275,
-         1.73813947]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.873 1.879 1.883 ... 1.934 1.928</div><input id='attrs-00627ac8-232b-4016-b192-a3720a7fb300' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-00627ac8-232b-4016-b192-a3720a7fb300' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e67e725e-9425-4ee5-9acd-d354abe90bdf' class='xr-var-data-in' type='checkbox'><label for='data-e67e725e-9425-4ee5-9acd-d354abe90bdf' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.8730343 , 1.87885718, 1.88273904, 1.88669175, 1.89069395,
-         1.8950119 , 1.89961351, 1.90421059, 1.90906472, 1.91375839,
-         1.91800167, 1.92151752, 1.92415177, 1.92591611, 1.92695618,
-         1.92767869, 1.92796798, 1.92825866, 1.9287762 , 1.92970527,
-         1.9311777 , 1.93326579, 1.93598265, 1.93929076, 1.94311737,
-         1.94736942, 1.95193138, 1.95663054, 1.96119492, 1.96528077,
-         1.96859154],
-        [1.96779492, 1.97491916, 1.97970387, 1.9844405 , 1.98916864,
          1.99414121, 1.99926664, 2.00417285, 2.0090175 , 2.01337638,
          2.01705914, 2.01995723, 2.02206358, 2.02346675, 2.02432786,
          2.02503336, 2.02545   , 2.02598438, 2.026844  , 2.02820142,
@@ -2699,41 +2673,28 @@ Attributes:
          2.09506959, 2.09567941, 2.09645181, 2.09757724, 2.09921239,
          2.10146633, 2.1043885 , 2.10795956, 2.11208699, 2.11660793,
          2.12130143, 2.12591188, 2.13018297, 2.13389736, 2.13691224,
-...
-         1.80903669, 1.80966404, 1.80826465, 1.80528447, 1.8008999 ,
-         1.79561288, 1.79003311, 1.7848002 , 1.78050458, 1.77762275,
-         1.77662612, 1.77733172, 1.77981289, 1.78379173, 1.78882205,
-         1.79433932, 1.79972431, 1.80437241, 1.80776034, 1.80950353,
-         1.80939893, 1.80744978, 1.80386988, 1.79906466, 1.79358661,
-         1.78806697],
-        [1.88934834, 1.89480384, 1.90029623, 1.90536903, 1.90914989,
-         1.91136418, 1.91174984, 1.91009938, 1.90687564, 1.90229245,
-         1.89688251, 1.89127731, 1.88612292, 1.88199872, 1.87935501,
-         1.87862214, 1.87959316, 1.88230456, 1.8864564 , 1.89158956,
-         1.89713443, 1.90247281, 1.90700554, 1.91021849, 1.91174005,
-         1.91138504, 1.90918067, 1.90537063, 1.9003928 , 1.89482789,
-         1.88932348],
-        [1.92871978, 1.93419687, 1.93967823, 1.94470707, 1.94841926,
-         1.95054453, 1.95082932, 1.94907883, 1.94576303, 1.94110932,
-         1.93565972, 1.93005126, 1.9249309 , 1.9208741 , 1.91832284,
-         1.91769299, 1.91876975, 1.9215743 , 1.92579667, 1.93097112,
-         1.93652493, 1.94183991, 1.94631968, 1.94945514, 1.95088193,
-         1.95042416, 1.94812   , 1.94422489, 1.93918753, 1.93359664,
-         1.92810361]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 0 1 1 ... 0 1 0 1 0 0 0 1</div><input id='attrs-25ac2647-6baf-41f4-917a-5230c944be40' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-25ac2647-6baf-41f4-917a-5230c944be40' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-861d119b-d374-488d-832a-29ea69bf3bf6' class='xr-var-data-in' type='checkbox'><label for='data-861d119b-d374-488d-832a-29ea69bf3bf6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 0, 1],
-       [1, 1, 0, 1, 1, 0, 0],
-       [1, 1, 0, 1, 0, 1, 0],
+         2.13917989],
+        [2.06129653, 2.06958571, 2.07508557, 2.08033729, 2.08542878,
+         2.09062741, 2.09583887, 2.10069056, 2.10536367, 2.10947518,
+         2.11289558, 2.11557727, 2.11755761, 2.11894615, 2.11990455,
+         2.12080617, 2.12149703, 2.12235987, 2.12357791, 2.12530116,
+         2.12763313, 2.1306188 , 2.13423492, 2.13838524, 2.14290354,
+         2.1475672 , 2.15212266, 2.15632074, 2.15995584, 2.1628987 ,
+         2.16511343]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 1 0 1 ... 1 1 1 0 1 0 0 1</div><input id='attrs-5635372a-a036-4925-8bf6-0634dc61a3af' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5635372a-a036-4925-8bf6-0634dc61a3af' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e571498-9b23-48b7-a187-a4c37b2d1e05' class='xr-var-data-in' type='checkbox'><label for='data-7e571498-9b23-48b7-a187-a4c37b2d1e05' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 1, 0],
+       [1, 0, 1, 0, 0, 0, 1],
+       [1, 1, 0, 1, 0, 0, 0],
        [1, 1, 0, 1, 0, 0, 1],
        [1, 1, 0, 1, 0, 1, 1],
+       [1, 1, 0, 1, 1, 0, 0],
        [1, 1, 0, 1, 1, 0, 1],
-       [1, 1, 0, 1, 0, 0, 0],
-       [1, 0, 1, 0, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>21.43 20.9 28.22 ... 20.03 16.75</div><input id='attrs-dfe03abc-e4fe-42b9-81b7-75dfec1db9c6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dfe03abc-e4fe-42b9-81b7-75dfec1db9c6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ab4d8e56-3170-4835-95aa-6c6386dd1833' class='xr-var-data-in' type='checkbox'><label for='data-ab4d8e56-3170-4835-95aa-6c6386dd1833' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([21.433, 20.9  , 28.217, 21.307, 21.967, 19.733, 20.033, 16.75 ],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>202.2 203.5 182.6 ... 204.2 190.5</div><input id='attrs-e8752feb-b343-4b63-863b-866febaf426f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e8752feb-b343-4b63-863b-866febaf426f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9f6e8b5f-7cdf-4d5e-8789-43c7559df747' class='xr-var-data-in' type='checkbox'><label for='data-9f6e8b5f-7cdf-4d5e-8789-43c7559df747' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([202.2  , 203.533, 182.633, 202.133, 200.65 , 204.933, 204.167,
-       190.483], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.533 1.364 1.204 ... 1.406 1.225</div><input id='attrs-3bcbac5f-e736-425c-97f0-715578deb78d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3bcbac5f-e736-425c-97f0-715578deb78d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8d998c90-e616-43b8-a7ab-5da7b353b869' class='xr-var-data-in' type='checkbox'><label for='data-8d998c90-e616-43b8-a7ab-5da7b353b869' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.533, 1.364, 1.204, 1.722, 1.24 , 1.912, 1.406, 1.225])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Mokuoloe&#x27; &#x27;Kahului&#x27; ... &#x27;Johnston&#x27;</div><input id='attrs-a1ab7e10-8517-4a32-bc52-e2c2faa34e67' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a1ab7e10-8517-4a32-bc52-e2c2faa34e67' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8557712c-f550-40f6-a74f-111c1be2065e' class='xr-var-data-in' type='checkbox'><label for='data-8557712c-f550-40f6-a74f-111c1be2065e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Mokuoloe&#x27;, &#x27;Kahului&#x27;, &#x27;Midway&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;,
-       &#x27;Hilo, Hawaii&#x27;, &#x27;Kawaihae&#x27;, &#x27;Johnston&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a68e6b69-9bee-42ef-800c-461ba1c8c9c0' class='xr-section-summary-in' type='checkbox'  ><label for='section-a68e6b69-9bee-42ef-800c-461ba1c8c9c0' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-92f65f44-d917-45ef-bf45-f1df2427c839' class='xr-index-data-in' type='checkbox'/><label for='index-92f65f44-d917-45ef-bf45-f1df2427c839' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([61, 59, 50, 57, 58, 60, 552, 52], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1e6afc38-3512-4ac1-a289-92ed28be4f07' class='xr-index-data-in' type='checkbox'/><label for='index-1e6afc38-3512-4ac1-a289-92ed28be4f07' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
+       [1, 1, 0, 1, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 20.03 ... 19.73 21.43</div><input id='attrs-11d21884-258a-4ac3-a529-a0ab849d44d3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-11d21884-258a-4ac3-a529-a0ab849d44d3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-974b0ab0-a40d-4861-8d8e-e17f3a88b3f5' class='xr-var-data-in' type='checkbox'><label for='data-974b0ab0-a40d-4861-8d8e-e17f3a88b3f5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 20.033, 21.307, 21.967, 20.9  , 19.733, 21.433],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 204.2 ... 204.9 202.2</div><input id='attrs-3e724274-b168-44aa-9cf3-f3c4c7c85b33' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3e724274-b168-44aa-9cf3-f3c4c7c85b33' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-17d7271f-3214-4241-b7f7-492d9aa7bcb2' class='xr-var-data-in' type='checkbox'><label for='data-17d7271f-3214-4241-b7f7-492d9aa7bcb2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 204.167, 202.133, 200.65 , 203.533, 204.933,
+       202.2  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.204 1.225 1.406 ... 1.912 1.533</div><input id='attrs-516ee54c-3545-4e48-9ecf-0f68fc8df02d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-516ee54c-3545-4e48-9ecf-0f68fc8df02d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1900e494-a4c4-454d-8b87-515472378ae7' class='xr-var-data-in' type='checkbox'><label for='data-1900e494-a4c4-454d-8b87-515472378ae7' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.204, 1.225, 1.406, 1.722, 1.24 , 1.364, 1.912, 1.533])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Mokuoloe&#x27;</div><input id='attrs-35c9578a-956f-4add-8ea9-b6528bad67c6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-35c9578a-956f-4add-8ea9-b6528bad67c6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f2bf2cad-76bc-45a8-b904-787b07a2e07f' class='xr-var-data-in' type='checkbox'><label for='data-f2bf2cad-76bc-45a8-b904-787b07a2e07f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Kawaihae&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;,
+       &#x27;Kahului&#x27;, &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a67b7de0-799f-4264-ac92-c4438f1650b3' class='xr-section-summary-in' type='checkbox'  ><label for='section-a67b7de0-799f-4264-ac92-c4438f1650b3' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-dd27db1f-cc1b-4422-9bf5-a6cdd72653ed' class='xr-index-data-in' type='checkbox'/><label for='index-dd27db1f-cc1b-4422-9bf5-a6cdd72653ed' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([50, 52, 552, 57, 58, 59, 60, 61], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-65c4115f-8792-4454-ae62-d287f4cedb2e' class='xr-index-data-in' type='checkbox'/><label for='index-65c4115f-8792-4454-ae62-d287f4cedb2e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
        2002.0, 2003.0, 2004.0, 2005.0, 2006.0, 2007.0, 2008.0, 2009.0, 2010.0,
        2011.0, 2012.0, 2013.0, 2014.0, 2015.0, 2016.0, 2017.0, 2018.0, 2019.0,
        2020.0, 2021.0, 2022.0, 2023.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3de986f2-4851-48da-a632-016e87b913db' class='xr-index-data-in' type='checkbox'/><label for='index-3de986f2-4851-48da-a632-016e87b913db' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e58c42f2-bac8-4eb7-ba67-e81dcc402081' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e58c42f2-bac8-4eb7-ba67-e81dcc402081' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-d41960e9-9c64-41cc-a31d-b9aed9f043b4' class='xr-index-data-in' type='checkbox'/><label for='index-d41960e9-9c64-41cc-a31d-b9aed9f043b4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c8848d63-4feb-4995-8656-c53cd8b53fec' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c8848d63-4feb-4995-8656-c53cd8b53fec' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="create-a-map">
@@ -2805,12 +2766,12 @@ Attributes:
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" src="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" />
+<img alt="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" src="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="timedependentreturnvaluemap">
-<img alt="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" src="../../_images/3324e1eaaacd55ae594c0497add5570983ac6df37e05bc27c450d1124cdf3f6c.png" />
+<img alt="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" src="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 11 </span><span class="caption-text">Map of the nonstationary GEV-based extreme water level return values for Hawaiian Island region stations. Year 2020 is shown here. Each nonstationary model includes some combination of seasonality, a long-term trend, and the 18.6 nodal-cycle, provided each parameter improves the significance of the GEV fit. No covariates are used for these particular best-fit models.</span><a class="headerlink" href="#timedependentreturnvaluemap" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -2877,7 +2838,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/57481334949fd3b3d1bff68739521d381ae14150b58554161738f60e8a8f870d.png" src="../../_images/57481334949fd3b3d1bff68739521d381ae14150b58554161738f60e8a8f870d.png" />
+<img alt="../../_images/76096c9f09650adcb8df9a78df264922d8b3b79ef8ae8fef0a46129196b59950.png" src="../../_images/76096c9f09650adcb8df9a78df264922d8b3b79ef8ae8fef0a46129196b59950.png" />
 </div>
 </div>
 </section>
@@ -2896,7 +2857,7 @@ Attributes:
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/nonstationaryGEV"
+            path: "./notebooks\nonstationaryGEV"
         },
         predefinedOutput: true
     }
@@ -2970,8 +2931,8 @@ Attributes:
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#first-look-modeling-seasonality">First look: Modeling Seasonality</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#extract-a-timeseries-of-the-time-dependent-return-values">Extract a timeseries of the time-dependent return values</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#gettimedependentreturnvalue">getTimeDependentReturnValue</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-an-error-estimation">Make an error estimation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-confidence-intervals">Calculate Confidence Intervals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-time-dependent-return-value">Calculate the Time Dependent Return Value</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-monthly-extremes-and-given-year-return-period-with-the-seasonal-model">Plot monthly extremes and given year return period with the seasonal model</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#check-if-we-should-include-a-long-term-trend-mean-sea-level-rise-in-our-location-parameter">Check if we should include a long-term trend (mean sea level rise) in our location parameter</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#check-the-covariate-in-the-location-parameter">Check the covariate in the location parameter.</a></li>
