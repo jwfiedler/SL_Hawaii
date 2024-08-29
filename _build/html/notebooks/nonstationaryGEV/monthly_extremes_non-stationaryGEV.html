@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -47,23 +47,26 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV';</script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Minor Flood Frequency and Duration" href="../Flood.html" />
@@ -167,18 +170,7 @@
   
   
 </a></div>
-        <div class="sidebar-primary-item">
-
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
-        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -255,9 +247,9 @@
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -282,14 +274,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+    <img src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -464,9 +456,9 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -544,8 +536,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e3277651-28a5-4d5a-bae6-e8147bb660e0">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e3277651-28a5-4d5a-bae6-e8147bb660e0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7e8d381b-ec98-4b08-ac18-18ed4186a684">
+<span class="eqno">(1)<a class="headerlink" href="#equation-7e8d381b-ec98-4b08-ac18-18ed4186a684" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -559,8 +551,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6615ec0f-a618-4fcd-b727-5427ffe95274">
-<span class="eqno">(2)<a class="headerlink" href="#equation-6615ec0f-a618-4fcd-b727-5427ffe95274" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e48f1154-0cf9-444d-b028-18bc95991941">
+<span class="eqno">(2)<a class="headerlink" href="#equation-e48f1154-0cf9-444d-b028-18bc95991941" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -670,8 +662,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a313de60-3573-4d37-b91f-54e9e3604536">
-<span class="eqno">(3)<a class="headerlink" href="#equation-a313de60-3573-4d37-b91f-54e9e3604536" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-895beead-3974-4b94-be93-61b8fe5a4dfe">
+<span class="eqno">(3)<a class="headerlink" href="#equation-895beead-3974-4b94-be93-61b8fe5a4dfe" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -697,8 +689,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-in-location-model">
 <h4>Seasonality in Location Model<a class="headerlink" href="#seasonality-in-location-model" title="Permalink to this heading">#</a></h4>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50a31d9b-29e3-4a6d-93e2-c16bf145e040">
-<span class="eqno">(4)<a class="headerlink" href="#equation-50a31d9b-29e3-4a6d-93e2-c16bf145e040" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-295c0ada-3bbf-40e7-8161-9408ffd5a0fe">
+<span class="eqno">(4)<a class="headerlink" href="#equation-295c0ada-3bbf-40e7-8161-9408ffd5a0fe" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -717,8 +709,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-ee89bd40-36ae-48e0-ad6d-a25d1f37db1c">
-<span class="eqno">(5)<a class="headerlink" href="#equation-ee89bd40-36ae-48e0-ad6d-a25d1f37db1c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d8a723d8-0b22-40a5-9b0c-39fb03376527">
+<span class="eqno">(5)<a class="headerlink" href="#equation-d8a723d8-0b22-40a5-9b0c-39fb03376527" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0e^{\beta_{LT}(t)}  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t)   + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -730,8 +722,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-518c81ef-a3cc-4bbf-bc51-17bda8204260">
-<span class="eqno">(6)<a class="headerlink" href="#equation-518c81ef-a3cc-4bbf-bc51-17bda8204260" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ed3a36d6-70ec-47c4-8b26-083f682f2bae">
+<span class="eqno">(6)<a class="headerlink" href="#equation-ed3a36d6-70ec-47c4-8b26-083f682f2bae" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0 e^{\beta_{LT}(t)} + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t) + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -992,7 +984,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <h2>Format data input to the model<a class="headerlink" href="#format-data-input-to-the-model" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll take our sea level data, extract the monthly maxima from our timeseries, and format it for input into the model. We need the yearday of each monthly maximum, and if using a covariate model (e.g. SOI, ENSO, wave height), the yearday of that index.</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input above-output-prompt docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="o">%</span><span class="k">run</span> ../setup.ipynb
@@ -1036,49 +1028,6 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </pre></div>
 </div>
 </div>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
-  _pyproj_global_context_initialize()
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_input&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span><span class="s1">&#39;GEV_model_output&#39;</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># remove stations 547,548, 14</span>
-<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=~</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">547</span><span class="p">,</span><span class="mi">548</span><span class="p">,</span><span class="mi">14</span><span class="p">]))</span>
-
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
-<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span>         <span class="sa">f</span><span class="s2">&quot;backends: </span><span class="si">{</span><span class="n">compatible_engines</span><span class="si">}</span><span class="s2">. But their dependencies may not be installed, see:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/user-guide/io.html </span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/getting-started-guide/installing.html&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
-<span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
-<span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
-</pre></div>
-</div>
-</div>
-</details>
 </div>
 <section id="adjust-data-for-storm-year">
 <h3>Adjust data for storm year<a class="headerlink" href="#adjust-data-for-storm-year" title="Permalink to this heading">#</a></h3>
@@ -1300,6 +1249,64 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">12</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span>         <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;standard_error&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">12</span>     <span class="n">x_s</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">stepwise</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_SeasonalMu&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span>     <span class="n">x</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">(</span><span class="n">x_s</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_SeasonalMu&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>     <span class="n">w_s</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;best.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="nn">Cell In[2], line 9,</span> in <span class="ni">stepwise</span><span class="nt">(x_inisol, modelType)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x_inisol</span><span class="p">])</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># x = x_inisol # Start with initial solution</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">f</span><span class="p">,</span> <span class="n">pa</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">cont</span><span class="p">],</span> <span class="n">modelType</span><span class="p">)</span>  <span class="c1"># Compute fitness for initial solution</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">f</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">pa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">pa</span><span class="p">])</span>
+
+<span class="nn">Cell In[3], line 95,</span> in <span class="ni">fitness</span><span class="nt">(x, modelType)</span>
+<span class="g g-Whitespace">     </span><span class="mi">93</span> <span class="c1"># Run the external model executable</span>
+<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="n">modelName</span> <span class="o">=</span> <span class="s1">&#39;Model_&#39;</span> <span class="o">+</span> <span class="n">modelType</span> <span class="o">+</span> <span class="s1">&#39;.exe&#39;</span>
+<span class="ne">---&gt; </span><span class="mi">95</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">modelName</span><span class="p">],</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">97</span> <span class="c1"># Read the output</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span> <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;best.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/subprocess.py:505,</span> in <span class="ni">run</span><span class="nt">(input, capture_output, timeout, check, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stdout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PIPE</span>
+<span class="g g-Whitespace">    </span><span class="mi">503</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;stderr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">PIPE</span>
+<span class="ne">--&gt; </span><span class="mi">505</span> <span class="k">with</span> <span class="n">Popen</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">process</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">506</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">507</span>         <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/subprocess.py:951,</span> in <span class="ni">Popen.__init__</span><span class="nt">(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask)</span>
+<span class="g g-Whitespace">    </span><span class="mi">947</span>         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_mode</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">948</span>             <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">TextIOWrapper</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">949</span>                     <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">951</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_execute_child</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">executable</span><span class="p">,</span> <span class="n">preexec_fn</span><span class="p">,</span> <span class="n">close_fds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">952</span>                         <span class="n">pass_fds</span><span class="p">,</span> <span class="n">cwd</span><span class="p">,</span> <span class="n">env</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">953</span>                         <span class="n">startupinfo</span><span class="p">,</span> <span class="n">creationflags</span><span class="p">,</span> <span class="n">shell</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">954</span>                         <span class="n">p2cread</span><span class="p">,</span> <span class="n">p2cwrite</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">955</span>                         <span class="n">c2pread</span><span class="p">,</span> <span class="n">c2pwrite</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">956</span>                         <span class="n">errread</span><span class="p">,</span> <span class="n">errwrite</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">957</span>                         <span class="n">restore_signals</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">958</span>                         <span class="n">gid</span><span class="p">,</span> <span class="n">gids</span><span class="p">,</span> <span class="n">uid</span><span class="p">,</span> <span class="n">umask</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">959</span>                         <span class="n">start_new_session</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">960</span> <span class="k">except</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">961</span>     <span class="c1"># Cleanup if the child failed starting.</span>
+<span class="g g-Whitespace">    </span><span class="mi">962</span>     <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">)):</span>
+
+<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/subprocess.py:1837,</span> in <span class="ni">Popen._execute_child</span><span class="nt">(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, gid, gids, uid, umask, start_new_session)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1835</span>     <span class="k">if</span> <span class="n">errno_num</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1836</span>         <span class="n">err_msg</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">strerror</span><span class="p">(</span><span class="n">errno_num</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1837</span>     <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">errno_num</span><span class="p">,</span> <span class="n">err_msg</span><span class="p">,</span> <span class="n">err_filename</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1838</span> <span class="k">raise</span> <span class="n">child_exception_type</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
+<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;Model_GEV_SeasonalMu.exe&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -1457,11 +1464,15 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="calculate-confidence-intervals">
 <h3>Calculate Confidence Intervals<a class="headerlink" href="#calculate-confidence-intervals" title="Permalink to this heading">#</a></h3>
 <p>These next codes will calculate the derivative of the previous prediction, using the perturbation method. We will get be getting the derivative for each parameter, with the goal of solving the total variance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fd710ec6-dd0e-44a9-b93e-6077dfcaf044">
-<span class="eqno">(7)<a class="headerlink" href="#equation-fd710ec6-dd0e-44a9-b93e-6077dfcaf044" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8e4360bf-a4bd-4e0b-8b52-b99efffbad15">
+<span class="eqno">(7)<a class="headerlink" href="#equation-8e4360bf-a4bd-4e0b-8b52-b99efffbad15" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma^2_{L(\theta| t_i)} = \sum_{i=1}^{m}\sum_{i=1}^m \frac{\delta L}{\delta \theta_i}\frac{\delta L}{\delta \theta_j}[J_\theta]_{i,j},
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(L\)</span> likelihood function of the PDF of equation 1, and <span class="math notranslate nohighlight">\(J\)</span> is the inverse of the <span class="math notranslate nohighlight">\(m\)</span> x <span class="math notranslate nohighlight">\(m\)</span> covariance-variance matrix of the parameter estimates in <span class="math notranslate nohighlight">\(L\)</span>. Note that because this is an estimate at a given time, we will need to calculate this for all timesteps. Thus, we’ll define a function so that we can run this for each timestep.</p>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<p>Note: Does this method assume that all parameters are independent, when doing the summation? The long-term trend introduces non-linearity, and the sine/cosine pairs are just phase and lag of the same signal. Can they be treated as independent? I’m pretty fuzzy on whether this is ‘correct’ or not. Do we instead want to do confidence intervals using Monte-Carlo?</p>
+</aside>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">derivative_first_order</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">t00</span><span class="p">,</span> <span class="n">t11</span><span class="p">,</span> <span class="n">return_period</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">covariate</span><span class="p">):</span>
@@ -2857,7 +2868,7 @@ Attributes:
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks\nonstationaryGEV"
+            path: "./notebooks/nonstationaryGEV"
         },
         predefinedOutput: true
     }
