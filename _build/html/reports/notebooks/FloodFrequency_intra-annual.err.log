@@ -36,7 +36,7 @@ File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\lru_cache.p
 [1;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [0;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[1;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('C:\\Users\\julia\\Documents\\GitHub\\SL_Hawaii\\data\\SL_daily_max.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '13a723a7-8002-497b-9362-0b1c8c725673']
+[1;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('C:\\Users\\julia\\Documents\\GitHub\\SL_Hawaii\\data\\SL_daily_max.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '4afedbdb-66c2-47db-b634-8095912bf2e5']
 
 During handling of the above exception, another exception occurred:
 

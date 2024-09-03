@@ -30,12 +30,12 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
@@ -47,24 +47,21 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/regional_and_local/SL_Extremes_intra-annual';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Components of Sea Level" href="SL_Components_intra-annual.html" />
@@ -168,7 +165,18 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -245,9 +253,9 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -272,14 +280,14 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/regional_and_local/SL_Extremes_intra-annual.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -503,7 +511,11 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rsl_hawaii.nc found in ../../data. Proceed.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
+  _pyproj_global_context_initialize()
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rsl_hawaii.nc found in ..\..\data. Proceed.
 </pre></div>
 </div>
 </div>
@@ -513,6 +525,37 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># open the dataset</span>
 <span class="c1"># Load dataset with Dask (assuming your dataset is in NetCDF format)</span>
 <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># open the dataset</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Load dataset with Dask (assuming your dataset is in NetCDF format)</span>
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">})</span>
+
+<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span>         <span class="sa">f</span><span class="s2">&quot;backends: </span><span class="si">{</span><span class="n">compatible_engines</span><span class="si">}</span><span class="s2">. But their dependencies may not be installed, see:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/user-guide/io.html </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/getting-started-guide/installing.html&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+<span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
+<span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
 </pre></div>
 </div>
 </div>
@@ -535,255 +578,6 @@ document.write(`
 <span class="c1"># avg_daily = daily_mean.groupby(&#39;dayofyear&#39;).mean(dim=&#39;time&#39;)</span>
 <span class="c1"># record_high = sea_level.groupby(&#39;dayofyear&#39;).max(dim=&#39;time&#39;)</span>
 <span class="c1"># record_low = sea_level.groupby(&#39;dayofyear&#39;).min(dim=&#39;time&#39;)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sea_level</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="c1"># resample to daily min, max, and mean</span>
-<span class="ne">----&gt; </span><span class="mi">7</span> <span class="n">daily_mean</span> <span class="o">=</span> <span class="n">sea_level</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">daily_max</span> <span class="o">=</span> <span class="n">sea_level</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">daily_min</span> <span class="o">=</span> <span class="n">sea_level</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="s1">&#39;1D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/_aggregations.py:7359,</span> in <span class="ni">DataArrayResampleAggregations.mean</span><span class="nt">(self, dim, skipna, keep_attrs, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7350</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flox_reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">7351</span>         <span class="n">func</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7352</span>         <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7356</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7357</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">7358</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">7359</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">7360</span>         <span class="n">duck_array_ops</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7361</span>         <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7362</span>         <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7363</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7364</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">7365</span>     <span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:1501,</span> in <span class="ni">DataArrayGroupByBase.reduce</span><span class="nt">(self, func, dim, axis, keep_attrs, keepdims, shortcut, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1490</span>     <span class="k">return</span> <span class="n">ar</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1499</span> <span class="n">check_reduce_dims</span><span class="p">(</span><span class="n">dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dims</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1501</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">reduce_array</span><span class="p">,</span> <span class="n">shortcut</span><span class="o">=</span><span class="n">shortcut</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/resample.py:241,</span> in <span class="ni">DataArrayResample.map</span><span class="nt">(self, func, args, shortcut, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Apply a function to each array in the group and concatenate them</span>
-<span class="g g-Whitespace">    </span><span class="mi">199</span><span class="sd"> together into a new array.</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span><span class="sd">     The result of splitting, applying and combining this array.</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span> <span class="c1"># TODO: the argument order for Resample doesn&#39;t match that for its parent,</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span> <span class="c1"># GroupBy</span>
-<span class="ne">--&gt; </span><span class="mi">241</span> <span class="n">combined</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">shortcut</span><span class="o">=</span><span class="n">shortcut</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span> <span class="c1"># If the aggregation function didn&#39;t drop the original resampling</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span> <span class="c1"># dimension, then we need to do so before we can rename the proxy</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span> <span class="c1"># dimension we used.</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dim</span> <span class="ow">in</span> <span class="n">combined</span><span class="o">.</span><span class="n">coords</span><span class="p">:</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:1403,</span> in <span class="ni">DataArrayGroupByBase.map</span><span class="nt">(self, func, args, shortcut, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1401</span> <span class="n">grouped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_grouped_shortcut</span><span class="p">()</span> <span class="k">if</span> <span class="n">shortcut</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_grouped</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1402</span> <span class="n">applied</span> <span class="o">=</span> <span class="p">(</span><span class="n">maybe_wrap_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1403</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_combine</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">shortcut</span><span class="o">=</span><span class="n">shortcut</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:1425,</span> in <span class="ni">DataArrayGroupByBase._combine</span><span class="nt">(self, applied, shortcut)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1423</span> <span class="n">coord</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">positions</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_infer_concat_args</span><span class="p">(</span><span class="n">applied_example</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1424</span> <span class="k">if</span> <span class="n">shortcut</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1425</span>     <span class="n">combined</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_concat_shortcut</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">positions</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1426</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1427</span>     <span class="n">combined</span> <span class="o">=</span> <span class="n">concat</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:1331,</span> in <span class="ni">DataArrayGroupByBase._concat_shortcut</span><span class="nt">(self, applied, dim, positions)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1324</span> <span class="k">def</span> <span class="nf">_concat_shortcut</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">applied</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">positions</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1325</span>     <span class="c1"># nb. don&#39;t worry too much about maintaining this method -- it does</span>
-<span class="g g-Whitespace">   </span><span class="mi">1326</span>     <span class="c1"># speed things up, but it&#39;s not very interpretable and there are much</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1329</span>     <span class="c1"># TODO: benbovy - explicit indexes: this fast implementation doesn&#39;t</span>
-<span class="g g-Whitespace">   </span><span class="mi">1330</span>     <span class="c1"># create an explicit index for the stacked dim coordinate</span>
-<span class="ne">-&gt; </span><span class="mi">1331</span>     <span class="n">stacked</span> <span class="o">=</span> <span class="n">Variable</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">shortcut</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1333</span>     <span class="p">(</span><span class="n">grouper</span><span class="p">,)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">groupers</span>
-<span class="g g-Whitespace">   </span><span class="mi">1334</span>     <span class="n">reordered</span> <span class="o">=</span> <span class="n">_maybe_reorder</span><span class="p">(</span><span class="n">stacked</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">positions</span><span class="p">,</span> <span class="n">N</span><span class="o">=</span><span class="n">grouper</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/variable.py:1822,</span> in <span class="ni">Variable.concat</span><span class="nt">(cls, variables, dim, positions, shortcut, combine_attrs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1818</span>     <span class="p">(</span><span class="n">dim</span><span class="p">,)</span> <span class="o">=</span> <span class="n">dim</span><span class="o">.</span><span class="n">dims</span>
-<span class="g g-Whitespace">   </span><span class="mi">1820</span> <span class="c1"># can&#39;t do this lazily: we need to loop through variables at least</span>
-<span class="g g-Whitespace">   </span><span class="mi">1821</span> <span class="c1"># twice</span>
-<span class="ne">-&gt; </span><span class="mi">1822</span> <span class="n">variables</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">variables</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1823</span> <span class="n">first_var</span> <span class="o">=</span> <span class="n">variables</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1824</span> <span class="n">first_var_dims</span> <span class="o">=</span> <span class="n">first_var</span><span class="o">.</span><span class="n">dims</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:1402,</span> in <span class="ni">&lt;genexpr&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1360</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Apply a function to each array in the group and concatenate them</span>
-<span class="g g-Whitespace">   </span><span class="mi">1361</span><span class="sd"> together into a new array.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1362</span><span class="sd"> </span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1399</span><span class="sd">     The result of splitting, applying and combining this array.</span>
-<span class="g g-Whitespace">   </span><span class="mi">1400</span><span class="sd"> &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1401</span> <span class="n">grouped</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_grouped_shortcut</span><span class="p">()</span> <span class="k">if</span> <span class="n">shortcut</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_iter_grouped</span><span class="p">()</span>
-<span class="ne">-&gt; </span><span class="mi">1402</span> <span class="n">applied</span> <span class="o">=</span> <span class="p">(</span><span class="n">maybe_wrap_array</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="n">func</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1403</span> <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_combine</span><span class="p">(</span><span class="n">applied</span><span class="p">,</span> <span class="n">shortcut</span><span class="o">=</span><span class="n">shortcut</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:1490,</span> in <span class="ni">DataArrayGroupByBase.reduce.&lt;locals&gt;.reduce_array</span><span class="nt">(ar)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1489</span> <span class="k">def</span> <span class="nf">reduce_array</span><span class="p">(</span><span class="n">ar</span><span class="p">:</span> <span class="n">DataArray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DataArray</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1490</span>     <span class="k">return</span> <span class="n">ar</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1491</span>         <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1492</span>         <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1493</span>         <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1494</span>         <span class="n">keep_attrs</span><span class="o">=</span><span class="n">keep_attrs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1495</span>         <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1496</span>         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1497</span>     <span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/variable.py:1756,</span> in <span class="ni">Variable.reduce</span><span class="nt">(self, func, dim, axis, keep_attrs, keepdims, **kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1749</span> <span class="n">keep_attrs_</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1750</span>     <span class="n">_get_keep_attrs</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">if</span> <span class="n">keep_attrs</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">keep_attrs</span>
-<span class="g g-Whitespace">   </span><span class="mi">1751</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1753</span> <span class="c1"># Noe that the call order for Variable.mean is</span>
-<span class="g g-Whitespace">   </span><span class="mi">1754</span> <span class="c1">#    Variable.mean -&gt; NamedArray.mean -&gt; Variable.reduce</span>
-<span class="g g-Whitespace">   </span><span class="mi">1755</span> <span class="c1">#    -&gt; NamedArray.reduce</span>
-<span class="ne">-&gt; </span><span class="mi">1756</span> <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1757</span>     <span class="n">func</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">   </span><span class="mi">1758</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1760</span> <span class="c1"># return Variable always to support IndexVariable</span>
-<span class="g g-Whitespace">   </span><span class="mi">1761</span> <span class="k">return</span> <span class="n">Variable</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1762</span>     <span class="n">result</span><span class="o">.</span><span class="n">dims</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">_data</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="n">result</span><span class="o">.</span><span class="n">_attrs</span> <span class="k">if</span> <span class="n">keep_attrs_</span> <span class="k">else</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1763</span> <span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/namedarray/core.py:759,</span> in <span class="ni">NamedArray.reduce</span><span class="nt">(self, func, dim, axis, keepdims, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">755</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">axis</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">756</span>         <span class="c1"># unpack axis for the benefit of functions</span>
-<span class="g g-Whitespace">    </span><span class="mi">757</span>         <span class="c1"># like np.argmin which can&#39;t handle tuple arguments</span>
-<span class="g g-Whitespace">    </span><span class="mi">758</span>         <span class="n">axis</span> <span class="o">=</span> <span class="n">axis</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="ne">--&gt; </span><span class="mi">759</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">760</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">761</span>     <span class="n">data</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/duck_array_ops.py:632,</span> in <span class="ni">mean</span><span class="nt">(array, axis, skipna, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">630</span>     <span class="k">return</span> <span class="n">_to_pytimedelta</span><span class="p">(</span><span class="n">mean_timedeltas</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;us&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">offset</span>
-<span class="g g-Whitespace">    </span><span class="mi">631</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">632</span>     <span class="k">return</span> <span class="n">_mean</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">skipna</span><span class="o">=</span><span class="n">skipna</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/duck_array_ops.py:399,</span> in <span class="ni">_create_nan_agg_method.&lt;locals&gt;.f</span><span class="nt">(values, axis, skipna, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">397</span>     <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="s2">&quot;All-NaN slice encountered&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">399</span>         <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">400</span> <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">401</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">is_duck_dask_array</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/nanops.py:131,</span> in <span class="ni">nanmean</span><span class="nt">(a, axis, dtype, out)</span>
-<span class="g g-Whitespace">    </span><span class="mi">126</span> <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
-<span class="g g-Whitespace">    </span><span class="mi">127</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">128</span>         <span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="sa">r</span><span class="s2">&quot;Mean of empty slice&quot;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">RuntimeWarning</span>
-<span class="g g-Whitespace">    </span><span class="mi">129</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">131</span>     <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/array/core.py:1760,</span> in <span class="ni">Array.__array_function__</span><span class="nt">(self, func, types, args, kwargs)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1757</span> <span class="k">if</span> <span class="n">has_keyword</span><span class="p">(</span><span class="n">da_func</span><span class="p">,</span> <span class="s2">&quot;like&quot;</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1758</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;like&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
-<span class="ne">-&gt; </span><span class="mi">1760</span> <span class="k">return</span> <span class="n">da_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/array/reductions.py:740,</span> in <span class="ni">nanmean</span><span class="nt">(a, axis, dtype, keepdims, split_every, out)</span>
-<span class="g g-Whitespace">    </span><span class="mi">738</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">739</span>     <span class="n">dt</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span><span class="p">)),</span> <span class="s2">&quot;dtype&quot;</span><span class="p">,</span> <span class="nb">object</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">740</span> <span class="k">return</span> <span class="n">reduction</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">741</span>     <span class="n">a</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">742</span>     <span class="n">partial</span><span class="p">(</span><span class="n">mean_chunk</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="n">chunk</span><span class="o">.</span><span class="n">nansum</span><span class="p">,</span> <span class="n">numel</span><span class="o">=</span><span class="n">nannumel</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">743</span>     <span class="n">mean_agg</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">744</span>     <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">745</span>     <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">746</span>     <span class="n">dtype</span><span class="o">=</span><span class="n">dt</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">747</span>     <span class="n">split_every</span><span class="o">=</span><span class="n">split_every</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">748</span>     <span class="n">out</span><span class="o">=</span><span class="n">out</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">749</span>     <span class="n">concatenate</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">750</span>     <span class="n">combine</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">mean_combine</span><span class="p">,</span> <span class="nb">sum</span><span class="o">=</span><span class="n">chunk</span><span class="o">.</span><span class="n">nansum</span><span class="p">,</span> <span class="n">numel</span><span class="o">=</span><span class="n">nannumel</span><span class="p">),</span>
-<span class="g g-Whitespace">    </span><span class="mi">751</span> <span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/array/reductions.py:236,</span> in <span class="ni">reduction</span><span class="nt">(x, chunk, aggregate, axis, keepdims, dtype, split_every, combine, name, out, concatenate, output_size, meta, weights)</span>
-<span class="g g-Whitespace">    </span><span class="mi">233</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">234</span>     <span class="n">reduced_meta</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">--&gt; </span><span class="mi">236</span> <span class="n">result</span> <span class="o">=</span> <span class="n">_tree_reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">237</span>     <span class="n">tmp</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">238</span>     <span class="n">aggregate</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">239</span>     <span class="n">axis</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">240</span>     <span class="n">keepdims</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">241</span>     <span class="n">dtype</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>     <span class="n">split_every</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>     <span class="n">combine</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">244</span>     <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>     <span class="n">concatenate</span><span class="o">=</span><span class="n">concatenate</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>     <span class="n">reduced_meta</span><span class="o">=</span><span class="n">reduced_meta</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">247</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">248</span> <span class="k">if</span> <span class="n">keepdims</span> <span class="ow">and</span> <span class="n">output_size</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">249</span>     <span class="n">result</span><span class="o">.</span><span class="n">_chunks</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span>
-<span class="nn">    250         (output_size,) if i in axis else c for i, c</span> in <span class="ni">enumerate</span><span class="nt">(tmp.chunks)</span>
-<span class="g g-Whitespace">    </span><span class="mi">251</span>     <span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/array/reductions.py:304,</span> in <span class="ni">_tree_reduce</span><span class="nt">(x, aggregate, axis, keepdims, dtype, split_every, combine, name, concatenate, reduced_meta)</span>
-<span class="g g-Whitespace">    </span><span class="mi">302</span> <span class="k">if</span> <span class="n">concatenate</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">303</span>     <span class="n">func</span> <span class="o">=</span> <span class="n">compose</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">partial</span><span class="p">(</span><span class="n">_concatenate2</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="nb">sorted</span><span class="p">(</span><span class="n">axis</span><span class="p">)))</span>
-<span class="ne">--&gt; </span><span class="mi">304</span> <span class="k">return</span> <span class="n">partial_reduce</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>     <span class="n">func</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">306</span>     <span class="n">x</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">307</span>     <span class="n">split_every</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">308</span>     <span class="n">keepdims</span><span class="o">=</span><span class="n">keepdims</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">309</span>     <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span>     <span class="n">name</span><span class="o">=</span><span class="p">(</span><span class="n">name</span> <span class="ow">or</span> <span class="n">funcname</span><span class="p">(</span><span class="n">aggregate</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot;-aggregate&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span>     <span class="n">reduced_meta</span><span class="o">=</span><span class="n">reduced_meta</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">312</span> <span class="p">)</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/array/reductions.py:357,</span> in <span class="ni">partial_reduce</span><span class="nt">(func, x, split_every, keepdims, dtype, name, reduced_meta)</span>
-<span class="g g-Whitespace">    </span><span class="mi">353</span>     <span class="n">free</span> <span class="o">=</span> <span class="p">{</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span>         <span class="n">i</span><span class="p">:</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">split_every</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span>     <span class="p">}</span>
-<span class="nn">    356     dummy = dict(i for i</span> in <span class="ni">enumerate</span><span class="nt">(p) if i[0] in split_every)</span>
-<span class="ne">--&gt; </span><span class="mi">357</span>     <span class="n">g</span> <span class="o">=</span> <span class="n">lol_tuples</span><span class="p">((</span><span class="n">x</span><span class="o">.</span><span class="n">name</span><span class="p">,),</span> <span class="nb">range</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">ndim</span><span class="p">),</span> <span class="n">free</span><span class="p">,</span> <span class="n">dummy</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span>     <span class="n">dsk</span><span class="p">[(</span><span class="n">name</span><span class="p">,)</span> <span class="o">+</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">359</span> <span class="n">graph</span> <span class="o">=</span> <span class="n">HighLevelGraph</span><span class="o">.</span><span class="n">from_collections</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">dsk</span><span class="p">,</span> <span class="n">dependencies</span><span class="o">=</span><span class="p">[</span><span class="n">x</span><span class="p">])</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/blockwise.py:1047,</span> in <span class="ni">lol_tuples</span><span class="nt">(head, ind, values, dummies)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1045</span>     <span class="k">return</span> <span class="n">head</span>
-<span class="g g-Whitespace">   </span><span class="mi">1046</span> <span class="k">if</span> <span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dummies</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1047</span>     <span class="k">return</span> <span class="n">lol_tuples</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]],),</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">values</span><span class="p">,</span> <span class="n">dummies</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1049</span>     <span class="k">return</span> <span class="p">[</span>
-<span class="g g-Whitespace">   </span><span class="mi">1050</span>         <span class="n">lol_tuples</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span><span class="p">,),</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">values</span><span class="p">,</span> <span class="n">dummies</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dummies</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1051</span>     <span class="p">]</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/blockwise.py:1049,</span> in <span class="ni">lol_tuples</span><span class="nt">(head, ind, values, dummies)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1047</span>     <span class="k">return</span> <span class="n">lol_tuples</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]],),</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">values</span><span class="p">,</span> <span class="n">dummies</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1049</span>     <span class="k">return</span> <span class="p">[</span>
-<span class="g g-Whitespace">   </span><span class="mi">1050</span>         <span class="n">lol_tuples</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span><span class="p">,),</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">values</span><span class="p">,</span> <span class="n">dummies</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dummies</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1051</span>     <span class="p">]</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/blockwise.py:1050,</span> in <span class="ni">&lt;listcomp&gt;</span><span class="nt">(.0)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1047</span>     <span class="k">return</span> <span class="n">lol_tuples</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]],),</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">values</span><span class="p">,</span> <span class="n">dummies</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1048</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1049</span>     <span class="k">return</span> <span class="p">[</span>
-<span class="ne">-&gt; </span><span class="mi">1050</span>         <span class="n">lol_tuples</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">v</span><span class="p">,),</span> <span class="n">ind</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">values</span><span class="p">,</span> <span class="n">dummies</span><span class="p">)</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dummies</span><span class="p">[</span><span class="n">ind</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1051</span>     <span class="p">]</span>
-
-<span class="nn">File ~/anaconda3/envs/SLI39/lib/python3.9/site-packages/dask/blockwise.py:1017,</span> in <span class="ni">lol_tuples</span><span class="nt">(head, ind, values, dummies)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1014</span>         <span class="k">return</span> <span class="n">lol_product</span><span class="p">(</span><span class="n">head</span> <span class="o">+</span> <span class="p">(</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">],),</span> <span class="n">values</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<span class="ne">-&gt; </span><span class="mi">1017</span> <span class="k">def</span> <span class="nf">lol_tuples</span><span class="p">(</span><span class="n">head</span><span class="p">,</span> <span class="n">ind</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">dummies</span><span class="p">):</span>
-<span class="g g-Whitespace">   </span><span class="mi">1018</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;List of list of tuple keys</span>
-<span class="g g-Whitespace">   </span><span class="mi">1019</span><span class="sd"> </span>
-<span class="g g-Whitespace">   </span><span class="mi">1020</span><span class="sd">     Parameters</span>
-<span class="sd">   (...)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1042</span><span class="sd">      [(&#39;x&#39;, 1, 2, 0), (&#39;x&#39;, 1, 2, 1)]]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1043</span><span class="sd">     &quot;&quot;&quot;</span>
-<span class="g g-Whitespace">   </span><span class="mi">1044</span>     <span class="k">if</span> <span class="ow">not</span> <span class="n">ind</span><span class="p">:</span>
-
-<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -1827,7 +1621,7 @@ Attributes:
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks/regional_and_local"
+            path: "./notebooks\regional_and_local"
         },
         predefinedOutput: true
     }

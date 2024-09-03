@@ -1,106 +1,96 @@
 Traceback (most recent call last):
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
     executenb(
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1305, in execute
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 1314, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
     return loop.run_until_complete(inner)
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\asyncio\base_events.py", line 647, in run_until_complete
     return future.result()
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 705, in async_execute
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 709, in async_execute
     await self.async_execute_cell(
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+  File "C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Initial chromosome setup
-x_0 = np.array([0,0,0])
+from pathlib import Path
+import xarray as xr
+%run ../setup.ipynb
+%run ../plotting_functions.ipynb
 
-if os.path.exists(model_output_dir / ridString / 'seasonal_params.json') and runWithoutModel:
-    with open(model_output_dir / ridString / 'seasonal_params.json', 'r') as f:
-        output = json.load(f)
-        w_s = np.array(output['w'])
-        x_s = np.array(output['x'])
-        mio = np.array(output['mio'])
-        standard_error = np.array(output['standard_error'])
-else:
-    x_s, f = stepwise(x_0, modelType='GEV_SeasonalMu')
-    x, f = fitness(x_s[-1],modelType='GEV_SeasonalMu')
-    w_s = np.loadtxt('best.txt', dtype=float)
-    mio = np.loadtxt('mio.txt',dtype=float)
-    x_s = x_s[-1]
+data_dir = Path('../../data' )
+output_dir = Path('../../output/extremes') 
+input_dir = Path('./model_input')
+model_output_dir = Path(data_dir,'GEV_model_output')
+rsl_hourly = xr.open_dataset(data_dir/ 'rsl_hawaii.nc')
 
-    # Assess standard errors of the parameters
-    if np.linalg.det(mio) != 0:
-        J = np.linalg.inv(mio)
-        standard_error = np.sqrt(np.diag(J))
-    else:
-        standard_error = np.full(len(w_s), np.nan)
+# remove stations 547,548, 14
+rsl_hourly = rsl_hourly.sel(record_id=~rsl_hourly.record_id.isin([547,548,14]))
+
+# close the file
+rsl_hourly.close()
 
 
-output = {'w': w_s.tolist(), 'mio': mio.tolist(), 'standard_error': standard_error.tolist(), 'x': x_s.tolist()}
-savepath = os.path.join(model_output_dir,ridString, 'seasonal_params.json')
-with open(savepath, 'w') as f:
-    json.dump(output, f)
+runWithoutModel = False
 
-    
+# check if output directory exists, if not create it
+if not output_dir.exists():
+    output_dir.mkdir(parents=True)
+
+# check if model output directory exists, if not create it
+if not model_output_dir.exists():
+    model_output_dir.mkdir(parents=True)
+
+# make sub-directories for each station in rsl_hourly in model_output_dir
+for rid in rsl_hourly.record_id:
+    ridString = str(rid.values)
+    # maybe needs some leading zeros, for now we'll leave it.
+    station_dir = model_output_dir / ridString
+    if not station_dir.exists():
+        station_dir.mkdir(parents=True)
+
+# remove best.txt, T.txt, CI.txt, Y.txt, mio.txt, scein.dat, and sceout.dat from working directory
+for file in ['best.txt', 'T.txt', 'CI.txt', 'Y.txt', 'mio.txt', 'scein.dat', 'sceout.dat']:
+    if (Path(file)).exists():
+        (Path(file)).unlink()
+
+
 ------------------
 
+----- stderr -----
+C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
+  _pyproj_global_context_initialize()
+------------------
 
-[0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[12], line 12[0m
-[1;32m     10[0m         standard_error [38;5;241m=[39m np[38;5;241m.[39marray(output[[38;5;124m'[39m[38;5;124mstandard_error[39m[38;5;124m'[39m])
-[1;32m     11[0m [38;5;28;01melse[39;00m:
-[0;32m---> 12[0m     x_s, f [38;5;241m=[39m [43mstepwise[49m[43m([49m[43mx_0[49m[43m,[49m[43m [49m[43mmodelType[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mGEV_SeasonalMu[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[1;32m     13[0m     x, f [38;5;241m=[39m fitness(x_s[[38;5;241m-[39m[38;5;241m1[39m],modelType[38;5;241m=[39m[38;5;124m'[39m[38;5;124mGEV_SeasonalMu[39m[38;5;124m'[39m)
-[1;32m     14[0m     w_s [38;5;241m=[39m np[38;5;241m.[39mloadtxt([38;5;124m'[39m[38;5;124mbest.txt[39m[38;5;124m'[39m, dtype[38;5;241m=[39m[38;5;28mfloat[39m)
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mValueError[0m                                Traceback (most recent call last)
+Cell [1;32mIn[5], line 10[0m
+[0;32m      8[0m input_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m./model_input[39m[38;5;124m'[39m)
+[0;32m      9[0m model_output_dir [38;5;241m=[39m Path(data_dir,[38;5;124m'[39m[38;5;124mGEV_model_output[39m[38;5;124m'[39m)
+[1;32m---> 10[0m rsl_hourly [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[0;32m     12[0m [38;5;66;03m# remove stations 547,548, 14[39;00m
+[0;32m     13[0m rsl_hourly [38;5;241m=[39m rsl_hourly[38;5;241m.[39msel(record_id[38;5;241m=[39m[38;5;241m~[39mrsl_hourly[38;5;241m.[39mrecord_id[38;5;241m.[39misin([[38;5;241m547[39m,[38;5;241m548[39m,[38;5;241m14[39m]))
 
-Cell [0;32mIn[2], line 9[0m, in [0;36mstepwise[0;34m(x_inisol, modelType)[0m
-[1;32m      7[0m x [38;5;241m=[39m np[38;5;241m.[39marray([x_inisol]) 
-[1;32m      8[0m [38;5;66;03m# x = x_inisol # Start with initial solution[39;00m
-[0;32m----> 9[0m f, pa [38;5;241m=[39m [43mfitness[49m[43m([49m[43mx[49m[43m[[49m[43mcont[49m[43m][49m[43m,[49m[43m [49m[43mmodelType[49m[43m)[49m  [38;5;66;03m# Compute fitness for initial solution[39;00m
-[1;32m     10[0m f [38;5;241m=[39m np[38;5;241m.[39marray([f])
-[1;32m     11[0m pa [38;5;241m=[39m np[38;5;241m.[39marray([pa])
+File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552[0m, in [0;36mopen_dataset[1;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
+[0;32m    549[0m     kwargs[38;5;241m.[39mupdate(backend_kwargs)
+[0;32m    551[0m [38;5;28;01mif[39;00m engine [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m--> 552[0m     engine [38;5;241m=[39m [43mplugins[49m[38;5;241;43m.[39;49m[43mguess_engine[49m[43m([49m[43mfilename_or_obj[49m[43m)[49m
+[0;32m    554[0m [38;5;28;01mif[39;00m from_array_kwargs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m    555[0m     from_array_kwargs [38;5;241m=[39m {}
 
-Cell [0;32mIn[3], line 95[0m, in [0;36mfitness[0;34m(x, modelType)[0m
-[1;32m     93[0m [38;5;66;03m# Run the external model executable[39;00m
-[1;32m     94[0m modelName [38;5;241m=[39m [38;5;124m'[39m[38;5;124mModel_[39m[38;5;124m'[39m [38;5;241m+[39m modelType [38;5;241m+[39m [38;5;124m'[39m[38;5;124m.exe[39m[38;5;124m'[39m
-[0;32m---> 95[0m [43msubprocess[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m[43m[[49m[43mmodelName[49m[43m][49m[43m,[49m[43m [49m[43mcheck[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
-[1;32m     97[0m [38;5;66;03m# Read the output[39;00m
-[1;32m     98[0m [38;5;28;01mwith[39;00m [38;5;28mopen[39m([38;5;124m'[39m[38;5;124mbest.txt[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124mr[39m[38;5;124m'[39m) [38;5;28;01mas[39;00m file:
+File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197[0m, in [0;36mguess_engine[1;34m(store_spec)[0m
+[0;32m    189[0m [38;5;28;01melse[39;00m:
+[0;32m    190[0m     error_msg [38;5;241m=[39m (
+[0;32m    191[0m         [38;5;124m"[39m[38;5;124mfound the following matches with the input file in xarray[39m[38;5;124m'[39m[38;5;124ms IO [39m[38;5;124m"[39m
+[0;32m    192[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mbackends: [39m[38;5;132;01m{[39;00mcompatible_engines[38;5;132;01m}[39;00m[38;5;124m. But their dependencies may not be installed, see:[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[0;32m    193[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/user-guide/io.html [39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[0;32m    194[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/getting-started-guide/installing.html[39m[38;5;124m"[39m
+[0;32m    195[0m     )
+[1;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
 
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/subprocess.py:505[0m, in [0;36mrun[0;34m(input, capture_output, timeout, check, *popenargs, **kwargs)[0m
-[1;32m    502[0m     kwargs[[38;5;124m'[39m[38;5;124mstdout[39m[38;5;124m'[39m] [38;5;241m=[39m PIPE
-[1;32m    503[0m     kwargs[[38;5;124m'[39m[38;5;124mstderr[39m[38;5;124m'[39m] [38;5;241m=[39m PIPE
-[0;32m--> 505[0m [38;5;28;01mwith[39;00m [43mPopen[49m[43m([49m[38;5;241;43m*[39;49m[43mpopenargs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m [38;5;28;01mas[39;00m process:
-[1;32m    506[0m     [38;5;28;01mtry[39;00m:
-[1;32m    507[0m         stdout, stderr [38;5;241m=[39m process[38;5;241m.[39mcommunicate([38;5;28minput[39m, timeout[38;5;241m=[39mtimeout)
-
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/subprocess.py:951[0m, in [0;36mPopen.__init__[0;34m(self, args, bufsize, executable, stdin, stdout, stderr, preexec_fn, close_fds, shell, cwd, env, universal_newlines, startupinfo, creationflags, restore_signals, start_new_session, pass_fds, user, group, extra_groups, encoding, errors, text, umask)[0m
-[1;32m    947[0m         [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mtext_mode:
-[1;32m    948[0m             [38;5;28mself[39m[38;5;241m.[39mstderr [38;5;241m=[39m io[38;5;241m.[39mTextIOWrapper([38;5;28mself[39m[38;5;241m.[39mstderr,
-[1;32m    949[0m                     encoding[38;5;241m=[39mencoding, errors[38;5;241m=[39merrors)
-[0;32m--> 951[0m     [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_execute_child[49m[43m([49m[43margs[49m[43m,[49m[43m [49m[43mexecutable[49m[43m,[49m[43m [49m[43mpreexec_fn[49m[43m,[49m[43m [49m[43mclose_fds[49m[43m,[49m
-[1;32m    952[0m [43m                        [49m[43mpass_fds[49m[43m,[49m[43m [49m[43mcwd[49m[43m,[49m[43m [49m[43menv[49m[43m,[49m
-[1;32m    953[0m [43m                        [49m[43mstartupinfo[49m[43m,[49m[43m [49m[43mcreationflags[49m[43m,[49m[43m [49m[43mshell[49m[43m,[49m
-[1;32m    954[0m [43m                        [49m[43mp2cread[49m[43m,[49m[43m [49m[43mp2cwrite[49m[43m,[49m
-[1;32m    955[0m [43m                        [49m[43mc2pread[49m[43m,[49m[43m [49m[43mc2pwrite[49m[43m,[49m
-[1;32m    956[0m [43m                        [49m[43merrread[49m[43m,[49m[43m [49m[43merrwrite[49m[43m,[49m
-[1;32m    957[0m [43m                        [49m[43mrestore_signals[49m[43m,[49m
-[1;32m    958[0m [43m                        [49m[43mgid[49m[43m,[49m[43m [49m[43mgids[49m[43m,[49m[43m [49m[43muid[49m[43m,[49m[43m [49m[43mumask[49m[43m,[49m
-[1;32m    959[0m [43m                        [49m[43mstart_new_session[49m[43m)[49m
-[1;32m    960[0m [38;5;28;01mexcept[39;00m:
-[1;32m    961[0m     [38;5;66;03m# Cleanup if the child failed starting.[39;00m
-[1;32m    962[0m     [38;5;28;01mfor[39;00m f [38;5;129;01min[39;00m [38;5;28mfilter[39m([38;5;28;01mNone[39;00m, ([38;5;28mself[39m[38;5;241m.[39mstdin, [38;5;28mself[39m[38;5;241m.[39mstdout, [38;5;28mself[39m[38;5;241m.[39mstderr)):
-
-File [0;32m~/anaconda3/envs/SLI39/lib/python3.9/subprocess.py:1837[0m, in [0;36mPopen._execute_child[0;34m(self, args, executable, preexec_fn, close_fds, pass_fds, cwd, env, startupinfo, creationflags, shell, p2cread, p2cwrite, c2pread, c2pwrite, errread, errwrite, restore_signals, gid, gids, uid, umask, start_new_session)[0m
-[1;32m   1835[0m     [38;5;28;01mif[39;00m errno_num [38;5;241m!=[39m [38;5;241m0[39m:
-[1;32m   1836[0m         err_msg [38;5;241m=[39m os[38;5;241m.[39mstrerror(errno_num)
-[0;32m-> 1837[0m     [38;5;28;01mraise[39;00m child_exception_type(errno_num, err_msg, err_filename)
-[1;32m   1838[0m [38;5;28;01mraise[39;00m child_exception_type(err_msg)
-
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'Model_GEV_SeasonalMu.exe'
+[1;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
+https://docs.xarray.dev/en/stable/user-guide/io.html
 
