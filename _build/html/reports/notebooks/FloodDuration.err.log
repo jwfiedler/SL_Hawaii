@@ -15,7 +15,6 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-
 hourly_data = xr.open_dataset(data_dir / 'SL_hourly_data.nc')
 hourly_data.close()
 ------------------
@@ -33,7 +32,7 @@ File [1;32m~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\lru_cache.p
 [1;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [0;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[1;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('C:\\Users\\julia\\Documents\\GitHub\\SL_Hawaii\\data\\SL_hourly_data.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), '9db9004b-d8fa-4679-bdef-59f44f363048']
+[1;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('C:\\Users\\julia\\Documents\\GitHub\\SL_Hawaii\\data\\SL_hourly_data.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'b2c619fd-58b2-4021-bee8-56514c219419']
 
 During handling of the above exception, another exception occurred:
 
