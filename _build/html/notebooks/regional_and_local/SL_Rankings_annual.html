@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
@@ -35,12 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -75,23 +75,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -114,15 +118,13 @@
 </form></div>
   </div>
 
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
-</aside>
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
+  </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -146,8 +148,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -169,7 +169,7 @@
 
  <script>
  document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -188,15 +188,15 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../gettingStarted.html">Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gettingStarted.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../setup.html">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../SL_Data_Wrangling.html">Data Wrangling</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ANNUAL</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../SL_annual.html">Sea Level Magnitude</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../SL_annual.html">Sea Level Magnitude</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="SL_Trend.html">Sea Level Trend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Annual Sea Level Rankings</a></li>
@@ -204,26 +204,26 @@
 <li class="toctree-l2"><a class="reference internal" href="SL_Components_annual.html">Components of Sea Level</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../nonstationaryGEV/monthly_extremes_non-stationaryGEV.html">Nonstationary Extremes</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FloodFrequency.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FloodDuration.html">Flood Duration</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">INTRA-ANNUAL</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../SL_intra-annual.html">Sea Level Magnitude</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../SL_intra-annual.html">Sea Level Magnitude</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="SL_anomaly_intra-annual.html">Intra-Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SL_Extremes_intra-annual.html">Intra-Annual Extremes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="SL_Components_intra-annual.html">Components of Sea Level</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood_intra-annual.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood_intra-annual.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FloodFrequency_intra-annual.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FloodDuration_intra-annual.html">Flood Duration</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 
     </div>
@@ -239,7 +239,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -248,14 +248,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -280,14 +280,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/regional_and_local/SL_Rankings_annual.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+    <img src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -446,10 +446,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -457,14 +457,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -563,11 +563,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rsl_hawaii.nc found in ..\..\data. Proceed.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
-  _pyproj_global_context_initialize()
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rsl_hawaii.nc found in ../../data. Proceed.
 </pre></div>
 </div>
 </div>
@@ -606,14 +602,14 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;1993&#39;</span><span class="p">,</span><span class="s1">&#39;2023&#39;</span><span class="p">))</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">data_coverage</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">rsl_daily</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">553</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">554</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
 <span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
@@ -730,7 +726,7 @@ document.write(`
 <p>As a quick example, we can check the top of the table (the “head”) for the 4th record_id, which is Kahului, Maui.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rid</span><span class="o">=</span><span class="mi">2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rid</span><span class="o">=</span><span class="mi">4</span>
 <span class="n">top_10_table</span> <span class="o">=</span> <span class="n">get_top_10_table</span><span class="p">(</span><span class="n">rsl_subset</span><span class="p">,</span><span class="n">rid</span><span class="p">)</span>
 <span class="n">top_10_table</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -769,56 +765,56 @@ document.write(`
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>2020-12-15 15:00:00</td>
-      <td>0.458</td>
-      <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>2015-09-17 15:00:00</td>
+      <td>0.496</td>
+      <td>Kahului</td>
+      <td>59</td>
+      <td>max</td>
+      <td>2.16</td>
+      <td>El Nino</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>1994-10-04 23:00:00</td>
+      <td>0.477</td>
+      <td>Kahului</td>
+      <td>59</td>
+      <td>max</td>
+      <td>0.74</td>
+      <td>El Nino</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>1995-11-24 14:00:00</td>
+      <td>0.474</td>
+      <td>Kahului</td>
+      <td>59</td>
+      <td>max</td>
+      <td>-1.00</td>
+      <td>La Nina</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>2020-12-15 14:00:00</td>
+      <td>0.461</td>
+      <td>Kahului</td>
+      <td>59</td>
       <td>max</td>
       <td>-1.19</td>
       <td>La Nina</td>
     </tr>
     <tr>
-      <th>1</th>
-      <td>2</td>
-      <td>2019-12-25 14:00:00</td>
-      <td>0.447</td>
-      <td>Honolulu, Hawaii</td>
-      <td>570</td>
-      <td>max</td>
-      <td>0.55</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>3</td>
-      <td>2017-08-21 01:00:00</td>
-      <td>0.440</td>
-      <td>Honolulu, Hawaii</td>
-      <td>570</td>
-      <td>max</td>
-      <td>-0.11</td>
-      <td>Neutral</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>4</td>
-      <td>2021-12-05 15:00:00</td>
-      <td>0.428</td>
-      <td>Honolulu, Hawaii</td>
-      <td>570</td>
-      <td>max</td>
-      <td>-0.98</td>
-      <td>La Nina</td>
-    </tr>
-    <tr>
       <th>4</th>
       <td>5</td>
-      <td>2020-07-20 02:00:00</td>
-      <td>0.423</td>
-      <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>2017-08-21 00:00:00</td>
+      <td>0.458</td>
+      <td>Kahului</td>
+      <td>59</td>
       <td>max</td>
-      <td>-0.41</td>
+      <td>-0.11</td>
       <td>Neutral</td>
     </tr>
   </tbody>
@@ -886,132 +882,132 @@ document.write(`
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>0.458</td>
-      <td>2020-12-15 15:00</td>
-      <td>La Nina</td>
-      <td>-0.831</td>
-      <td>2011-03-11 16:00</td>
+      <td>0.496</td>
+      <td>2015-09-17 15:00</td>
+      <td>El Nino</td>
+      <td>-2.016</td>
+      <td>2011-03-11 15:00</td>
       <td>La Nina</td>
       <td>GMT</td>
-      <td>-1.19</td>
+      <td>2.16</td>
       <td>-0.93</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
-      <td>0.447</td>
-      <td>2019-12-25 14:00</td>
-      <td>Neutral</td>
-      <td>-0.768</td>
-      <td>2011-03-18 20:00</td>
-      <td>La Nina</td>
+      <td>0.477</td>
+      <td>1994-10-04 23:00</td>
+      <td>El Nino</td>
+      <td>-1.024</td>
+      <td>2010-02-28 03:00</td>
+      <td>El Nino</td>
       <td>GMT</td>
-      <td>0.55</td>
-      <td>-0.93</td>
+      <td>0.74</td>
+      <td>1.22</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
-      <td>0.440</td>
-      <td>2017-08-21 01:00</td>
-      <td>Neutral</td>
-      <td>-0.765</td>
-      <td>1994-03-29 21:00</td>
-      <td>Neutral</td>
+      <td>0.474</td>
+      <td>1995-11-24 14:00</td>
+      <td>La Nina</td>
+      <td>-0.952</td>
+      <td>2011-12-25 06:00</td>
+      <td>La Nina</td>
       <td>GMT</td>
-      <td>-0.11</td>
-      <td>0.17</td>
+      <td>-1.00</td>
+      <td>-1.04</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
-      <td>0.428</td>
-      <td>2021-12-05 15:00</td>
+      <td>0.461</td>
+      <td>2020-12-15 14:00</td>
       <td>La Nina</td>
-      <td>-0.748</td>
-      <td>2010-02-28 20:00</td>
-      <td>El Nino</td>
+      <td>-0.943</td>
+      <td>1998-06-24 18:00</td>
+      <td>Neutral</td>
       <td>GMT</td>
-      <td>-0.98</td>
-      <td>1.22</td>
+      <td>-1.19</td>
+      <td>-0.13</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
-      <td>0.423</td>
-      <td>2020-07-20 02:00</td>
+      <td>0.458</td>
+      <td>2017-08-21 00:00</td>
       <td>Neutral</td>
-      <td>-0.745</td>
-      <td>2009-05-24 19:00</td>
-      <td>Neutral</td>
+      <td>-0.933</td>
+      <td>1999-01-02 06:00</td>
+      <td>La Nina</td>
       <td>GMT</td>
-      <td>-0.41</td>
-      <td>0.01</td>
+      <td>-0.11</td>
+      <td>-1.55</td>
     </tr>
     <tr>
       <th>5</th>
       <td>6</td>
-      <td>0.415</td>
-      <td>2020-11-15 14:00</td>
+      <td>0.453</td>
+      <td>2021-12-05 14:00</td>
       <td>La Nina</td>
-      <td>-0.744</td>
-      <td>2002-02-26 07:00</td>
+      <td>-0.923</td>
+      <td>2001-06-24 21:00</td>
       <td>Neutral</td>
       <td>GMT</td>
-      <td>-1.27</td>
-      <td>0.03</td>
+      <td>-0.98</td>
+      <td>-0.12</td>
     </tr>
     <tr>
       <th>6</th>
       <td>7</td>
-      <td>0.411</td>
-      <td>2020-10-19 16:00</td>
-      <td>La Nina</td>
-      <td>-0.743</td>
-      <td>2010-04-27 19:00</td>
+      <td>0.443</td>
+      <td>2019-12-26 13:00</td>
+      <td>Neutral</td>
+      <td>-0.921</td>
+      <td>2009-05-25 19:00</td>
       <td>Neutral</td>
       <td>GMT</td>
-      <td>-1.17</td>
-      <td>0.35</td>
+      <td>0.55</td>
+      <td>0.01</td>
     </tr>
     <tr>
       <th>7</th>
       <td>8</td>
-      <td>0.410</td>
-      <td>2017-06-24 02:00</td>
+      <td>0.436</td>
+      <td>2023-08-02 01:00</td>
+      <td>El Nino</td>
+      <td>-0.911</td>
+      <td>2009-06-23 18:00</td>
       <td>Neutral</td>
-      <td>-0.739</td>
-      <td>2011-12-25 07:00</td>
-      <td>La Nina</td>
       <td>GMT</td>
-      <td>0.31</td>
-      <td>-1.04</td>
+      <td>1.32</td>
+      <td>0.28</td>
     </tr>
     <tr>
       <th>8</th>
       <td>9</td>
-      <td>0.406</td>
-      <td>2020-07-05 02:00</td>
+      <td>0.433</td>
+      <td>2020-07-21 01:00</td>
       <td>Neutral</td>
-      <td>-0.739</td>
-      <td>2013-04-25 19:00</td>
-      <td>Neutral</td>
+      <td>-0.910</td>
+      <td>2009-01-10 05:00</td>
+      <td>La Nina</td>
       <td>GMT</td>
       <td>-0.41</td>
-      <td>-0.30</td>
+      <td>-0.85</td>
     </tr>
     <tr>
       <th>9</th>
       <td>10</td>
-      <td>0.401</td>
-      <td>2019-08-02 03:00</td>
+      <td>0.432</td>
+      <td>2020-07-06 02:00</td>
       <td>Neutral</td>
-      <td>-0.738</td>
-      <td>1998-07-06 17:00</td>
-      <td>La Nina</td>
+      <td>-0.903</td>
+      <td>2010-01-01 07:00</td>
+      <td>El Nino</td>
       <td>GMT</td>
-      <td>0.14</td>
-      <td>-0.78</td>
+      <td>-0.41</td>
+      <td>1.50</td>
     </tr>
   </tbody>
 </table>
@@ -1083,122 +1079,128 @@ document.write(`
 </details>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_032af_row0_col1, #T_032af_row0_col4, #T_032af_row1_col4 {
+#T_50fe4_row0_col1 {
+  background-color: #e16751;
+}
+#T_50fe4_row0_col4 {
   background-color: #aec9fc;
 }
-#T_032af_row1_col1, #T_032af_row2_col1, #T_032af_row2_col4, #T_032af_row4_col1, #T_032af_row4_col4, #T_032af_row5_col4, #T_032af_row6_col4, #T_032af_row7_col1, #T_032af_row8_col1, #T_032af_row8_col4, #T_032af_row9_col1 {
-  color: black;
+#T_50fe4_row1_col1, #T_50fe4_row1_col4 {
+  background-color: #f4c5ad;
 }
-#T_032af_row3_col1 {
-  background-color: #f7aa8c;
-}
-#T_032af_row3_col4 {
-  background-color: #abc8fd;
-}
-#T_032af_row5_col1 {
-  background-color: #dedcdb;
-}
-#T_032af_row6_col1 {
-  background-color: #ead4c8;
-}
-#T_032af_row7_col4 {
+#T_50fe4_row2_col1, #T_50fe4_row2_col4 {
   background-color: #a7c5fe;
 }
-#T_032af_row9_col4 {
-  background-color: #b6cefa;
+#T_50fe4_row3_col1, #T_50fe4_row5_col1 {
+  background-color: #d7dce3;
+}
+#T_50fe4_row3_col4, #T_50fe4_row4_col1, #T_50fe4_row5_col4, #T_50fe4_row6_col1, #T_50fe4_row6_col4, #T_50fe4_row7_col4, #T_50fe4_row8_col1, #T_50fe4_row9_col1 {
+  color: black;
+}
+#T_50fe4_row4_col4 {
+  background-color: #89acfd;
+}
+#T_50fe4_row7_col1 {
+  background-color: #f6a586;
+}
+#T_50fe4_row8_col4 {
+  background-color: #b2ccfb;
+}
+#T_50fe4_row9_col4 {
+  background-color: #cad8ef;
 }
 </style>
-<table id="T_032af" [{'selector': 'th', 'props': [('border-bottom', '2px solid #000'), ('font-weight', 'bold'), ('text-align', 'center')]}, {'selector': '.dataframe th:nth-child(3)', 'props': [('padding-right', '100px')]}]>
+<table id="T_50fe4" [{'selector': 'th', 'props': [('border-bottom', '2px solid #000'), ('font-weight', 'bold'), ('text-align', 'center')]}, {'selector': '.dataframe th:nth-child(3)', 'props': [('padding-right', '100px')]}]>
   <thead>
     <tr>
-      <th id="T_032af_level0_col0" class="col_heading level0 col0" >Rank</th>
-      <th id="T_032af_level0_col1" class="col_heading level0 col1" >Highest</th>
-      <th id="T_032af_level0_col2" class="col_heading level0 col2" >Highest Date</th>
-      <th id="T_032af_level0_col4" class="col_heading level0 col4" >Lowest</th>
-      <th id="T_032af_level0_col5" class="col_heading level0 col5" >Lowest Date</th>
-      <th id="T_032af_level0_col7" class="col_heading level0 col7" >Zone</th>
+      <th id="T_50fe4_level0_col0" class="col_heading level0 col0" >Rank</th>
+      <th id="T_50fe4_level0_col1" class="col_heading level0 col1" >Highest</th>
+      <th id="T_50fe4_level0_col2" class="col_heading level0 col2" >Highest Date</th>
+      <th id="T_50fe4_level0_col4" class="col_heading level0 col4" >Lowest</th>
+      <th id="T_50fe4_level0_col5" class="col_heading level0 col5" >Lowest Date</th>
+      <th id="T_50fe4_level0_col7" class="col_heading level0 col7" >Zone</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td id="T_032af_row0_col0" class="data row0 col0" >1</td>
-      <td id="T_032af_row0_col1" class="data row0 col1" >0.458000</td>
-      <td id="T_032af_row0_col2" class="data row0 col2" >2020-12-15 15:00</td>
-      <td id="T_032af_row0_col4" class="data row0 col4" >-0.831000</td>
-      <td id="T_032af_row0_col5" class="data row0 col5" >2011-03-11 16:00</td>
-      <td id="T_032af_row0_col7" class="data row0 col7" >GMT</td>
+      <td id="T_50fe4_row0_col0" class="data row0 col0" >1</td>
+      <td id="T_50fe4_row0_col1" class="data row0 col1" >0.496000</td>
+      <td id="T_50fe4_row0_col2" class="data row0 col2" >2015-09-17 15:00</td>
+      <td id="T_50fe4_row0_col4" class="data row0 col4" >-2.016000</td>
+      <td id="T_50fe4_row0_col5" class="data row0 col5" >2011-03-11 15:00</td>
+      <td id="T_50fe4_row0_col7" class="data row0 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row1_col0" class="data row1 col0" >2</td>
-      <td id="T_032af_row1_col1" class="data row1 col1" >0.447000</td>
-      <td id="T_032af_row1_col2" class="data row1 col2" >2019-12-25 14:00</td>
-      <td id="T_032af_row1_col4" class="data row1 col4" >-0.768000</td>
-      <td id="T_032af_row1_col5" class="data row1 col5" >2011-03-18 20:00</td>
-      <td id="T_032af_row1_col7" class="data row1 col7" >GMT</td>
+      <td id="T_50fe4_row1_col0" class="data row1 col0" >2</td>
+      <td id="T_50fe4_row1_col1" class="data row1 col1" >0.477000</td>
+      <td id="T_50fe4_row1_col2" class="data row1 col2" >1994-10-04 23:00</td>
+      <td id="T_50fe4_row1_col4" class="data row1 col4" >-1.024000</td>
+      <td id="T_50fe4_row1_col5" class="data row1 col5" >2010-02-28 03:00</td>
+      <td id="T_50fe4_row1_col7" class="data row1 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row2_col0" class="data row2 col0" >3</td>
-      <td id="T_032af_row2_col1" class="data row2 col1" >0.440000</td>
-      <td id="T_032af_row2_col2" class="data row2 col2" >2017-08-21 01:00</td>
-      <td id="T_032af_row2_col4" class="data row2 col4" >-0.765000</td>
-      <td id="T_032af_row2_col5" class="data row2 col5" >1994-03-29 21:00</td>
-      <td id="T_032af_row2_col7" class="data row2 col7" >GMT</td>
+      <td id="T_50fe4_row2_col0" class="data row2 col0" >3</td>
+      <td id="T_50fe4_row2_col1" class="data row2 col1" >0.474000</td>
+      <td id="T_50fe4_row2_col2" class="data row2 col2" >1995-11-24 14:00</td>
+      <td id="T_50fe4_row2_col4" class="data row2 col4" >-0.952000</td>
+      <td id="T_50fe4_row2_col5" class="data row2 col5" >2011-12-25 06:00</td>
+      <td id="T_50fe4_row2_col7" class="data row2 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row3_col0" class="data row3 col0" >4</td>
-      <td id="T_032af_row3_col1" class="data row3 col1" >0.428000</td>
-      <td id="T_032af_row3_col2" class="data row3 col2" >2021-12-05 15:00</td>
-      <td id="T_032af_row3_col4" class="data row3 col4" >-0.748000</td>
-      <td id="T_032af_row3_col5" class="data row3 col5" >2010-02-28 20:00</td>
-      <td id="T_032af_row3_col7" class="data row3 col7" >GMT</td>
+      <td id="T_50fe4_row3_col0" class="data row3 col0" >4</td>
+      <td id="T_50fe4_row3_col1" class="data row3 col1" >0.461000</td>
+      <td id="T_50fe4_row3_col2" class="data row3 col2" >2020-12-15 14:00</td>
+      <td id="T_50fe4_row3_col4" class="data row3 col4" >-0.943000</td>
+      <td id="T_50fe4_row3_col5" class="data row3 col5" >1998-06-24 18:00</td>
+      <td id="T_50fe4_row3_col7" class="data row3 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row4_col0" class="data row4 col0" >5</td>
-      <td id="T_032af_row4_col1" class="data row4 col1" >0.423000</td>
-      <td id="T_032af_row4_col2" class="data row4 col2" >2020-07-20 02:00</td>
-      <td id="T_032af_row4_col4" class="data row4 col4" >-0.745000</td>
-      <td id="T_032af_row4_col5" class="data row4 col5" >2009-05-24 19:00</td>
-      <td id="T_032af_row4_col7" class="data row4 col7" >GMT</td>
+      <td id="T_50fe4_row4_col0" class="data row4 col0" >5</td>
+      <td id="T_50fe4_row4_col1" class="data row4 col1" >0.458000</td>
+      <td id="T_50fe4_row4_col2" class="data row4 col2" >2017-08-21 00:00</td>
+      <td id="T_50fe4_row4_col4" class="data row4 col4" >-0.933000</td>
+      <td id="T_50fe4_row4_col5" class="data row4 col5" >1999-01-02 06:00</td>
+      <td id="T_50fe4_row4_col7" class="data row4 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row5_col0" class="data row5 col0" >6</td>
-      <td id="T_032af_row5_col1" class="data row5 col1" >0.415000</td>
-      <td id="T_032af_row5_col2" class="data row5 col2" >2020-11-15 14:00</td>
-      <td id="T_032af_row5_col4" class="data row5 col4" >-0.744000</td>
-      <td id="T_032af_row5_col5" class="data row5 col5" >2002-02-26 07:00</td>
-      <td id="T_032af_row5_col7" class="data row5 col7" >GMT</td>
+      <td id="T_50fe4_row5_col0" class="data row5 col0" >6</td>
+      <td id="T_50fe4_row5_col1" class="data row5 col1" >0.453000</td>
+      <td id="T_50fe4_row5_col2" class="data row5 col2" >2021-12-05 14:00</td>
+      <td id="T_50fe4_row5_col4" class="data row5 col4" >-0.923000</td>
+      <td id="T_50fe4_row5_col5" class="data row5 col5" >2001-06-24 21:00</td>
+      <td id="T_50fe4_row5_col7" class="data row5 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row6_col0" class="data row6 col0" >7</td>
-      <td id="T_032af_row6_col1" class="data row6 col1" >0.411000</td>
-      <td id="T_032af_row6_col2" class="data row6 col2" >2020-10-19 16:00</td>
-      <td id="T_032af_row6_col4" class="data row6 col4" >-0.743000</td>
-      <td id="T_032af_row6_col5" class="data row6 col5" >2010-04-27 19:00</td>
-      <td id="T_032af_row6_col7" class="data row6 col7" >GMT</td>
+      <td id="T_50fe4_row6_col0" class="data row6 col0" >7</td>
+      <td id="T_50fe4_row6_col1" class="data row6 col1" >0.443000</td>
+      <td id="T_50fe4_row6_col2" class="data row6 col2" >2019-12-26 13:00</td>
+      <td id="T_50fe4_row6_col4" class="data row6 col4" >-0.921000</td>
+      <td id="T_50fe4_row6_col5" class="data row6 col5" >2009-05-25 19:00</td>
+      <td id="T_50fe4_row6_col7" class="data row6 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row7_col0" class="data row7 col0" >8</td>
-      <td id="T_032af_row7_col1" class="data row7 col1" >0.410000</td>
-      <td id="T_032af_row7_col2" class="data row7 col2" >2017-06-24 02:00</td>
-      <td id="T_032af_row7_col4" class="data row7 col4" >-0.739000</td>
-      <td id="T_032af_row7_col5" class="data row7 col5" >2011-12-25 07:00</td>
-      <td id="T_032af_row7_col7" class="data row7 col7" >GMT</td>
+      <td id="T_50fe4_row7_col0" class="data row7 col0" >8</td>
+      <td id="T_50fe4_row7_col1" class="data row7 col1" >0.436000</td>
+      <td id="T_50fe4_row7_col2" class="data row7 col2" >2023-08-02 01:00</td>
+      <td id="T_50fe4_row7_col4" class="data row7 col4" >-0.911000</td>
+      <td id="T_50fe4_row7_col5" class="data row7 col5" >2009-06-23 18:00</td>
+      <td id="T_50fe4_row7_col7" class="data row7 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row8_col0" class="data row8 col0" >9</td>
-      <td id="T_032af_row8_col1" class="data row8 col1" >0.406000</td>
-      <td id="T_032af_row8_col2" class="data row8 col2" >2020-07-05 02:00</td>
-      <td id="T_032af_row8_col4" class="data row8 col4" >-0.739000</td>
-      <td id="T_032af_row8_col5" class="data row8 col5" >2013-04-25 19:00</td>
-      <td id="T_032af_row8_col7" class="data row8 col7" >GMT</td>
+      <td id="T_50fe4_row8_col0" class="data row8 col0" >9</td>
+      <td id="T_50fe4_row8_col1" class="data row8 col1" >0.433000</td>
+      <td id="T_50fe4_row8_col2" class="data row8 col2" >2020-07-21 01:00</td>
+      <td id="T_50fe4_row8_col4" class="data row8 col4" >-0.910000</td>
+      <td id="T_50fe4_row8_col5" class="data row8 col5" >2009-01-10 05:00</td>
+      <td id="T_50fe4_row8_col7" class="data row8 col7" >GMT</td>
     </tr>
     <tr>
-      <td id="T_032af_row9_col0" class="data row9 col0" >10</td>
-      <td id="T_032af_row9_col1" class="data row9 col1" >0.401000</td>
-      <td id="T_032af_row9_col2" class="data row9 col2" >2019-08-02 03:00</td>
-      <td id="T_032af_row9_col4" class="data row9 col4" >-0.738000</td>
-      <td id="T_032af_row9_col5" class="data row9 col5" >1998-07-06 17:00</td>
-      <td id="T_032af_row9_col7" class="data row9 col7" >GMT</td>
+      <td id="T_50fe4_row9_col0" class="data row9 col0" >10</td>
+      <td id="T_50fe4_row9_col1" class="data row9 col1" >0.432000</td>
+      <td id="T_50fe4_row9_col2" class="data row9 col2" >2020-07-06 02:00</td>
+      <td id="T_50fe4_row9_col4" class="data row9 col4" >-0.903000</td>
+      <td id="T_50fe4_row9_col5" class="data row9 col5" >2010-01-01 07:00</td>
+      <td id="T_50fe4_row9_col7" class="data row9 col7" >GMT</td>
     </tr>
   </tbody>
 </table>
@@ -1228,11 +1230,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>great_tables.gt.GT
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 </section>
@@ -1242,63 +1239,92 @@ document.write(`
 <section id="interactive-plots">
 <h3>Interactive Plots<a class="headerlink" href="#interactive-plots" title="Permalink to this heading">#</a></h3>
 <p>This version is interactive. Bad for making pdf reports though.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">make_plotlyFigure</span><span class="p">(</span><span class="n">rsl_monthly_mean</span><span class="p">,</span> <span class="n">rsl_monthly_max</span><span class="p">,</span> <span class="n">rsl_monthly_min</span><span class="p">,</span> <span class="n">top_10_table</span><span class="p">,</span> <span class="n">rsl_subset</span><span class="p">,</span><span class="n">rid</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="k">def</span> <span class="nf">make_plotlyFigure</span><span class="p">(</span><span class="n">rsl_monthly_mean</span><span class="p">,</span> <span class="n">rsl_monthly_max</span><span class="p">,</span> <span class="n">rsl_monthly_min</span><span class="p">,</span> <span class="n">top_10_table</span><span class="p">,</span> <span class="n">rsl_subset</span><span class="p">,</span> <span class="n">rid</span><span class="p">):</span>
     <span class="n">figly</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-    <span class="n">top_10_table</span> <span class="o">=</span> <span class="n">get_top_10_table</span><span class="p">(</span><span class="n">rsl_subset</span><span class="p">,</span><span class="n">rid</span><span class="p">)</span>
-    <span class="n">x</span>  <span class="o">=</span> <span class="n">rsl_monthly_mean</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="s1">&#39;D&#39;</span><span class="p">)</span> <span class="c1"># add 15 days to make the line in the middle of the month</span>
-     <span class="c1">#make a fill from max to min for each month</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rsl_monthly_max</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,0.2)&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Monthly Max&#39;</span><span class="p">))</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rsl_monthly_min</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,0.2)&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;tonexty&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,0.2)&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Range (Monthly Max/Min)&#39;</span><span class="p">))</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">rsl_monthly_mean</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,1)&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Monthly Mean&#39;</span><span class="p">))</span>
-    <span class="c1"># adjust the markers if ONI Mode is El Nino</span>
+    <span class="n">top_10_table</span> <span class="o">=</span> <span class="n">get_top_10_table</span><span class="p">(</span><span class="n">rsl_subset</span><span class="p">,</span> <span class="n">rid</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">rsl_monthly_mean</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>  <span class="c1"># add 15 days to make the line in the middle of the month</span>
+    
+    <span class="c1"># Add traces</span>
+    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">rsl_monthly_max</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,0.2)&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Monthly Max&#39;</span><span class="p">))</span>
+    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">rsl_monthly_min</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,0.2)&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;tonexty&#39;</span><span class="p">,</span> <span class="n">fillcolor</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,0.2)&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Range (Monthly Max/Min)&#39;</span><span class="p">))</span>
+    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">rsl_monthly_mean</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">),</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="s1">&#39;rgba(0,176,246,1)&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Monthly Mean&#39;</span><span class="p">))</span>
+    
+    <span class="c1"># Add El Niño markers</span>
     <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">top_10_table</span><span class="p">[</span><span class="n">top_10_table</span><span class="p">[</span><span class="s1">&#39;ONI Mode&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;El Nino&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
                                 <span class="n">y</span><span class="o">=</span><span class="n">top_10_table</span><span class="p">[</span><span class="n">top_10_table</span><span class="p">[</span><span class="s1">&#39;ONI Mode&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;El Nino&#39;</span><span class="p">][</span><span class="s1">&#39;sea level (m)&#39;</span><span class="p">],</span>
-                                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;star&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;El Niño&#39;</span><span class="p">,</span>
+                                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;star&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;El Niño&#39;</span><span class="p">,</span>
                                 <span class="n">hoverinfo</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">))</span>
-    <span class="c1"># adjust the markers if ONI Mode is La Nina</span>
+    
+    <span class="c1"># Add La Niña markers</span>
     <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">top_10_table</span><span class="p">[</span><span class="n">top_10_table</span><span class="p">[</span><span class="s1">&#39;ONI Mode&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;La Nina&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">date</span><span class="p">,</span>
                                 <span class="n">y</span><span class="o">=</span><span class="n">top_10_table</span><span class="p">[</span><span class="n">top_10_table</span><span class="p">[</span><span class="s1">&#39;ONI Mode&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;La Nina&#39;</span><span class="p">][</span><span class="s1">&#39;sea level (m)&#39;</span><span class="p">],</span>
-                                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;circle&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;La Niña&#39;</span><span class="p">,</span>
+                                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;circle&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;La Niña&#39;</span><span class="p">,</span>
                                 <span class="n">hoverinfo</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">))</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">top_10_table</span><span class="o">.</span><span class="n">date</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="n">top_10_table</span><span class="p">[</span><span class="s1">&#39;sea level (m)&#39;</span><span class="p">],</span> 
-                                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span><span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;circle&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Highest/Lowest Events&#39;</span><span class="p">,</span>
+    
+    <span class="c1"># Add highest/lowest events markers</span>
+    <span class="n">figly</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">top_10_table</span><span class="o">.</span><span class="n">date</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">top_10_table</span><span class="p">[</span><span class="s1">&#39;sea level (m)&#39;</span><span class="p">],</span> 
+                                <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">6</span><span class="p">,</span> <span class="n">symbol</span><span class="o">=</span><span class="s1">&#39;circle&#39;</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Highest/Lowest Events&#39;</span><span class="p">,</span>
                                 <span class="n">hovertemplate</span><span class="o">=</span><span class="s1">&#39;%</span><span class="si">{x}</span><span class="s1">, %</span><span class="si">{y:.2f}</span><span class="s1"> m&lt;extra&gt;&lt;/extra&gt;&#39;</span><span class="p">))</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">rsl_subset</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">),</span> <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">yaxis_title</span><span class="o">=</span><span class="n">rsl_subset</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span><span class="o">+</span> <span class="s1">&#39; [&#39;</span><span class="o">+</span><span class="n">rsl_subset</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-    <span class="c1"># cut time range to show only between 1993 and 2023</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1993-01-01&#39;</span><span class="p">,</span><span class="s1">&#39;2023-12-31&#39;</span><span class="p">])</span>
-    <span class="c1"># make the background color white, with a border, and grey gridlines every 5 years</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;rgb(200,200,200)&#39;</span><span class="p">),</span>
-                      <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;rgb(200,200,200)&#39;</span><span class="p">))</span>
-    <span class="c1"># Update layout to make the plot responsive</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">autosize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Enable autosize to adjust both width and height</span>
-    <span class="c1">#put the legend under the plot</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">1.1</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">xanchor</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">yanchor</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">))</span>
-    <span class="c1">#make the title centered over plot and bigger and bold</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">title_font_size</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">title_font_family</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span> <span class="n">title_font_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">title_font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">))</span>
-    <span class="n">figly</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    
+    <span class="c1"># Update layout</span>
+    <span class="n">figly</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+        <span class="n">title</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">rsl_subset</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">rid</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">),</span>
+        <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span>
+        <span class="n">yaxis_title</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">rsl_subset</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;long_name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> [</span><span class="si">{</span><span class="n">rsl_subset</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">,</span>
+        <span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="c1"># width=500,  # Set figure width</span>
+        <span class="c1"># height=400,  # Set figure height</span>
+        <span class="n">autosize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># Turn off autosize</span>
+        <span class="n">plot_bgcolor</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span>
+        <span class="n">xaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;rgb(200,200,200)&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;1993-01-01&#39;</span><span class="p">,</span> <span class="s1">&#39;2023-12-31&#39;</span><span class="p">]),</span>
+        <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">showgrid</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">gridwidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">gridcolor</span><span class="o">=</span><span class="s1">&#39;rgb(200,200,200)&#39;</span><span class="p">),</span>
+        <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+            <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;h&#39;</span><span class="p">,</span>  <span class="c1"># Horizontal orientation</span>
+            <span class="n">y</span><span class="o">=-</span><span class="mf">0.3</span><span class="p">,</span>  <span class="c1"># Position below the plot</span>
+            <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Centered horizontally</span>
+            <span class="n">xanchor</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+            <span class="n">yanchor</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span>
+            <span class="n">font</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Smaller font size for legend items</span>
+        <span class="p">),</span>
+        <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">l</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>  <span class="c1"># Increase bottom margin to make room for the legend</span>
+        <span class="n">title_x</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>  <span class="c1"># Center the title</span>
+        <span class="n">title_font_size</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+        <span class="n">title_font_family</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">,</span>
+        <span class="n">title_font_color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span>
+    <span class="p">)</span>
 
+
+    
+    <span class="c1"># figly.show()</span>
     <span class="k">return</span> <span class="n">figly</span>
 </pre></div>
 </div>
 </div>
-</details>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">figly</span> <span class="o">=</span> <span class="n">make_plotlyFigure</span><span class="p">(</span><span class="n">rsl_monthly_mean</span><span class="p">,</span> 
         <span class="n">rsl_monthly_max</span><span class="p">,</span> <span class="n">rsl_monthly_min</span><span class="p">,</span> 
-        <span class="n">top_10_table</span><span class="p">,</span> <span class="n">rsl_subset</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">top_10_table</span><span class="p">,</span> <span class="n">rsl_subset</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 
+<span class="c1"># change size of the plot</span>
+<span class="c1"># figly.update_layout(autosize=True)</span>
+<span class="n">figly</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span><span class="n">autosize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">station_name</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rsl_subset</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 <span class="c1"># save the figure to the output folder</span>
 <span class="n">figname</span> <span class="o">=</span> <span class="s1">&#39;SL_top_10_plot_&#39;</span> <span class="o">+</span> <span class="n">station_name</span> <span class="o">+</span> <span class="s1">&#39;.html&#39;</span>
-<span class="n">pio</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="n">figly</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_dir</span> <span class="o">/</span> <span class="n">figname</span><span class="p">),</span> <span class="n">auto_open</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># remove commas from figname</span>
+<span class="n">figname</span> <span class="o">=</span> <span class="n">figname</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">,</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+<span class="n">matrix_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../matrix/plotly&#39;</span><span class="p">)</span>
+<span class="n">pio</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="n">figly</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">matrix_dir</span> <span class="o">/</span> <span class="n">figname</span><span class="p">),</span> <span class="n">auto_open</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">figly</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1531,7 +1557,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks\regional_and_local"
+            path: "./notebooks/regional_and_local"
         },
         predefinedOutput: true
     }
@@ -1545,7 +1571,7 @@ document.write(`
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1647,8 +1673,8 @@ By Playground Coordinator
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

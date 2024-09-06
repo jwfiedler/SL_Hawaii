@@ -15,19 +15,19 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css" />
@@ -35,12 +35,12 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.5ea377869091fd0449014c60fc090103.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -77,23 +77,27 @@
 
   
   
-  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -116,15 +120,13 @@
 </form></div>
   </div>
 
-  <div class="pst-async-banner-revealer d-none">
-  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
-</div>
-<aside class="bd-header-announcement" aria-label="Announcement">
-  <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
-</aside>
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
+  </div>
 
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
     </header>
   
 
@@ -148,8 +150,6 @@
         <div class="sidebar-primary-item">
 
   
-    
-  
 
 <a class="navbar-brand logo" href="../../intro.html">
   
@@ -171,7 +171,7 @@
 
  <script>
  document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
     <span class="search-button__default-text">Search</span>
     <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
@@ -190,15 +190,15 @@
         </ul>
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../gettingStarted.html">Getting Started</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../gettingStarted.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../setup.html">Setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../SL_Data_Wrangling.html">Data Wrangling</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">ANNUAL</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../SL_annual.html">Sea Level Magnitude</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../SL_annual.html">Sea Level Magnitude</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Trend.html">Sea Level Trend</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Rankings_annual.html">Annual Sea Level Rankings</a></li>
@@ -206,26 +206,26 @@
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Components_annual.html">Components of Sea Level</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Nonstationary Extremes</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FloodFrequency.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FloodDuration.html">Flood Duration</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">INTRA-ANNUAL</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../SL_intra-annual.html">Sea Level Magnitude</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../SL_intra-annual.html">Sea Level Magnitude</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_anomaly_intra-annual.html">Intra-Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Extremes_intra-annual.html">Intra-Annual Extremes</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Components_intra-annual.html">Components of Sea Level</a></li>
 </ul>
-</details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood_intra-annual.html">Minor Flood Frequency and Duration</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../Flood_intra-annual.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../FloodFrequency_intra-annual.html">Minor Flood Frequency</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../FloodDuration_intra-annual.html">Flood Duration</a></li>
 </ul>
-</details></li>
+</li>
 </ul>
 
     </div>
@@ -241,7 +241,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main" role="main">
+      <main id="main-content" class="bd-main">
         
         
 
@@ -250,14 +250,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article d-print-none">
+              <div class="bd-header-article">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</button></div>
+</label></div>
       
     </div>
   
@@ -282,14 +282,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/nonstationaryGEV/monthly_extremes_non-stationaryGEV.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch on Binder"
+   title="Launch onBinder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img alt="Binder logo" src="../../_static/images/logo_binder.svg">
+    <img src="../../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -448,10 +448,10 @@
 
 <script>
 document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
@@ -459,14 +459,14 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</button>
+</label>
 </div></div>
       
     </div>
@@ -544,8 +544,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-47548df4-5d85-4911-ab2b-183f29a5db6a">
-<span class="eqno">(1)<a class="headerlink" href="#equation-47548df4-5d85-4911-ab2b-183f29a5db6a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-74af5567-eb1c-49da-b083-fe7c559303a3">
+<span class="eqno">(1)<a class="headerlink" href="#equation-74af5567-eb1c-49da-b083-fe7c559303a3" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -559,8 +559,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bbc3973-538a-4bc1-ac7c-ac4bdd79b0df">
-<span class="eqno">(2)<a class="headerlink" href="#equation-6bbc3973-538a-4bc1-ac7c-ac4bdd79b0df" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fcc9c694-0484-4147-a6ae-3366768b66a3">
+<span class="eqno">(2)<a class="headerlink" href="#equation-fcc9c694-0484-4147-a6ae-3366768b66a3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -670,8 +670,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f12163d-e0e9-4553-beda-503d0ffa0699">
-<span class="eqno">(3)<a class="headerlink" href="#equation-0f12163d-e0e9-4553-beda-503d0ffa0699" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cd6ba32a-620d-4c7a-a94a-c85a27224c42">
+<span class="eqno">(3)<a class="headerlink" href="#equation-cd6ba32a-620d-4c7a-a94a-c85a27224c42" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{ONI}ONI(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -697,8 +697,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-in-location-model">
 <h4>Seasonality in Location Model<a class="headerlink" href="#seasonality-in-location-model" title="Permalink to this heading">#</a></h4>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e91dde2c-d0e4-4168-95ea-db5f63316cb8">
-<span class="eqno">(4)<a class="headerlink" href="#equation-e91dde2c-d0e4-4168-95ea-db5f63316cb8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-17a076cc-623c-4f15-a268-a72143959d27">
+<span class="eqno">(4)<a class="headerlink" href="#equation-17a076cc-623c-4f15-a268-a72143959d27" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -717,8 +717,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-edede9c8-f95e-48c2-a633-7f1b4bd51b4f">
-<span class="eqno">(5)<a class="headerlink" href="#equation-edede9c8-f95e-48c2-a633-7f1b4bd51b4f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-901c862a-fdc0-4007-87e8-8b092882743c">
+<span class="eqno">(5)<a class="headerlink" href="#equation-901c862a-fdc0-4007-87e8-8b092882743c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0e^{\beta_{LT}(t)}  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t)   + \beta_{ONI}ONI(t),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -730,8 +730,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b8a43025-9b70-4865-8e00-e0d09d138176">
-<span class="eqno">(6)<a class="headerlink" href="#equation-b8a43025-9b70-4865-8e00-e0d09d138176" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9ed025cb-711f-4983-a876-1c6dca337715">
+<span class="eqno">(6)<a class="headerlink" href="#equation-9ed025cb-711f-4983-a876-1c6dca337715" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0 e^{\beta_{LT}(t)} + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t) + \beta_{ONI}ONI(t) + \beta_{N_1} cos(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{ONI}ONI(t), \\
@@ -1011,7 +1011,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># check if output directory exists, if not create it</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -1042,10 +1042,6 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\julia\anaconda3\envs\SLI39\lib\site-packages\pyproj\__init__.py:89: UserWarning: pyproj unable to set database path.
-  _pyproj_global_context_initialize()
-</pre></div>
-</div>
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
 <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
@@ -1055,14 +1051,14 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="c1"># remove stations 547,548, 14</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=~</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">547</span><span class="p">,</span><span class="mi">548</span><span class="p">,</span><span class="mi">14</span><span class="p">]))</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\api.py:552,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">552</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">554</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">555</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">553</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">554</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nn">File ~\anaconda3\envs\SLI39\lib\site-packages\xarray\backends\plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
 <span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
@@ -1469,8 +1465,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="calculate-confidence-intervals">
 <h3>Calculate Confidence Intervals<a class="headerlink" href="#calculate-confidence-intervals" title="Permalink to this heading">#</a></h3>
 <p>These next codes will calculate the derivative of the previous prediction, using the perturbation method. We will get be getting the derivative for each parameter, with the goal of solving the total variance:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1ca2d92a-19ac-4ff8-afb7-898339c00c88">
-<span class="eqno">(7)<a class="headerlink" href="#equation-1ca2d92a-19ac-4ff8-afb7-898339c00c88" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7f837ffe-439d-4f66-bd78-a88fbbfdcfbd">
+<span class="eqno">(7)<a class="headerlink" href="#equation-7f837ffe-439d-4f66-bd78-a88fbbfdcfbd" title="Permalink to this equation">#</a></span>\[\begin{align}
 \sigma^2_{L(\theta| t_i)} = \sum_{i=1}^{m}\sum_{i=1}^m \frac{\delta L}{\delta \theta_i}\frac{\delta L}{\delta \theta_j}[J_\theta]_{i,j},
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(L\)</span> likelihood function of the PDF of equation 1, and <span class="math notranslate nohighlight">\(J\)</span> is the inverse of the <span class="math notranslate nohighlight">\(m\)</span> x <span class="math notranslate nohighlight">\(m\)</span> covariance-variance matrix of the parameter estimates in <span class="math notranslate nohighlight">\(L\)</span>. Note that because this is an estimate at a given time, we will need to calculate this for all timesteps. Thus, we’ll define a function so that we can run this for each timestep.</p>
@@ -1882,8 +1878,7 @@ Model already saved to netcdf file.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model did not finish! Setting standard errors to 0.
-Statistical Significance of Covariate in scale param.: 40.86%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 40.86%
 x_cvte2 is: [1 1 0 1 0 1]
 Model already saved to netcdf file.
 </pre></div>
@@ -1972,10 +1967,8 @@ Model already saved to netcdf file.
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Running Nodal cycle model...
-x_N is: [1 1 0 1 0 0 1]
-Statistical Significance of adding Nodal cycle: 99.88%
-Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of adding Nodal cycle: 99.88%
+Model exists:  ..\..\data\GEV_model_output\57\RL_muN.nc
 </pre></div>
 </div>
 </div>
@@ -2046,8 +2039,8 @@ Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;ReturnPeriod&#39;</span><span class="p">]):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;ReturnLevel&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rp</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s1">y&#39;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">yearseval</span><span class="p">:</span>
-        <span class="n">yrval</span> <span class="o">=</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;ReturnLevel&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
-        <span class="n">std</span> <span class="o">=</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;RL_high&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">yrval</span>
+        <span class="n">yrval</span> <span class="o">=</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;ReturnLevel&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">Year</span> <span class="o">=</span> <span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;RL_high&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">Year</span> <span class="o">=</span> <span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">yrval</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">yrval</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">yrval</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> $\pm$ </span><span class="si">{</span><span class="n">std</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">  m&#39;</span><span class="p">)</span>
     
 <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">],</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;RL_low&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;RL_high&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
@@ -2103,6 +2096,111 @@ Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
 <p class="sidebar-title"></p>
 <p>Caution: Confidence Intervals still getting tweaked!!</p>
 </aside>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">####INPROGRESS#####</span>
+
+
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="c1"># Load the dataset</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span> <span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;RL_muN.nc&#39;</span><span class="p">))</span>
+<span class="n">dsMHHW</span> <span class="o">=</span> <span class="n">ds</span> <span class="o">-</span> <span class="n">STNDtoMHHW</span>
+<span class="n">dsMHHW</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;m, MHHW&#39;</span>
+
+<span class="c1"># Get the first year</span>
+<span class="n">year0</span> <span class="o">=</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+
+<span class="c1"># Generate the Seaborn color palette and convert to hex</span>
+<span class="n">seaborn_palette</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">color_palette</span><span class="p">()</span>  <span class="c1"># Adjust the palette as needed</span>
+<span class="n">cmap</span> <span class="o">=</span> <span class="p">[</span><span class="n">mcolors</span><span class="o">.</span><span class="n">to_hex</span><span class="p">(</span><span class="n">color</span><span class="p">)</span> <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="n">seaborn_palette</span><span class="p">]</span>
+
+<span class="c1"># Create Plotly figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">yearseval</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2008</span><span class="p">,</span> <span class="mi">2020</span><span class="p">]</span>
+
+<span class="c1"># Plot each return period</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">rp</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;ReturnPeriod&#39;</span><span class="p">]):</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;ReturnLevel&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">),</span>
+        <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">rp</span><span class="o">.</span><span class="n">values</span><span class="si">}</span><span class="s1">y&#39;</span>
+    <span class="p">))</span>
+    <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">yearseval</span><span class="p">:</span>
+        <span class="n">yrval</span> <span class="o">=</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;ReturnLevel&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">std</span> <span class="o">=</span> <span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;RL_high&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="n">year</span><span class="p">)</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">yrval</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="n">year</span><span class="p">],</span>
+            <span class="n">y</span><span class="o">=</span><span class="p">[</span><span class="n">yrval</span><span class="p">],</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers+text&#39;</span><span class="p">,</span>
+            <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+            <span class="n">text</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">yrval</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> ± </span><span class="si">{</span><span class="n">std</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1"> m&#39;</span><span class="p">],</span>
+            <span class="n">textposition</span><span class="o">=</span><span class="s1">&#39;top right&#39;</span>
+        <span class="p">))</span>
+
+<span class="c1"># Add fill between traces using rgba for transparency</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;RL_low&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;tozeroy&#39;</span><span class="p">,</span>
+    <span class="c1"># fillcolor=f&#39;rgba{mcolors.to_rgba(cmap[0])[:3]}0.2&#39;,  # Using rgba for fillcolor</span>
+    <span class="c1"># fillcolor = &#39;purple&#39;,</span>
+    <span class="c1"># line=dict(color=&#39;rgba(255,255,255,0)&#39;),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;RL low&#39;</span>
+<span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">dsMHHW</span><span class="p">[</span><span class="s1">&#39;RL_high&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+    <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;tonexty&#39;</span><span class="p">,</span>
+    <span class="c1"># fillcolor=f&#39;rgba{mcolors.to_rgba(cmap[0])[:3]}0.2&#39;,  # Using rgba for fillcolor</span>
+    <span class="c1"># line=dict(color=&#39;rgba(255,255,255,0)&#39;),</span>
+    <span class="c1"># line</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;RL high&#39;</span>
+<span class="p">))</span>
+
+<span class="c1"># Assuming `mm` is defined</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">mm</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">+</span> <span class="n">year0</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">mm</span><span class="p">[</span><span class="s1">&#39;monthly_max&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="o">-</span> <span class="n">STNDtoMHHW</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;markers&#39;</span><span class="p">,</span>
+    <span class="n">marker</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Monthly maxima&#39;</span>
+<span class="p">))</span>
+
+<span class="c1"># Layout configuration</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Nonstationary GEV Return Levels: </span><span class="si">{</span><span class="n">station_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Sea level (m, MHHW)&#39;</span><span class="p">,</span>
+    <span class="n">yaxis</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="p">[</span><span class="n">meanmaxSL</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">rangemaxSL</span><span class="p">,</span> <span class="n">meanmaxSL</span> <span class="o">+</span> <span class="mf">0.75</span> <span class="o">*</span> <span class="n">rangemaxSL</span><span class="p">]),</span>
+    <span class="n">legend_title</span><span class="o">=</span><span class="s1">&#39;Return Period&#39;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">template</span><span class="o">=</span><span class="s1">&#39;plotly_white&#39;</span>
+<span class="p">)</span>
+
+<span class="c1"># Save the figure</span>
+<span class="n">savename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;TimeDependentReturnValue_</span><span class="si">{</span><span class="n">ridString</span><span class="si">}</span><span class="s1">.png&#39;</span>
+<span class="n">savedir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">savename</span><span class="p">)</span>
+<span class="c1"># fig.write_image(savedir, scale=2)</span>
+
+<span class="c1"># Optional: Display the figure</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
 </section>
 </section>
 <section id="create-a-combined-dataset-for-further-plotting-and-analysis">
@@ -2574,10 +2672,10 @@ Data variables:
 Attributes:
     description:  Time-dependent return values for the GEV model with seasona...
     datum:        STND
-    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-2fea67ff-d1aa-43f7-980b-af85c1d6ec09' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-2fea67ff-d1aa-43f7-980b-af85c1d6ec09' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-74a9eb05-88cf-465e-9c90-68f422e9eb49' class='xr-section-summary-in' type='checkbox'  checked><label for='section-74a9eb05-88cf-465e-9c90-68f422e9eb49' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>50 52 552 57 58 59 60 61</div><input id='attrs-b05bb7ac-bc44-4af4-bbde-393c0e883978' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b05bb7ac-bc44-4af4-bbde-393c0e883978' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-56797352-3e9a-4a4b-97a0-69df89e167fe' class='xr-var-data-in' type='checkbox'><label for='data-56797352-3e9a-4a4b-97a0-69df89e167fe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 50,  52, 552,  57,  58,  59,  60,  61])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-8f6231a0-517a-4de7-b98d-92662082d8c1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8f6231a0-517a-4de7-b98d-92662082d8c1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9ef91932-cade-444f-a3c6-1cffea391eda' class='xr-var-data-in' type='checkbox'><label for='data-9ef91932-cade-444f-a3c6-1cffea391eda' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
+    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-955abe22-580a-4ff5-ae93-14788b00dd71' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-955abe22-580a-4ff5-ae93-14788b00dd71' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-878b95a6-0f6c-4320-a560-0c4434db17bb' class='xr-section-summary-in' type='checkbox'  checked><label for='section-878b95a6-0f6c-4320-a560-0c4434db17bb' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>50 52 552 57 58 59 60 61</div><input id='attrs-b11e158e-6cda-4ef7-ba61-da331e5de643' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b11e158e-6cda-4ef7-ba61-da331e5de643' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1787e3ae-63f9-4c96-b1d6-31d693120f6a' class='xr-var-data-in' type='checkbox'><label for='data-1787e3ae-63f9-4c96-b1d6-31d693120f6a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 50,  52, 552,  57,  58,  59,  60,  61])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-b8188706-437e-407f-b87b-cb5b1f3c5ee3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b8188706-437e-407f-b87b-cb5b1f3c5ee3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-15cef7b7-9217-4a43-97d9-192a5802a27d' class='xr-var-data-in' type='checkbox'><label for='data-15cef7b7-9217-4a43-97d9-192a5802a27d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
        2003., 2004., 2005., 2006., 2007., 2008., 2009., 2010., 2011., 2012.,
        2013., 2014., 2015., 2016., 2017., 2018., 2019., 2020., 2021., 2022.,
-       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-b3a9b391-3022-446b-96a6-7b6c7acb7b6b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b3a9b391-3022-446b-96a6-7b6c7acb7b6b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9b55f434-b9ea-4c9a-8619-eca226ea30f5' class='xr-var-data-in' type='checkbox'><label for='data-9b55f434-b9ea-4c9a-8619-eca226ea30f5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9db9927d-f8b0-4612-9f5e-ec3ca7333867' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9db9927d-f8b0-4612-9f5e-ec3ca7333867' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.609 1.616 1.608 ... 2.062 2.062</div><input id='attrs-4cbdef59-25f3-49fa-b6dc-3a06b3e19a62' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-4cbdef59-25f3-49fa-b6dc-3a06b3e19a62' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fb1b224f-da4e-4979-b10b-d9af72a3f571' class='xr-var-data-in' type='checkbox'><label for='data-fb1b224f-da4e-4979-b10b-d9af72a3f571' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.60863699, 1.6164796 , 1.60819215, 1.60250053, 1.63817341,
+       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-2ea1117e-c791-43a2-b163-1a927b2fca35' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2ea1117e-c791-43a2-b163-1a927b2fca35' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8b313888-0e34-44e2-b55e-c86180e94d72' class='xr-var-data-in' type='checkbox'><label for='data-8b313888-0e34-44e2-b55e-c86180e94d72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-28d47653-1a03-48e6-89bd-a624ae96f006' class='xr-section-summary-in' type='checkbox'  checked><label for='section-28d47653-1a03-48e6-89bd-a624ae96f006' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.609 1.616 1.608 ... 2.062 2.062</div><input id='attrs-c9534627-22c3-4d3d-99fd-fb0a32f67430' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c9534627-22c3-4d3d-99fd-fb0a32f67430' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-921760b9-7961-4315-bf8e-74c0af47c584' class='xr-var-data-in' type='checkbox'><label for='data-921760b9-7961-4315-bf8e-74c0af47c584' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.60863699, 1.6164796 , 1.60819215, 1.60250053, 1.63817341,
          1.62372674, 1.5968824 , 1.60742884, 1.62159594, 1.64261855,
          1.64337426, 1.64810082, 1.64209168, 1.64594998, 1.63799074,
          1.63341748, 1.6611676 , 1.65371707, 1.64144892, 1.65920982,
@@ -2617,7 +2715,7 @@ Attributes:
          2.00892331, 2.00515153, 2.00227439, 2.00088388, 2.00140496,
          2.00404318, 2.00875887, 2.01527205, 2.02309705, 2.03160153,
          2.04008163, 2.04784293, 2.05427781, 2.05893071, 2.06154538,
-         2.06209048]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.53 1.523 1.528 ... 1.96 1.959</div><input id='attrs-3e0bcd9d-6500-4bf1-b9a8-0c1b437f6733' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3e0bcd9d-6500-4bf1-b9a8-0c1b437f6733' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2a5d4cea-429a-48ad-9682-1f401bc62299' class='xr-var-data-in' type='checkbox'><label for='data-2a5d4cea-429a-48ad-9682-1f401bc62299' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.53003573, 1.52312742, 1.52773245, 1.53423916, 1.51796821,
+         2.06209048]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.53 1.523 1.528 ... 1.96 1.959</div><input id='attrs-05d33823-0bd7-4c31-9a88-fb0c63a1ff0b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-05d33823-0bd7-4c31-9a88-fb0c63a1ff0b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3baf4b54-800a-4350-a17e-50c647ba24b3' class='xr-var-data-in' type='checkbox'><label for='data-3baf4b54-800a-4350-a17e-50c647ba24b3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.53003573, 1.52312742, 1.52773245, 1.53423916, 1.51796821,
          1.528523  , 1.5471733 , 1.54556602, 1.54223767, 1.53541464,
          1.54036812, 1.54159212, 1.54802915, 1.55173891, 1.5590224 ,
          1.56685138, 1.55767568, 1.56489149, 1.57588409, 1.57140338,
@@ -2657,7 +2755,7 @@ Attributes:
          1.89704045, 1.88880603, 1.8821889 , 1.87818984, 1.87750877,
          1.88045322, 1.88689894, 1.89630919, 1.90780885, 1.92029953,
          1.93259606, 1.94356321, 1.95223488, 1.95790558, 1.96019207,
-         1.95906753]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.687 1.71 1.689 ... 2.163 2.165</div><input id='attrs-53f73a06-2c09-44cc-83de-ae53d042942b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-53f73a06-2c09-44cc-83de-ae53d042942b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-19c34636-0eb1-4e05-a59f-5ae287526bae' class='xr-var-data-in' type='checkbox'><label for='data-19c34636-0eb1-4e05-a59f-5ae287526bae' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.68723826, 1.70983178, 1.68865185, 1.6707619 , 1.75837862,
+         1.95906753]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.687 1.71 1.689 ... 2.163 2.165</div><input id='attrs-00f0fa91-7bb4-4070-b4d3-b83cf9670f8c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-00f0fa91-7bb4-4070-b4d3-b83cf9670f8c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5da32b75-e833-4397-a3f3-3df04acea231' class='xr-var-data-in' type='checkbox'><label for='data-5da32b75-e833-4397-a3f3-3df04acea231' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.68723826, 1.70983178, 1.68865185, 1.6707619 , 1.75837862,
          1.71893047, 1.64659151, 1.66929165, 1.70095422, 1.74982246,
          1.74638041, 1.75460951, 1.73615421, 1.74016105, 1.71695909,
          1.69998358, 1.76465953, 1.74254264, 1.70701376, 1.74701627,
@@ -2697,21 +2795,21 @@ Attributes:
          2.12080617, 2.12149703, 2.12235987, 2.12357791, 2.12530116,
          2.12763313, 2.1306188 , 2.13423492, 2.13838524, 2.14290354,
          2.1475672 , 2.15212266, 2.15632074, 2.15995584, 2.1628987 ,
-         2.16511343]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 1 0 1 ... 1 1 1 0 1 0 0 1</div><input id='attrs-3ef1e091-9d29-4a45-abf6-7db321265ff5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3ef1e091-9d29-4a45-abf6-7db321265ff5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d206b805-606b-4c11-934d-41137fc0122f' class='xr-var-data-in' type='checkbox'><label for='data-d206b805-606b-4c11-934d-41137fc0122f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 1, 0],
+         2.16511343]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 1 0 1 ... 1 1 1 0 1 0 0 1</div><input id='attrs-1cabd0d8-f161-44ee-baea-6f8da414d04b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1cabd0d8-f161-44ee-baea-6f8da414d04b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3901546b-95a5-4bbc-8c5a-96e645db7be1' class='xr-var-data-in' type='checkbox'><label for='data-3901546b-95a5-4bbc-8c5a-96e645db7be1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 1, 0],
        [1, 0, 1, 0, 0, 0, 1],
        [1, 1, 0, 1, 0, 0, 0],
        [1, 1, 0, 1, 0, 0, 1],
        [1, 1, 0, 1, 0, 1, 1],
        [1, 1, 0, 1, 1, 0, 0],
        [1, 1, 0, 1, 1, 0, 1],
-       [1, 1, 0, 1, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 20.03 ... 19.73 21.43</div><input id='attrs-48abc48c-3229-4231-ade9-aa5054f2b316' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-48abc48c-3229-4231-ade9-aa5054f2b316' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d286166b-3c45-4172-9534-4c6303561025' class='xr-var-data-in' type='checkbox'><label for='data-d286166b-3c45-4172-9534-4c6303561025' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 20.033, 21.307, 21.967, 20.9  , 19.733, 21.433],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 204.2 ... 204.9 202.2</div><input id='attrs-13b27770-8639-4b41-a497-f068a5df6581' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-13b27770-8639-4b41-a497-f068a5df6581' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1dfa9a3d-ffe9-4592-b3be-f63831ecf1b8' class='xr-var-data-in' type='checkbox'><label for='data-1dfa9a3d-ffe9-4592-b3be-f63831ecf1b8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 204.167, 202.133, 200.65 , 203.533, 204.933,
-       202.2  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.204 1.225 1.406 ... 1.912 1.533</div><input id='attrs-ae6b7b1f-575b-499b-8bbb-ff6c8bc8aea6' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ae6b7b1f-575b-499b-8bbb-ff6c8bc8aea6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7a48c9a9-52bf-4251-bb70-41c81d032d4b' class='xr-var-data-in' type='checkbox'><label for='data-7a48c9a9-52bf-4251-bb70-41c81d032d4b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.204, 1.225, 1.406, 1.722, 1.24 , 1.364, 1.912, 1.533])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Mokuoloe&#x27;</div><input id='attrs-0c9ae90c-b109-4241-afb8-9d52f87409c3' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0c9ae90c-b109-4241-afb8-9d52f87409c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-961b8dd3-41a3-47f0-8701-b01eb7109aa3' class='xr-var-data-in' type='checkbox'><label for='data-961b8dd3-41a3-47f0-8701-b01eb7109aa3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Kawaihae&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;,
-       &#x27;Kahului&#x27;, &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-93b2085e-b433-45ba-a10d-50ee719e5878' class='xr-section-summary-in' type='checkbox'  ><label for='section-93b2085e-b433-45ba-a10d-50ee719e5878' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-77d85111-2afd-410e-b249-d72ddd7f8854' class='xr-index-data-in' type='checkbox'/><label for='index-77d85111-2afd-410e-b249-d72ddd7f8854' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([50, 52, 552, 57, 58, 59, 60, 61], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c5898a2c-cd94-4cb3-a11f-80b779437bd6' class='xr-index-data-in' type='checkbox'/><label for='index-c5898a2c-cd94-4cb3-a11f-80b779437bd6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
+       [1, 1, 0, 1, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 20.03 ... 19.73 21.43</div><input id='attrs-ad4fb115-953e-48cf-8062-b2ff7b6641d5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ad4fb115-953e-48cf-8062-b2ff7b6641d5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8ca9b3c8-8939-4635-8818-4073e58e692e' class='xr-var-data-in' type='checkbox'><label for='data-8ca9b3c8-8939-4635-8818-4073e58e692e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 20.033, 21.307, 21.967, 20.9  , 19.733, 21.433],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 204.2 ... 204.9 202.2</div><input id='attrs-947b161a-e753-463b-ba17-d9b38842796e' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-947b161a-e753-463b-ba17-d9b38842796e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c0cdac50-7dc2-4474-87ef-37243707bd8d' class='xr-var-data-in' type='checkbox'><label for='data-c0cdac50-7dc2-4474-87ef-37243707bd8d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 204.167, 202.133, 200.65 , 203.533, 204.933,
+       202.2  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.204 1.225 1.406 ... 1.912 1.533</div><input id='attrs-ca3ebdf3-7374-4d92-9d29-f138a68cdfec' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ca3ebdf3-7374-4d92-9d29-f138a68cdfec' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e1f2f704-01d7-4b9e-ae5a-6634e39922de' class='xr-var-data-in' type='checkbox'><label for='data-e1f2f704-01d7-4b9e-ae5a-6634e39922de' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.204, 1.225, 1.406, 1.722, 1.24 , 1.364, 1.912, 1.533])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Mokuoloe&#x27;</div><input id='attrs-8242912d-dd44-4dc6-8d92-72fc9a692785' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8242912d-dd44-4dc6-8d92-72fc9a692785' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-393bce02-67c0-4a60-a926-16bd53cdbfcc' class='xr-var-data-in' type='checkbox'><label for='data-393bce02-67c0-4a60-a926-16bd53cdbfcc' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Kawaihae&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;,
+       &#x27;Kahului&#x27;, &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b9791eee-fbf3-49bb-957f-482ecc9a3d41' class='xr-section-summary-in' type='checkbox'  ><label for='section-b9791eee-fbf3-49bb-957f-482ecc9a3d41' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-340c414e-c3d5-4114-9ce2-40f9e95c8e18' class='xr-index-data-in' type='checkbox'/><label for='index-340c414e-c3d5-4114-9ce2-40f9e95c8e18' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([50, 52, 552, 57, 58, 59, 60, 61], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e36be0a2-a209-4c8f-9d29-7b7458f67943' class='xr-index-data-in' type='checkbox'/><label for='index-e36be0a2-a209-4c8f-9d29-7b7458f67943' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
        2002.0, 2003.0, 2004.0, 2005.0, 2006.0, 2007.0, 2008.0, 2009.0, 2010.0,
        2011.0, 2012.0, 2013.0, 2014.0, 2015.0, 2016.0, 2017.0, 2018.0, 2019.0,
        2020.0, 2021.0, 2022.0, 2023.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6d80ac67-d672-4d52-97f8-976d6ca5f936' class='xr-index-data-in' type='checkbox'/><label for='index-6d80ac67-d672-4d52-97f8-976d6ca5f936' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-bf0aba19-9bd7-4b94-befb-7cac0c7a20fd' class='xr-section-summary-in' type='checkbox'  checked><label for='section-bf0aba19-9bd7-4b94-befb-7cac0c7a20fd' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-cac4c257-58ff-4a97-8402-db5a61d3fbeb' class='xr-index-data-in' type='checkbox'/><label for='index-cac4c257-58ff-4a97-8402-db5a61d3fbeb' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ae50adc8-c44f-4bef-9786-b2dbbc9f41fc' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ae50adc8-c44f-4bef-9786-b2dbbc9f41fc' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="create-a-map">
@@ -2874,7 +2972,7 @@ Attributes:
         },
         kernelOptions: {
             name: "python3",
-            path: "./notebooks\nonstationaryGEV"
+            path: "./notebooks/nonstationaryGEV"
         },
         predefinedOutput: true
     }
@@ -2888,7 +2986,7 @@ Attributes:
               
               
               
-                <footer class="prev-next-footer d-print-none">
+                <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -3013,8 +3111,8 @@ By Playground Coordinator
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
