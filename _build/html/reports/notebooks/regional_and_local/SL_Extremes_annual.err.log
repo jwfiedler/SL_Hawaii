@@ -44,35 +44,46 @@ print(rsl_hourly.time[-1].values)
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[2], line 10[0m
-[1;32m      7[0m [38;5;66;03m#drop all locations with data_coverage less than 80%[39;00m
-[1;32m      8[0m rsl_daily [38;5;241m=[39m rsl_daily_all[38;5;241m.[39mwhere(data_coverage[38;5;241m>[39m[38;5;241m0.80[39m,drop[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
-[0;32m---> 10[0m rsl_hourly [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+Cell [0;32mIn[2], line 17[0m
 [1;32m     11[0m rsl_hourly
 [1;32m     13[0m [38;5;66;03m# # make rsl_hourly have the same time period as rsl_daily[39;00m
 [1;32m     14[0m [38;5;66;03m# rsl_hourly = rsl_hourly.sel(time = slice(rsl_daily.time[0], rsl_daily.time[-1]))[39;00m
 [1;32m     15[0m 
 [1;32m     16[0m [38;5;66;03m#include only the TGs that are in rsl_subset[39;00m
+[0;32m---> 17[0m rsl_hourly [38;5;241m=[39m [43mrsl_hourly[49m[38;5;241;43m.[39;49m[43msel[49m[43m([49m[43mrecord_id[49m[43m [49m[38;5;241;43m=[39;49m[43m [49m[43mrsl_daily[49m[38;5;241;43m.[39;49m[43mrecord_id[49m[38;5;241;43m.[39;49m[43mvalues[49m[43m)[49m
+[1;32m     19[0m [38;5;66;03m# truncate time period to end at the end of 2022[39;00m
+[1;32m     20[0m rsl_daily [38;5;241m=[39m rsl_daily[38;5;241m.[39msel(time [38;5;241m=[39m [38;5;28mslice[39m([38;5;28;01mNone[39;00m, [38;5;124m'[39m[38;5;124m2022-12-31[39m[38;5;124m'[39m))
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554[0m, in [0;36mopen_dataset[0;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
-[1;32m    551[0m     kwargs[38;5;241m.[39mupdate(backend_kwargs)
-[1;32m    553[0m [38;5;28;01mif[39;00m engine [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[0;32m--> 554[0m     engine [38;5;241m=[39m [43mplugins[49m[38;5;241;43m.[39;49m[43mguess_engine[49m[43m([49m[43mfilename_or_obj[49m[43m)[49m
-[1;32m    556[0m [38;5;28;01mif[39;00m from_array_kwargs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[1;32m    557[0m     from_array_kwargs [38;5;241m=[39m {}
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:3097[0m, in [0;36mDataset.sel[0;34m(self, indexers, method, tolerance, drop, **indexers_kwargs)[0m
+[1;32m   3029[0m [38;5;250m[39m[38;5;124;03m"""Returns a new dataset with each array indexed by tick labels[39;00m
+[1;32m   3030[0m [38;5;124;03malong the specified dimension(s).[39;00m
+[1;32m   3031[0m 
+[0;32m   (...)[0m
+[1;32m   3094[0m 
+[1;32m   3095[0m [38;5;124;03m"""[39;00m
+[1;32m   3096[0m indexers [38;5;241m=[39m either_dict_or_kwargs(indexers, indexers_kwargs, [38;5;124m"[39m[38;5;124msel[39m[38;5;124m"[39m)
+[0;32m-> 3097[0m query_results [38;5;241m=[39m [43mmap_index_queries[49m[43m([49m
+[1;32m   3098[0m [43m    [49m[38;5;28;43mself[39;49m[43m,[49m[43m [49m[43mindexers[49m[38;5;241;43m=[39;49m[43mindexers[49m[43m,[49m[43m [49m[43mmethod[49m[38;5;241;43m=[39;49m[43mmethod[49m[43m,[49m[43m [49m[43mtolerance[49m[38;5;241;43m=[39;49m[43mtolerance[49m
+[1;32m   3099[0m [43m[49m[43m)[49m
+[1;32m   3101[0m [38;5;28;01mif[39;00m drop:
+[1;32m   3102[0m     no_scalar_variables [38;5;241m=[39m {}
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197[0m, in [0;36mguess_engine[0;34m(store_spec)[0m
-[1;32m    189[0m [38;5;28;01melse[39;00m:
-[1;32m    190[0m     error_msg [38;5;241m=[39m (
-[1;32m    191[0m         [38;5;124m"[39m[38;5;124mfound the following matches with the input file in xarray[39m[38;5;124m'[39m[38;5;124ms IO [39m[38;5;124m"[39m
-[1;32m    192[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mbackends: [39m[38;5;132;01m{[39;00mcompatible_engines[38;5;132;01m}[39;00m[38;5;124m. But their dependencies may not be installed, see:[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[1;32m    193[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/user-guide/io.html [39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
-[1;32m    194[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/getting-started-guide/installing.html[39m[38;5;124m"[39m
-[1;32m    195[0m     )
-[0;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/indexing.py:192[0m, in [0;36mmap_index_queries[0;34m(obj, indexers, method, tolerance, **indexers_kwargs)[0m
+[1;32m    190[0m         results[38;5;241m.[39mappend(IndexSelResult(labels))
+[1;32m    191[0m     [38;5;28;01melse[39;00m:
+[0;32m--> 192[0m         results[38;5;241m.[39mappend([43mindex[49m[38;5;241;43m.[39;49m[43msel[49m[43m([49m[43mlabels[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43moptions[49m[43m)[49m)
+[1;32m    194[0m merged [38;5;241m=[39m merge_sel_results(results)
+[1;32m    196[0m [38;5;66;03m# drop dimension coordinates found in dimension indexers[39;00m
+[1;32m    197[0m [38;5;66;03m# (also drop multi-index if any)[39;00m
+[1;32m    198[0m [38;5;66;03m# (.sel() already ensures alignment)[39;00m
 
-[0;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
-https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
-https://docs.xarray.dev/en/stable/user-guide/io.html
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/indexes.py:784[0m, in [0;36mPandasIndex.sel[0;34m(self, labels, method, tolerance)[0m
+[1;32m    782[0m     indexer [38;5;241m=[39m get_indexer_nd([38;5;28mself[39m[38;5;241m.[39mindex, label_array, method, tolerance)
+[1;32m    783[0m     [38;5;28;01mif[39;00m np[38;5;241m.[39many(indexer [38;5;241m<[39m [38;5;241m0[39m):
+[0;32m--> 784[0m         [38;5;28;01mraise[39;00m [38;5;167;01mKeyError[39;00m([38;5;124mf[39m[38;5;124m"[39m[38;5;124mnot all values found in index [39m[38;5;132;01m{[39;00mcoord_name[38;5;132;01m!r}[39;00m[38;5;124m"[39m)
+[1;32m    786[0m [38;5;66;03m# attach dimension names and/or coordinates to positional indexer[39;00m
+[1;32m    787[0m [38;5;28;01mif[39;00m [38;5;28misinstance[39m(label, Variable):
+
+[0;31mKeyError[0m: "not all values found in index 'record_id'"
 

@@ -524,37 +524,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># open the dataset</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="c1"># Load dataset with Dask (assuming your dataset is in NetCDF format)</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">,</span> <span class="n">chunks</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">})</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">554</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
-<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span>         <span class="sa">f</span><span class="s2">&quot;backends: </span><span class="si">{</span><span class="n">compatible_engines</span><span class="si">}</span><span class="s2">. But their dependencies may not be installed, see:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/user-guide/io.html </span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/getting-started-guide/installing.html&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
-
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
-<span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
-<span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -948,16 +917,16 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;sea_level&#x27; (record_id: 11, time: 43495)&gt; Size: 2MB
-dask.array&lt;groupby_nanmean, shape=(11, 43495), dtype=float32, chunksize=(11, 83), chunktype=numpy.ndarray&gt;
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.DataArray &#x27;sea_level&#x27; (record_id: 11, time: 43677)&gt; Size: 2MB
+dask.array&lt;groupby_nanmean, shape=(11, 43677), dtype=float32, chunksize=(11, 83), chunktype=numpy.ndarray&gt;
 Coordinates:
-  * record_id  (record_id) int16 22B 140 500 520 570 580 ... 610 5470 5480 5520
-  * time       (time) datetime64[ns] 348kB 1905-01-01 1905-01-02 ... 2024-01-31
+  * record_id  (record_id) int64 88B 14 50 52 57 58 59 60 61 547 548 552
+  * time       (time) datetime64[ns] 349kB 1905-01-01 1905-01-02 ... 2024-07-31
 Attributes:
     long_name:  relative sea level
     units:      millimeters
     source:     in situ tide gauge water level observations
-    platform:   station_name, station_country, station_country_code, uhslc_id...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'sea_level'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 43495</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5f8808cb-60ce-4152-a8a2-85dca3a9d668' class='xr-array-in' type='checkbox' checked><label for='section-5f8808cb-60ce-4152-a8a2-85dca3a9d668' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(11, 83), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
+    platform:   station_name, station_country, station_country_code, uhslc_id...</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.DataArray</div><div class='xr-array-name'>'sea_level'</div><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 43677</li></ul></div><ul class='xr-sections'><li class='xr-section-item'><div class='xr-array-wrap'><input id='section-5b033313-4cba-4436-8c31-a9ba3b9f09c0' class='xr-array-in' type='checkbox' checked><label for='section-5b033313-4cba-4436-8c31-a9ba3b9f09c0' title='Show/hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-array-preview xr-preview'><span>dask.array&lt;chunksize=(11, 83), meta=np.ndarray&gt;</span></div><div class='xr-array-data'><table>
     <tr>
         <td>
             <table style="border-collapse: collapse;">
@@ -978,12 +947,12 @@ Attributes:
                     
                     <tr>
                         <th> Shape </th>
-                        <td> (11, 43495) </td>
+                        <td> (11, 43677) </td>
                         <td> (11, 83) </td>
                     </tr>
                     <tr>
                         <th> Dask graph </th>
-                        <td colspan="2"> 1043 chunks in 2092 graph layers </td>
+                        <td colspan="2"> 1048 chunks in 2102 graph layers </td>
                     </tr>
                     <tr>
                         <th> Data type </th>
@@ -1003,20 +972,20 @@ Attributes:
   <line x1="0" y1="0" x2="0" y2="25" style="stroke-width:2" />
   <line x1="6" y1="0" x2="6" y2="25" />
   <line x1="12" y1="0" x2="12" y2="25" />
-  <line x1="18" y1="0" x2="18" y2="25" />
+  <line x1="19" y1="0" x2="19" y2="25" />
   <line x1="25" y1="0" x2="25" y2="25" />
   <line x1="31" y1="0" x2="31" y2="25" />
   <line x1="37" y1="0" x2="37" y2="25" />
   <line x1="44" y1="0" x2="44" y2="25" />
   <line x1="50" y1="0" x2="50" y2="25" />
   <line x1="56" y1="0" x2="56" y2="25" />
-  <line x1="62" y1="0" x2="62" y2="25" />
+  <line x1="63" y1="0" x2="63" y2="25" />
   <line x1="69" y1="0" x2="69" y2="25" />
   <line x1="75" y1="0" x2="75" y2="25" />
-  <line x1="81" y1="0" x2="81" y2="25" />
+  <line x1="82" y1="0" x2="82" y2="25" />
   <line x1="88" y1="0" x2="88" y2="25" />
   <line x1="94" y1="0" x2="94" y2="25" />
-  <line x1="100" y1="0" x2="100" y2="25" />
+  <line x1="101" y1="0" x2="101" y2="25" />
   <line x1="107" y1="0" x2="107" y2="25" />
   <line x1="113" y1="0" x2="113" y2="25" />
   <line x1="120" y1="0" x2="120" y2="25" style="stroke-width:2" />
@@ -1025,23 +994,22 @@ Attributes:
   <polygon points="0.0,0.0 120.0,0.0 120.0,25.412616514582485 0.0,25.412616514582485" style="fill:#8B4903A0;stroke-width:0"/>
 
   <!-- Text -->
-  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >43495</text>
+  <text x="60.000000" y="45.412617" font-size="1.0rem" font-weight="100" text-anchor="middle" >43677</text>
   <text x="140.000000" y="12.706308" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(0,140.000000,12.706308)">11</text>
 </svg>
         </td>
     </tr>
-</table></div></div></li><li class='xr-section-item'><input id='section-39d636f4-0ec9-4ea5-996d-283918312778' class='xr-section-summary-in' type='checkbox'  checked><label for='section-39d636f4-0ec9-4ea5-996d-283918312778' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-6392e7fd-a2e4-4ce6-8248-e5987c785c8d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-6392e7fd-a2e4-4ce6-8248-e5987c785c8d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b6ae2861-fba3-41d0-8f22-9dae59c9fd63' class='xr-var-data-in' type='checkbox'><label for='data-b6ae2861-fba3-41d0-8f22-9dae59c9fd63' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
-      dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1905-01-01 ... 2024-01-31</div><input id='attrs-542a11b1-a792-4ea1-b91d-f9fc572cf5cb' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-542a11b1-a792-4ea1-b91d-f9fc572cf5cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1524433f-c3e4-454f-8a42-10164a77c991' class='xr-var-data-in' type='checkbox'><label for='data-1524433f-c3e4-454f-8a42-10164a77c991' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1905-01-01T00:00:00.000000000&#x27;, &#x27;1905-01-02T00:00:00.000000000&#x27;,
-       &#x27;1905-01-03T00:00:00.000000000&#x27;, ..., &#x27;2024-01-29T00:00:00.000000000&#x27;,
-       &#x27;2024-01-30T00:00:00.000000000&#x27;, &#x27;2024-01-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-2f31560d-10ca-4f00-9a25-033c862d3a89' class='xr-section-summary-in' type='checkbox'  ><label for='section-2f31560d-10ca-4f00-9a25-033c862d3a89' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-3cd069f2-baf8-4e53-992a-dedc43ee99fe' class='xr-index-data-in' type='checkbox'/><label for='index-3cd069f2-baf8-4e53-992a-dedc43ee99fe' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-bea53a13-e9f9-4810-80dd-829cf938440e' class='xr-index-data-in' type='checkbox'/><label for='index-bea53a13-e9f9-4810-80dd-829cf938440e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1905-01-01&#x27;, &#x27;1905-01-02&#x27;, &#x27;1905-01-03&#x27;, &#x27;1905-01-04&#x27;,
+</table></div></div></li><li class='xr-section-item'><input id='section-56a27b75-e768-40b3-8a67-9e489721ecf9' class='xr-section-summary-in' type='checkbox'  checked><label for='section-56a27b75-e768-40b3-8a67-9e489721ecf9' class='xr-section-summary' >Coordinates: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 57 58 59 60 61 547 548 552</div><input id='attrs-d6da4d75-1f92-454f-9371-83b1642df549' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d6da4d75-1f92-454f-9371-83b1642df549' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bb066dea-e5ea-4d47-945a-22970621b36d' class='xr-var-data-in' type='checkbox'><label for='data-bb066dea-e5ea-4d47-945a-22970621b36d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52,  57,  58,  59,  60,  61, 547, 548, 552])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1905-01-01 ... 2024-07-31</div><input id='attrs-3471ee78-0c0f-4883-9e19-5845cd279645' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3471ee78-0c0f-4883-9e19-5845cd279645' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8994d442-5eb9-4a4f-8bd9-e2f497fae476' class='xr-var-data-in' type='checkbox'><label for='data-8994d442-5eb9-4a4f-8bd9-e2f497fae476' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1905-01-01T00:00:00.000000000&#x27;, &#x27;1905-01-02T00:00:00.000000000&#x27;,
+       &#x27;1905-01-03T00:00:00.000000000&#x27;, ..., &#x27;2024-07-29T00:00:00.000000000&#x27;,
+       &#x27;2024-07-30T00:00:00.000000000&#x27;, &#x27;2024-07-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-63ee2357-bea2-46fe-aa54-133fa1cfe106' class='xr-section-summary-in' type='checkbox'  ><label for='section-63ee2357-bea2-46fe-aa54-133fa1cfe106' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-4439a0fa-e443-4e14-8482-1e87a4af6fcf' class='xr-index-data-in' type='checkbox'/><label for='index-4439a0fa-e443-4e14-8482-1e87a4af6fcf' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 57, 58, 59, 60, 61, 547, 548, 552], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-452df3cc-b738-4cb7-a660-0581a6b94d8e' class='xr-index-data-in' type='checkbox'/><label for='index-452df3cc-b738-4cb7-a660-0581a6b94d8e' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1905-01-01&#x27;, &#x27;1905-01-02&#x27;, &#x27;1905-01-03&#x27;, &#x27;1905-01-04&#x27;,
                &#x27;1905-01-05&#x27;, &#x27;1905-01-06&#x27;, &#x27;1905-01-07&#x27;, &#x27;1905-01-08&#x27;,
                &#x27;1905-01-09&#x27;, &#x27;1905-01-10&#x27;,
                ...
-               &#x27;2024-01-22&#x27;, &#x27;2024-01-23&#x27;, &#x27;2024-01-24&#x27;, &#x27;2024-01-25&#x27;,
-               &#x27;2024-01-26&#x27;, &#x27;2024-01-27&#x27;, &#x27;2024-01-28&#x27;, &#x27;2024-01-29&#x27;,
-               &#x27;2024-01-30&#x27;, &#x27;2024-01-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=43495, freq=&#x27;D&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f7b807cf-069c-4caa-baeb-9ffcc0f45468' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f7b807cf-069c-4caa-baeb-9ffcc0f45468' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>millimeters</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div></li></ul></div></div></div></div>
+               &#x27;2024-07-22&#x27;, &#x27;2024-07-23&#x27;, &#x27;2024-07-24&#x27;, &#x27;2024-07-25&#x27;,
+               &#x27;2024-07-26&#x27;, &#x27;2024-07-27&#x27;, &#x27;2024-07-28&#x27;, &#x27;2024-07-29&#x27;,
+               &#x27;2024-07-30&#x27;, &#x27;2024-07-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=43677, freq=&#x27;D&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b9c05029-0c87-4cde-aa26-e71703034ec2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b9c05029-0c87-4cde-aa26-e71703034ec2' class='xr-section-summary' >Attributes: <span>(4)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>relative sea level</dd><dt><span>units :</span></dt><dd>millimeters</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1063,6 +1031,14 @@ Attributes:
 
 <span class="n">record_low</span> <span class="o">=</span> <span class="n">daily_min</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
 <span class="n">record_high</span> <span class="o">=</span> <span class="n">daily_max</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+    <span class="n">avg_daily</span> <span class="o">=</span> <span class="n">daily_mean</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="mi">1983</span><span class="p">,</span><span class="mi">2001</span><span class="p">))</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;dayofyear&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span> <span class="c1">#CHECK IF THIS IS RIGHT, SOMETHING IS WRONG</span>
+                               <span class="o">^</span>
+<span class="ne">SyntaxError</span>: expression cannot contain assignment, perhaps you meant &quot;==&quot;?
 </pre></div>
 </div>
 </div>

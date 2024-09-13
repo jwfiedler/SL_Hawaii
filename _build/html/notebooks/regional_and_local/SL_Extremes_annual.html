@@ -594,37 +594,48 @@ rsl_hawaii.nc found in ../../data. Proceed.
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">10</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1">#drop all locations with data_coverage less than 80%</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">rsl_daily_all</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data_coverage</span><span class="o">&gt;</span><span class="mf">0.80</span><span class="p">,</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="ne">---&gt; </span><span class="mi">10</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
 <span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="n">rsl_hourly</span>
 <span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># # make rsl_hourly have the same time period as rsl_daily</span>
 <span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="c1"># rsl_hourly = rsl_hourly.sel(time = slice(rsl_daily.time[0], rsl_daily.time[-1]))</span>
 <span class="g g-Whitespace">     </span><span class="mi">15</span> 
 <span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="c1">#include only the TGs that are in rsl_subset</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="c1"># truncate time period to end at the end of 2022</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;2022-12-31&#39;</span><span class="p">))</span>
 
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">553</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">554</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:3097,</span> in <span class="ni">Dataset.sel</span><span class="nt">(self, indexers, method, tolerance, drop, **indexers_kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3029</span><span class="w"> </span><span class="sd">&quot;&quot;&quot;Returns a new dataset with each array indexed by tick labels</span>
+<span class="g g-Whitespace">   </span><span class="mi">3030</span><span class="sd"> along the specified dimension(s).</span>
+<span class="g g-Whitespace">   </span><span class="mi">3031</span><span class="sd"> </span>
+<span class="sd">   (...)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3094</span><span class="sd"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">3095</span><span class="sd"> &quot;&quot;&quot;</span>
+<span class="g g-Whitespace">   </span><span class="mi">3096</span> <span class="n">indexers</span> <span class="o">=</span> <span class="n">either_dict_or_kwargs</span><span class="p">(</span><span class="n">indexers</span><span class="p">,</span> <span class="n">indexers_kwargs</span><span class="p">,</span> <span class="s2">&quot;sel&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">3097</span> <span class="n">query_results</span> <span class="o">=</span> <span class="n">map_index_queries</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">3098</span>     <span class="bp">self</span><span class="p">,</span> <span class="n">indexers</span><span class="o">=</span><span class="n">indexers</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="o">=</span><span class="n">tolerance</span>
+<span class="g g-Whitespace">   </span><span class="mi">3099</span> <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">3101</span> <span class="k">if</span> <span class="n">drop</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">3102</span>     <span class="n">no_scalar_variables</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
-<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span>         <span class="sa">f</span><span class="s2">&quot;backends: </span><span class="si">{</span><span class="n">compatible_engines</span><span class="si">}</span><span class="s2">. But their dependencies may not be installed, see:</span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/user-guide/io.html </span><span class="se">\n</span><span class="s2">&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">194</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/getting-started-guide/installing.html&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/indexing.py:192,</span> in <span class="ni">map_index_queries</span><span class="nt">(obj, indexers, method, tolerance, **indexers_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>         <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">IndexSelResult</span><span class="p">(</span><span class="n">labels</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>     <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">192</span>         <span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="o">**</span><span class="n">options</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span> <span class="n">merged</span> <span class="o">=</span> <span class="n">merge_sel_results</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="c1"># drop dimension coordinates found in dimension indexers</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="c1"># (also drop multi-index if any)</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span> <span class="c1"># (.sel() already ensures alignment)</span>
 
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
-<span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
-<span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/indexes.py:784,</span> in <span class="ni">PandasIndex.sel</span><span class="nt">(self, labels, method, tolerance)</span>
+<span class="g g-Whitespace">    </span><span class="mi">782</span>     <span class="n">indexer</span> <span class="o">=</span> <span class="n">get_indexer_nd</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">label_array</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">tolerance</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">783</span>     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">indexer</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">784</span>         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;not all values found in index </span><span class="si">{</span><span class="n">coord_name</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">786</span> <span class="c1"># attach dimension names and/or coordinates to positional indexer</span>
+<span class="g g-Whitespace">    </span><span class="mi">787</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">Variable</span><span class="p">):</span>
+
+<span class="ne">KeyError</span>: &quot;not all values found in index &#39;record_id&#39;&quot;
 </pre></div>
 </div>
 </div>

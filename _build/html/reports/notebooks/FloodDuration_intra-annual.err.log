@@ -15,62 +15,31 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Extracting the necessary data
-flood_day = SL_daily_max['flood_day']
-time = SL_daily_max['time']
-station_names = SL_daily_max['station_name'].values
+# Create a dictionary to store GEV parameters for each category
+gev_params = {}
 
-# Convert time to pandas datetime
-time = pd.to_datetime(time.values)
+for category, group in grouped_data:
+    # Extract height data
+    heights = group['height'].values
+    
+    # Fit GEV distribution
+    c, loc, scale = genextreme.fit(heights)
+    
+    # Store parameters
+    gev_params[category] = (c, loc, scale)
 
-# Initialize a dictionary to hold results
-flood_events = {}
-
-# Loop through each station
-for i, station in enumerate(station_names):
-    station_flood_days = flood_day[:, i].values
-    station_flood_days = pd.Series(station_flood_days, index=time)
-    
-    # Group by year
-    station_flood_days_by_year = station_flood_days.groupby(station_flood_days.index.year)
-    
-    # Initialize list to hold all events for this station
-    station_events = []
-    
-    for year, data in station_flood_days_by_year:
-        flood_event_durations = []
-        current_event_length = 0
-        
-        for day in data:
-            if day:
-                current_event_length += 1
-            else:
-                if current_event_length > 0:
-                    flood_event_durations.append(current_event_length)
-                current_event_length = 0
-        
-        # Append the last event if it was ongoing at the end of the year
-        if current_event_length > 0:
-            flood_event_durations.append(current_event_length)
-        
-        # Store the events for this year
-        station_events.append({
-            "year": year,
-            "events": flood_event_durations
-        })
-    
-    # Store the results for the station
-    flood_events[station] = station_events
+    print(f"GEV parameters for {category} category: c={c:.4f}, loc={loc:.4f}, scale={scale:.4f}")
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mNameError[0m                                 Traceback (most recent call last)
-Cell [0;32mIn[2], line 2[0m
-[1;32m      1[0m [38;5;66;03m# Extracting the necessary data[39;00m
-[0;32m----> 2[0m flood_day [38;5;241m=[39m [43mSL_daily_max[49m[[38;5;124m'[39m[38;5;124mflood_day[39m[38;5;124m'[39m]
-[1;32m      3[0m time [38;5;241m=[39m SL_daily_max[[38;5;124m'[39m[38;5;124mtime[39m[38;5;124m'[39m]
-[1;32m      4[0m station_names [38;5;241m=[39m SL_daily_max[[38;5;124m'[39m[38;5;124mstation_name[39m[38;5;124m'[39m][38;5;241m.[39mvalues
+Cell [0;32mIn[23], line 9[0m
+[1;32m      6[0m heights [38;5;241m=[39m group[[38;5;124m'[39m[38;5;124mheight[39m[38;5;124m'[39m][38;5;241m.[39mvalues
+[1;32m      8[0m [38;5;66;03m# Fit GEV distribution[39;00m
+[0;32m----> 9[0m c, loc, scale [38;5;241m=[39m [43mgenextreme[49m[38;5;241m.[39mfit(heights)
+[1;32m     11[0m [38;5;66;03m# Store parameters[39;00m
+[1;32m     12[0m gev_params[category] [38;5;241m=[39m (c, loc, scale)
 
-[0;31mNameError[0m: name 'SL_daily_max' is not defined
+[0;31mNameError[0m: name 'genextreme' is not defined
 

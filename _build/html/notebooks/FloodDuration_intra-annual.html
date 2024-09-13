@@ -494,6 +494,9 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> setup.ipynb
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span> <span class="p">)</span>
 <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../output&#39;</span><span class="p">)</span> 
+
+<span class="c1"># load the data</span>
+<span class="n">SL_daily_max</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;SL_daily_max.nc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -549,220 +552,175 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Extracting the necessary data</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">flood_day</span> <span class="o">=</span> <span class="n">SL_daily_max</span><span class="p">[</span><span class="s1">&#39;flood_day&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">time</span> <span class="o">=</span> <span class="n">SL_daily_max</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">station_names</span> <span class="o">=</span> <span class="n">SL_daily_max</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
-
-<span class="ne">NameError</span>: name &#39;SL_daily_max&#39; is not defined
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Setting up the plot grid again with larger station names</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Configure the plot grid with larger station names</span>
 
-<span class="c1"># Determine unique years in the dataset</span>
-<span class="n">years</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">year_data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">station_events</span> <span class="ow">in</span> <span class="n">flood_events</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">year_data</span> <span class="ow">in</span> <span class="n">station_events</span><span class="p">))</span>
+<span class="c1"># Extract unique years from the dataset, sorted for plotting</span>
+<span class="n">years</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">({</span><span class="n">year_data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span> <span class="k">for</span> <span class="n">station_events</span> <span class="ow">in</span> <span class="n">flood_events</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">for</span> <span class="n">year_data</span> <span class="ow">in</span> <span class="n">station_events</span><span class="p">})</span>
 
-<span class="c1"># Setting up the plot grid</span>
+<span class="c1"># Define the number of stations and 5-year interval ticks</span>
 <span class="n">num_stations</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">station_names</span><span class="p">)</span>
-<span class="c1"># Determine the 5-year intervals for labeling</span>
 <span class="n">five_year_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="n">year</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span> <span class="k">if</span> <span class="n">year</span> <span class="o">%</span> <span class="mi">5</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
 
-<span class="c1"># Setting up the plot grid again with individual subplots and station names inside the plots</span>
+<span class="c1"># Create subplots: one per station, sharing the x-axis</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="n">num_stations</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">hspace</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># Decrease hspace value to bring subplots closer</span>
 
-<span class="c1"># Plotting for each station</span>
+<span class="c1"># Generate boxplots for each station</span>
 <span class="k">for</span> <span class="n">ax</span><span class="p">,</span> <span class="n">station</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">station_names</span><span class="p">):</span>
     <span class="n">yearly_durations</span> <span class="o">=</span> <span class="p">{</span><span class="n">year</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">}</span>
-    
-    <span class="c1"># Populate the yearly durations</span>
+
+    <span class="c1"># Gather flood event durations per year for the current station</span>
     <span class="k">for</span> <span class="n">year_data</span> <span class="ow">in</span> <span class="n">flood_events</span><span class="p">[</span><span class="n">station</span><span class="p">]:</span>
-        <span class="n">year</span> <span class="o">=</span> <span class="n">year_data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]</span>
-        <span class="n">yearly_durations</span><span class="p">[</span><span class="n">year</span><span class="p">]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">year_data</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">])</span>
-    
-    <span class="c1"># Prepare data for boxplot</span>
+        <span class="n">yearly_durations</span><span class="p">[</span><span class="n">year_data</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">year_data</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">])</span>
+
+    <span class="c1"># Prepare the boxplot data</span>
     <span class="n">boxplot_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">yearly_durations</span><span class="p">[</span><span class="n">year</span><span class="p">]</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">]</span>
-    
-    <span class="c1"># Create the boxplot</span>
+
+    <span class="c1"># Create the boxplot with customized aesthetics</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span>
-        <span class="n">boxplot_data</span><span class="p">,</span> 
+        <span class="n">boxplot_data</span><span class="p">,</span>
         <span class="n">positions</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">years</span><span class="p">)),</span>
-        <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+        <span class="n">patch_artist</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="n">boxprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">),</span>
         <span class="n">medianprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">),</span>
         <span class="n">whiskerprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">),</span>
         <span class="n">capprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
     <span class="p">)</span>
-    
-    <span class="c1"># Add station name inside the plot</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="c1"># Label each subplot with the station name</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">ax</span><span class="o">.</span><span class="n">get_ylim</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">station</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Duration (days)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    
 
-<span class="c1"># Clean up and remove x-axis labels from all but the last subplot</span>
+<span class="c1"># Remove x-axis labels from all but the last subplot</span>
 <span class="k">for</span> <span class="n">ax</span> <span class="ow">in</span> <span class="n">axes</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([])</span>
 
-<span class="c1"># Set x-ticks and labels for every 5 years</span>
+<span class="c1"># Set x-ticks at 5-year intervals on the last subplot</span>
 <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">([</span><span class="n">years</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">five_year_ticks</span><span class="p">])</span>
-<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">five_year_ticks</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+<span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">five_year_ticks</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">axes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Year&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
+<span class="c1"># Add a single y-axis label for the entire figure</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Duration (days)&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.04, 0.5, &#39;Duration (days)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/e45543567a02e4ef2af3e05428a1d5822c317431f5cd1b453cf41976db8b6b1e.png" src="../_images/e45543567a02e4ef2af3e05428a1d5822c317431f5cd1b453cf41976db8b6b1e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load hourly data</span>
+<span class="n">hourly_data</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;SL_hourly_data.nc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Loop through each sensor column</span>
-<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">flood_hour_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">flood_duration_day</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_flood_ds</span><span class="p">(</span><span class="n">hourly_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+    <span class="n">flood_hour</span> <span class="o">=</span> <span class="p">(</span><span class="n">hourly_data</span><span class="o">.</span><span class="n">sea_level_MHHW</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span>
+    <span class="n">flood_hour</span>
+    <span class="n">flood_hour</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">flood_hour</span><span class="p">)</span>
+    <span class="n">flood_hour_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_hour</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="c1"># get sea level data where flood_hour is True</span>
+
+    <span class="n">flood_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">sea_level_MHHW</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">flood_hour</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">flood_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_data</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="n">threshold</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="c1"># Find indices of flood events, and the duration of each event for record id = 57</span>
+    <span class="c1"># Initialize a dictionary to store the durations</span>
+    <span class="n">flood_durations</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">flood_heights</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+    <span class="n">df_flood</span> <span class="o">=</span> <span class="n">flood_hour_df</span> 
+
+    <span class="c1"># Loop through each sensor column</span>
+    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">flood_hour_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">flood_durations</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">flood_heights</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Find the indices where flooding starts and ends</span>
+        <span class="n">flood_events</span> <span class="o">=</span> <span class="n">df_flood</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">ne</span><span class="p">(</span><span class="n">df_flood</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+
+        <span class="c1"># Group by the flood event indices, filtering out False events</span>
+        <span class="k">for</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_flood</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">flood_events</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">group</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>  <span class="c1"># Only consider True (flood) events</span>
+                <span class="n">start_time</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+                <span class="n">end_time</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+                <span class="n">duration</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span> 
+                <span class="c1"># round to nearest hour</span>
+                <span class="n">duration</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">duration</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+                <span class="n">flood_durations</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start_time</span><span class="p">,</span> <span class="n">duration</span><span class="p">))</span>
+                <span class="n">height</span> <span class="o">=</span> <span class="n">flood_data_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start_time</span><span class="p">:</span><span class="n">end_time</span><span class="p">,</span> <span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="c1"># max height</span>
+                <span class="n">flood_heights</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start_time</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+
+    <span class="c1"># make dataframe from dictionary</span>
+    <span class="c1"># Assuming flood_durations and hourly_data are already defined</span>
+
+    <span class="c1"># Initialize an empty list to store DataArrays</span>
+    <span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Loop through each record_id and create a DataArray</span>
+    <span class="k">for</span> <span class="n">record_id</span> <span class="ow">in</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
+        <span class="n">flood_durations_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_durations</span><span class="p">[</span><span class="n">record_id</span><span class="p">])</span>
+        <span class="n">flood_durations_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">]</span>
+
+        <span class="n">flood_heights_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_heights</span><span class="p">[</span><span class="n">record_id</span><span class="p">])</span>   
+        <span class="n">flood_heights_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">]</span>
+
+        <span class="c1"># Merge the two DataFrames on &#39;time&#39;</span>
+        <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">flood_durations_df</span><span class="p">,</span> <span class="n">flood_heights_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Create a DataArray with both &#39;duration&#39; and &#39;height&#39;</span>
+        <span class="n">flood_data_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
+            <span class="n">merged_df</span><span class="p">[[</span><span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;variable&#39;</span><span class="p">],</span>
+            <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="s1">&#39;record_id&#39;</span><span class="p">:</span> <span class="n">record_id</span><span class="p">}</span>
+        <span class="p">)</span>
+
+        <span class="n">data_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flood_data_da</span><span class="p">)</span>
+
+
+    <span class="c1"># Combine all DataArrays into a single Dataset</span>
+    <span class="n">flood_data_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data_arrays</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;record_id&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Convert to Dataset</span>
+    <span class="n">flood_data_ds</span> <span class="o">=</span> <span class="n">flood_data_ds</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span>
+
+    <span class="c1"># make storm time by shifting time by 4 months, such that May 1st is the start of the storm season</span>
+    <span class="c1"># Convert the time values to pandas DatetimeIndex</span>
+    <span class="n">time_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">flood_data_ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
     
-    <span class="c1"># Find the indices where flooding starts and ends</span>
-    <span class="n">flood_events</span> <span class="o">=</span> <span class="n">df_flood</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">ne</span><span class="p">(</span><span class="n">df_flood</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+    <span class="c1"># Jan 1 should be the equivalent of May 1</span>
+    <span class="n">shifted_time_values</span> <span class="o">=</span> <span class="n">time_values</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
     
-    <span class="c1"># Group by the flood event indices, filtering out False events</span>
-    <span class="k">for</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_flood</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">flood_events</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">group</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>  <span class="c1"># Only consider True (flood) events</span>
-            <span class="n">start_time</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-            <span class="n">end_time</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-            <span class="n">duration</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span> 
-            <span class="c1"># round to nearest hour</span>
-            <span class="n">duration</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">duration</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="n">flood_durations</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start_time</span><span class="p">,</span> <span class="n">duration</span><span class="p">))</span>
-            <span class="n">height</span> <span class="o">=</span> <span class="n">flood_data_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start_time</span><span class="p">:</span><span class="n">end_time</span><span class="p">,</span> <span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="c1"># max height</span>
-            <span class="n">flood_heights</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start_time</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+    <span class="c1">#remove anything in 1982</span>
+    <span class="n">shifted_time_values</span> <span class="o">=</span> <span class="n">shifted_time_values</span><span class="p">[</span><span class="n">shifted_time_values</span><span class="o">.</span><span class="n">year</span> <span class="o">!=</span> <span class="mi">1982</span><span class="p">]</span>
+    
+    
+    <span class="c1"># Assign the shifted time values back to the dataset</span>
+    <span class="n">flood_data_ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shifted_time_values</span>
+
+    <span class="k">return</span> <span class="n">flood_data_ds</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># flood_hour = (hourly_data.sea_level_MHHW.values &gt; thresholds[:,None])</span>
-<span class="n">flood_hour</span> <span class="o">=</span> <span class="p">(</span><span class="n">hourly_data</span><span class="o">.</span><span class="n">sea_level_MHHW</span><span class="o">.</span><span class="n">values</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">)</span>
-<span class="n">flood_hour</span>
-<span class="n">flood_hour</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">flood_hour</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_hour_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_hour</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="n">flood_hour_df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get sea level data where flood_hour is True</span>
-
-<span class="n">flood_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">sea_level_MHHW</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">flood_hour</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
-<span class="n">flood_data_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_data</span><span class="o">.</span><span class="n">T</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-<span class="n">flood_data_df</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Find indices of flood events, and the duration of each event for record id = 57</span>
-<span class="c1"># Initialize a dictionary to store the durations</span>
-<span class="n">flood_durations</span> <span class="o">=</span> <span class="p">{}</span>
-<span class="n">flood_heights</span> <span class="o">=</span> <span class="p">{}</span>
-
-
-<span class="n">df_flood</span> <span class="o">=</span> <span class="n">flood_hour_df</span> 
-
-<span class="c1"># Loop through each sensor column</span>
-<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">flood_hour_df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">flood_durations</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">flood_heights</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    
-    <span class="c1"># Find the indices where flooding starts and ends</span>
-    <span class="n">flood_events</span> <span class="o">=</span> <span class="n">df_flood</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">ne</span><span class="p">(</span><span class="n">df_flood</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">())</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
-    
-    <span class="c1"># Group by the flood event indices, filtering out False events</span>
-    <span class="k">for</span> <span class="n">event_id</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df_flood</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">flood_events</span><span class="p">):</span>
-        <span class="k">if</span> <span class="n">group</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>  <span class="c1"># Only consider True (flood) events</span>
-            <span class="n">start_time</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-            <span class="n">end_time</span> <span class="o">=</span> <span class="n">group</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-            <span class="n">duration</span> <span class="o">=</span> <span class="n">end_time</span> <span class="o">-</span> <span class="n">start_time</span> 
-            <span class="c1"># round to nearest hour</span>
-            <span class="n">duration</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">duration</span><span class="o">.</span><span class="n">total_seconds</span><span class="p">()</span> <span class="o">/</span> <span class="mi">3600</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="n">flood_durations</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start_time</span><span class="p">,</span> <span class="n">duration</span><span class="p">))</span>
-            <span class="n">height</span> <span class="o">=</span> <span class="n">flood_data_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">start_time</span><span class="p">:</span><span class="n">end_time</span><span class="p">,</span> <span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="c1"># max height</span>
-            <span class="n">flood_heights</span><span class="p">[</span><span class="n">column</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">start_time</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make dataframe from dictionary</span>
-<span class="c1"># Assuming flood_durations and hourly_data are already defined</span>
-
-<span class="c1"># Initialize an empty list to store DataArrays</span>
-<span class="n">data_arrays</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="c1"># Loop through each record_id and create a DataArray</span>
-<span class="k">for</span> <span class="n">record_id</span> <span class="ow">in</span> <span class="n">hourly_data</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">:</span>
-    <span class="n">flood_durations_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_durations</span><span class="p">[</span><span class="n">record_id</span><span class="p">])</span>
-    <span class="n">flood_durations_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;duration&#39;</span><span class="p">]</span>
-
-    <span class="n">flood_heights_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">flood_heights</span><span class="p">[</span><span class="n">record_id</span><span class="p">])</span>   
-    <span class="n">flood_heights_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">]</span>
-    
-    <span class="c1"># Merge the two DataFrames on &#39;time&#39;</span>
-    <span class="n">merged_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">flood_durations_df</span><span class="p">,</span> <span class="n">flood_heights_df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
-    
-    <span class="c1"># Create a DataArray with both &#39;duration&#39; and &#39;height&#39;</span>
-    <span class="n">flood_data_da</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">(</span>
-        <span class="n">merged_df</span><span class="p">[[</span><span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
-        <span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;variable&#39;</span><span class="p">],</span>
-        <span class="n">coords</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">merged_df</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="s1">&#39;variable&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">,</span> <span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="s1">&#39;record_id&#39;</span><span class="p">:</span> <span class="n">record_id</span><span class="p">}</span>
-    <span class="p">)</span>
-    
-    <span class="n">data_arrays</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">flood_data_da</span><span class="p">)</span>
-
-
-<span class="c1"># Combine all DataArrays into a single Dataset</span>
-<span class="n">flood_data_ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">data_arrays</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="s1">&#39;record_id&#39;</span><span class="p">)</span>
-
-<span class="c1"># Convert to Dataset</span>
-<span class="n">flood_data_ds</span> <span class="o">=</span> <span class="n">flood_data_ds</span><span class="o">.</span><span class="n">to_dataset</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;variable&#39;</span><span class="p">)</span>
-
-<span class="n">flood_data_ds</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make storm time by shifting time by 4 months, such that May 1st is the start of the storm season</span>
-<span class="c1"># Convert the time values to pandas DatetimeIndex</span>
-<span class="n">time_values</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">flood_data_ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="c1"># Jan 1 should be the equivalent of May 1</span>
-<span class="n">shifted_time_values</span> <span class="o">=</span> <span class="n">time_values</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-
-<span class="c1">#remove anything in 1982</span>
-<span class="n">shifted_time_values</span> <span class="o">=</span> <span class="n">shifted_time_values</span><span class="p">[</span><span class="n">shifted_time_values</span><span class="o">.</span><span class="n">year</span> <span class="o">!=</span> <span class="mi">1982</span><span class="p">]</span>
-
-
-<span class="c1"># Assign the shifted time values back to the dataset</span>
-<span class="n">flood_data_ds</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">shifted_time_values</span>
-
-
-<span class="n">flood_data_ds</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_data_ds</span> <span class="o">=</span> <span class="n">get_flood_ds</span><span class="p">(</span><span class="n">hourly_data</span> <span class="o">=</span> <span class="n">hourly_data</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -800,13 +758,559 @@ document.write(`
     <span class="c1"># Plot each station&#39;s data on a different y-coordinate</span>
     <span class="n">scatter</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]),</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span> <span class="o">*</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="n">cmap</span><span class="o">=</span><span class="n">custom_palette</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time (Storm Year)&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">record_ids</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">hourly_data</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_ids</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>  <span class="c1"># Set y-ticks to show station labels</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Max height </span><span class="se">\n</span><span class="s1">above threshold (cm)&#39;</span><span class="p">)</span>
 
 <span class="c1"># show the colorbar</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x165c60520&gt;
+</pre></div>
+</div>
+<img alt="../_images/90049369b6f7c3c01e0494a1f524eaae1f6796e41af89d314b44e89e495d74cc.png" src="../_images/90049369b6f7c3c01e0494a1f524eaae1f6796e41af89d314b44e89e495d74cc.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># scatter plot height vs duration for each station</span>
+<span class="c1"># make figure size small</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
+
+<span class="k">def</span> <span class="nf">plot_flood_duration_vs_height</span><span class="p">(</span><span class="n">flood_data_ds</span><span class="p">,</span> <span class="n">station_names</span><span class="p">):</span>
+    <span class="c1"># Create figure and subplots</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># 2 rows, 4 columns</span>
+
+    <span class="c1"># Flatten the axes array for easy iteration</span>
+    <span class="n">axes</span> <span class="o">=</span> <span class="n">axes</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+
+    <span class="c1"># Loop through each station</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">record_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">record_ids</span><span class="p">):</span>
+        <span class="c1"># Select data for the current record_id and drop NaNs</span>
+        <span class="n">selected_data</span> <span class="o">=</span> <span class="n">flood_data_ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_id</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Ensure &#39;duration&#39; is numeric</span>
+        <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+        <span class="c1"># Extract year and apply jitter to duration for better visualization</span>
+        <span class="n">jitter_duration</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+        <span class="c1"># Calculate point density</span>
+        <span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">jitter_duration</span><span class="p">,</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]])</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">xy</span><span class="p">)(</span><span class="n">xy</span><span class="p">)</span>
+
+        <span class="c1"># Plot each station&#39;s data on its respective subplot, using the density (z) as color</span>
+        <span class="n">scatter</span> <span class="o">=</span> <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">jitter_duration</span><span class="p">,</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+        <span class="c1"># # Set labels for each subplot</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">station_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="c1"># axes[i].set_xlabel(&#39;Duration (hours)&#39;)</span>
+        <span class="c1"># axes[i].set_ylabel(&#39;Max height above threshold (cm)&#39;)</span>
+
+        <span class="c1"># set x and y limits</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+        <span class="n">axes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+
+    <span class="c1"># Add a common colorbar</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">scatter</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">axes</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Density&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Set custom ticks and labels for the colorbar</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_ticks</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">z</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">z</span><span class="p">)])</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_ticklabels</span><span class="p">([</span><span class="s1">&#39;Sparse&#39;</span><span class="p">,</span> <span class="s1">&#39;Moderate&#39;</span><span class="p">,</span> <span class="s1">&#39;Dense&#39;</span><span class="p">],</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span><span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>  <span class="c1"># Custom labels</span>
+
+    <span class="c1"># add x and y labels</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.45</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.01</span><span class="p">,</span> <span class="s1">&#39;Duration (hours)&#39;</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s1">&#39;Max height above threshold (cm)&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="s1">&#39;vertical&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>From the previous plots, it is clear that Midway is experiencing more frequent flooding, but less intense. Is this a remove-the-trend thing?</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">flood_data_30</span> <span class="o">=</span> <span class="n">get_flood_ds</span><span class="p">(</span><span class="n">hourly_data</span><span class="o">=</span><span class="n">hourly_data</span><span class="p">,</span><span class="n">threshold</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">flood_data_15</span> <span class="o">=</span> <span class="n">get_flood_ds</span><span class="p">(</span><span class="n">hourly_data</span><span class="o">=</span><span class="n">hourly_data</span><span class="p">,</span><span class="n">threshold</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plot_flood_duration_vs_height</span><span class="p">(</span><span class="n">flood_data_15</span><span class="p">,</span> <span class="n">station_names</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/560489381b7738aef40f3748c8da353d11074a1bac56c34188d7f10871480f02.png" src="../_images/560489381b7738aef40f3748c8da353d11074a1bac56c34188d7f10871480f02.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
+<span class="kn">from</span> <span class="nn">matplotlib.gridspec</span> <span class="kn">import</span> <span class="n">GridSpec</span>
+
+<span class="c1"># Example data for one station (you can adjust this to loop through your stations)</span>
+<span class="n">record_id</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">selected_data</span> <span class="o">=</span> <span class="n">flood_data_15</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">record_id</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+<span class="n">jitter_duration</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+
+<span class="c1"># Calculate point density for color mapping</span>
+<span class="n">xy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">([</span><span class="n">jitter_duration</span><span class="p">,</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]])</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">gaussian_kde</span><span class="p">(</span><span class="n">xy</span><span class="p">)(</span><span class="n">xy</span><span class="p">)</span>
+
+<span class="c1"># Create the figure and GridSpec layout</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">gs</span> <span class="o">=</span> <span class="n">GridSpec</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">)</span>
+
+<span class="c1"># Create scatter plot in the center</span>
+<span class="n">ax_main</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">scatter</span> <span class="o">=</span> <span class="n">ax_main</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">jitter_duration</span><span class="p">,</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;plasma&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax_main</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Duration (hours)&#39;</span><span class="p">)</span>
+<span class="n">ax_main</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Peak water level above threshold (cm)&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add colorbar to scatter plot</span>
+<span class="c1"># cbar = fig.colorbar(scatter, ax=ax_main, orientation=&#39;vertical&#39;, label=&#39;Density&#39;)</span>
+<span class="c1"># cbar.set_ticks([np.min(z), np.mean(z), np.max(z)])</span>
+<span class="c1"># cbar.ax.set_yticklabels([&#39;Sparse&#39;, &#39;Moderate&#39;, &#39;Dense&#39;], rotation=90, verticalalignment=&#39;center&#39;)</span>
+
+<span class="c1"># Create top histogram for duration</span>
+<span class="n">ax_histx</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">sharex</span><span class="o">=</span><span class="n">ax_main</span><span class="p">)</span>
+<span class="n">ax_histx</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">jitter_duration</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax_histx</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>  <span class="c1"># Hide axes for cleaner look</span>
+
+<span class="c1"># Create side histogram for height</span>
+<span class="n">ax_histy</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="n">gs</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">sharey</span><span class="o">=</span><span class="n">ax_main</span><span class="p">)</span>
+<span class="n">ax_histy</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;lightblue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax_histy</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>  <span class="c1"># Hide axes for cleaner look</span>
+
+<span class="c1"># Adjust layout to fit everything nicely</span>
+<span class="c1"># plt.tight_layout()</span>
+
+<span class="c1"># Show plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2db3f094d5967ca1a5c352a432af2317aee803eef60576a53de40aa0052cfc54.png" src="../_images/2db3f094d5967ca1a5c352a432af2317aee803eef60576a53de40aa0052cfc54.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Durations</span>
+<span class="n">sorted_durations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">])</span>
+<span class="n">exceedance_prob_duration</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_durations</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_durations</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">sorted_durations</span><span class="p">,</span> <span class="n">exceedance_prob_duration</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Exceedance Probability of Durations&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration (hours)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Exceedance Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c78f47498f35f11a53bc6c158d58ce7f7343c16942ce47e93fb71307428bdf24.png" src="../_images/c78f47498f35f11a53bc6c158d58ce7f7343c16942ce47e93fb71307428bdf24.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_heights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">])</span>
+<span class="n">exceedance_prob_height</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_heights</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sorted_heights</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">sorted_heights</span><span class="p">,</span> <span class="n">exceedance_prob_height</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Exceedance Probability of Heights&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Height Above Threshold (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Exceedance Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/c843303f8b0b1b1d61a65f5068eadf7b6e79659421d5967fffba2678a1b9e1ba.png" src="../_images/c843303f8b0b1b1d61a65f5068eadf7b6e79659421d5967fffba2678a1b9e1ba.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_data</span> <span class="o">=</span> <span class="n">selected_data</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a function to categorize durations</span>
+
+<span class="c1"># Define the ordered categories</span>
+<span class="n">duration_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Short (1-2 hours)&#39;</span><span class="p">,</span> <span class="s1">&#39;Medium (3-6 hours)&#39;</span><span class="p">,</span> <span class="s1">&#39;Sustained (&gt;6 hours)&#39;</span><span class="p">]</span>
+
+<span class="k">def</span> <span class="nf">categorize_duration</span><span class="p">(</span><span class="n">duration</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">duration</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">duration_order</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="n">duration</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">duration_order</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">duration_order</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+
+
+<span class="c1"># Apply the function to create a new column</span>
+<span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration_category&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">categorize_duration</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the frequency of each category</span>
+<span class="n">category_counts</span> <span class="o">=</span> <span class="n">selected_data</span><span class="p">[</span><span class="s1">&#39;duration_category&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<span class="n">total_events</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># Calculate the probability for each category</span>
+<span class="n">category_probs</span> <span class="o">=</span> <span class="n">category_counts</span> <span class="o">/</span> <span class="n">total_events</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Frequency of Duration Categories:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">category_counts</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Probability of Duration Categories:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">category_probs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Frequency of Duration Categories:
+duration_category
+Medium (3-6 hours)      1090
+Short (1-2 hours)        963
+Sustained (&gt;6 hours)     191
+Name: count, dtype: int64
+
+Probability of Duration Categories:
+duration_category
+Medium (3-6 hours)      2.986301
+Short (1-2 hours)       2.638356
+Sustained (&gt;6 hours)    0.523288
+Name: count, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Ensure the categories are ordered</span>
+<span class="n">category_counts</span> <span class="o">=</span> <span class="n">category_counts</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">duration_order</span><span class="p">)</span>
+
+<span class="c1"># Compute cumulative counts from shortest to longest</span>
+<span class="n">cumulative_counts</span> <span class="o">=</span> <span class="n">category_counts</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># Compute survival probabilities</span>
+<span class="n">survival_probs</span> <span class="o">=</span> <span class="n">cumulative_counts</span> <span class="o">/</span> <span class="n">total_events</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cumulative Counts by Duration Category:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cumulative_counts</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Survival Probabilities by Duration Category:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">survival_probs</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cumulative Counts by Duration Category:
+duration_category
+Short (1-2 hours)       2244
+Medium (3-6 hours)      1281
+Sustained (&gt;6 hours)     191
+Name: count, dtype: int64
+
+Survival Probabilities by Duration Category:
+duration_category
+Short (1-2 hours)       6.147945
+Medium (3-6 hours)      3.509589
+Sustained (&gt;6 hours)    0.523288
+Name: count, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate total observation period in years</span>
+<span class="n">total_years</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;s&#39;</span><span class="p">)</span><span class="o">/</span><span class="mi">3600</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mf">365.25</span>
+
+<span class="c1"># Calculate lambda</span>
+<span class="n">lambda_</span> <span class="o">=</span> <span class="n">total_events</span> <span class="o">/</span> <span class="n">total_years</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Average number of events per year (lambda): </span><span class="si">{</span><span class="n">lambda_</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Average number of events per year (lambda): 8.91
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">return_periods</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">lambda_</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="o">*</span> <span class="n">survival_probs</span><span class="p">)</span>
+
+<span class="c1"># Display return periods</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Return Periods by Duration Category (in years):&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">return_periods</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return Periods by Duration Category (in years):
+duration_category
+Short (1-2 hours)       0.018252
+Medium (3-6 hours)      0.031974
+Sustained (&gt;6 hours)    0.214440
+Name: count, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the frequency of each duration category</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">category_counts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;skyblue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Frequency of Duration Categories&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration Category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Number of Events&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/146c4b338b3c26b003c0cb5bedcc11ab561e5c9f7c3bc09720e6a17f60f4931d.png" src="../_images/146c4b338b3c26b003c0cb5bedcc11ab561e5c9f7c3bc09720e6a17f60f4931d.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the survival function</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">duration_order</span><span class="p">,</span> <span class="n">survival_probs</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Survival Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Survival Function by Duration Category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration Category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Survival Probability&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/682ec20a3651f23a48e410c58a3a988fff82b1a7713b008705889d39b337f934.png" src="../_images/682ec20a3651f23a48e410c58a3a988fff82b1a7713b008705889d39b337f934.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Group data by duration category</span>
+<span class="n">grouped_data</span> <span class="o">=</span> <span class="n">selected_data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;duration_category&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create a dictionary to store GEV parameters for each category</span>
+<span class="n">gev_params</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">category</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped_data</span><span class="p">:</span>
+    <span class="c1"># Extract height data</span>
+    <span class="n">heights</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+    
+    <span class="c1"># Fit GEV distribution</span>
+    <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">genextreme</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span>
+    
+    <span class="c1"># Store parameters</span>
+    <span class="n">gev_params</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;GEV parameters for </span><span class="si">{</span><span class="n">category</span><span class="si">}</span><span class="s2"> category: c=</span><span class="si">{</span><span class="n">c</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, loc=</span><span class="si">{</span><span class="n">loc</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">, scale=</span><span class="si">{</span><span class="n">scale</span><span class="si">:</span><span class="s2">.4f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">23</span><span class="p">],</span> <span class="n">line</span> <span class="mi">9</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">heights</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s1">&#39;height&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># Fit GEV distribution</span>
+<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">genextreme</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">heights</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Store parameters</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">gev_params</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;genextreme&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define return periods of interest</span>
+<span class="n">return_periods</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># in years</span>
+
+<span class="c1"># Calculate the non-exceedance probabilities</span>
+<span class="n">probabilities</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">return_periods</span><span class="p">)</span> <span class="o">*</span> <span class="n">lambda_</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
+
+<span class="c1"># Create a DataFrame to store return levels</span>
+<span class="n">return_levels_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="n">return_periods</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">duration_order</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">duration_order</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">category</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gev_params</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">gev_params</span><span class="p">[</span><span class="n">category</span><span class="p">]</span>
+    <span class="c1"># Calculate return levels for each return period</span>
+    <span class="n">return_levels</span> <span class="o">=</span> <span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">probabilities</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+    <span class="n">return_levels_df</span><span class="p">[</span><span class="n">category</span><span class="p">]</span> <span class="o">=</span> <span class="n">return_levels</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Return Levels (Heights) for Each Duration Category and Return Period:
+    Short (1-2 hours)  Medium (3-6 hours)  Sustained (&gt;6 hours)
+2            6.224795           15.970745             44.356114
+4            8.666439           18.990545             51.617372
+6           10.422973           20.836613             56.110459
+8           11.845925           22.186103             59.420051
+10          13.063648           23.256813             62.060692
+12          14.139600           24.147761             64.267777
+14          15.110475           24.912661             66.169604
+16          15.999675           25.584035             67.844150
+18          16.823164           26.183119             69.342502
+20          17.592390           26.724573             70.700025
+22          18.315882           27.218955             71.942253
+24          19.000185           27.674133             73.088250
+26          19.650448           28.096126             74.152641
+28          20.270808           28.489651             75.146899
+30          20.864642           28.858473             76.080199
+32          21.434749           29.205645             76.959998
+34          21.983477           29.533681             77.792438
+36          22.512823           29.844674             78.582646
+38          23.024494           30.140389             79.334945
+40          23.519969           30.422323             80.053012
+42          24.000533           30.691764             80.740009
+44          24.467316           30.949823             81.398669
+46          24.921314           31.197466             82.031374
+48          25.363413           31.435542             82.640212
+50          25.794401           31.664797             83.227025
+52          26.214988           31.885891             83.793445
+54          26.625809           32.099414             84.340926
+56          27.027442           32.305891             84.870771
+58          27.420411           32.505795             85.384148
+60          27.805191           32.699551             85.882112
+62          28.182219           32.887545             86.365617
+64          28.551893           33.070125             86.835530
+66          28.914580           33.247610             87.292640
+68          29.270620           33.420290             87.737671
+70          29.620323           33.588431             88.171282
+72          29.963979           33.752278             88.594081
+74          30.301856           33.912054             89.006627
+76          30.634205           34.067967             89.409436
+78          30.961257           34.220209             89.802985
+80          31.283231           34.368957             90.187718
+82          31.600328           34.514376             90.564045
+84          31.912739           34.656618             90.932348
+86          32.220643           34.795827             91.292983
+88          32.524207           34.932135             91.646283
+90          32.823589           35.065667             91.992559
+92          33.118938           35.196539             92.332102
+94          33.410394           35.324861             92.665186
+96          33.698090           35.450734             92.992067
+98          33.982151           35.574256             93.312986
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Assume duration_order, gev_params, and lambda_ are predefined</span>
+
+<span class="n">return_periods_interest</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">]</span>  <span class="c1"># in years</span>
+
+
+
+<span class="c1"># Create an empty dict to store the return levels for the chosen return period</span>
+<span class="n">return_levels_by_period</span> <span class="o">=</span> <span class="p">{</span><span class="n">period</span><span class="p">:</span> <span class="p">[]</span> <span class="k">for</span> <span class="n">period</span> <span class="ow">in</span> <span class="n">return_periods_interest</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">return_period</span> <span class="ow">in</span> <span class="n">return_periods_interest</span><span class="p">:</span>
+    <span class="c1"># Calculate the non-exceedance probability for the chosen return period</span>
+    <span class="n">probability</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">return_period</span> <span class="o">*</span> <span class="n">lambda_</span><span class="o">.</span><span class="n">item</span><span class="p">()))</span>
+    
+    <span class="c1"># Iterate over each duration category to calculate the return level for the chosen period</span>
+    <span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">duration_order</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">category</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gev_params</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">gev_params</span><span class="p">[</span><span class="n">category</span><span class="p">]</span>
+        
+        <span class="c1"># Calculate the return level for the specific return period</span>
+        <span class="n">return_level</span> <span class="o">=</span> <span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="n">probability</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+        <span class="n">return_levels_by_period</span><span class="p">[</span><span class="n">return_period</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">return_level</span><span class="p">)</span>
+
+<span class="c1"># Plot the return level curve for the chosen return period (e.g., 2-year)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">return_period</span> <span class="ow">in</span> <span class="n">return_periods_interest</span><span class="p">:</span>
+    <span class="c1"># Plot the return level curve for each return period</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">duration_order</span><span class="p">,</span> <span class="n">return_levels_by_period</span><span class="p">[</span><span class="n">return_period</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">return_period</span><span class="si">}</span><span class="s1">-year return level&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;IDF Curves for&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">station_names</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Duration&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height Above Threshold (cm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ddee17b3de67a4415affa4d23a68ade27b9649650b27ab6551f623033977a4ff.png" src="../_images/ddee17b3de67a4415affa4d23a68ade27b9649650b27ab6551f623033977a4ff.png" />
+</div>
+</div>
+<p>We can’t do a curve here because the distribution of durations is very limited (at most stations).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now plot the return levels for each duration category</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="k">for</span> <span class="n">category</span> <span class="ow">in</span> <span class="n">duration_order</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">category</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">gev_params</span><span class="p">:</span>
+        <span class="k">continue</span>
+    <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="n">gev_params</span><span class="p">[</span><span class="n">category</span><span class="p">]</span>
+    
+    <span class="c1"># Calculate the return levels for each return period</span>
+    <span class="n">return_levels</span> <span class="o">=</span> <span class="n">genextreme</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">return_periods</span><span class="p">)</span> <span class="o">*</span> <span class="n">lambda_</span><span class="o">.</span><span class="n">item</span><span class="p">())),</span> <span class="n">c</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">loc</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">)</span>
+    
+    <span class="c1"># Plot the return levels for each duration category</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">return_periods</span><span class="p">,</span> <span class="n">return_levels</span><span class="p">,</span>  <span class="n">label</span><span class="o">=</span><span class="n">category</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Return Levels for Each Duration Category&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Return Period (years)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height Above Threshold (cm)&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x3375ee820&gt;
+</pre></div>
+</div>
+<img alt="../_images/22696f6c2c4b563d5e88919e6bcc5b33f6154e7921ca6691d73c18d82b6eebff.png" src="../_images/22696f6c2c4b563d5e88919e6bcc5b33f6154e7921ca6691d73c18d82b6eebff.png" />
 </div>
 </div>
 </section>
