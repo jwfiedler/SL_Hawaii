@@ -125,7 +125,9 @@ def plotTimeDependentReturnValue_plotly(ridString, STNDtoMHHW, model_output_dir,
     matrix_dir = Path('../../matrix/plotly')
     fig.write_html(matrix_dir / savename, full_html=True)
 
-def plotExtremeSeasonality(T0, seaLevel, x_s,w_s, ridString, STNDtoMHHW, model_output_dir, station_name, ReturnPeriod=50, SampleRate=12, saveToFile=True):
+def plotExtremeSeasonality(T0, seaLevel, x_s,w_s, recordID, STNDtoMHHW, dirs, station_name, ReturnPeriod=50, SampleRate=12, saveToFile=True):
+    
+    
     dx = 0.001
     t2 = np.arange(0, 1.101, dx)
     w = adjust_w_for_plotting(x_s,w_s)
@@ -231,8 +233,8 @@ def plotExtremeSeasonality(T0, seaLevel, x_s,w_s, ridString, STNDtoMHHW, model_o
 
     # save the figure
     if saveToFile:
-        savename = 'SeasonalExtremeVariations_'+ ridString +'.png'
-        savedir = os.path.join(output_dir, savename)
+        savename = 'SeasonalExtremeVariations_'+ str(recordID) +'.png'
+        savedir = os.path.join(dirs['output_dir'], savename)
         plt.savefig(savedir, dpi=250, bbox_inches='tight')
 
     return fig, cmap

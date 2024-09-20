@@ -9,7 +9,7 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
 
     x = np.array([x_inisol]) 
     # x = x_inisol # Start with initial solution
-    f, pa = fitness(x[cont], modelType)  # Compute fitness for initial solution
+    f, pa = fitness(x[cont], dirs, modelType)  # Compute fitness for initial solution
     f = np.array([f])
     pa = np.array([pa])
     
@@ -45,7 +45,16 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
 
 def fitness(x, dirs, modelType='GEV_SeasonalMu'):
 
-    run_dir = Path(dirs['run_dir'])  
+    run_dir = dirs['run_dir']  
+
+    # remove best.txt and mio.txt files
+    best_file = run_dir / 'best.txt'
+    mio_file = run_dir / 'mio.txt'
+    if best_file.exists():
+        best_file.unlink()
+    if mio_file.exists():
+        mio_file.unlink()
+
     
     # Load parameter limits from a file
     aux = np.loadtxt(run_dir / 'limits.txt')
@@ -121,9 +130,10 @@ def fitness(x, dirs, modelType='GEV_SeasonalMu'):
     nspl = 2 * n + 1
     mings = ngs
     iniflg = 1
-    iprint = 0
+    iprint = 1
     
-
+    # Write the parameter limits and initial guesses to a file
+    
     with open(run_dir / 'scein.dat', 'w') as f:
         # Writing header with specified formatting
         f.write(f"{maxn:5g} {kstop:5g} {pcento:5.3g} {ngs:5g} {iseed:5g} {ideflt:5g}\n")
@@ -140,13 +150,32 @@ def fitness(x, dirs, modelType='GEV_SeasonalMu'):
     
     try:
         modelName = 'Model_' + modelType + '.exe'
-        subprocess.run([modelName], cwd=run_dir, check=True)
+        subprocess.run([str(modelName)], cwd=str(run_dir), check=True, shell=True)
     except subprocess.CalledProcessError as e:
         print(f"An error occurred while running {modelName}: {e}")
     
     # Read the output
     with open(run_dir / 'best.txt', 'r') as file:
         bestf = float(file.readline().strip())
+
+    # Retry loop for checking if the 'mio' matrix is singular
+    max_retries = 5
+    retries = 0
+    while retries < max_retries:
+        # Run the model
+        subprocess.run([modelName], cwd=str(run_dir), check=True, shell=True)
+        
+        # Try loading the mio matrix
+        mio = np.loadtxt(run_dir / 'mio.txt')
+
+        # Check if mio is singular (determinant is 0)
+        if np.linalg.det(mio) == 0:
+            retries += 1
+        else:
+            break
+    else:
+        print(f'Model failed after {max_retries} attempts, mio is still singular')
+
     
     return bestf, n
 
@@ -432,7 +461,12 @@ def derivative_first_order(k, w, x, t00, t11, return_period, T, covariate):
 def calculate_std(w, x, t00,t11, T,serieCV, mio, r):
     
     # Note here that "mio" stands for "Maximum Information Operator" and is same as the Hessian matrix
-    cov_params = np.linalg.inv(mio) # the covariance matrix of the parameters is the inverse of the Hessian
+    # if mio is not a singular matrix, then the covariance matrix of the parameters is the inverse of the Hessian
+    if np.linalg.det(mio) == 0:
+        #print('Hessian matrix is singular')
+        cov_params = np.eye(len(mio)) # if the Hessian is singular, we'll use the identity matrix as a placeholder
+    else:
+        cov_params = np.linalg.inv(mio) # the covariance matrix of the parameters is the inverse of the Hessian
     n = len(w)
     Zp1 = np.zeros(n)
 
@@ -457,8 +491,10 @@ def calculate_std(w, x, t00,t11, T,serieCV, mio, r):
     
     return ic_sqrt.item() # return as a scalar
 
-def getTimeDependentReturnValue(T0, serieCV, w, x, ReturnPeriod):
-    T = T0
+def getTimeDependentReturnValue(T0, serieCV, w, x, ReturnPeriod, mio):
+    # ensure input is a numpy array
+    T = np.array(T0)
+    serieCV = np.array(serieCV)
     years = np.arange(np.floor(T[0]), np.ceil(T[-1]) + 1)
     wbest = adjust_w_for_plotting(x, w)
     YR = np.zeros((len(ReturnPeriod), len(years) - 1))
@@ -484,10 +520,10 @@ def getTimeDependentReturnValue(T0, serieCV, w, x, ReturnPeriod):
 
     return years, YR, upper_confidence, lower_confidence
 
-def save_model_to_netcdf(x,w,mio,ReturnPeriod,modelName,savepath, modelInfo):
+def save_model_to_netcdf(x,w,mio,modelName,savepath, modelInfo):
 
-
-    years, RL, RL_high, RL_low = getTimeDependentReturnValue(modelInfo['t'], modelInfo['covariate'], w,x, ReturnPeriod)
+    ReturnPeriod = modelInfo['ReturnPeriod']
+    years, RL, RL_high, RL_low = getTimeDependentReturnValue(modelInfo['t'], modelInfo['covariate'], w,x, ReturnPeriod, mio)
     
     # save the time-dependent return values to a netcdf file
     df = pd.DataFrame(RL, index=ReturnPeriod, columns=years[:-1]+modelInfo['year0'])
@@ -511,15 +547,22 @@ def save_model_to_netcdf(x,w,mio,ReturnPeriod,modelName,savepath, modelInfo):
     ds.attrs['station_name'] = modelInfo['station_name']
     ds.attrs['datum'] = 'STND'
     ds.attrs['model_parameters'] = adjust_w_for_plotting(x,w)
-    ds.attrs['record_id'] = modelInfo['record_id']
+    ds.attrs['record_id'] = modelInfo['recordID']
     ds.attrs['units'] = 'm'
     ds.attrs['model'] = modelName
     ds.attrs['x'] = x.tolist()
-    ds.attrs['standard_error'] = np.sqrt(np.linalg.inv(mio).diagonal()).tolist()
+    if 'covariateName' in modelInfo:
+        ds.attrs['covariateName'] = modelInfo['covariateName']
+    #if mio is not singular:
+    if np.linalg.det(mio) != 0:
+        ds.attrs['standard_error'] = np.sqrt(np.linalg.inv(mio).diagonal()).tolist()
+    else:
+        ds.attrs['standard_error'] = np.full(len(w), np.nan).tolist()
+
     ds.attrs['covariate'] = modelInfo['covariateName']
 
     # make year a coordinate
-    ds = ds.assign_coords(Year=years[:-1]+year0)
+    ds = ds.assign_coords(Year=years[:-1]+modelInfo['year0'])
 
     # make ReturnPeriod a coordinate
     ds = ds.assign_coords(ReturnPeriod=ReturnPeriod)

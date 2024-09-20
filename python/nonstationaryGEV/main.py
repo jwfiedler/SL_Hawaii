@@ -3,21 +3,48 @@ from models import run_all_models
 from imports import *
 from plotting import plotExtremeSeasonality, plotTimeDependentReturnValue
 from helpers import make_directories
-
+import sys
 # print the current working directory
 cwd = os.getcwd()
-# go up two levels
-base_dir = os.path.abspath(os.path.join(cwd, "../.."))
+
+def in_debug_mode():
+    gettrace = getattr(sys, 'gettrace', None)
+    if gettrace is None:
+        return False
+    return gettrace() is not None
+
+def in_interactive_mode():
+    try:
+        get_ipython()
+        return True
+    except NameError:
+        return False
+
+# Determine base directory based on mode
+cwd = os.getcwd()
+
+if in_debug_mode():
+    base_dir = cwd  # For debug mode
+elif in_interactive_mode():
+    base_dir = os.path.abspath(os.path.join(cwd, "../.."))  # For interactive mode (Jupyter/IPython)
+else:
+    base_dir = cwd  # For normal execution
+
+print(f"Base directory: {base_dir}")
+
+
+
+
 
 dirs = make_directoryDict(base_dir)
 
 
-recordID = 57
+recordID =552
 runWithoutModel = True
 returnPeriod = [2,10,50,100]
 year0plot = 1993
-saveToFile = False
-climateIndex = ['A0','AAO','BEST','DMI','ONI','PDO','PMM','PNA','TNA']
+saveToFile = True
+climateIndex = ['AO','AAO','BEST','DMI','ONI','PDO','PMM','PNA','TNA']
 
 #%%
 # get dataset of hourly sea level data
@@ -32,24 +59,99 @@ rsl.close()
 make_directories(rsl_hourly,dirs)
 #%%
 # Preallocate the significance array
-SignifCvte = np.zeros(len(climateIndex))
+SignifCvte1 = np.zeros(len(climateIndex))
+SignifCvte2_loc = np.zeros(len(climateIndex))
+SignifCvte2_T = np.zeros(len(climateIndex))
 
 for i in np.arange(0, len(climateIndex)):
     # Run the model with each climate index
-    STNDtoMHHW, station_name, year0, mm, x_s, w_s, w_cvte2, w_T = run_all_models(
+    print('Running models with climate index: ', climateIndex[i])
+    STNDtoMHHW, station_name, year0, mm, x_s, w_s, w_cvte1, w_cvte2, w_T = run_all_models(
         rsl_hourly, recordID, runWithoutModel, dirs, ReturnPeriod=returnPeriod, CIname=climateIndex[i]
     )
-    
+
+    # Calculate the difference between model coefficients
+    diffe = w_cvte1[0] - w_T[0]
+    # Degrees of freedom 
+    p = 1
+    # Compute the significance using the chi-squared cumulative distribution
+    SignifCvte1[i] = chi2.cdf(2 * diffe, p)
     # Calculate the difference between model coefficients
     diffe = w_cvte2[0] - w_T[0]
-    
-    # Degrees of freedom (2 for location, 2 for scale?)
-    p = 4  # Modify based on the parameters being compared
-    
+    p = 1 # degrees of freedom
     # Compute the significance using the chi-squared cumulative distribution
-    SignifCvte[i] = chi2.cdf(2 * diffe, p)
+    SignifCvte2_T[i] = chi2.cdf(2 * diffe, p)
+    # Calculate the difference between model coefficients
+    diffe = w_cvte2[0] - w_cvte1[0]
+    p = 1 # degrees of freedom
+    # Compute the significance using the chi-squared cumulative distribution
+    SignifCvte2_loc[i] = chi2.cdf(2 * diffe, p)
 
 
+#%%
+# Initialize an empty list to store results
+results = []
+
+for i in np.arange(0, len(climateIndex)):
+    covariate_params = f'cvte_location_params_{climateIndex[i]}.json'
+    
+    # Create the full path for the JSON file
+    jsonpath = Path(dirs['model_output_dir']) / str(recordID) / covariate_params
+
+    # Open and read the JSON file
+    with open(jsonpath, 'r') as f:
+        output = json.load(f)
+        w, mio, standard_error = (np.array(output[key]) for key in ['w', 'mio', 'standard_error'])
+
+    # Store the results in a list
+    results.append({
+        'Climate Index': climateIndex[i],
+        'Amplitude of CI param': w[-1],  
+        'Standard Error of CI param': standard_error[-1]
+    })
+
+# Convert the results list to a DataFrame
+df_cvteLocation = pd.DataFrame(results)
+
+# add Significance to the dataframe
+df_cvteLocation['Significance (over trend)'] = SignifCvte1
+
+df_cvteLocation
+
+#%%
+# Initialize an empty list to store results
+results = []
+
+for i in np.arange(0, len(climateIndex)):
+    covariate_params = f'cvte_scale_params_{climateIndex[i]}.json'
+    
+    # Create the full path for the JSON file
+    jsonpath = Path(dirs['model_output_dir']) / str(recordID) / covariate_params
+
+    # Open and read the JSON file
+    with open(jsonpath, 'r') as f:
+        output = json.load(f)
+        w, mio, standard_error = (np.array(output[key]) for key in ['w', 'mio', 'standard_error'])
+
+    if standard_error[-1] == 0:
+        standard_error[-1] = np.nan
+
+
+    # Store the results in a list
+    results.append({
+        'Climate Index': climateIndex[i],
+        'Amplitude of CI param': w[-1],  
+        'Standard Error of CI param': standard_error[-1]
+    })
+
+# Convert the results list to a DataFrame
+df_cvteScale = pd.DataFrame(results)
+
+# add Significance to the dataframe
+df_cvteScale['Significance over cvte_loc'] = SignifCvte2_loc
+df_cvteScale['Significance over trend'] = SignifCvte2_T
+
+df_cvteScale
 
 #%%
 
