@@ -1,5 +1,12 @@
 from imports import *
 
+def remove_files(dirs):
+    # remove best.txt and mio.txt if they exist
+    if os.path.exists(dirs['run_dir'] / 'best.txt'):
+        os.remove(dirs['run_dir'] / 'best.txt')
+    if os.path.exists(dirs['run_dir'] / 'mio.txt'):
+        os.remove(dirs['run_dir'] / 'mio.txt')
+
 
 def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
     N = len(x_inisol)
@@ -47,13 +54,7 @@ def fitness(x, dirs, modelType='GEV_SeasonalMu'):
 
     run_dir = dirs['run_dir']  
 
-    # remove best.txt and mio.txt files
-    best_file = run_dir / 'best.txt'
-    mio_file = run_dir / 'mio.txt'
-    if best_file.exists():
-        best_file.unlink()
-    if mio_file.exists():
-        mio_file.unlink()
+    remove_files(dirs)
 
     
     # Load parameter limits from a file
@@ -502,6 +503,11 @@ def getTimeDependentReturnValue(T0, serieCV, w, x, ReturnPeriod, mio):
     upper_confidence = np.zeros((len(ReturnPeriod), len(years) - 1))
     lower_confidence = np.zeros((len(ReturnPeriod), len(years) - 1))
 
+    # only run if w[1] is not nan
+    if np.isnan(w[1]):
+        print('Return value is nan, skipping calculation')
+        return years, YR, upper_confidence, lower_confidence
+    
     for idx, r in enumerate(ReturnPeriod):
         x0 = w[1]  # initial value of return value in the iteration
 
@@ -509,7 +515,10 @@ def getTimeDependentReturnValue(T0, serieCV, w, x, ReturnPeriod, mio):
             t00 = years[i]
             t11 = years[i + 1]
             # Call the Quantilentime function for each year interval
-            YR[idx, i] = brentq(Quantilentime, x0 - 2, x0 + 2, args=(wbest, x, t00, t11, r, T, serieCV))
+            
+            YR[idx, i] = brentq(Quantilentime, x0 - 2, x0 + 2, args=(wbest, x, t00, t11, r, T, serieCV))    
+            
+                
             x0 = YR[idx, i]
             # print('calculating return value for year interval:', t00, t11)  
             # Calculate the confidence intervals

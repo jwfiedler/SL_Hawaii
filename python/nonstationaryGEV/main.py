@@ -1,11 +1,10 @@
 #%%
-from models import run_all_models
+from models import run_CI_models
+from models import run_noClimateIndex_models
 from imports import *
 from plotting import plotExtremeSeasonality, plotTimeDependentReturnValue
 from helpers import make_directories
 import sys
-# print the current working directory
-cwd = os.getcwd()
 
 def in_debug_mode():
     gettrace = getattr(sys, 'gettrace', None)
@@ -39,8 +38,8 @@ print(f"Base directory: {base_dir}")
 dirs = make_directoryDict(base_dir)
 
 
-recordID =552
-runWithoutModel = True
+recordID =57
+runWithoutModel = False
 returnPeriod = [2,10,50,100]
 year0plot = 1993
 saveToFile = True
@@ -63,30 +62,9 @@ SignifCvte1 = np.zeros(len(climateIndex))
 SignifCvte2_loc = np.zeros(len(climateIndex))
 SignifCvte2_T = np.zeros(len(climateIndex))
 
-for i in np.arange(0, len(climateIndex)):
-    # Run the model with each climate index
-    print('Running models with climate index: ', climateIndex[i])
-    STNDtoMHHW, station_name, year0, mm, x_s, w_s, w_cvte1, w_cvte2, w_T = run_all_models(
-        rsl_hourly, recordID, runWithoutModel, dirs, ReturnPeriod=returnPeriod, CIname=climateIndex[i]
-    )
-
-    # Calculate the difference between model coefficients
-    diffe = w_cvte1[0] - w_T[0]
-    # Degrees of freedom 
-    p = 1
-    # Compute the significance using the chi-squared cumulative distribution
-    SignifCvte1[i] = chi2.cdf(2 * diffe, p)
-    # Calculate the difference between model coefficients
-    diffe = w_cvte2[0] - w_T[0]
-    p = 1 # degrees of freedom
-    # Compute the significance using the chi-squared cumulative distribution
-    SignifCvte2_T[i] = chi2.cdf(2 * diffe, p)
-    # Calculate the difference between model coefficients
-    diffe = w_cvte2[0] - w_cvte1[0]
-    p = 1 # degrees of freedom
-    # Compute the significance using the chi-squared cumulative distribution
-    SignifCvte2_loc[i] = chi2.cdf(2 * diffe, p)
-
+runWithoutModel=True
+_, _, _, _, _, _, x_N, w_N, wcomp, SignifN = run_noClimateIndex_models(rsl_hourly,recordID,runWithoutModel,dirs, returnPeriod, CIname='None')
+STNDtoMHHW, station_name, year0, mm, ampCvte1, SignifCvte1 = run_CI_models(rsl_hourly,recordID,False,dirs, returnPeriod, climateIndex,x_N, w_N, wcomp, SignifN)
 
 #%%
 # Initialize an empty list to store results
@@ -155,14 +133,14 @@ df_cvteScale
 
 #%%
 
-# plot seasonal cycle
-figSeasonal, cmap = plotExtremeSeasonality(mm['t'],mm['monthly_max'],x_s,w_s,recordID, STNDtoMHHW, dirs, station_name, ReturnPeriod=returnPeriod,SampleRate=12,saveToFile=saveToFile)
-#%%
-# plot time series
-figTimeSeries = plotTimeDependentReturnValue(str(recordID), STNDtoMHHW, dirs['model_output_dir'], station_name, dirs['output_dir'], mm, year0plot, saveToFile=saveToFile)
+# # plot seasonal cycle
+# figSeasonal, cmap = plotExtremeSeasonality(mm['t'],mm['monthly_max'],x_s,w_s,recordID, STNDtoMHHW, dirs, station_name, ReturnPeriod=returnPeriod,SampleRate=12,saveToFile=saveToFile)
+# #%%
+# # plot time series
+# figTimeSeries = plotTimeDependentReturnValue(str(recordID), STNDtoMHHW, dirs['model_output_dir'], station_name, dirs['output_dir'], mm, year0plot, saveToFile=saveToFile)
 
 
 
-figSeasonal.show()
-figTimeSeries.show()
-# %%
+# figSeasonal.show()
+# figTimeSeries.show()
+# # %%
