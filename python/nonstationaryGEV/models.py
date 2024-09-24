@@ -344,6 +344,7 @@ def run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelI
     output['modelInfo']['covariate'] = output['modelInfo']['covariate'].tolist()
     output['modelInfo']['t'] = output['modelInfo']['t'].tolist()
     output['modelInfo']['monthlyMax'] = output['modelInfo']['monthlyMax'].tolist()
+    output['modelInfo']['STNDtoMHHW'] = output['modelInfo']['STNDtoMHHW'][0]
 
     
     
@@ -373,7 +374,16 @@ def run_noClimateIndex_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod
 
     # make dictionary of STNDtoMHHW, station_name, year0, mm,t,monthly_max,covariate
     #make dictionary of stuff that goes into xarray: t,covariate,standard_error,ReturnPeriod,modelName='Model_GEV_S_T_Cv_N.exe',ridString=ridString,savepath=savepath, station_name=station_name,year0=year0)
-    modelInfo = {'t': mm['t'], 'monthlyMax': mm['monthly_max'],'covariate': None, 'covariateName': CIname, 'recordID': recordID, 'station_name': station_name, 'year0': year0, 'ReturnPeriod': ReturnPeriod}
+    modelInfo = {'t': mm['t'], 
+                 'monthlyMax': mm['monthly_max'],
+                 'covariate': None, 
+                 'covariateName': CIname, 
+                 'recordID': recordID, 
+                 'station_name': station_name, 
+                 'year0': year0, 
+                 'ReturnPeriod': ReturnPeriod,
+                 'STNDtoMHHW': STNDtoMHHW,
+                 'datum':'STND'}
 
     # Run the basic models for seasonal, trend and nodal cycle
     x_s, w_s = run_seasonal_model(ridString, dirs,runWithoutModel=runWithoutModel, modelType='GEV_SeasonalMu')
@@ -395,7 +405,19 @@ def run_CI_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CI_list,x_
     # Run the models with covariates, looping through the covariates
     for i,CIname in enumerate(CI_list):
         STNDtoMHHW, station_name, year0, mm = prep_model_input_data(rsl_xr,recordID,dirs, CIname)
-        modelInfo = {'t': mm['t'], 'covariate': mm['CI'], 'covariateName': CIname, 'recordID': recordID, 'station_name': station_name, 'year0': year0, 'ReturnPeriod': ReturnPeriod}
+        modelInfo = {'t': mm['t'], 
+                 'monthlyMax': mm['monthly_max'],
+                 'covariate': None, 
+                 'covariateName': CIname, 
+                 'recordID': recordID, 
+                 'station_name': station_name, 
+                 'year0': year0, 
+                 'ReturnPeriod': ReturnPeriod,
+                 'STNDtoMHHW': STNDtoMHHW,
+                 'datum':'STND'}
+        
+        
+        
         wcomptemp = wcomp.copy()
         x_cvte1, w_cvte1, wcomptemp, SignifCvte1[i] = run_covariate_in_location_model(x_N, w_N, wcomptemp, ridString, SignifN, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal',saveModel=False)
         magCvte1[i] = w_cvte1[-1]
@@ -404,7 +426,16 @@ def run_CI_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CI_list,x_
     best_model = np.nanargmax(SignifCvte1)
     print('Best model is ' + CI_list[best_model])
     STNDtoMHHW, station_name, year0, mm = prep_model_input_data(rsl_xr,recordID,dirs, CI_list[best_model])
-    modelInfo = {'t': mm['t'], 'covariate': mm['CI'], 'monthlyMax': mm['monthly_max'], 'covariateName': CI_list[best_model], 'recordID': recordID, 'station_name': station_name, 'year0': year0, 'ReturnPeriod': ReturnPeriod}
+    modelInfo = {'t': mm['t'], 
+                 'covariate': mm['CI'], 
+                 'monthlyMax': mm['monthly_max'], 
+                 'covariateName': CI_list[best_model], 
+                 'recordID': recordID, 
+                 'station_name': station_name, 
+                 'year0': year0, 
+                 'ReturnPeriod': ReturnPeriod,
+                 'STNDtoMHHW': STNDtoMHHW,
+                 'datum':'STND'}
     
     wcomp_noN = wcomp.copy()
     

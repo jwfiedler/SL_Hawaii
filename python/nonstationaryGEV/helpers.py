@@ -160,7 +160,7 @@ def fitness(x, dirs, modelType='GEV_SeasonalMu'):
         bestf = float(file.readline().strip())
 
     # Retry loop for checking if the 'mio' matrix is singular
-    max_retries = 5
+    max_retries = 10
     retries = 0
     while retries < max_retries:
         # Run the model

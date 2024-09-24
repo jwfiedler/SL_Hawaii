@@ -38,7 +38,7 @@ print(f"Base directory: {base_dir}")
 dirs = make_directoryDict(base_dir)
 
 
-recordID =57
+recordID =59
 runWithoutModel = False
 returnPeriod = [2,10,50,100]
 year0plot = 1993
@@ -143,4 +143,12 @@ df_cvteScale
 
 # figSeasonal.show()
 # figTimeSeries.show()
+# # %%
+
+# #%% Test correlation and lag between climate index and sea level
+# from helpers import get_monthly_max_time_series, get_covariate
+# CI_dir = dirs['CI_dir']
+# # get dataset of monthly max sea level data
+# df, STNDtoMHHW, station_name, year0 = get_monthly_max_time_series(recordID, dirs)
+# CI = get_covariate(mm['t_monthly_max'], CI_dir, CIname = 'ONI')
 # # %%
