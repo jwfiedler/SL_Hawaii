@@ -56,6 +56,13 @@ rsl_hourly = rsl.sel(record_id=~rsl.record_id.isin([547,548,14]))
 rsl.close()
 
 make_directories(rsl_hourly,dirs)
+
+
+
+#%%
+# from models import prep_model_input_data
+# STNDtoMHHW, station_name, year0, mm = prep_model_input_data(rsl,recordID,dirs, CIname='None')
+
 #%%
 # Preallocate the significance array
 SignifCvte1 = np.zeros(len(climateIndex))
@@ -98,38 +105,38 @@ df_cvteLocation
 
 #%%
 # Initialize an empty list to store results
-results = []
+# results = []
 
-for i in np.arange(0, len(climateIndex)):
-    covariate_params = f'cvte_scale_params_{climateIndex[i]}.json'
+# for i in np.arange(0, len(climateIndex)):
+#     covariate_params = f'cvte_scale_params_{climateIndex[i]}.json'
     
-    # Create the full path for the JSON file
-    jsonpath = Path(dirs['model_output_dir']) / str(recordID) / covariate_params
+#     # Create the full path for the JSON file
+#     jsonpath = Path(dirs['model_output_dir']) / str(recordID) / covariate_params
 
     # Open and read the JSON file
-    with open(jsonpath, 'r') as f:
-        output = json.load(f)
-        w, mio, standard_error = (np.array(output[key]) for key in ['w', 'mio', 'standard_error'])
+    # with open(jsonpath, 'r') as f:
+        # output = json.load(f)
+#         w, mio, standard_error = (np.array(output[key]) for key in ['w', 'mio', 'standard_error'])
 
-    if standard_error[-1] == 0:
-        standard_error[-1] = np.nan
+#     if standard_error[-1] == 0:
+#         standard_error[-1] = np.nan
 
 
-    # Store the results in a list
-    results.append({
-        'Climate Index': climateIndex[i],
-        'Amplitude of CI param': w[-1],  
-        'Standard Error of CI param': standard_error[-1]
-    })
+#     # Store the results in a list
+#     results.append({
+#         'Climate Index': climateIndex[i],
+#         'Amplitude of CI param': w[-1],  
+#         'Standard Error of CI param': standard_error[-1]
+#     })
 
-# Convert the results list to a DataFrame
-df_cvteScale = pd.DataFrame(results)
+# # Convert the results list to a DataFrame
+# df_cvteScale = pd.DataFrame(results)
 
-# add Significance to the dataframe
-df_cvteScale['Significance over cvte_loc'] = SignifCvte2_loc
-df_cvteScale['Significance over trend'] = SignifCvte2_T
+# # add Significance to the dataframe
+# df_cvteScale['Significance over cvte_loc'] = SignifCvte2_loc
+# df_cvteScale['Significance over trend'] = SignifCvte2_T
 
-df_cvteScale
+# df_cvteScale
 
 #%%
 
