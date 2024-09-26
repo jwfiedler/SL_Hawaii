@@ -1,0 +1,98 @@
+Traceback (most recent call last):
+  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/opt/anaconda3/envs/SLI39/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Separate the "None" entries from the rest of the data
+df_none = df[df['modelCI'] == 'None']  # Entries where modelCI is 'None'
+df_filtered = df[df['modelCI'] != 'None']  # All other entries
+
+# Use tab10 colormap for colors (excluding 'None')
+cmap = plt.get_cmap('Set1')
+color_dict = {index: cmap(i) for i, index in enumerate(np.unique(df_filtered['modelCI']))}
+
+# Map the climate indices to numerical values for the colorbar
+index_mapping = {index: i for i, index in enumerate(np.unique(df_filtered['modelCI']))}
+mapped_indices = [index_mapping[ci] for ci in df_filtered['modelCI']]
+
+# Create a colormap without "None"
+norm = colors.BoundaryNorm(boundaries=np.arange(len(np.unique(df_filtered['modelCI'])) + 1) - 0.5, 
+                               ncolors=len(np.unique(df_filtered['modelCI'])))
+
+fig, ax = plt.subplots(1, 1, figsize=(10, 10), subplot_kw={'projection': ccrs.PlateCarree()})
+
+# # Call plot_thin_map_hawaii to create the figure and axis
+plot_thin_map_hawaii(ax)
+
+# Plot each station with varying color (based on climate index) and size (based on amplitude)
+scatter = ax.scatter(df_filtered['lon'], df_filtered['lat'], 
+                     c=mapped_indices, cmap=cmap, 
+                     norm=norm, s=50 * df_filtered['ampCI'],
+                     edgecolor='black', linewidth=0.5, transform=ccrs.PlateCarree())
+
+# Plot the "None" stations in gray (fixed color)
+ax.scatter(df_none['lon'], df_none['lat'], 
+           color='gray', s=50 * df_none['ampCI'], 
+           edgecolor='black', linewidth=0.5, transform=ccrs.PlateCarree())
+
+dfInfo = get_stationinfo(dirs['data_dir'])
+dfInfo['record_id'] = dfInfo['record_id']/10
+
+#change the font color to black if the station is in the df_filtered
+dfInfo['fontcolor'] = np.where(dfInfo['record_id'].isin(df_filtered['record_id']), 'black', 'gray')
+
+# Add an axes for the colorbar
+cax = fig.add_axes([0.13, 0.21, 0.76, 0.02])  
+
+# dfInfo
+# Add text labels with adjusted offsets and horizontal alignment
+for i, name in enumerate(dfInfo['station_name']):
+    ax.text(dfInfo['lon'][i] + dfInfo['offsetlon'][i], dfInfo['lat'][i] + dfInfo['offsetlat'][i], name, 
+            ha=dfInfo['ha'][i], fontsize=10, transform=ccrs.PlateCarree(),rotation=0, color = dfInfo['fontcolor'][i])
+
+# Add a colorbar for the climate index
+cbar = plt.colorbar(mpl.cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax, orientation='horizontal')
+cbar.set_ticks(np.arange(len(np.unique(df_filtered['modelCI']))))
+cbar.set_ticklabels(np.unique(df_filtered['modelCI']))
+cbar.set_label('Climate Index')
+
+
+# Amplitude size legend
+sizes = [50, 100, 150]
+size_labels = ["0.5 cm", "1.5 cm", "3.0 cm"]  
+size_legend_elements = [Line2D([0], [0], marker='o', color='none', label=label, 
+                               markerfacecolor='gray', markersize=size / 10) 
+                        for size, label in zip(sizes, size_labels)]
+ax.legend(handles=size_legend_elements, title="Amplitude Size", loc="lower left")
+
+# save the figure
+savename = Path(dirs['output_dir']) / 'SL_contributions_map.png'
+plt.savefig(savename, dpi=300, bbox_inches='tight')
+
+------------------
+
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+Cell [0;32mIn[16], line 49[0m
+[1;32m     45[0m     ax[38;5;241m.[39mtext(dfInfo[[38;5;124m'[39m[38;5;124mlon[39m[38;5;124m'[39m][i] [38;5;241m+[39m dfInfo[[38;5;124m'[39m[38;5;124moffsetlon[39m[38;5;124m'[39m][i], dfInfo[[38;5;124m'[39m[38;5;124mlat[39m[38;5;124m'[39m][i] [38;5;241m+[39m dfInfo[[38;5;124m'[39m[38;5;124moffsetlat[39m[38;5;124m'[39m][i], name, 
+[1;32m     46[0m             ha[38;5;241m=[39mdfInfo[[38;5;124m'[39m[38;5;124mha[39m[38;5;124m'[39m][i], fontsize[38;5;241m=[39m[38;5;241m10[39m, transform[38;5;241m=[39mccrs[38;5;241m.[39mPlateCarree(),rotation[38;5;241m=[39m[38;5;241m0[39m, color [38;5;241m=[39m dfInfo[[38;5;124m'[39m[38;5;124mfontcolor[39m[38;5;124m'[39m][i])
+[1;32m     48[0m [38;5;66;03m# Add a colorbar for the climate index[39;00m
+[0;32m---> 49[0m cbar [38;5;241m=[39m plt[38;5;241m.[39mcolorbar([43mmpl[49m[38;5;241m.[39mcm[38;5;241m.[39mScalarMappable(norm[38;5;241m=[39mnorm, cmap[38;5;241m=[39mcmap), cax[38;5;241m=[39mcax, orientation[38;5;241m=[39m[38;5;124m'[39m[38;5;124mhorizontal[39m[38;5;124m'[39m)
+[1;32m     50[0m cbar[38;5;241m.[39mset_ticks(np[38;5;241m.[39marange([38;5;28mlen[39m(np[38;5;241m.[39munique(df_filtered[[38;5;124m'[39m[38;5;124mmodelCI[39m[38;5;124m'[39m]))))
+[1;32m     51[0m cbar[38;5;241m.[39mset_ticklabels(np[38;5;241m.[39munique(df_filtered[[38;5;124m'[39m[38;5;124mmodelCI[39m[38;5;124m'[39m]))
+
+[0;31mNameError[0m: name 'mpl' is not defined
+

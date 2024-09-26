@@ -15,89 +15,173 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-for rid in range(len(rsl_hourly.station_name)):
-    df, STNDtoMHHW, station_name,year0 = get_monthly_max_time_series(rid,rsl_hourly)
+from pathlib import Path
+import xarray as xr
+%run ../setup.ipynb
+%run ../plotting_functions.ipynb
 
-    # add covariate to the data frame
-    covariate = get_covariate(df['t_monthly_max'], data_dir)
-    df['PMM'] = covariate
-    # save the data frame to a csv file with station record_id
-    savename = 'monthly_max_' + str(rsl_hourly.record_id[rid].values) + '.csv'
-    
-    savepath = input_dir / savename
-    df.to_csv(savepath, index=False)
+data_dir = Path('../../data' )
+output_dir = Path('../../output/extremes') 
+input_dir = Path('./model_input')
+model_output_dir = Path(data_dir,'GEV_model_output')
+CI_dir = Path(data_dir,'climate_indices')
+rsl_hourly = xr.open_dataset(data_dir/ 'rsl_hawaii.nc', engine='netcdf4')
+
+# remove stations 547,548, 14
+rsl_hourly = rsl_hourly.sel(record_id=~rsl_hourly.record_id.isin([547,548,14]))
+
+# close the file
+rsl_hourly.close()
+
+
+runWithoutModel = True
+
+# check if output directory exists, if not create it
+if not output_dir.exists():
+    output_dir.mkdir(parents=True)
+
+# check if model output directory exists, if not create it
+if not model_output_dir.exists():
+    model_output_dir.mkdir(parents=True)
+
+# make sub-directories for each station in rsl_hourly in model_output_dir
+for rid in rsl_hourly.record_id:
+    ridString = str(rid.values)
+    # maybe needs some leading zeros, for now we'll leave it.
+    station_dir = model_output_dir / ridString
+    if not station_dir.exists():
+        station_dir.mkdir(parents=True)
+
+# remove best.txt, T.txt, CI.txt, Y.txt, mio.txt, scein.dat, and sceout.dat from working directory
+for file in ['best.txt', 'T.txt', 'CI.txt', 'Y.txt', 'mio.txt', 'scein.dat', 'sceout.dat']:
+    if (Path(file)).exists():
+        (Path(file)).unlink()
+
+
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[10], line 5[0m
-[1;32m      2[0m df, STNDtoMHHW, station_name,year0 [38;5;241m=[39m get_monthly_max_time_series(rid,rsl_hourly)
-[1;32m      4[0m [38;5;66;03m# add covariate to the data frame[39;00m
-[0;32m----> 5[0m covariate [38;5;241m=[39m [43mget_covariate[49m[43m([49m[43mdf[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mt_monthly_max[39;49m[38;5;124;43m'[39;49m[43m][49m[43m,[49m[43m [49m[43mdata_dir[49m[43m)[49m
-[1;32m      6[0m df[[38;5;124m'[39m[38;5;124mPMM[39m[38;5;124m'[39m] [38;5;241m=[39m covariate
-[1;32m      7[0m [38;5;66;03m# save the data frame to a csv file with station record_id[39;00m
+[0;31mKeyError[0m                                  Traceback (most recent call last)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211[0m, in [0;36mCachingFileManager._acquire_with_cache_info[0;34m(self, needs_lock)[0m
+[1;32m    210[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 211[0m     file [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_key[49m[43m][49m
+[1;32m    212[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
 
-Cell [0;32mIn[9], line 2[0m, in [0;36mget_covariate[0;34m(t_monthly_max, data_dir)[0m
-[1;32m      1[0m [38;5;28;01mdef[39;00m [38;5;21mget_covariate[39m(t_monthly_max, data_dir):
-[0;32m----> 2[0m     PMM_df [38;5;241m=[39m [43mpd[49m[38;5;241;43m.[39;49m[43mread_csv[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mpmm.csv[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mparse_dates[49m[38;5;241;43m=[39;49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mDate[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m
-[1;32m      4[0m     [38;5;66;03m# Set the Date as the index for easier slicing and access[39;00m
-[1;32m      5[0m     PMM_df[38;5;241m.[39mset_index([38;5;124m'[39m[38;5;124mDate[39m[38;5;124m'[39m, inplace[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56[0m, in [0;36mLRUCache.__getitem__[0;34m(self, key)[0m
+[1;32m     55[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39m_lock:
+[0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
+[1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1026[0m, in [0;36mread_csv[0;34m(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)[0m
-[1;32m   1013[0m kwds_defaults [38;5;241m=[39m _refine_defaults_read(
-[1;32m   1014[0m     dialect,
-[1;32m   1015[0m     delimiter,
+[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'f7909493-18bd-4d8e-93eb-4aa28114cb54']
+
+During handling of the above exception, another exception occurred:
+
+[0;31mOSError[0m                                   Traceback (most recent call last)
+Cell [0;32mIn[5], line 11[0m
+[1;32m      9[0m model_output_dir [38;5;241m=[39m Path(data_dir,[38;5;124m'[39m[38;5;124mGEV_model_output[39m[38;5;124m'[39m)
+[1;32m     10[0m CI_dir [38;5;241m=[39m Path(data_dir,[38;5;124m'[39m[38;5;124mclimate_indices[39m[38;5;124m'[39m)
+[0;32m---> 11[0m rsl_hourly [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43mengine[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mnetcdf4[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m     13[0m [38;5;66;03m# remove stations 547,548, 14[39;00m
+[1;32m     14[0m rsl_hourly [38;5;241m=[39m rsl_hourly[38;5;241m.[39msel(record_id[38;5;241m=[39m[38;5;241m~[39mrsl_hourly[38;5;241m.[39mrecord_id[38;5;241m.[39misin([[38;5;241m547[39m,[38;5;241m548[39m,[38;5;241m14[39m]))
+
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573[0m, in [0;36mopen_dataset[0;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
+[1;32m    561[0m decoders [38;5;241m=[39m _resolve_decoders_kwargs(
+[1;32m    562[0m     decode_cf,
+[1;32m    563[0m     open_backend_dataset_parameters[38;5;241m=[39mbackend[38;5;241m.[39mopen_dataset_parameters,
 [0;32m   (...)[0m
-[1;32m   1022[0m     dtype_backend[38;5;241m=[39mdtype_backend,
-[1;32m   1023[0m )
-[1;32m   1024[0m kwds[38;5;241m.[39mupdate(kwds_defaults)
-[0;32m-> 1026[0m [38;5;28;01mreturn[39;00m [43m_read[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[43mkwds[49m[43m)[49m
+[1;32m    569[0m     decode_coords[38;5;241m=[39mdecode_coords,
+[1;32m    570[0m )
+[1;32m    572[0m overwrite_encoded_chunks [38;5;241m=[39m kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124moverwrite_encoded_chunks[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)
+[0;32m--> 573[0m backend_ds [38;5;241m=[39m [43mbackend[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m
+[1;32m    574[0m [43m    [49m[43mfilename_or_obj[49m[43m,[49m
+[1;32m    575[0m [43m    [49m[43mdrop_variables[49m[38;5;241;43m=[39;49m[43mdrop_variables[49m[43m,[49m
+[1;32m    576[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mdecoders[49m[43m,[49m
+[1;32m    577[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
+[1;32m    578[0m [43m[49m[43m)[49m
+[1;32m    579[0m ds [38;5;241m=[39m _dataset_from_backend_dataset(
+[1;32m    580[0m     backend_ds,
+[1;32m    581[0m     filename_or_obj,
+[0;32m   (...)[0m
+[1;32m    591[0m     [38;5;241m*[39m[38;5;241m*[39mkwargs,
+[1;32m    592[0m )
+[1;32m    593[0m [38;5;28;01mreturn[39;00m ds
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:620[0m, in [0;36m_read[0;34m(filepath_or_buffer, kwds)[0m
-[1;32m    617[0m _validate_names(kwds[38;5;241m.[39mget([38;5;124m"[39m[38;5;124mnames[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m))
-[1;32m    619[0m [38;5;66;03m# Create the parser.[39;00m
-[0;32m--> 620[0m parser [38;5;241m=[39m [43mTextFileReader[49m[43m([49m[43mfilepath_or_buffer[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwds[49m[43m)[49m
-[1;32m    622[0m [38;5;28;01mif[39;00m chunksize [38;5;129;01mor[39;00m iterator:
-[1;32m    623[0m     [38;5;28;01mreturn[39;00m parser
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646[0m, in [0;36mNetCDF4BackendEntrypoint.open_dataset[0;34m(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)[0m
+[1;32m    625[0m [38;5;28;01mdef[39;00m [38;5;21mopen_dataset[39m(  [38;5;66;03m# type: ignore[override]  # allow LSP violation, not supporting **kwargs[39;00m
+[1;32m    626[0m     [38;5;28mself[39m,
+[1;32m    627[0m     filename_or_obj: [38;5;28mstr[39m [38;5;241m|[39m os[38;5;241m.[39mPathLike[Any] [38;5;241m|[39m BufferedIOBase [38;5;241m|[39m AbstractDataStore,
+[0;32m   (...)[0m
+[1;32m    643[0m     autoclose[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[1;32m    644[0m ) [38;5;241m-[39m[38;5;241m>[39m Dataset:
+[1;32m    645[0m     filename_or_obj [38;5;241m=[39m _normalize_path(filename_or_obj)
+[0;32m--> 646[0m     store [38;5;241m=[39m [43mNetCDF4DataStore[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m
+[1;32m    647[0m [43m        [49m[43mfilename_or_obj[49m[43m,[49m
+[1;32m    648[0m [43m        [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
+[1;32m    649[0m [43m        [49m[38;5;28;43mformat[39;49m[38;5;241;43m=[39;49m[38;5;28;43mformat[39;49m[43m,[49m
+[1;32m    650[0m [43m        [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m
+[1;32m    651[0m [43m        [49m[43mclobber[49m[38;5;241;43m=[39;49m[43mclobber[49m[43m,[49m
+[1;32m    652[0m [43m        [49m[43mdiskless[49m[38;5;241;43m=[39;49m[43mdiskless[49m[43m,[49m
+[1;32m    653[0m [43m        [49m[43mpersist[49m[38;5;241;43m=[39;49m[43mpersist[49m[43m,[49m
+[1;32m    654[0m [43m        [49m[43mlock[49m[38;5;241;43m=[39;49m[43mlock[49m[43m,[49m
+[1;32m    655[0m [43m        [49m[43mautoclose[49m[38;5;241;43m=[39;49m[43mautoclose[49m[43m,[49m
+[1;32m    656[0m [43m    [49m[43m)[49m
+[1;32m    658[0m     store_entrypoint [38;5;241m=[39m StoreBackendEntrypoint()
+[1;32m    659[0m     [38;5;28;01mwith[39;00m close_on_error(store):
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1620[0m, in [0;36mTextFileReader.__init__[0;34m(self, f, engine, **kwds)[0m
-[1;32m   1617[0m     [38;5;28mself[39m[38;5;241m.[39moptions[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m] [38;5;241m=[39m kwds[[38;5;124m"[39m[38;5;124mhas_index_names[39m[38;5;124m"[39m]
-[1;32m   1619[0m [38;5;28mself[39m[38;5;241m.[39mhandles: IOHandles [38;5;241m|[39m [38;5;28;01mNone[39;00m [38;5;241m=[39m [38;5;28;01mNone[39;00m
-[0;32m-> 1620[0m [38;5;28mself[39m[38;5;241m.[39m_engine [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_make_engine[49m[43m([49m[43mf[49m[43m,[49m[43m [49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mengine[49m[43m)[49m
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409[0m, in [0;36mNetCDF4DataStore.open[0;34m(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)[0m
+[1;32m    403[0m kwargs [38;5;241m=[39m [38;5;28mdict[39m(
+[1;32m    404[0m     clobber[38;5;241m=[39mclobber, diskless[38;5;241m=[39mdiskless, persist[38;5;241m=[39mpersist, [38;5;28mformat[39m[38;5;241m=[39m[38;5;28mformat[39m
+[1;32m    405[0m )
+[1;32m    406[0m manager [38;5;241m=[39m CachingFileManager(
+[1;32m    407[0m     netCDF4[38;5;241m.[39mDataset, filename, mode[38;5;241m=[39mmode, kwargs[38;5;241m=[39mkwargs
+[1;32m    408[0m )
+[0;32m--> 409[0m [38;5;28;01mreturn[39;00m [38;5;28;43mcls[39;49m[43m([49m[43mmanager[49m[43m,[49m[43m [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m[43m [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m[43m [49m[43mlock[49m[38;5;241;43m=[39;49m[43mlock[49m[43m,[49m[43m [49m[43mautoclose[49m[38;5;241;43m=[39;49m[43mautoclose[49m[43m)[49m
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1880[0m, in [0;36mTextFileReader._make_engine[0;34m(self, f, engine)[0m
-[1;32m   1878[0m     [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m mode:
-[1;32m   1879[0m         mode [38;5;241m+[39m[38;5;241m=[39m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m
-[0;32m-> 1880[0m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;241m=[39m [43mget_handle[49m[43m([49m
-[1;32m   1881[0m [43m    [49m[43mf[49m[43m,[49m
-[1;32m   1882[0m [43m    [49m[43mmode[49m[43m,[49m
-[1;32m   1883[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1884[0m [43m    [49m[43mcompression[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mcompression[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1885[0m [43m    [49m[43mmemory_map[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mmemory_map[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mFalse[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1886[0m [43m    [49m[43mis_text[49m[38;5;241;43m=[39;49m[43mis_text[49m[43m,[49m
-[1;32m   1887[0m [43m    [49m[43merrors[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mencoding_errors[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43mstrict[39;49m[38;5;124;43m"[39;49m[43m)[49m[43m,[49m
-[1;32m   1888[0m [43m    [49m[43mstorage_options[49m[38;5;241;43m=[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43moptions[49m[38;5;241;43m.[39;49m[43mget[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43mstorage_options[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mNone[39;49;00m[43m)[49m[43m,[49m
-[1;32m   1889[0m [43m[49m[43m)[49m
-[1;32m   1890[0m [38;5;28;01massert[39;00m [38;5;28mself[39m[38;5;241m.[39mhandles [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m
-[1;32m   1891[0m f [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mhandles[38;5;241m.[39mhandle
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356[0m, in [0;36mNetCDF4DataStore.__init__[0;34m(self, manager, group, mode, lock, autoclose)[0m
+[1;32m    354[0m [38;5;28mself[39m[38;5;241m.[39m_group [38;5;241m=[39m group
+[1;32m    355[0m [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m=[39m mode
+[0;32m--> 356[0m [38;5;28mself[39m[38;5;241m.[39mformat [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mds[49m[38;5;241m.[39mdata_model
+[1;32m    357[0m [38;5;28mself[39m[38;5;241m.[39m_filename [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mds[38;5;241m.[39mfilepath()
+[1;32m    358[0m [38;5;28mself[39m[38;5;241m.[39mis_remote [38;5;241m=[39m is_remote_uri([38;5;28mself[39m[38;5;241m.[39m_filename)
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/common.py:873[0m, in [0;36mget_handle[0;34m(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)[0m
-[1;32m    868[0m [38;5;28;01melif[39;00m [38;5;28misinstance[39m(handle, [38;5;28mstr[39m):
-[1;32m    869[0m     [38;5;66;03m# Check whether the filename is to be opened in binary mode.[39;00m
-[1;32m    870[0m     [38;5;66;03m# Binary mode does not support 'encoding' and 'newline'.[39;00m
-[1;32m    871[0m     [38;5;28;01mif[39;00m ioargs[38;5;241m.[39mencoding [38;5;129;01mand[39;00m [38;5;124m"[39m[38;5;124mb[39m[38;5;124m"[39m [38;5;129;01mnot[39;00m [38;5;129;01min[39;00m ioargs[38;5;241m.[39mmode:
-[1;32m    872[0m         [38;5;66;03m# Encoding[39;00m
-[0;32m--> 873[0m         handle [38;5;241m=[39m [38;5;28;43mopen[39;49m[43m([49m
-[1;32m    874[0m [43m            [49m[43mhandle[49m[43m,[49m
-[1;32m    875[0m [43m            [49m[43mioargs[49m[38;5;241;43m.[39;49m[43mmode[49m[43m,[49m
-[1;32m    876[0m [43m            [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mioargs[49m[38;5;241;43m.[39;49m[43mencoding[49m[43m,[49m
-[1;32m    877[0m [43m            [49m[43merrors[49m[38;5;241;43m=[39;49m[43merrors[49m[43m,[49m
-[1;32m    878[0m [43m            [49m[43mnewline[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m"[39;49m[43m,[49m
-[1;32m    879[0m [43m        [49m[43m)[49m
-[1;32m    880[0m     [38;5;28;01melse[39;00m:
-[1;32m    881[0m         [38;5;66;03m# Binary mode[39;00m
-[1;32m    882[0m         handle [38;5;241m=[39m [38;5;28mopen[39m(handle, ioargs[38;5;241m.[39mmode)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418[0m, in [0;36mNetCDF4DataStore.ds[0;34m(self)[0m
+[1;32m    416[0m [38;5;129m@property[39m
+[1;32m    417[0m [38;5;28;01mdef[39;00m [38;5;21mds[39m([38;5;28mself[39m):
+[0;32m--> 418[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_acquire[49m[43m([49m[43m)[49m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../data/pmm.csv'
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412[0m, in [0;36mNetCDF4DataStore._acquire[0;34m(self, needs_lock)[0m
+[1;32m    411[0m [38;5;28;01mdef[39;00m [38;5;21m_acquire[39m([38;5;28mself[39m, needs_lock[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[0;32m--> 412[0m     [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39m_manager[38;5;241m.[39macquire_context(needs_lock) [38;5;28;01mas[39;00m root:
+[1;32m    413[0m         ds [38;5;241m=[39m _nc4_require_group(root, [38;5;28mself[39m[38;5;241m.[39m_group, [38;5;28mself[39m[38;5;241m.[39m_mode)
+[1;32m    414[0m     [38;5;28;01mreturn[39;00m ds
+
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119[0m, in [0;36m_GeneratorContextManager.__enter__[0;34m(self)[0m
+[1;32m    117[0m [38;5;28;01mdel[39;00m [38;5;28mself[39m[38;5;241m.[39margs, [38;5;28mself[39m[38;5;241m.[39mkwds, [38;5;28mself[39m[38;5;241m.[39mfunc
+[1;32m    118[0m [38;5;28;01mtry[39;00m:
+[0;32m--> 119[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mnext[39;49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mgen[49m[43m)[49m
+[1;32m    120[0m [38;5;28;01mexcept[39;00m [38;5;167;01mStopIteration[39;00m:
+[1;32m    121[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m"[39m[38;5;124mgenerator didn[39m[38;5;124m'[39m[38;5;124mt yield[39m[38;5;124m"[39m) [38;5;28;01mfrom[39;00m [38;5;28;01mNone[39;00m
+
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199[0m, in [0;36mCachingFileManager.acquire_context[0;34m(self, needs_lock)[0m
+[1;32m    196[0m [38;5;129m@contextlib[39m[38;5;241m.[39mcontextmanager
+[1;32m    197[0m [38;5;28;01mdef[39;00m [38;5;21macquire_context[39m([38;5;28mself[39m, needs_lock[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
+[1;32m    198[0m [38;5;250m    [39m[38;5;124;03m"""Context manager for acquiring a file."""[39;00m
+[0;32m--> 199[0m     file, cached [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_acquire_with_cache_info[49m[43m([49m[43mneeds_lock[49m[43m)[49m
+[1;32m    200[0m     [38;5;28;01mtry[39;00m:
+[1;32m    201[0m         [38;5;28;01myield[39;00m file
+
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217[0m, in [0;36mCachingFileManager._acquire_with_cache_info[0;34m(self, needs_lock)[0m
+[1;32m    215[0m     kwargs [38;5;241m=[39m kwargs[38;5;241m.[39mcopy()
+[1;32m    216[0m     kwargs[[38;5;124m"[39m[38;5;124mmode[39m[38;5;124m"[39m] [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_mode
+[0;32m--> 217[0m file [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_opener[49m[43m([49m[38;5;241;43m*[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_args[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[1;32m    218[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m==[39m [38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m:
+[1;32m    219[0m     [38;5;66;03m# ensure file doesn't get overridden when opened again[39;00m
+[1;32m    220[0m     [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m=[39m [38;5;124m"[39m[38;5;124ma[39m[38;5;124m"[39m
+
+File [0;32msrc/netCDF4/_netCDF4.pyx:2469[0m, in [0;36mnetCDF4._netCDF4.Dataset.__init__[0;34m()[0m
+
+File [0;32msrc/netCDF4/_netCDF4.pyx:2028[0m, in [0;36mnetCDF4._netCDF4._ensure_nc_success[0;34m()[0m
+
+[0;31mOSError[0m: [Errno -51] NetCDF: Unknown file format: '/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc'
 

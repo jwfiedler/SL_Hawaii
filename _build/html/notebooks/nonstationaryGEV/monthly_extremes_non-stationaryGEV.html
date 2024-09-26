@@ -218,7 +218,7 @@
 <li class="toctree-l1 has-children"><a class="reference internal" href="../SL_intra-annual.html">Sea Level Magnitude</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_anomaly_intra-annual.html">Intra-Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Extremes_intra-annual.html">Intra-Annual Extremes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Components_intra-annual.html">Components of Sea Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contributions.html">Contributions</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../Flood_intra-annual.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -544,8 +544,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-40cc7b61-11ea-4e67-b4ee-52c6a9285194">
-<span class="eqno">(1)<a class="headerlink" href="#equation-40cc7b61-11ea-4e67-b4ee-52c6a9285194" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a12a08b0-261c-4a81-bcab-f1ffe49fb9b2">
+<span class="eqno">(1)<a class="headerlink" href="#equation-a12a08b0-261c-4a81-bcab-f1ffe49fb9b2" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -559,8 +559,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c76ec71-8606-443c-b46d-1c80db4f08d5">
-<span class="eqno">(2)<a class="headerlink" href="#equation-3c76ec71-8606-443c-b46d-1c80db4f08d5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2c638b50-1b45-4bf6-a180-41857315c814">
+<span class="eqno">(2)<a class="headerlink" href="#equation-2c638b50-1b45-4bf6-a180-41857315c814" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -670,8 +670,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-944466e2-f5ef-4c79-8432-27e2992b8657">
-<span class="eqno">(3)<a class="headerlink" href="#equation-944466e2-f5ef-4c79-8432-27e2992b8657" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bd8c9a71-9e38-499d-89f6-1cc8dbf2f2c6">
+<span class="eqno">(3)<a class="headerlink" href="#equation-bd8c9a71-9e38-499d-89f6-1cc8dbf2f2c6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{PMM}PMM(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -697,8 +697,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-in-location-model">
 <h4>Seasonality in Location Model<a class="headerlink" href="#seasonality-in-location-model" title="Permalink to this heading">#</a></h4>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff3ac2c3-9235-4e55-ac03-acc7dab0eef2">
-<span class="eqno">(4)<a class="headerlink" href="#equation-ff3ac2c3-9235-4e55-ac03-acc7dab0eef2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-48b9908d-6881-46dd-b459-44fcb29dcf5c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-48b9908d-6881-46dd-b459-44fcb29dcf5c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -717,8 +717,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-a9c9aec6-3eb2-42c7-a292-2e33ea006854">
-<span class="eqno">(5)<a class="headerlink" href="#equation-a9c9aec6-3eb2-42c7-a292-2e33ea006854" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bafeaaf6-db2e-4260-afbc-7d6d0080443d">
+<span class="eqno">(5)<a class="headerlink" href="#equation-bafeaaf6-db2e-4260-afbc-7d6d0080443d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0e^{\beta_{LT}(t)}  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t)   + \beta_{PMM}PMM(t),\\
 \psi &amp;= \alpha_0 + \alpha_{PMM}PMM(t), \\
@@ -730,10 +730,10 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b38a9c38-e482-44a1-8e7a-0eead9a3f1b7">
-<span class="eqno">(6)<a class="headerlink" href="#equation-b38a9c38-e482-44a1-8e7a-0eead9a3f1b7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1f981457-f382-463a-8524-e0e7b2664f49">
+<span class="eqno">(6)<a class="headerlink" href="#equation-1f981457-f382-463a-8524-e0e7b2664f49" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0 e^{\beta_{LT}(t)} + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
-&amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t) + \beta_{PMM}PMM(t) + \beta_{N_1} cos(2\pi t/T_N),\\
+&amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t) + \beta_{PMM}PMM(t) + \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{PMM}PMM(t), \\
 \xi &amp;=  \gamma_0 
 \end{align}\]</div>
@@ -992,7 +992,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <h2>Format data input to the model<a class="headerlink" href="#format-data-input-to-the-model" title="Permalink to this heading">#</a></h2>
 <p>Now we’ll take our sea level data, extract the monthly maxima from our timeseries, and format it for input into the model. We need the yearday of each monthly maximum, and if using a covariate model (e.g. SOI, ENSO, wave height), the yearday of that index.</p>
 <div class="cell tag_hide-output docutils container">
-<div class="cell_input docutils container">
+<div class="cell_input above-output-prompt docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
 <span class="o">%</span><span class="k">run</span> ../setup.ipynb
@@ -1002,7 +1002,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output/extremes&#39;</span><span class="p">)</span> 
 <span class="n">input_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;./model_input&#39;</span><span class="p">)</span>
 <span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span><span class="s1">&#39;GEV_model_output&#39;</span><span class="p">)</span>
-<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="n">CI_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span><span class="s1">&#39;climate_indices&#39;</span><span class="p">)</span>
+<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;netcdf4&#39;</span><span class="p">)</span>
 
 <span class="c1"># remove stations 547,548, 14</span>
 <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=~</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">547</span><span class="p">,</span><span class="mi">548</span><span class="p">,</span><span class="mi">14</span><span class="p">]))</span>
@@ -1011,7 +1012,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
-<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">runWithoutModel</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># check if output directory exists, if not create it</span>
 <span class="k">if</span> <span class="ow">not</span> <span class="n">output_dir</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -1036,6 +1037,139 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </pre></div>
 </div>
 </div>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;f7909493-18bd-4d8e-93eb-4aa28114cb54&#39;]
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">line</span> <span class="mi">11</span>
+<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">model_output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span><span class="s1">&#39;GEV_model_output&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">CI_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span><span class="s1">&#39;climate_indices&#39;</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">11</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;netcdf4&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">13</span> <span class="c1"># remove stations 547,548, 14</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span> <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=~</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">547</span><span class="p">,</span><span class="mi">548</span><span class="p">,</span><span class="mi">14</span><span class="p">]))</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">decode_cf</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">563</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">573</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">578</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">backend_ds</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">625</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">626</span>     <span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">627</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
+   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">646</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">409</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
+<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
+<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
+<span class="ne">--&gt; </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
+<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="nd">@property</span>
+<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">414</span>     <span class="k">return</span> <span class="n">ds</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
+<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
+<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
+<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
+<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
+
+<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
+
+<span class="ne">OSError</span>: [Errno -51] NetCDF: Unknown file format: &#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc&#39;
+</pre></div>
+</div>
+</div>
+</details>
 </div>
 <section id="adjust-data-for-storm-year">
 <h3>Adjust data for storm year<a class="headerlink" href="#adjust-data-for-storm-year" title="Permalink to this heading">#</a></h3>
@@ -1140,10 +1274,10 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_covariate</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
-    <span class="n">PMM_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;pmm.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
+    <span class="n">PMM_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;pmm.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span>
 
     <span class="c1"># Set the Date as the index for easier slicing and access</span>
-    <span class="n">PMM_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">PMM_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Reindex to include all necessary dates from t_monthly_max for interpolation</span>
     <span class="n">all_dates</span> <span class="o">=</span> <span class="n">PMM_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">union</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">)</span>
@@ -1171,7 +1305,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="n">df</span><span class="p">,</span> <span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span><span class="n">year0</span> <span class="o">=</span> <span class="n">get_monthly_max_time_series</span><span class="p">(</span><span class="n">rid</span><span class="p">,</span><span class="n">rsl_hourly</span><span class="p">)</span>
 
     <span class="c1"># add covariate to the data frame</span>
-    <span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">data_dir</span><span class="p">)</span>
+    <span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">CI_dir</span><span class="p">)</span>
     <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PMM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">covariate</span>
     <span class="c1"># save the data frame to a csv file with station record_id</span>
     <span class="n">savename</span> <span class="o">=</span> <span class="s1">&#39;monthly_max_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
@@ -1181,87 +1315,12 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">10</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">df</span><span class="p">,</span> <span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span><span class="n">year0</span> <span class="o">=</span> <span class="n">get_monthly_max_time_series</span><span class="p">(</span><span class="n">rid</span><span class="p">,</span><span class="n">rsl_hourly</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># add covariate to the data frame</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">data_dir</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;PMM&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">covariate</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="c1"># save the data frame to a csv file with station record_id</span>
-
-<span class="nn">Cell In[9], line 2,</span> in <span class="ni">get_covariate</span><span class="nt">(t_monthly_max, data_dir)</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="k">def</span> <span class="nf">get_covariate</span><span class="p">(</span><span class="n">t_monthly_max</span><span class="p">,</span> <span class="n">data_dir</span><span class="p">):</span>
-<span class="ne">----&gt; </span><span class="mi">2</span>     <span class="n">PMM_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;pmm.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">])</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="c1"># Set the Date as the index for easier slicing and access</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">PMM_df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1026,</span> in <span class="ni">read_csv</span><span class="nt">(filepath_or_buffer, sep, delimiter, header, names, index_col, usecols, dtype, engine, converters, true_values, false_values, skipinitialspace, skiprows, skipfooter, nrows, na_values, keep_default_na, na_filter, verbose, skip_blank_lines, parse_dates, infer_datetime_format, keep_date_col, date_parser, date_format, dayfirst, cache_dates, iterator, chunksize, compression, thousands, decimal, lineterminator, quotechar, quoting, doublequote, escapechar, comment, encoding, encoding_errors, dialect, on_bad_lines, delim_whitespace, low_memory, memory_map, float_precision, storage_options, dtype_backend)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1013</span> <span class="n">kwds_defaults</span> <span class="o">=</span> <span class="n">_refine_defaults_read</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1014</span>     <span class="n">dialect</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1015</span>     <span class="n">delimiter</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1022</span>     <span class="n">dtype_backend</span><span class="o">=</span><span class="n">dtype_backend</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1023</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1024</span> <span class="n">kwds</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwds_defaults</span><span class="p">)</span>
-<span class="ne">-&gt; </span><span class="mi">1026</span> <span class="k">return</span> <span class="n">_read</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="n">kwds</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:620,</span> in <span class="ni">_read</span><span class="nt">(filepath_or_buffer, kwds)</span>
-<span class="g g-Whitespace">    </span><span class="mi">617</span> <span class="n">_validate_names</span><span class="p">(</span><span class="n">kwds</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">619</span> <span class="c1"># Create the parser.</span>
-<span class="ne">--&gt; </span><span class="mi">620</span> <span class="n">parser</span> <span class="o">=</span> <span class="n">TextFileReader</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">622</span> <span class="k">if</span> <span class="n">chunksize</span> <span class="ow">or</span> <span class="n">iterator</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">623</span>     <span class="k">return</span> <span class="n">parser</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1620,</span> in <span class="ni">TextFileReader.__init__</span><span class="nt">(self, f, engine, **kwds)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1617</span>     <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwds</span><span class="p">[</span><span class="s2">&quot;has_index_names&quot;</span><span class="p">]</span>
-<span class="g g-Whitespace">   </span><span class="mi">1619</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="p">:</span> <span class="n">IOHandles</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="ne">-&gt; </span><span class="mi">1620</span> <span class="bp">self</span><span class="o">.</span><span class="n">_engine</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_engine</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/parsers/readers.py:1880,</span> in <span class="ni">TextFileReader._make_engine</span><span class="nt">(self, f, engine)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1878</span>     <span class="k">if</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">1879</span>         <span class="n">mode</span> <span class="o">+=</span> <span class="s2">&quot;b&quot;</span>
-<span class="ne">-&gt; </span><span class="mi">1880</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="o">=</span> <span class="n">get_handle</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1881</span>     <span class="n">f</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1882</span>     <span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1883</span>     <span class="n">encoding</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1884</span>     <span class="n">compression</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;compression&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1885</span>     <span class="n">memory_map</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;memory_map&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1886</span>     <span class="n">is_text</span><span class="o">=</span><span class="n">is_text</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1887</span>     <span class="n">errors</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;encoding_errors&quot;</span><span class="p">,</span> <span class="s2">&quot;strict&quot;</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1888</span>     <span class="n">storage_options</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;storage_options&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">),</span>
-<span class="g g-Whitespace">   </span><span class="mi">1889</span> <span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1890</span> <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<span class="g g-Whitespace">   </span><span class="mi">1891</span> <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">handles</span><span class="o">.</span><span class="n">handle</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pandas/io/common.py:873,</span> in <span class="ni">get_handle</span><span class="nt">(path_or_buf, mode, encoding, compression, memory_map, is_text, errors, storage_options)</span>
-<span class="g g-Whitespace">    </span><span class="mi">868</span> <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">869</span>     <span class="c1"># Check whether the filename is to be opened in binary mode.</span>
-<span class="g g-Whitespace">    </span><span class="mi">870</span>     <span class="c1"># Binary mode does not support &#39;encoding&#39; and &#39;newline&#39;.</span>
-<span class="g g-Whitespace">    </span><span class="mi">871</span>     <span class="k">if</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span> <span class="ow">and</span> <span class="s2">&quot;b&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">872</span>         <span class="c1"># Encoding</span>
-<span class="ne">--&gt; </span><span class="mi">873</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">874</span>             <span class="n">handle</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">875</span>             <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="n">encoding</span><span class="o">=</span><span class="n">ioargs</span><span class="o">.</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">877</span>             <span class="n">errors</span><span class="o">=</span><span class="n">errors</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">878</span>             <span class="n">newline</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">879</span>         <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">880</span>     <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">881</span>         <span class="c1"># Binary mode</span>
-<span class="g g-Whitespace">    </span><span class="mi">882</span>         <span class="n">handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">handle</span><span class="p">,</span> <span class="n">ioargs</span><span class="o">.</span><span class="n">mode</span><span class="p">)</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;../../data/pmm.csv&#39;
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ii</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">mm</span><span class="p">,</span> <span class="n">STNDtoMHHW</span><span class="p">,</span> <span class="n">station_name</span><span class="p">,</span> <span class="n">year0</span> <span class="o">=</span> <span class="n">get_monthly_max_time_series</span><span class="p">(</span><span class="n">ii</span><span class="p">,</span><span class="n">rsl_hourly</span><span class="p">)</span>
-<span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">mm</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">data_dir</span><span class="p">)</span>
+<span class="n">covariate</span> <span class="o">=</span> <span class="n">get_covariate</span><span class="p">(</span><span class="n">mm</span><span class="p">[</span><span class="s1">&#39;t_monthly_max&#39;</span><span class="p">],</span> <span class="n">CI_dir</span><span class="p">)</span>
 <span class="n">glue</span><span class="p">(</span><span class="s2">&quot;station_name&quot;</span><span class="p">,</span> <span class="n">station_name</span><span class="p">)</span>
 <span class="n">ridString</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">rsl_hourly</span><span class="o">.</span><span class="n">record_id</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
 
@@ -1294,7 +1353,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(1.722)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.722
 </pre></div>
 </div>
 </div>
@@ -1645,12 +1704,12 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" src="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" />
+<img alt="../../_images/754d35cdb67c92653c849e10049198edefb3529c7819fc350095f2c583fa9c3a.png" src="../../_images/754d35cdb67c92653c849e10049198edefb3529c7819fc350095f2c583fa9c3a.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="seasonal-extreme-variations">
-<img alt="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" src="../../_images/7e5b178c879a2f1d9037d5e453e4f2ef24a38d24a3d68e4e08c71c11484cc85f.png" />
+<img alt="../../_images/754d35cdb67c92653c849e10049198edefb3529c7819fc350095f2c583fa9c3a.png" src="../../_images/754d35cdb67c92653c849e10049198edefb3529c7819fc350095f2c583fa9c3a.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 9 </span><span class="caption-text">A climatology of extreme sea levels at the <span class="pasted-text">Honolulu, Hawaii</span> tide gauge. Monthly maxima (+), determined from hourly sea level data, are shown from 1993-2023. The solid line corresponds to projected sea level return levels at 2,10,50 and 100 years, using this 30-year chunk of data. This line uses a nonstationary GEV to take the seasonal variations of sea level into account. The 2, 10, 50 and 100-year return levels are shown to vary throughout the year (dashed line), with the lowest extremes occuring in March, and highest extremes peaking in July. No long-term trend is used in this model, and the scale and location parameters are held constant.</span><a class="headerlink" href="#seasonal-extreme-variations" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -1687,11 +1746,14 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
     <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;station_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">station_name</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;datum&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;STND&#39;</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;model_parameters&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">adjust_w_for_plotting</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">w</span><span class="p">)</span>
-    <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;model_standard_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">standard_error</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ridString</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;m&#39;</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;model&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">modelName</span>
     <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;standard_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span><span class="o">.</span><span class="n">diagonal</span><span class="p">())</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ds</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;standard_error&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">w</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 
     <span class="c1"># make year a coordinate</span>
     <span class="n">ds</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">assign_coords</span><span class="p">(</span><span class="n">Year</span><span class="o">=</span><span class="n">years</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">year0</span><span class="p">)</span>
@@ -1764,7 +1826,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">savepath</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model already saved to netcdf file.&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_T</span><span class="p">,</span><span class="n">w_T</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="o">=</span><span class="n">covariate</span><span class="p">,</span><span class="n">standard_error</span> <span class="o">=</span> <span class="n">standard_error</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_T</span><span class="p">,</span><span class="n">w_T</span><span class="p">,</span><span class="n">t</span><span class="o">=</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="o">=</span><span class="n">covariate</span><span class="p">,</span><span class="n">mio</span><span class="o">=</span><span class="n">mio</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1793,8 +1855,8 @@ Model already saved to netcdf file.
     <span class="n">x_cvte1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_s</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
     <span class="n">wcomp</span> <span class="o">=</span> <span class="n">w_s</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_location_params.json&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">runWithoutModel</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_location_params.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_location_params_PMM.json&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">runWithoutModel</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_location_params_PMM.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="n">w_cvte1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span>
         <span class="n">mio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;mio&#39;</span><span class="p">])</span>
@@ -1828,7 +1890,7 @@ Model already saved to netcdf file.
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">savepath</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model already saved to netcdf file.&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_cvte1</span><span class="p">,</span><span class="n">w_cvte1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="p">,</span><span class="n">standard_error</span> <span class="o">=</span> <span class="n">standard_error</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_cvte1</span><span class="p">,</span><span class="n">w_cvte1</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="p">,</span><span class="n">mio</span><span class="o">=</span><span class="n">mio</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1854,8 +1916,8 @@ Model already saved to netcdf file.
     <span class="n">x_cvte2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">x_cvte1</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]))</span>  <span class="c1"># Covariate</span>
     <span class="n">wcomp</span> <span class="o">=</span> <span class="n">wcomp</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_scale_params.json&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">runWithoutModel</span><span class="p">:</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_scale_params.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_scale_params_PMM.json&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">runWithoutModel</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">model_output_dir</span> <span class="o">/</span> <span class="n">ridString</span> <span class="o">/</span> <span class="s1">&#39;cvte_scale_params_PMM.json&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="n">w_cvte2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;w&#39;</span><span class="p">])</span>
         <span class="n">mio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s1">&#39;mio&#39;</span><span class="p">])</span>
@@ -1893,13 +1955,12 @@ Model already saved to netcdf file.
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">savepath</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model already saved to netcdf file.&#39;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_cvte2</span><span class="p">,</span><span class="n">w_cvte2</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="p">,</span><span class="n">standard_error</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>   
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_cvte2</span><span class="p">,</span><span class="n">w_cvte2</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="p">,</span><span class="n">mio</span><span class="o">=</span><span class="n">mio</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>   
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model did not finish! Setting standard errors to 0.
-Statistical Significance of Covariate in scale param.: 98.83%
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Statistical Significance of Covariate in scale param.: 97.01%
 x_cvte2 is: [1 1 0 1 1 1]
 Model already saved to netcdf file.
 </pre></div>
@@ -1967,8 +2028,16 @@ Model already saved to netcdf file.
     <span class="n">w_N</span> <span class="o">=</span> <span class="n">wcomp</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="c1"># use the previous model</span>
     <span class="n">w_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w_N</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="c1"># add zeros for the nodal cycle</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Nodal cycle is not significant! </span><span class="se">\n</span><span class="s1">Use previous model without nodal cycle.</span><span class="se">\n</span><span class="s1"> New x_N is: &#39;</span><span class="p">,</span> <span class="n">x_N</span><span class="p">)</span>
-
-
+    <span class="n">f_N</span> <span class="o">=</span> <span class="n">fitness</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span> <span class="n">modelType</span><span class="o">=</span><span class="s1">&#39;GEV_S_T_Cv_Nodal&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x_N is: </span><span class="si">{</span><span class="n">x_N</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">w_N</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;best.txt&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+    <span class="n">mio</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s1">&#39;mio.txt&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">J</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">mio</span><span class="p">)</span>
+        <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">J</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model did not finish! Setting standard errors to 0.&#39;</span><span class="p">)</span>
+        <span class="n">standard_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">(</span><span class="n">mio</span><span class="p">))</span>
 
 <span class="c1"># save w_N, mioN, standard_error, x_N as json file</span>
 <span class="n">output</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;w&#39;</span><span class="p">:</span> <span class="n">w_N</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;mio&#39;</span><span class="p">:</span> <span class="n">mio</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;standard_error&#39;</span><span class="p">:</span> <span class="n">standard_error</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">x_N</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
@@ -1982,7 +2051,7 @@ Model already saved to netcdf file.
 <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">savepath</span><span class="p">)</span> <span class="ow">and</span> <span class="n">runWithoutModel</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Model exists: &#39;</span><span class="p">,</span> <span class="n">savepath</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
-    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">w_N</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="p">,</span><span class="n">standard_error</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv_N.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>
+    <span class="n">ds</span> <span class="o">=</span> <span class="n">save_model_to_netcdf</span><span class="p">(</span><span class="n">x_N</span><span class="p">,</span><span class="n">w_N</span><span class="p">,</span><span class="n">t</span><span class="p">,</span><span class="n">covariate</span><span class="p">,</span><span class="n">mio</span><span class="o">=</span><span class="n">mio</span><span class="p">,</span><span class="n">ReturnPeriod</span><span class="o">=</span><span class="n">ReturnPeriod</span><span class="p">,</span><span class="n">modelName</span><span class="o">=</span><span class="s1">&#39;Model_GEV_S_T_Cv_N.exe&#39;</span><span class="p">,</span><span class="n">ridString</span><span class="o">=</span><span class="n">ridString</span><span class="p">,</span><span class="n">savepath</span><span class="o">=</span><span class="n">savepath</span><span class="p">,</span> <span class="n">station_name</span><span class="o">=</span><span class="n">station_name</span><span class="p">,</span><span class="n">year0</span><span class="o">=</span><span class="n">year0</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1990,10 +2059,20 @@ Model already saved to netcdf file.
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend is significant! 
 Include long-term trend and nodal cycle in final model.
-Running Nodal cycle model...
-x_N is: [1 1 0 1 0 0 1]
 Statistical Significance of adding Nodal cycle: 99.88%
-Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
+Model exists:  ../../data/GEV_model_output/57/RL_muN.nc
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_N</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(7,)
 </pre></div>
 </div>
 </div>
@@ -2107,12 +2186,12 @@ Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1993.0
 </pre></div>
 </div>
-<img alt="../../_images/ee04e68acea58ecb2895e4250d457aa67aaec1b49da256cd201083a03a53771e.png" src="../../_images/ee04e68acea58ecb2895e4250d457aa67aaec1b49da256cd201083a03a53771e.png" />
+<img alt="../../_images/beee667f8ec62d61b6be98f178463784a533cdf601cb5d8a282b50c7d368595d.png" src="../../_images/beee667f8ec62d61b6be98f178463784a533cdf601cb5d8a282b50c7d368595d.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="timedependentreturnvalue">
-<img alt="../../_images/ee04e68acea58ecb2895e4250d457aa67aaec1b49da256cd201083a03a53771e.png" src="../../_images/ee04e68acea58ecb2895e4250d457aa67aaec1b49da256cd201083a03a53771e.png" />
+<img alt="../../_images/beee667f8ec62d61b6be98f178463784a533cdf601cb5d8a282b50c7d368595d.png" src="../../_images/beee667f8ec62d61b6be98f178463784a533cdf601cb5d8a282b50c7d368595d.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) also varies in time, and is shown only for the 2 and 10 year return levels. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -2134,7 +2213,7 @@ Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="c1"># Load the dataset</span>
-<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span> <span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;RL_muN.nc&#39;</span><span class="p">))</span>
+<span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_output_dir</span><span class="p">,</span> <span class="n">ridString</span><span class="p">,</span> <span class="s1">&#39;RL_best.nc&#39;</span><span class="p">))</span>
 <span class="n">dsMHHW</span> <span class="o">=</span> <span class="n">ds</span> <span class="o">-</span> <span class="n">STNDtoMHHW</span>
 <span class="n">dsMHHW</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;m, MHHW&#39;</span>
 
@@ -2248,11 +2327,12 @@ Model saved to netcdf file at:  ..\..\data\GEV_model_output\57\RL_muN.nc
 <span class="n">savename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;TimeDependentReturnValue_</span><span class="si">{</span><span class="n">ridString</span><span class="si">}</span><span class="s1">.html&#39;</span>
 
 
-<span class="c1"># Optional: Display the figure</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
 <span class="c1">#save html</span>
 <span class="n">matrix_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../matrix/plotly&#39;</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">write_html</span><span class="p">(</span><span class="n">matrix_dir</span> <span class="o">/</span> <span class="n">savename</span><span class="p">,</span> <span class="n">full_html</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -2714,46 +2794,33 @@ dl.xr-attrs {
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 25kB
 Dimensions:       (record_id: 8, ReturnPeriod: 4, Year: 31, x_dim: 7)
 Coordinates:
-  * record_id     (record_id) int64 64B 50 52 552 57 58 59 60 61
+  * record_id     (record_id) int64 64B 61 59 50 57 58 60 552 52
   * Year          (Year) float64 248B 1.993e+03 1.994e+03 ... 2.023e+03
   * ReturnPeriod  (ReturnPeriod) int64 32B 2 10 50 100
 Dimensions without coordinates: x_dim
 Data variables:
-    ReturnLevel   (record_id, ReturnPeriod, Year) float64 8kB 1.609 ... 2.062
-    RL_low        (record_id, ReturnPeriod, Year) float64 8kB 1.53 ... 1.959
-    RL_high       (record_id, ReturnPeriod, Year) float64 8kB 1.687 ... 2.165
-    x             (record_id, x_dim) int64 448B 1 1 0 1 0 1 0 ... 1 1 0 1 0 0 1
-    lat           (record_id) float32 32B 28.22 16.75 20.03 ... 20.9 19.73 21.43
-    lon           (record_id) float32 32B 182.6 190.5 204.2 ... 204.9 202.2
-    MHHW          (record_id) float64 64B 1.204 1.225 1.406 ... 1.912 1.533
-    station_name  (record_id) &lt;U17 544B &#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Mokuoloe&#x27;
+    ReturnLevel   (record_id, ReturnPeriod, Year) float64 8kB 1.826 ... 1.833
+    RL_low        (record_id, ReturnPeriod, Year) float64 8kB 1.779 ... 1.738
+    RL_high       (record_id, ReturnPeriod, Year) float64 8kB 1.873 ... 1.928
+    x             (record_id, x_dim) int64 448B 1 1 0 1 0 0 1 ... 1 0 1 0 0 0 1
+    lat           (record_id) float32 32B 21.43 20.9 28.22 ... 19.73 20.03 16.75
+    lon           (record_id) float32 32B 202.2 203.5 182.6 ... 204.2 190.5
+    MHHW          (record_id) float64 64B 1.533 1.364 1.204 ... 1.406 1.225
+    station_name  (record_id) object 64B &#x27;Mokuoloe&#x27; &#x27;Kahului&#x27; ... &#x27;Johnston&#x27;
 Attributes:
     description:  Time-dependent return values for the GEV model with seasona...
     datum:        STND
-    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-9d01a874-7169-4df2-887f-13b6100b8079' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9d01a874-7169-4df2-887f-13b6100b8079' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-1dc0f94b-e3d3-4196-9051-f3c890e383b1' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1dc0f94b-e3d3-4196-9051-f3c890e383b1' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>50 52 552 57 58 59 60 61</div><input id='attrs-8e5af5e6-7dae-4332-85fb-0dcd89137728' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8e5af5e6-7dae-4332-85fb-0dcd89137728' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-803b9652-7a0a-4ce4-9b5c-f823e72a2ca2' class='xr-var-data-in' type='checkbox'><label for='data-803b9652-7a0a-4ce4-9b5c-f823e72a2ca2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 50,  52, 552,  57,  58,  59,  60,  61])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-35ca578f-2683-410f-8896-cabc8b7a7ad5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-35ca578f-2683-410f-8896-cabc8b7a7ad5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-00dd090e-19b0-41cb-a75e-632b76d21cc6' class='xr-var-data-in' type='checkbox'><label for='data-00dd090e-19b0-41cb-a75e-632b76d21cc6' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
+    units:        m</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-155e7259-6ed0-4b81-b663-c328a27df48e' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-155e7259-6ed0-4b81-b663-c328a27df48e' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 8</li><li><span class='xr-has-index'>ReturnPeriod</span>: 4</li><li><span class='xr-has-index'>Year</span>: 31</li><li><span>x_dim</span>: 7</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-44c9944e-21e4-4188-8232-e181866589a2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-44c9944e-21e4-4188-8232-e181866589a2' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>61 59 50 57 58 60 552 52</div><input id='attrs-e8af1a28-a378-4488-947b-b05fa9a68c4c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-e8af1a28-a378-4488-947b-b05fa9a68c4c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-43542532-d13e-4249-908d-4a137793d8a1' class='xr-var-data-in' type='checkbox'><label for='data-43542532-d13e-4249-908d-4a137793d8a1' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 61,  59,  50,  57,  58,  60, 552,  52])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>Year</span></div><div class='xr-var-dims'>(Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.993e+03 1.994e+03 ... 2.023e+03</div><input id='attrs-3115a206-8535-4fe2-b7c9-fa2074829e31' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-3115a206-8535-4fe2-b7c9-fa2074829e31' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a6b59f16-d557-478b-b0b4-0216eaceafaa' class='xr-var-data-in' type='checkbox'><label for='data-a6b59f16-d557-478b-b0b4-0216eaceafaa' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1993., 1994., 1995., 1996., 1997., 1998., 1999., 2000., 2001., 2002.,
        2003., 2004., 2005., 2006., 2007., 2008., 2009., 2010., 2011., 2012.,
        2013., 2014., 2015., 2016., 2017., 2018., 2019., 2020., 2021., 2022.,
-       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-15ebc521-c96d-48b7-b8e1-5ab73cc65918' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-15ebc521-c96d-48b7-b8e1-5ab73cc65918' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bc22c1a4-8389-49e4-be15-a36060c3aa53' class='xr-var-data-in' type='checkbox'><label for='data-bc22c1a4-8389-49e4-be15-a36060c3aa53' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ef6e1a9e-53ee-4ec3-be8e-16d315e7259a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ef6e1a9e-53ee-4ec3-be8e-16d315e7259a' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.609 1.616 1.608 ... 2.062 2.062</div><input id='attrs-fceb0959-9712-4a84-8079-2f36a968b746' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fceb0959-9712-4a84-8079-2f36a968b746' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0e60a510-cd46-4c67-8bf6-d6fc4a8d2e3f' class='xr-var-data-in' type='checkbox'><label for='data-0e60a510-cd46-4c67-8bf6-d6fc4a8d2e3f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.60863699, 1.6164796 , 1.60819215, 1.60250053, 1.63817341,
-         1.62372674, 1.5968824 , 1.60742884, 1.62159594, 1.64261855,
-         1.64337426, 1.64810082, 1.64209168, 1.64594998, 1.63799074,
-         1.63341748, 1.6611676 , 1.65371707, 1.64144892, 1.65920982,
-         1.66185377, 1.67298777, 1.70508639, 1.69000438, 1.67402457,
-         1.68434789, 1.69921924, 1.68531464, 1.67824819, 1.6801307 ,
-         1.71711954],
-        [1.75893306, 1.77083993, 1.75769288, 1.74224171, 1.80258119,
-         1.78476635, 1.72637454, 1.74193967, 1.76381352, 1.79690893,
-         1.79793964, 1.80219363, 1.79109389, 1.79519081, 1.78267902,
-         1.76816088, 1.81500545, 1.80704927, 1.77458265, 1.80208327,
-         1.80537609, 1.82199544, 1.87430184, 1.85341469, 1.81593549,
-         1.83298329, 1.85505646, 1.83161195, 1.81420091, 1.81633048,
-         1.87705349],
-        [1.87941691, 1.89508115, 1.87965784, 1.85427129, 1.93757487,
-         1.92066266, 1.83013878, 1.84989323, 1.87784605, 1.92109237,
-         1.92250803, 1.92593648, 1.91164039, 1.91618147, 1.90145173,
-         1.87654489, 1.94062864, 1.93532074, 1.88123394, 1.91669333,
-         1.92053123, 1.9419794 , 2.0118368 , 1.98925898, 1.92975366,
-         1.95358568, 1.98034189, 1.95070135, 1.92310149, 1.92572532,
-...
+       2023.])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>ReturnPeriod</span></div><div class='xr-var-dims'>(ReturnPeriod)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>2 10 50 100</div><input id='attrs-8f6bed5f-f606-4ec8-96d5-e1dda4e75a3a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8f6bed5f-f606-4ec8-96d5-e1dda4e75a3a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5ccba089-c2be-4305-9792-bca636ab415c' class='xr-var-data-in' type='checkbox'><label for='data-5ccba089-c2be-4305-9792-bca636ab415c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([  2,  10,  50, 100])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8e17dea4-bf26-4359-ab52-bd018404449c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8e17dea4-bf26-4359-ab52-bd018404449c' class='xr-section-summary' >Data variables: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>ReturnLevel</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.826 1.828 1.832 ... 1.839 1.833</div><input id='attrs-dae67619-6093-464c-b6a2-5d393da50f95' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-dae67619-6093-464c-b6a2-5d393da50f95' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7b1331d8-3030-4816-ac1e-a91f071b04c8' class='xr-var-data-in' type='checkbox'><label for='data-7b1331d8-3030-4816-ac1e-a91f071b04c8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.82616591, 1.82783093, 1.83161189, 1.83746744, 1.84473262,
+         1.85296904, 1.86149771, 1.86947382, 1.87651172, 1.8819388 ,
+         1.88540116, 1.88676507, 1.88613127, 1.88382399, 1.88035582,
+         1.87649445, 1.87270113, 1.86978639, 1.86834105, 1.86879061,
+         1.87134534, 1.8759754 , 1.88241431, 1.89019031, 1.89868143,
+         1.9071874 , 1.91500942, 1.9215286 , 1.92627431, 1.92897552,
+         1.92958993],
+        [1.89606886, 1.89776674, 1.90158251, 1.90746304, 1.91475231,
          1.92299997, 1.93152463, 1.93948872, 1.94649667, 1.95188766,
          1.95531356, 1.95664562, 1.95598776, 1.95366546, 1.95019105,
          1.94632195, 1.94253789, 1.93963982, 1.93821849, 1.93869856,
@@ -2766,34 +2833,34 @@ Attributes:
          1.99263216, 1.98885646, 1.98597262, 1.98457212, 1.98507973,
          1.98770173, 1.99240041, 1.99889862, 2.00671364, 2.01521539,
          2.02370078, 2.03147446, 2.03792639, 2.04259781, 2.04522938,
-         2.04578754],
-        [1.95876474, 1.96050782, 1.96437342, 1.97029569, 1.97762104,
-         1.98588547, 1.99440348, 2.00234323, 2.00930542, 2.01464258,
-         2.018016  , 2.01930455, 2.01861634, 2.0162773 , 2.01279781,
-         2.00892331, 2.00515153, 2.00227439, 2.00088388, 2.00140496,
-         2.00404318, 2.00875887, 2.01527205, 2.02309705, 2.03160153,
-         2.04008163, 2.04784293, 2.05427781, 2.05893071, 2.06154538,
-         2.06209048]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.53 1.523 1.528 ... 1.96 1.959</div><input id='attrs-0ce92072-52e5-4e36-87a9-07a5e6bcfe4f' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-0ce92072-52e5-4e36-87a9-07a5e6bcfe4f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b0308908-c314-4522-866e-37df5ef4180f' class='xr-var-data-in' type='checkbox'><label for='data-b0308908-c314-4522-866e-37df5ef4180f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.53003573, 1.52312742, 1.52773245, 1.53423916, 1.51796821,
-         1.528523  , 1.5471733 , 1.54556602, 1.54223767, 1.53541464,
-         1.54036812, 1.54159212, 1.54802915, 1.55173891, 1.5590224 ,
-         1.56685138, 1.55767568, 1.56489149, 1.57588409, 1.57140338,
-         1.57548464, 1.57447376, 1.56206235, 1.5746589 , 1.58635558,
-         1.58772108, 1.58443269, 1.59542706, 1.60428029, 1.60900824,
-         1.59382529],
-        [1.6068489 , 1.59401929, 1.60068154, 1.61828472, 1.57159379,
-         1.58426468, 1.6417376 , 1.63271639, 1.62045719, 1.60042836,
-         1.6076336 , 1.6078251 , 1.61683539, 1.62130377, 1.63106515,
-         1.65027721, 1.62193777, 1.62686031, 1.66029789, 1.64486407,
-         1.65018088, 1.64364513, 1.61127787, 1.62899549, 1.65906626,
-         1.65601996, 1.64716407, 1.66419793, 1.68418255, 1.69006054,
-         1.64900239],
-        [1.65185442, 1.63275777, 1.6400535 , 1.67418594, 1.58891775,
-         1.60208716, 1.71327403, 1.69386718, 1.67084516, 1.63456955,
-         1.64425945, 1.64406783, 1.65505774, 1.65965441, 1.67096163,
-         1.70772505, 1.65322419, 1.6531507 , 1.72072727, 1.690599  ,
-         1.69753887, 1.68364554, 1.6268515 , 1.64753326, 1.70452277,
-         1.69367646, 1.68019574, 1.70255024, 1.73946747, 1.74626601,
 ...
+         1.7362299 , 1.74130729, 1.74456743, 1.74583188, 1.74486198,
+         1.74176606, 1.73688926, 1.73077649, 1.72411345, 1.7176512 ,
+         1.71221312, 1.70824788, 1.70629891, 1.70658973, 1.70908733,
+         1.71350603, 1.71934136, 1.72592945, 1.73252412, 1.73838216,
+         1.74284659, 1.74541899, 1.74581324, 1.74398597, 1.74014091,
+         1.73470697],
+        [1.7797649 , 1.78351248, 1.78888897, 1.79536765, 1.80204791,
+         1.80826206, 1.81331269, 1.81655283, 1.81778251, 1.81678097,
+         1.81365986, 1.80876607, 1.80264497, 1.79598199, 1.78952785,
+         1.78409226, 1.78015027, 1.77823068, 1.77855457, 1.78108513,
+         1.78553204, 1.79138625, 1.79798053, 1.80456745, 1.81040496,
+         1.81483952, 1.81737743, 1.81773761, 1.81588089, 1.81201369,
+         1.80656612],
+        [1.80637798, 1.81013873, 1.81552522, 1.8220034 , 1.82868282,
+         1.83489029, 1.83992956, 1.8431611 , 1.84437604, 1.84336118,
+         1.84022959, 1.8353288 , 1.82920427, 1.82254126, 1.8160903 ,
+         1.81065552, 1.80672299, 1.80481558, 1.80515339, 1.80769802,
+         1.8121571 , 1.81801957, 1.82461668, 1.83120041, 1.83702923,
+         1.84145107, 1.84397434, 1.84432013, 1.84245107, 1.8385747 ,
+         1.83312154]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_low</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.779 1.777 1.78 ... 1.744 1.738</div><input id='attrs-8733d232-ec6b-43f7-84ee-8224b2e84d99' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8733d232-ec6b-43f7-84ee-8224b2e84d99' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bbcb52ac-e1c0-45df-ad33-42702d6076ee' class='xr-var-data-in' type='checkbox'><label for='data-bbcb52ac-e1c0-45df-ad33-42702d6076ee' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.77929752, 1.77680467, 1.78048475, 1.78824314, 1.7987713 ,
+         1.81092618, 1.8233819 , 1.83473706, 1.84395871, 1.85011922,
+         1.85280065, 1.85201262, 1.84811077, 1.84173187, 1.83375545,
+         1.82531021, 1.81743428, 1.81131412, 1.80790591, 1.80787596,
+         1.81151298, 1.818685  , 1.82884597, 1.84108985, 1.85424549,
+         1.86700538, 1.87808746, 1.88642665, 1.8913537 , 1.89267027,
+         1.89058832],
+        [1.82434281, 1.82061432, 1.82346116, 1.83048558, 1.84033597,
          1.85185873, 1.86378262, 1.87480459, 1.88397583, 1.89039894,
          1.89356799, 1.89333401, 1.88991195, 1.88386417, 1.87605424,
          1.86761053, 1.85962578, 1.85329526, 1.84959298, 1.8491957 ,
@@ -2806,34 +2873,34 @@ Attributes:
          1.89019473, 1.8820335 , 1.87549342, 1.871567  , 1.87094708,
          1.87393714, 1.88041233, 1.88983768, 1.90134028, 1.91382285,
          1.92610012, 1.93703703, 1.9456698 , 1.95129826, 1.95354651,
-         1.9523952 ],
-        [1.85623296, 1.85142992, 1.85366127, 1.86025408, 1.8698133 ,
-         1.88114352, 1.89296809, 1.9039959 , 1.91324718, 1.91980998,
-         1.92313641, 1.92303183, 1.91967506, 1.91360844, 1.90569108,
-         1.89704045, 1.88880603, 1.8821889 , 1.87818984, 1.87750877,
-         1.88045322, 1.88689894, 1.89630919, 1.90780885, 1.92029953,
-         1.93259606, 1.94356321, 1.95223488, 1.95790558, 1.96019207,
-         1.95906753]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.687 1.71 1.689 ... 2.163 2.165</div><input id='attrs-631f0568-fec3-4fcc-b852-91f44a957572' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-631f0568-fec3-4fcc-b852-91f44a957572' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6976d62a-0abb-4bb8-a648-536c52ff8f3e' class='xr-var-data-in' type='checkbox'><label for='data-6976d62a-0abb-4bb8-a648-536c52ff8f3e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.68723826, 1.70983178, 1.68865185, 1.6707619 , 1.75837862,
-         1.71893047, 1.64659151, 1.66929165, 1.70095422, 1.74982246,
-         1.74638041, 1.75460951, 1.73615421, 1.74016105, 1.71695909,
-         1.69998358, 1.76465953, 1.74254264, 1.70701376, 1.74701627,
-         1.74822289, 1.77150179, 1.84811043, 1.80534986, 1.76169356,
-         1.7809747 , 1.81400579, 1.77520223, 1.75221609, 1.75125315,
-         1.84041379],
-        [1.91101722, 1.94766057, 1.91470422, 1.8661987 , 2.03356859,
-         1.98526803, 1.81101149, 1.85116295, 1.90716986, 1.9933895 ,
-         1.98824569, 1.99656217, 1.9653524 , 1.96907786, 1.93429289,
-         1.88604456, 2.00807313, 1.98723824, 1.88886741, 1.95930248,
-         1.96057129, 2.00034576, 2.13732581, 2.07783389, 1.97280473,
-         2.00994661, 2.06294886, 1.99902596, 1.94421928, 1.94260042,
-         2.10510459],
-        [2.1069794 , 2.15740452, 2.11926218, 2.03435664, 2.28623198,
-         2.23923817, 1.94700353, 2.00591929, 2.08484693, 2.20761519,
-         2.20075662, 2.20780512, 2.16822303, 2.17270854, 2.13194183,
-         2.04536473, 2.22803309, 2.21749078, 2.0417406 , 2.14278766,
-         2.14352359, 2.20031325, 2.39682209, 2.33098469, 2.15498456,
-         2.21349491, 2.28048804, 2.19885246, 2.10673551, 2.10518463,
 ...
+         1.66342312, 1.67295054, 1.6808702 , 1.68637929, 1.68882405,
+         1.68791924, 1.68374541, 1.67675278, 1.66772232, 1.65767966,
+         1.64780011, 1.63916405, 1.63278494, 1.62938772, 1.6293526 ,
+         1.63267274, 1.63895841, 1.64748649, 1.6572879 , 1.66726078,
+         1.67629426, 1.6833882 , 1.6877566 , 1.68890729, 1.68669521,
+         1.68134698],
+        [1.67018146, 1.67222113, 1.67748172, 1.68536626, 1.69494593,
+         1.70515993, 1.71487554, 1.72300628, 1.72868938, 1.73126948,
+         1.73043721, 1.72625484, 1.71916701, 1.70996526, 1.69970069,
+         1.68956239, 1.68070739, 1.67415681, 1.67065274, 1.6705807 ,
+         1.67392964, 1.68029969, 1.68895552, 1.6989164 , 1.70906987,
+         1.718294  , 1.72557419, 1.73010459, 1.73136897, 1.72919949,
+         1.72380877],
+        [1.68403618, 1.68608058, 1.69137221, 1.69929972, 1.70894638,
+         1.71923606, 1.7290298 , 1.73724336, 1.74298905, 1.74561305,
+         1.74479946, 1.74060635, 1.73347764, 1.72420841, 1.71385777,
+         1.70361804, 1.69467623, 1.68805685, 1.6845101 , 1.68442492,
+         1.68778927, 1.69419922, 1.70291368, 1.71294568, 1.72317653,
+         1.73247799, 1.73982867, 1.74441536, 1.74571461, 1.74355275,
+         1.73813947]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>RL_high</span></div><div class='xr-var-dims'>(record_id, ReturnPeriod, Year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.873 1.879 1.883 ... 1.934 1.928</div><input id='attrs-8864280a-12ef-42af-aad0-f29956c4a86a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8864280a-12ef-42af-aad0-f29956c4a86a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-635b00fc-eea1-4048-b17d-3a4d5840cdfe' class='xr-var-data-in' type='checkbox'><label for='data-635b00fc-eea1-4048-b17d-3a4d5840cdfe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[[1.8730343 , 1.87885718, 1.88273904, 1.88669175, 1.89069395,
+         1.8950119 , 1.89961351, 1.90421059, 1.90906472, 1.91375839,
+         1.91800167, 1.92151752, 1.92415177, 1.92591611, 1.92695618,
+         1.92767869, 1.92796798, 1.92825866, 1.9287762 , 1.92970527,
+         1.9311777 , 1.93326579, 1.93598265, 1.93929076, 1.94311737,
+         1.94736942, 1.95193138, 1.95663054, 1.96119492, 1.96528077,
+         1.96859154],
+        [1.96779492, 1.97491916, 1.97970387, 1.9844405 , 1.98916864,
          1.99414121, 1.99926664, 2.00417285, 2.0090175 , 2.01337638,
          2.01705914, 2.01995723, 2.02206358, 2.02346675, 2.02432786,
          2.02503336, 2.02545   , 2.02598438, 2.026844  , 2.02820142,
@@ -2846,28 +2913,41 @@ Attributes:
          2.09506959, 2.09567941, 2.09645181, 2.09757724, 2.09921239,
          2.10146633, 2.1043885 , 2.10795956, 2.11208699, 2.11660793,
          2.12130143, 2.12591188, 2.13018297, 2.13389736, 2.13691224,
-         2.13917989],
-        [2.06129653, 2.06958571, 2.07508557, 2.08033729, 2.08542878,
-         2.09062741, 2.09583887, 2.10069056, 2.10536367, 2.10947518,
-         2.11289558, 2.11557727, 2.11755761, 2.11894615, 2.11990455,
-         2.12080617, 2.12149703, 2.12235987, 2.12357791, 2.12530116,
-         2.12763313, 2.1306188 , 2.13423492, 2.13838524, 2.14290354,
-         2.1475672 , 2.15212266, 2.15632074, 2.15995584, 2.1628987 ,
-         2.16511343]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 1 0 1 ... 1 1 1 0 1 0 0 1</div><input id='attrs-2cd41ca8-407b-4eee-a29d-57f4786ec18d' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2cd41ca8-407b-4eee-a29d-57f4786ec18d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a96ce2b9-01bf-412d-a951-9d318215a0c9' class='xr-var-data-in' type='checkbox'><label for='data-a96ce2b9-01bf-412d-a951-9d318215a0c9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 1, 0],
-       [1, 0, 1, 0, 0, 0, 1],
+...
+         1.80903669, 1.80966404, 1.80826465, 1.80528447, 1.8008999 ,
+         1.79561288, 1.79003311, 1.7848002 , 1.78050458, 1.77762275,
+         1.77662612, 1.77733172, 1.77981289, 1.78379173, 1.78882205,
+         1.79433932, 1.79972431, 1.80437241, 1.80776034, 1.80950353,
+         1.80939893, 1.80744978, 1.80386988, 1.79906466, 1.79358661,
+         1.78806697],
+        [1.88934834, 1.89480384, 1.90029623, 1.90536903, 1.90914989,
+         1.91136418, 1.91174984, 1.91009938, 1.90687564, 1.90229245,
+         1.89688251, 1.89127731, 1.88612292, 1.88199872, 1.87935501,
+         1.87862214, 1.87959316, 1.88230456, 1.8864564 , 1.89158956,
+         1.89713443, 1.90247281, 1.90700554, 1.91021849, 1.91174005,
+         1.91138504, 1.90918067, 1.90537063, 1.9003928 , 1.89482789,
+         1.88932348],
+        [1.92871978, 1.93419687, 1.93967823, 1.94470707, 1.94841926,
+         1.95054453, 1.95082932, 1.94907883, 1.94576303, 1.94110932,
+         1.93565972, 1.93005126, 1.9249309 , 1.9208741 , 1.91832284,
+         1.91769299, 1.91876975, 1.9215743 , 1.92579667, 1.93097112,
+         1.93652493, 1.94183991, 1.94631968, 1.94945514, 1.95088193,
+         1.95042416, 1.94812   , 1.94422489, 1.93918753, 1.93359664,
+         1.92810361]]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>x</span></div><div class='xr-var-dims'>(record_id, x_dim)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>1 1 0 1 0 0 1 1 ... 0 1 0 1 0 0 0 1</div><input id='attrs-d6b5a282-1417-44cc-a7dc-03b6c3598352' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d6b5a282-1417-44cc-a7dc-03b6c3598352' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5c4a9a37-7f0f-4f1e-a0de-e2680f78aa74' class='xr-var-data-in' type='checkbox'><label for='data-5c4a9a37-7f0f-4f1e-a0de-e2680f78aa74' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([[1, 1, 0, 1, 0, 0, 1],
        [1, 1, 0, 1, 0, 0, 0],
+       [1, 1, 0, 1, 0, 1, 0],
        [1, 1, 0, 1, 0, 0, 1],
        [1, 1, 0, 1, 0, 1, 1],
-       [1, 1, 0, 1, 1, 0, 0],
        [1, 1, 0, 1, 1, 0, 1],
-       [1, 1, 0, 1, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>28.22 16.75 20.03 ... 19.73 21.43</div><input id='attrs-d0cb1293-8bd8-45e8-91e7-479faed53da1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d0cb1293-8bd8-45e8-91e7-479faed53da1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c8c3da7c-ff72-410c-88fe-a502e5c21b3b' class='xr-var-data-in' type='checkbox'><label for='data-c8c3da7c-ff72-410c-88fe-a502e5c21b3b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([28.217, 16.75 , 20.033, 21.307, 21.967, 20.9  , 19.733, 21.433],
-      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>182.6 190.5 204.2 ... 204.9 202.2</div><input id='attrs-65a54a07-a33d-485f-906a-63bbffc19eac' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-65a54a07-a33d-485f-906a-63bbffc19eac' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0a971084-349d-4e2b-b7a8-25d8ae408a73' class='xr-var-data-in' type='checkbox'><label for='data-0a971084-349d-4e2b-b7a8-25d8ae408a73' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([182.633, 190.483, 204.167, 202.133, 200.65 , 203.533, 204.933,
-       202.2  ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.204 1.225 1.406 ... 1.912 1.533</div><input id='attrs-1e5250fc-e4cb-4f5b-b099-48825843ad7b' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-1e5250fc-e4cb-4f5b-b099-48825843ad7b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c94a0c04-c07b-4236-a4bd-2d38e1e9415f' class='xr-var-data-in' type='checkbox'><label for='data-c94a0c04-c07b-4236-a4bd-2d38e1e9415f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.204, 1.225, 1.406, 1.722, 1.24 , 1.364, 1.912, 1.533])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>&#x27;Midway&#x27; &#x27;Johnston&#x27; ... &#x27;Mokuoloe&#x27;</div><input id='attrs-30e4c552-0839-4261-84f1-79f5fc211889' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-30e4c552-0839-4261-84f1-79f5fc211889' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-625d1741-ae7d-498b-b2d3-99a65b9d8ed5' class='xr-var-data-in' type='checkbox'><label for='data-625d1741-ae7d-498b-b2d3-99a65b9d8ed5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Midway&#x27;, &#x27;Johnston&#x27;, &#x27;Kawaihae&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;,
-       &#x27;Kahului&#x27;, &#x27;Hilo, Hawaii&#x27;, &#x27;Mokuoloe&#x27;], dtype=&#x27;&lt;U17&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-17436504-6553-472a-971b-21ca91efa0b7' class='xr-section-summary-in' type='checkbox'  ><label for='section-17436504-6553-472a-971b-21ca91efa0b7' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-9021b3b4-c5e6-4698-9abc-81a0e35f36ca' class='xr-index-data-in' type='checkbox'/><label for='index-9021b3b4-c5e6-4698-9abc-81a0e35f36ca' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([50, 52, 552, 57, 58, 59, 60, 61], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-cbb798fa-55ba-43d9-9885-f1305ba766c4' class='xr-index-data-in' type='checkbox'/><label for='index-cbb798fa-55ba-43d9-9885-f1305ba766c4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
+       [1, 1, 0, 1, 0, 0, 0],
+       [1, 0, 1, 0, 0, 0, 1]])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>21.43 20.9 28.22 ... 20.03 16.75</div><input id='attrs-c14addad-4dd2-4d23-b788-32c7258bd133' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c14addad-4dd2-4d23-b788-32c7258bd133' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7f8a3a80-4d98-48f1-b547-ae12155c09f0' class='xr-var-data-in' type='checkbox'><label for='data-7f8a3a80-4d98-48f1-b547-ae12155c09f0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([21.433, 20.9  , 28.217, 21.307, 21.967, 19.733, 20.033, 16.75 ],
+      dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>202.2 203.5 182.6 ... 204.2 190.5</div><input id='attrs-7644887e-943e-48d9-ad6e-1cfd21edf1ef' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7644887e-943e-48d9-ad6e-1cfd21edf1ef' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c154ad3b-5fb5-4326-a439-1fb54ee1018c' class='xr-var-data-in' type='checkbox'><label for='data-c154ad3b-5fb5-4326-a439-1fb54ee1018c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([202.2  , 203.533, 182.633, 202.133, 200.65 , 204.933, 204.167,
+       190.483], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>MHHW</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>1.533 1.364 1.204 ... 1.406 1.225</div><input id='attrs-5fe3f8ce-dc1b-4669-8cfd-f44f9cf7ef2c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-5fe3f8ce-dc1b-4669-8cfd-f44f9cf7ef2c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e3263d9-6570-480d-8be0-fcfaf230f2ec' class='xr-var-data-in' type='checkbox'><label for='data-7e3263d9-6570-480d-8be0-fcfaf230f2ec' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([1.533, 1.364, 1.204, 1.722, 1.24 , 1.912, 1.406, 1.225])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;Mokuoloe&#x27; &#x27;Kahului&#x27; ... &#x27;Johnston&#x27;</div><input id='attrs-8debc7c9-e73a-474b-824c-eb98a228dd26' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8debc7c9-e73a-474b-824c-eb98a228dd26' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-602e4c51-9dc9-4374-bde3-231afce64917' class='xr-var-data-in' type='checkbox'><label for='data-602e4c51-9dc9-4374-bde3-231afce64917' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;Mokuoloe&#x27;, &#x27;Kahului&#x27;, &#x27;Midway&#x27;, &#x27;Honolulu, Hawaii&#x27;, &#x27;Nawiliwili&#x27;,
+       &#x27;Hilo, Hawaii&#x27;, &#x27;Kawaihae&#x27;, &#x27;Johnston&#x27;], dtype=object)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0e1ca0c3-bfe4-4bbe-b82a-01a915794201' class='xr-section-summary-in' type='checkbox'  ><label for='section-0e1ca0c3-bfe4-4bbe-b82a-01a915794201' class='xr-section-summary' >Indexes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ae9f6fab-199f-4957-991f-89f850563cd6' class='xr-index-data-in' type='checkbox'/><label for='index-ae9f6fab-199f-4957-991f-89f850563cd6' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([61, 59, 50, 57, 58, 60, 552, 52], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>Year</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ac5e40bf-b4ef-4851-9142-f12c3419e9f9' class='xr-index-data-in' type='checkbox'/><label for='index-ac5e40bf-b4ef-4851-9142-f12c3419e9f9' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([1993.0, 1994.0, 1995.0, 1996.0, 1997.0, 1998.0, 1999.0, 2000.0, 2001.0,
        2002.0, 2003.0, 2004.0, 2005.0, 2006.0, 2007.0, 2008.0, 2009.0, 2010.0,
        2011.0, 2012.0, 2013.0, 2014.0, 2015.0, 2016.0, 2017.0, 2018.0, 2019.0,
        2020.0, 2021.0, 2022.0, 2023.0],
-      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-6f9db783-082d-498b-a8d7-13334b0ae980' class='xr-index-data-in' type='checkbox'/><label for='index-6f9db783-082d-498b-a8d7-13334b0ae980' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ab735632-aa20-4975-b15f-6b73b686aaed' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ab735632-aa20-4975-b15f-6b73b686aaed' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
+      dtype=&#x27;float64&#x27;, name=&#x27;Year&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>ReturnPeriod</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-13f5cc3f-3c79-4894-ad60-294c5c01366b' class='xr-index-data-in' type='checkbox'/><label for='index-13f5cc3f-3c79-4894-ad60-294c5c01366b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([2, 10, 50, 100], dtype=&#x27;int64&#x27;, name=&#x27;ReturnPeriod&#x27;))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f0ce464d-f207-48d1-a8d0-17b9bdb2e5dc' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f0ce464d-f207-48d1-a8d0-17b9bdb2e5dc' class='xr-section-summary' >Attributes: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>description :</span></dt><dd>Time-dependent return values for the GEV model with seasonality, trend, covariate in location and scale, and nodal cycle in location. The x attribute is the binary array of parameters used in the model, where the first 3 elements are the seasonal parameters, the 4th element is the long-term trend, the 5th element is the covariate in location, the 6th element is the covariate in scale, and the 7th element is the nodal cycle.</dd><dt><span>datum :</span></dt><dd>STND</dd><dt><span>units :</span></dt><dd>m</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
 <section id="create-a-map">
@@ -2939,12 +3019,12 @@ Attributes:
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" src="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" />
+<img alt="../../_images/400ecdfb16086cc599f2c971866420f43cd5e2637d1c68409a4dd03f3ba7c9ee.png" src="../../_images/400ecdfb16086cc599f2c971866420f43cd5e2637d1c68409a4dd03f3ba7c9ee.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="timedependentreturnvaluemap">
-<img alt="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" src="../../_images/900cacbe248043a058c754ac6f94fcbb0a670feb4644ddc23e57f01bfbf3f905.png" />
+<img alt="../../_images/400ecdfb16086cc599f2c971866420f43cd5e2637d1c68409a4dd03f3ba7c9ee.png" src="../../_images/400ecdfb16086cc599f2c971866420f43cd5e2637d1c68409a4dd03f3ba7c9ee.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 11 </span><span class="caption-text">Map of the nonstationary GEV-based extreme water level return values for Hawaiian Island region stations. Year 2020 is shown here. Each nonstationary model includes some combination of seasonality, a long-term trend, and the 18.6 nodal-cycle, provided each parameter improves the significance of the GEV fit. No covariates are used for these particular best-fit models.</span><a class="headerlink" href="#timedependentreturnvaluemap" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -3011,7 +3091,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/76096c9f09650adcb8df9a78df264922d8b3b79ef8ae8fef0a46129196b59950.png" src="../../_images/76096c9f09650adcb8df9a78df264922d8b3b79ef8ae8fef0a46129196b59950.png" />
+<img alt="../../_images/5c625b2cb4dfa8672eeade7bd2a7626c6ce01e455517b20b8d542bc403fc214f.png" src="../../_images/5c625b2cb4dfa8672eeade7bd2a7626c6ce01e455517b20b8d542bc403fc214f.png" />
 </div>
 </div>
 </section>
