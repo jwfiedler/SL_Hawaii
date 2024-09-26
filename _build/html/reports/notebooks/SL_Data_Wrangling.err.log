@@ -16,7 +16,10 @@ Traceback (most recent call last):
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
 #ensure rsl is netcdf4 format
-rsl.to_netcdf(data_dir / 'rsl_hawaii.nc', format='NETCDF4_CLASSIC')
+rsl.to_netcdf(data_dir / 'rsl_hawaii.nc',engine='netcdf4',mode='w')
+rsl.close()
+
+del rsl
 ------------------
 
 
@@ -32,14 +35,16 @@ File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backend
 [0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4_CLASSIC'), ('persist', False)), 'a9ccc09c-6d0d-4017-b68d-6eb951eb6623']
+[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'd746131d-7896-4fbd-bcc2-20e5ab1524ee']
 
 During handling of the above exception, another exception occurred:
 
 [0;31mPermissionError[0m                           Traceback (most recent call last)
 Cell [0;32mIn[9], line 2[0m
 [1;32m      1[0m [38;5;66;03m#ensure rsl is netcdf4 format[39;00m
-[0;32m----> 2[0m [43mrsl[49m[38;5;241;43m.[39;49m[43mto_netcdf[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;28;43mformat[39;49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mNETCDF4_CLASSIC[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[0;32m----> 2[0m [43mrsl[49m[38;5;241;43m.[39;49m[43mto_netcdf[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m,[49m[43mengine[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mnetcdf4[39;49m[38;5;124;43m'[39;49m[43m,[49m[43mmode[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mw[39;49m[38;5;124;43m'[39;49m[43m)[49m
+[1;32m      3[0m rsl[38;5;241m.[39mclose()
+[1;32m      5[0m [38;5;28;01mdel[39;00m rsl
 
 File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:2298[0m, in [0;36mDataset.to_netcdf[0;34m(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf)[0m
 [1;32m   2295[0m     encoding [38;5;241m=[39m {}

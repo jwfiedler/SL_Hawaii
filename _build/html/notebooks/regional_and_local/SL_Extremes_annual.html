@@ -553,310 +553,8 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;4bb811d1-b2bb-4398-9bbd-dbf1fcb816dd&#39;]
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">File</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qp</span><span class="o">/</span><span class="n">nn19rcjs5bdcdvxmff5bd3pr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17741</span><span class="o">/</span><span class="mf">3071482840.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">station_info</span> <span class="o">=</span> <span class="n">get_stationinfo</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">station_info</span>
-
-<span class="nn">File /var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_17741/4101372056.py:9,</span> in <span class="ni">get_stationinfo</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># def get_stationInfo():</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Create a list to store rows as dictionaries</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:279,</span> in <span class="ni">load_dataset</span><span class="nt">(filename_or_obj, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="k">if</span> <span class="s2">&quot;cache&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;cache has no effect in this context&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">279</span> <span class="k">with</span> <span class="n">open_dataset</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">decode_cf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">573</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">646</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">409</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span>     <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;4bb811d1-b2bb-4398-9bbd-dbf1fcb816dd&#39;]
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;../setup.ipynb&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;../plotting_functions.ipynb&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2456,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2454</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2455</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2456</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2458</span> <span class="c1"># The code below prevents the output from being displayed</span>
-<span class="g g-Whitespace">   </span><span class="mi">2459</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
-<span class="g g-Whitespace">   </span><span class="mi">2460</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2461</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/magics/execution.py:737,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="k">with</span> <span class="n">preserve_keys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">736</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">[</span><span class="s1">&#39;__file__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>
-<span class="ne">--&gt; </span><span class="mi">737</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">safe_execfile_ipy</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">raise_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="k">return</span>
-<span class="g g-Whitespace">    </span><span class="mi">740</span> <span class="c1"># Control the response to exit() calls made by the script being run</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2978,</span> in <span class="ni">InteractiveShell.safe_execfile_ipy</span><span class="nt">(self, fname, shell_futures, raise_exceptions)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2976</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell_futures</span><span class="o">=</span><span class="n">shell_futures</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2977</span> <span class="k">if</span> <span class="n">raise_exceptions</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2978</span>     <span class="n">result</span><span class="o">.</span><span class="n">raise_error</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2979</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2980</span>     <span class="k">break</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:294,</span> in <span class="ni">ExecutionResult.raise_error</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_before_exec</span>
-<span class="g g-Whitespace">    </span><span class="mi">293</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">294</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span>
-
-    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qp</span><span class="o">/</span><span class="n">nn19rcjs5bdcdvxmff5bd3pr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17741</span><span class="o">/</span><span class="mf">3071482840.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">station_info</span> <span class="o">=</span> <span class="n">get_stationinfo</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">station_info</span>
-
-<span class="nn">File /var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_17741/4101372056.py:9,</span> in <span class="ni">get_stationinfo</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># def get_stationInfo():</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Create a list to store rows as dictionaries</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:279,</span> in <span class="ni">load_dataset</span><span class="nt">(filename_or_obj, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="k">if</span> <span class="s2">&quot;cache&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;cache has no effect in this context&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">279</span> <span class="k">with</span> <span class="n">open_dataset</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">decode_cf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">573</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">646</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">409</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span>     <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>rsl_daily_hawaii.nc found in ../../data. Proceed.
+rsl_hawaii.nc found in ../../data. Proceed.
 </pre></div>
 </div>
 </div>
@@ -866,23 +564,36 @@ document.write(`
 <h2>Obtain Daily and Hourly datasets<a class="headerlink" href="#obtain-daily-and-hourly-datasets" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rsl_daily</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">rsl_daily</span>
+
+<span class="ne">NameError</span>: name &#39;rsl_daily&#39; is not defined
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import rsl_daily</span>
-<span class="n">rsl_daily_all</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span>
 
-<span class="c1">#make rsl_daily a subset - do not include TGs with more than 25% NaNs</span>
-<span class="n">data_coverage</span> <span class="o">=</span> <span class="n">rsl_daily_all</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">rsl_daily_all</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
 
-<span class="c1">#drop all locations with data_coverage less than 80%</span>
-<span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">rsl_daily_all</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data_coverage</span><span class="o">&gt;</span><span class="mf">0.80</span><span class="p">,</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1">#make rsl_daily a subset - do not include TGs with more than 25% NaNs</span>
+    <span class="n">data_coverage</span> <span class="o">=</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;rsl_mhhw&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
-<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="n">rsl_hourly</span>
+    <span class="c1">#drop all locations with data_coverage less than 80%</span>
+    <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">data_coverage</span><span class="o">&gt;</span><span class="mf">0.80</span><span class="p">,</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># # make rsl_hourly have the same time period as rsl_daily</span>
-<span class="c1"># rsl_hourly = rsl_hourly.sel(time = slice(rsl_daily.time[0], rsl_daily.time[-1]))</span>
-
-<span class="c1">#include only the TGs that are in rsl_subset</span>
-<span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">rsl_hourly</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span><span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
+    <span class="n">rsl_hourly</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">record_id</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+    
 
 <span class="c1"># truncate time period to end at the end of 2022</span>
 <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">rsl_daily</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;2022-12-31&#39;</span><span class="p">))</span>
@@ -953,7 +664,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/92e2efac712cd342c9c301b9b251e1fcccb0006ed9c2227a956e7ec6bbaaf014.png" src="../../_images/92e2efac712cd342c9c301b9b251e1fcccb0006ed9c2227a956e7ec6bbaaf014.png" />
+<img alt="../../_images/9cd3c4c73b2592dc1d794a54956159bafa4c1d4707579757f2740a73f4b68611.png" src="../../_images/9cd3c4c73b2592dc1d794a54956159bafa4c1d4707579757f2740a73f4b68611.png" />
 </div>
 </div>
 <p>Now we’ll turn this data into a timeseries and detrend it (remove the trend line calculated above). This now puts everything relative to mean sea level for the calculated time period. We’ll set it back to MHHW (epoch 1993-2001 values).</p>
@@ -1025,7 +736,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Water Level (m, MHHW)\nLinearly Detrended&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/4d8f04c47546211cbde9d2506909d3759e9f7f5423f268767e3f468390beae78.png" src="../../_images/4d8f04c47546211cbde9d2506909d3759e9f7f5423f268767e3f468390beae78.png" />
+<img alt="../../_images/a2cef9438fe498871d4afe380fcef62a6eae3cb69ff890b1a4f704b78a868381.png" src="../../_images/a2cef9438fe498871d4afe380fcef62a6eae3cb69ff890b1a4f704b78a868381.png" />
 </div>
 </div>
 </section>
@@ -1054,7 +765,7 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Annual Maxima: Honolulu&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/0497cc555fa0e2bc56fd1d9b6120b1078c55fbf4473f3aa003557e31c27061b7.png" src="../../_images/0497cc555fa0e2bc56fd1d9b6120b1078c55fbf4473f3aa003557e31c27061b7.png" />
+<img alt="../../_images/ca91cae8730f04ee7078f7482dba27855198279f2d05af7d4e6ac6cb82c58339.png" src="../../_images/ca91cae8730f04ee7078f7482dba27855198279f2d05af7d4e6ac6cb82c58339.png" />
 </div>
 </div>
 </section>
@@ -1133,7 +844,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/12de0d52feb2dbf7b484349034eb839c10b2e310cc5678bb92ad134605221451.png" src="../../_images/12de0d52feb2dbf7b484349034eb839c10b2e310cc5678bb92ad134605221451.png" />
+<img alt="../../_images/99c8e28d2279adf5974e92ea624e7dc79823ef6417634260c835e416ece1d08c.png" src="../../_images/99c8e28d2279adf5974e92ea624e7dc79823ef6417634260c835e416ece1d08c.png" />
 </div>
 </div>
 <p>Confidence intervals for the GEV model are shown in shaded blue. Note that the extreme annual maximum (0.45) does not fall neatly on this distribution, suggesting that perhaps we might need to switch to a non-stationary model to account for the influence of other variables that change with time.</p>
@@ -1207,7 +918,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/18207974c9091d6bf4a60064bd7299b564dd853d09dc977b0f7fb9fdb6c2afb1.png" src="../../_images/18207974c9091d6bf4a60064bd7299b564dd853d09dc977b0f7fb9fdb6c2afb1.png" />
+<img alt="../../_images/6d9d5452e73f8c7b1c8588b6cea77509c9abf5c94b5e141fa1d26840d69347a2.png" src="../../_images/6d9d5452e73f8c7b1c8588b6cea77509c9abf5c94b5e141fa1d26840d69347a2.png" />
 </div>
 </div>
 </section>
@@ -1263,26 +974,26 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
     <tr>
       <th>2.0</th>
       <td>0.286112</td>
-      <td>0.274255</td>
-      <td>0.341391</td>
+      <td>0.273816</td>
+      <td>0.341178</td>
     </tr>
     <tr>
       <th>10.0</th>
       <td>0.367975</td>
-      <td>0.351606</td>
-      <td>0.449280</td>
+      <td>0.351649</td>
+      <td>0.449312</td>
     </tr>
     <tr>
       <th>50.0</th>
       <td>0.415909</td>
-      <td>0.389592</td>
-      <td>0.459952</td>
+      <td>0.390001</td>
+      <td>0.459957</td>
     </tr>
     <tr>
       <th>100.0</th>
       <td>0.431348</td>
-      <td>0.396419</td>
-      <td>0.461007</td>
+      <td>0.396573</td>
+      <td>0.460918</td>
     </tr>
   </tbody>
 </table>
@@ -1425,7 +1136,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2020-12-15 15:00:00</td>
       <td>0.458</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1434,7 +1145,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2019-12-25 14:00:00</td>
       <td>0.447</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1443,7 +1154,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2017-08-21 01:00:00</td>
       <td>0.440</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1452,7 +1163,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>1968-12-19 14:00:00</td>
       <td>0.436</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1461,7 +1172,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2021-12-05 15:00:00</td>
       <td>0.428</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1470,7 +1181,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>1992-09-12 02:00:00</td>
       <td>0.424</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1479,7 +1190,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2020-07-20 02:00:00</td>
       <td>0.423</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1488,7 +1199,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2020-11-15 14:00:00</td>
       <td>0.415</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1497,7 +1208,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2020-10-19 16:00:00</td>
       <td>0.411</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
     <tr>
@@ -1506,7 +1217,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>2017-06-24 02:00:00</td>
       <td>0.410</td>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
       <td>max</td>
     </tr>
   </tbody>
@@ -1599,43 +1310,43 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <th>13</th>
       <td>2020-12-15</td>
       <td>0.46</td>
       <td>1.50</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>12</th>
       <td>2019-12-25</td>
       <td>0.45</td>
       <td>1.47</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>11</th>
       <td>2017-08-21</td>
       <td>0.44</td>
       <td>1.44</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>10</th>
       <td>1968-12-19</td>
       <td>0.44</td>
       <td>1.43</td>
     </tr>
     <tr>
-      <th>13</th>
+      <th>9</th>
       <td>100-year flood</td>
       <td>0.43</td>
       <td>1.42</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>8</th>
       <td>2021-12-05</td>
       <td>0.43</td>
       <td>1.40</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>7</th>
       <td>1992-09-12</td>
       <td>0.42</td>
       <td>1.39</td>
@@ -1647,37 +1358,37 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
       <td>1.39</td>
     </tr>
     <tr>
-      <th>12</th>
+      <th>5</th>
       <td>50-year flood</td>
       <td>0.42</td>
       <td>1.36</td>
     </tr>
     <tr>
-      <th>7</th>
+      <th>4</th>
       <td>2020-11-15</td>
       <td>0.42</td>
       <td>1.36</td>
     </tr>
     <tr>
-      <th>8</th>
+      <th>3</th>
       <td>2020-10-19</td>
       <td>0.41</td>
       <td>1.35</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>2</th>
       <td>2017-06-24</td>
       <td>0.41</td>
       <td>1.35</td>
     </tr>
     <tr>
-      <th>11</th>
+      <th>1</th>
       <td>10-year flood</td>
       <td>0.37</td>
       <td>1.21</td>
     </tr>
     <tr>
-      <th>10</th>
+      <th>0</th>
       <td>2-year flood</td>
       <td>0.29</td>
       <td>0.94</td>
@@ -1785,7 +1496,7 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/5e03d8bb101b25b8ff363476366e8016176cf36db3f9dba6d62de13762fee058.png" src="../../_images/5e03d8bb101b25b8ff363476366e8016176cf36db3f9dba6d62de13762fee058.png" />
+<img alt="../../_images/e7c28342698edf1cd47210a18b3b7424595b9e3547b039306205d137595182be.png" src="../../_images/e7c28342698edf1cd47210a18b3b7424595b9e3547b039306205d137595182be.png" />
 </div>
 </div>
 </section>
@@ -1831,11 +1542,11 @@ If we are using the gumbel distribution, there are only 2 free parameters: locat
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/juliafiedler/anaconda3/envs/SLI39/lib/python3.9/site-packages/pyextremes/extremes/block_maxima.py:138: NoDataBlockWarning: 7 blocks contained no data
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/pyextremes/extremes/block_maxima.py:138: NoDataBlockWarning: 7 blocks contained no data
   warnings.warn(
 </pre></div>
 </div>
-<img alt="../../_images/37106c18361a8409a9556ec4555ee49fb68dc929f4a3494cd726f13e3c335e43.png" src="../../_images/37106c18361a8409a9556ec4555ee49fb68dc929f4a3494cd726f13e3c335e43.png" />
+<img alt="../../_images/caf7f133f64998b8237f8b5867eff0a365cf6fd64bbe33c4c5972129300ea3b8.png" src="../../_images/caf7f133f64998b8237f8b5867eff0a365cf6fd64bbe33c4c5972129300ea3b8.png" />
 </div>
 </div>
 <p>One takeaway here: Removing the trend shows that we’ve had some significant events in the past (including the large pulse in the 1970s) that do not show up in our rankings.</p>

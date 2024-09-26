@@ -516,7 +516,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="sea-level-trend">
 <h1>Sea Level Trend<a class="headerlink" href="#sea-level-trend" title="Permalink to this heading">#</a></h1>
 <figure class="align-right">
-<a class="reference internal image-reference" href="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png"><img alt="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" src="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" style="width: 369.5px; height: 356.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/9c952b1d1e7576a067e374202b1bb3f5ff5bfff8cbe93cf9790db81ad136d790.png"><img alt="../../_images/9c952b1d1e7576a067e374202b1bb3f5ff5bfff8cbe93cf9790db81ad136d790.png" src="../../_images/9c952b1d1e7576a067e374202b1bb3f5ff5bfff8cbe93cf9790db81ad136d790.png" style="width: 369.5px; height: 356.0px;" /></a>
 </figure>
 <p>In this notebook, we’ll be creating a <a class="reference internal" href="#create-a-table"><span class="std std-ref">table</span></a>, a <a class="reference internal" href="#fig-mag"><span class="std std-ref">map</span></a>, and a time series <a class="reference internal" href="#trend-fig"><span class="std std-ref">plot</span></a> of absolute and regional sea level change at Hawaiian Islands tide gauge stations from 1993-2022. Absolute sea level, typically measured by satellite altimetry, refers to the height of the sea surface relative to a reference ellipsoid. Here, we’ll use the global ocean gridded L4 Sea Level Anomalies (SLA) available from Copernicus <span id="id1"></span>, which is the sea surface height (SSH) minus the mean sea surface (MSS), where the MSS is the temporal mean of SSH over a given period. Relative sea level is measured by a tide gauge, and is the sea level relative to land at that location. Differences between the two measurements can arise from vertical land motion, regional oceanographic conditions like currents, and changes to the gravitational field (affecting the geoid).</p>
 <p>Download Files:
@@ -532,314 +532,6 @@ document.write(`
 <span class="o">%</span><span class="k">run</span> ../plotting_functions.ipynb
 <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
 <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;9042ac39-1638-4a57-a5b6-fa0ba691ad47&#39;]
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">File</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qp</span><span class="o">/</span><span class="n">nn19rcjs5bdcdvxmff5bd3pr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17797</span><span class="o">/</span><span class="mf">3071482840.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">station_info</span> <span class="o">=</span> <span class="n">get_stationinfo</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">station_info</span>
-
-<span class="nn">File /var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_17797/4101372056.py:9,</span> in <span class="ni">get_stationinfo</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># def get_stationInfo():</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Create a list to store rows as dictionaries</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:279,</span> in <span class="ni">load_dataset</span><span class="nt">(filename_or_obj, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="k">if</span> <span class="s2">&quot;cache&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;cache has no effect in this context&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">279</span> <span class="k">with</span> <span class="n">open_dataset</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">decode_cf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">573</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">646</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">409</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span>     <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;9042ac39-1638-4a57-a5b6-fa0ba691ad47&#39;]
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;../setup.ipynb&#39;</span><span class="p">)</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;run&#39;</span><span class="p">,</span> <span class="s1">&#39;../plotting_functions.ipynb&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2456,</span> in <span class="ni">InteractiveShell.run_line_magic</span><span class="nt">(self, magic_name, line, _stack_depth)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2454</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;local_ns&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_local_scope</span><span class="p">(</span><span class="n">stack_depth</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2455</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">builtin_trap</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2456</span>     <span class="n">result</span> <span class="o">=</span> <span class="n">fn</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2458</span> <span class="c1"># The code below prevents the output from being displayed</span>
-<span class="g g-Whitespace">   </span><span class="mi">2459</span> <span class="c1"># when using magics with decorator @output_can_be_silenced</span>
-<span class="g g-Whitespace">   </span><span class="mi">2460</span> <span class="c1"># when the last Python token in the expression is a &#39;;&#39;.</span>
-<span class="g g-Whitespace">   </span><span class="mi">2461</span> <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">fn</span><span class="p">,</span> <span class="n">magic</span><span class="o">.</span><span class="n">MAGIC_OUTPUT_CAN_BE_SILENCED</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/magics/execution.py:737,</span> in <span class="ni">ExecutionMagics.run</span><span class="nt">(self, parameter_s, runner, file_finder)</span>
-<span class="g g-Whitespace">    </span><span class="mi">735</span>     <span class="k">with</span> <span class="n">preserve_keys</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">,</span> <span class="s1">&#39;__file__&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">736</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">user_ns</span><span class="p">[</span><span class="s1">&#39;__file__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">filename</span>
-<span class="ne">--&gt; </span><span class="mi">737</span>         <span class="bp">self</span><span class="o">.</span><span class="n">shell</span><span class="o">.</span><span class="n">safe_execfile_ipy</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">raise_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">738</span>     <span class="k">return</span>
-<span class="g g-Whitespace">    </span><span class="mi">740</span> <span class="c1"># Control the response to exit() calls made by the script being run</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2978,</span> in <span class="ni">InteractiveShell.safe_execfile_ipy</span><span class="nt">(self, fname, shell_futures, raise_exceptions)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2976</span> <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">run_cell</span><span class="p">(</span><span class="n">cell</span><span class="p">,</span> <span class="n">silent</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shell_futures</span><span class="o">=</span><span class="n">shell_futures</span><span class="p">)</span>
-<span class="g g-Whitespace">   </span><span class="mi">2977</span> <span class="k">if</span> <span class="n">raise_exceptions</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">2978</span>     <span class="n">result</span><span class="o">.</span><span class="n">raise_error</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">2979</span> <span class="k">elif</span> <span class="ow">not</span> <span class="n">result</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
-<span class="g g-Whitespace">   </span><span class="mi">2980</span>     <span class="k">break</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:294,</span> in <span class="ni">ExecutionResult.raise_error</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">292</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_before_exec</span>
-<span class="g g-Whitespace">    </span><span class="mi">293</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">294</span>     <span class="k">raise</span> <span class="bp">self</span><span class="o">.</span><span class="n">error_in_exec</span>
-
-    <span class="p">[</span><span class="o">...</span> <span class="n">skipping</span> <span class="n">hidden</span> <span class="mi">1</span> <span class="n">frame</span><span class="p">]</span>
-
-<span class="n">File</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">folders</span><span class="o">/</span><span class="n">qp</span><span class="o">/</span><span class="n">nn19rcjs5bdcdvxmff5bd3pr0000gn</span><span class="o">/</span><span class="n">T</span><span class="o">/</span><span class="n">ipykernel_17797</span><span class="o">/</span><span class="mf">3071482840.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">station_info</span> <span class="o">=</span> <span class="n">get_stationinfo</span><span class="p">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">station_info</span>
-
-<span class="nn">File /var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_17797/4101372056.py:9,</span> in <span class="ni">get_stationinfo</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="c1"># def get_stationInfo():</span>
-<span class="ne">----&gt; </span><span class="mi">9</span> <span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">11</span> <span class="c1"># Create a list to store rows as dictionaries</span>
-<span class="g g-Whitespace">     </span><span class="mi">12</span> <span class="n">data</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:279,</span> in <span class="ni">load_dataset</span><span class="nt">(filename_or_obj, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">276</span> <span class="k">if</span> <span class="s2">&quot;cache&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">277</span>     <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;cache has no effect in this context&quot;</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">279</span> <span class="k">with</span> <span class="n">open_dataset</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">ds</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="k">return</span> <span class="n">ds</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">decode_cf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">573</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">646</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">409</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span>     <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc&#39;
 </pre></div>
 </div>
 </div>
@@ -893,7 +585,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#import datasets</span>
 <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+<span class="c1"># rsl = xr.open_dataset(data_dir / &#39;rsl_hawaii.nc&#39;)</span>
 <span class="n">sla_tg</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;asl_hawaii.nc&#39;</span><span class="p">)</span>
 <span class="n">sla</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;cmems_L4_SSH_0.25deg_1993_2023.nc&#39;</span><span class="p">)</span>
 
@@ -911,7 +603,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d52e753dcc3a9a277d62b397aa20c3fe639dd8e5909e31b2fca7ef14fa91bf87.png" src="../../_images/d52e753dcc3a9a277d62b397aa20c3fe639dd8e5909e31b2fca7ef14fa91bf87.png" />
+<img alt="../../_images/4738a7053e3d1f7f03fbfd3a45e0820bad994017bd4eb55d6973e59a581731a1.png" src="../../_images/4738a7053e3d1f7f03fbfd3a45e0820bad994017bd4eb55d6973e59a581731a1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1284,35 +976,34 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 2MB
 Dimensions:       (record_id: 11, time: 10957)
 Coordinates:
-  * record_id     (record_id) int16 140 500 520 570 580 ... 610 5470 5480 5520
-  * time          (time) datetime64[ns] 1993-01-01 1993-01-02 ... 2022-12-31
-    lat           (record_id) float32 ...
-    lon           (record_id) float32 ...
-    station_name  (record_id) &lt;U17 ...
-    storm_time    (time) datetime64[ns] ...
+  * record_id     (record_id) int64 88B 14 50 52 57 58 59 60 61 547 548 552
+  * time          (time) datetime64[ns] 88kB 1993-01-01 ... 2022-12-31
+    lat           (record_id) float32 44B ...
+    lon           (record_id) float32 44B ...
+    station_name  (record_id) &lt;U17 748B ...
+    storm_time    (time) datetime64[ns] 88kB ...
 Data variables:
-    rsl_anomaly   (record_id, time) float32 ...
-    rsl_mhhw      (record_id, time) float64 ...
+    rsl_anomaly   (record_id, time) float32 482kB ...
+    rsl_mhhw      (record_id, time) float64 964kB ...
 Attributes:
     long_name:  Sea Level Anomaly
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-cae689ad-790e-4773-a8d5-2f70df3312d8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-cae689ad-790e-4773-a8d5-2f70df3312d8' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-3b97ace3-d683-43e5-87e6-75112a972fa5' class='xr-section-summary-in' type='checkbox'  checked><label for='section-3b97ace3-d683-43e5-87e6-75112a972fa5' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-69477dfd-6812-44e2-b4db-e755e8914275' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-69477dfd-6812-44e2-b4db-e755e8914275' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e5b6c94f-46fc-45f5-9baf-756cb72eb003' class='xr-var-data-in' type='checkbox'><label for='data-e5b6c94f-46fc-45f5-9baf-756cb72eb003' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
-      dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-0af39531-8fc5-43ca-997d-5760700f53cb' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0af39531-8fc5-43ca-997d-5760700f53cb' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-e8017080-0966-487a-ac73-465f0b56b186' class='xr-var-data-in' type='checkbox'><label for='data-e8017080-0966-487a-ac73-465f0b56b186' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-02ca1d7b-22cc-4b0b-ade4-2a4b2c86aabd' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-02ca1d7b-22cc-4b0b-ade4-2a4b2c86aabd' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-31affde0-7246-4f85-bac4-5b287b60538e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-31affde0-7246-4f85-bac4-5b287b60538e' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 57 58 59 60 61 547 548 552</div><input id='attrs-6997c568-2ef6-4d52-9b75-d64e296684cc' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6997c568-2ef6-4d52-9b75-d64e296684cc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cb28db06-513b-4ef6-bd73-80685a2d4512' class='xr-var-data-in' type='checkbox'><label for='data-cb28db06-513b-4ef6-bd73-80685a2d4512' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52,  57,  58,  59,  60,  61, 547, 548, 552])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-971f1376-098b-4872-b39f-5738c9a82bad' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-971f1376-098b-4872-b39f-5738c9a82bad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-bc02ec7e-136a-425c-969b-461324e8b281' class='xr-var-data-in' type='checkbox'><label for='data-bc02ec7e-136a-425c-969b-461324e8b281' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
        &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
        &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f2c4e8d0-816c-4f5f-86de-ba3326f79a3c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f2c4e8d0-816c-4f5f-86de-ba3326f79a3c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a344d813-c5db-41cb-a588-3443cd207927' class='xr-var-data-in' type='checkbox'><label for='data-a344d813-c5db-41cb-a588-3443cd207927' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-3b709eb7-ed73-453c-947e-c71f8c160fa4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3b709eb7-ed73-453c-947e-c71f8c160fa4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1651219c-5955-45eb-9c57-d66f3627aac3' class='xr-var-data-in' type='checkbox'><label for='data-1651219c-5955-45eb-9c57-d66f3627aac3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-2195d22a-bc51-4e45-994d-8968ebbde030' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2195d22a-bc51-4e45-994d-8968ebbde030' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-85dcdf86-ab39-4dac-883f-9e6a766f01d3' class='xr-var-data-in' type='checkbox'><label for='data-85dcdf86-ab39-4dac-883f-9e6a766f01d3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-fb4abc9c-546e-4208-b04d-479611f901ad' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fb4abc9c-546e-4208-b04d-479611f901ad' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f8c9e063-589a-4e12-87f1-33604ed15a38' class='xr-var-data-in' type='checkbox'><label for='data-f8c9e063-589a-4e12-87f1-33604ed15a38' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-35febbfe-3fbf-490d-9959-c62f2d23f183' class='xr-section-summary-in' type='checkbox'  checked><label for='section-35febbfe-3fbf-490d-9959-c62f2d23f183' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-24f487a5-6cc2-4a76-b651-b2088581c5c3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-24f487a5-6cc2-4a76-b651-b2088581c5c3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-da3d3672-a17d-404e-9299-fe3dbe3aa9b0' class='xr-var-data-in' type='checkbox'><label for='data-da3d3672-a17d-404e-9299-fe3dbe3aa9b0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-caed963f-4295-438a-b9ec-c55293e3d648' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-caed963f-4295-438a-b9ec-c55293e3d648' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-04416210-ad8d-45eb-ab61-54c275b353e3' class='xr-var-data-in' type='checkbox'><label for='data-04416210-ad8d-45eb-ab61-54c275b353e3' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ae8302bd-7f17-447c-87a6-1628369dd28d' class='xr-section-summary-in' type='checkbox'  ><label for='section-ae8302bd-7f17-447c-87a6-1628369dd28d' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-e7cf23cb-fe14-4b36-9d28-226fe51a6223' class='xr-index-data-in' type='checkbox'/><label for='index-e7cf23cb-fe14-4b36-9d28-226fe51a6223' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-cb66a8ce-5524-4d46-b149-6bdec9544c3f' class='xr-index-data-in' type='checkbox'/><label for='index-cb66a8ce-5524-4d46-b149-6bdec9544c3f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c7f8d72e-09d3-4182-9ad3-f34a24f49028' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c7f8d72e-09d3-4182-9ad3-f34a24f49028' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-13814fbb-56cc-4924-8c08-5cc5e4a8c989' class='xr-var-data-in' type='checkbox'><label for='data-13814fbb-56cc-4924-8c08-5cc5e4a8c989' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-beaa4380-170f-4c37-a474-9ffa7665b867' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-beaa4380-170f-4c37-a474-9ffa7665b867' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d9261ea6-c1e1-4501-abe5-6f71337a1515' class='xr-var-data-in' type='checkbox'><label for='data-d9261ea6-c1e1-4501-abe5-6f71337a1515' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-85ea2d70-148c-4cc4-8272-b6becbf756f7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-85ea2d70-148c-4cc4-8272-b6becbf756f7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0fe55be3-b88a-4ce4-8015-df395fe48cfe' class='xr-var-data-in' type='checkbox'><label for='data-0fe55be3-b88a-4ce4-8015-df395fe48cfe' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8b58ca7b-fea2-462b-8784-df0651a14de5' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-8b58ca7b-fea2-462b-8784-df0651a14de5' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-77b2f409-a744-4355-ad7a-2e2b92d619ae' class='xr-var-data-in' type='checkbox'><label for='data-77b2f409-a744-4355-ad7a-2e2b92d619ae' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-82ac77bb-d52f-41ad-aa9d-0a73e7a7608e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-82ac77bb-d52f-41ad-aa9d-0a73e7a7608e' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9b6b6a6f-f989-4d43-b411-bbc106a7c9c6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9b6b6a6f-f989-4d43-b411-bbc106a7c9c6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d5fb8258-2423-4c73-b611-52c72c182c14' class='xr-var-data-in' type='checkbox'><label for='data-d5fb8258-2423-4c73-b611-52c72c182c14' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9cfa009d-01b3-4732-926f-a7688b4dc9e3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9cfa009d-01b3-4732-926f-a7688b4dc9e3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ad7506f8-32ee-4a82-8679-0f1dd6981ed9' class='xr-var-data-in' type='checkbox'><label for='data-ad7506f8-32ee-4a82-8679-0f1dd6981ed9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-608a4f87-bd6a-46da-ba29-d46b0b29689d' class='xr-section-summary-in' type='checkbox'  ><label for='section-608a4f87-bd6a-46da-ba29-d46b0b29689d' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-eec177a5-dcd2-44c4-81e6-78c3c75ad9fc' class='xr-index-data-in' type='checkbox'/><label for='index-eec177a5-dcd2-44c4-81e6-78c3c75ad9fc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 57, 58, 59, 60, 61, 547, 548, 552], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-fb0f147b-ed64-41cb-a269-5b6f8bd85018' class='xr-index-data-in' type='checkbox'/><label for='index-fb0f147b-ed64-41cb-a269-5b6f8bd85018' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
                &#x27;1993-01-05&#x27;, &#x27;1993-01-06&#x27;, &#x27;1993-01-07&#x27;, &#x27;1993-01-08&#x27;,
                &#x27;1993-01-09&#x27;, &#x27;1993-01-10&#x27;,
                ...
                &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
                &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
                &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-dd8e9921-4f9b-4e88-b449-19e1d7a13646' class='xr-section-summary-in' type='checkbox'  checked><label for='section-dd8e9921-4f9b-4e88-b449-19e1d7a13646' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e7be3943-598e-435b-9cd5-dc1da4fec4ab' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e7be3943-598e-435b-9cd5-dc1da4fec4ab' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1330,7 +1021,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/fed7c695d36f823f2702b73490fe40bf6e98b8796db773a8016383df1d64c24e.png" src="../../_images/fed7c695d36f823f2702b73490fe40bf6e98b8796db773a8016383df1d64c24e.png" />
+<img alt="../../_images/2558af68e289fa44eda41ea2c553008c5f1da5fbf9da18f2e3eaedf1f731e217.png" src="../../_images/2558af68e289fa44eda41ea2c553008c5f1da5fbf9da18f2e3eaedf1f731e217.png" />
 </div>
 </div>
 <p>How many nan values are there in rsl[‘sea_level’]?</p>
@@ -1433,7 +1124,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 <span class="n">ax</span><span class="o">.</span><span class="n">add_feature</span><span class="p">(</span><span class="n">cfeature</span><span class="o">.</span><span class="n">OCEAN</span><span class="p">)</span>
 <span class="c1">#</span>
 <span class="c1"># Add the tide gauge location</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">)</span>
 
 <span class="c1"># Add the altimetry grid point</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">sla_tg</span><span class="o">.</span><span class="n">longitude</span><span class="o">-</span><span class="mi">360</span><span class="p">,</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">latitude</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> 
@@ -1471,7 +1162,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/dc06f064f15872c82381e6f4c9e3f6e2481c2df3e731d00429b208cc8973fac1.png" src="../../_images/dc06f064f15872c82381e6f4c9e3f6e2481c2df3e731d00429b208cc8973fac1.png" />
+<img alt="../../_images/a0f91dfa1c19e942378028958de7792ab5c9c6fc5853efd52ede096cd6ae5f87.png" src="../../_images/a0f91dfa1c19e942378028958de7792ab5c9c6fc5853efd52ede096cd6ae5f87.png" />
 </div>
 </div>
 <section id="plot-the-timeseries">
@@ -1503,7 +1194,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Altimetry (1993-2023)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/4a83c4d2ae97ff6b59624d96adab2dd857fe4b80d12d72237e282db0d5323d03.png" src="../../_images/4a83c4d2ae97ff6b59624d96adab2dd857fe4b80d12d72237e282db0d5323d03.png" />
+<img alt="../../_images/be0683c93aa6562cb789bca758302780ed22df0b2ccaaa3278dbb211dbc8bcbe.png" src="../../_images/be0683c93aa6562cb789bca758302780ed22df0b2ccaaa3278dbb211dbc8bcbe.png" />
 </div>
 </div>
 </section>
@@ -1626,7 +1317,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/255af447461ae209529bde427e89cc4395850cd22ae84f228a964eaad8a75db3.png" src="../../_images/255af447461ae209529bde427e89cc4395850cd22ae84f228a964eaad8a75db3.png" />
+<img alt="../../_images/8acaddd6c06e7efb4c05929b62b005a12970f11d9a46dabf6e0b1abc9ed19806.png" src="../../_images/8acaddd6c06e7efb4c05929b62b005a12970f11d9a46dabf6e0b1abc9ed19806.png" />
 </div>
 </div>
 </section>
@@ -1668,57 +1359,57 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
     <tr>
       <th>0</th>
       <td>French Frigate</td>
-      <td>140</td>
+      <td>14</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Midway</td>
-      <td>500</td>
+      <td>50</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Johnston</td>
-      <td>520</td>
+      <td>52</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Honolulu, Hawaii</td>
-      <td>570</td>
+      <td>57</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Nawiliwili</td>
-      <td>580</td>
+      <td>58</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Kahului</td>
-      <td>590</td>
+      <td>59</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Hilo, Hawaii</td>
-      <td>600</td>
+      <td>60</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Mokuoloe</td>
-      <td>610</td>
+      <td>61</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Barbers Point, HI</td>
-      <td>5470</td>
+      <td>547</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Kaumalapau, HI</td>
-      <td>5480</td>
+      <td>548</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Kawaihae</td>
-      <td>5520</td>
+      <td>552</td>
     </tr>
   </tbody>
 </table>
@@ -1776,7 +1467,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 6.38 cm, Trend: 0.21 cm/year&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/420594fbeec415fc4fb524aaa5b62e4ab2469d2f95dacc962eb23fe510bb9872.png" src="../../_images/420594fbeec415fc4fb524aaa5b62e4ab2469d2f95dacc962eb23fe510bb9872.png" />
+<img alt="../../_images/f068f52af7bbd3b6ad57d85e2af38bf77034e6e07315be8cce7cd34175abe04e.png" src="../../_images/f068f52af7bbd3b6ad57d85e2af38bf77034e6e07315be8cce7cd34175abe04e.png" />
 </div>
 </div>
 </section>
@@ -2153,35 +1844,36 @@ dl.xr-attrs {
   stroke: currentColor;
   fill: currentColor;
 }
-</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
+</style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 2MB
 Dimensions:       (record_id: 11, time: 10957)
 Coordinates:
-  * record_id     (record_id) int16 140 500 520 570 580 ... 610 5470 5480 5520
-  * time          (time) datetime64[ns] 1993-01-01 1993-01-02 ... 2022-12-31
-    lat           (record_id) float32 ...
-    lon           (record_id) float32 ...
-    station_name  (record_id) &lt;U17 ...
-    storm_time    (time) datetime64[ns] ...
+  * record_id     (record_id) int64 88B 14 50 52 57 58 59 60 61 547 548 552
+  * time          (time) datetime64[ns] 88kB 1993-01-01 ... 2022-12-31
+    lat           (record_id) float32 44B 23.87 28.22 16.75 ... 20.78 20.03
+    lon           (record_id) float32 44B 193.7 182.6 190.5 ... 203.0 204.2
+    station_name  (record_id) &lt;U17 748B ...
+    storm_time    (time) datetime64[ns] 88kB ...
 Data variables:
-    rsl_anomaly   (record_id, time) float32 ...
-    rsl_mhhw      (record_id, time) float64 ...
+    rsl_anomaly   (record_id, time) float32 482kB ...
+    rsl_mhhw      (record_id, time) float64 964kB ...
 Attributes:
     long_name:  Sea Level Anomaly
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-158b483d-ecc5-46da-aba4-371014492c71' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-158b483d-ecc5-46da-aba4-371014492c71' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-96c40d92-b88b-4e8a-9ecb-ffb8fbf3e517' class='xr-section-summary-in' type='checkbox'  checked><label for='section-96c40d92-b88b-4e8a-9ecb-ffb8fbf3e517' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int16</div><div class='xr-var-preview xr-preview'>140 500 520 570 ... 5470 5480 5520</div><input id='attrs-69861741-bf24-4bcc-aa35-6d83a446adf4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-69861741-bf24-4bcc-aa35-6d83a446adf4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-af44e7b6-c772-4ae9-b8ca-94193320eff8' class='xr-var-data-in' type='checkbox'><label for='data-af44e7b6-c772-4ae9-b8ca-94193320eff8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>unique identifier for each record (i.e., station and version) in the database</dd></dl></div><div class='xr-var-data'><pre>array([ 140,  500,  520,  570,  580,  590,  600,  610, 5470, 5480, 5520],
-      dtype=int16)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-a4219acc-b9b5-4f8f-8410-620711c0d0aa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a4219acc-b9b5-4f8f-8410-620711c0d0aa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6328c883-6da8-4845-8230-b57b06cbd37a' class='xr-var-data-in' type='checkbox'><label for='data-6328c883-6da8-4845-8230-b57b06cbd37a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>time</dd><dt><span>axis :</span></dt><dd>T</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-d3fc5272-746f-4c3a-a90d-483da4eebccf' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-d3fc5272-746f-4c3a-a90d-483da4eebccf' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a7e69e45-f5d9-4e5a-907d-675f5d809ac2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a7e69e45-f5d9-4e5a-907d-675f5d809ac2' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 57 58 59 60 61 547 548 552</div><input id='attrs-6c7f3c75-87b8-44c1-8e6f-869caacbfea9' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-6c7f3c75-87b8-44c1-8e6f-869caacbfea9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c4d6c89a-a6a7-48ec-b7f1-1155d7289478' class='xr-var-data-in' type='checkbox'><label for='data-c4d6c89a-a6a7-48ec-b7f1-1155d7289478' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52,  57,  58,  59,  60,  61, 547, 548, 552])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-40306da2-2183-4c94-8f36-98fcc8c36c02' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-40306da2-2183-4c94-8f36-98fcc8c36c02' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ded80315-03f1-4976-a2cc-df753ed1bb6d' class='xr-var-data-in' type='checkbox'><label for='data-ded80315-03f1-4976-a2cc-df753ed1bb6d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
        &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
        &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-3b99d1d9-f28a-4b2d-b6d3-e0c2031c7b0d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-3b99d1d9-f28a-4b2d-b6d3-e0c2031c7b0d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-1f95d78f-e62a-40cf-9bb4-f7fa42abea24' class='xr-var-data-in' type='checkbox'><label for='data-1f95d78f-e62a-40cf-9bb4-f7fa42abea24' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8b41e493-474b-4491-b9f2-a5ab1a6557d9' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8b41e493-474b-4491-b9f2-a5ab1a6557d9' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-07919d82-6012-4b83-81fa-50af4c562116' class='xr-var-data-in' type='checkbox'><label for='data-07919d82-6012-4b83-81fa-50af4c562116' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-62ecbae1-910a-430e-9206-625adad5ef29' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-62ecbae1-910a-430e-9206-625adad5ef29' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-51edbe1f-3dfa-4b57-b65b-8bd03a7372e0' class='xr-var-data-in' type='checkbox'><label for='data-51edbe1f-3dfa-4b57-b65b-8bd03a7372e0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-fc407aaf-1ebc-44b9-9ed5-23f6d1bfb6ce' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-fc407aaf-1ebc-44b9-9ed5-23f6d1bfb6ce' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-28c2c0a4-b86c-4169-b2d9-b102d7d0783d' class='xr-var-data-in' type='checkbox'><label for='data-28c2c0a4-b86c-4169-b2d9-b102d7d0783d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f3813bc9-c85f-4389-94d7-d9e55f8ab3ca' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f3813bc9-c85f-4389-94d7-d9e55f8ab3ca' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-259b65e7-a378-410f-b0b7-c5b9c37e3ab0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-259b65e7-a378-410f-b0b7-c5b9c37e3ab0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7c56a696-9541-4833-b362-029b33d8c1d5' class='xr-var-data-in' type='checkbox'><label for='data-7c56a696-9541-4833-b362-029b33d8c1d5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c5b6ca63-4c2c-4d57-9c0a-0a62612679c6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c5b6ca63-4c2c-4d57-9c0a-0a62612679c6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-32bfd44a-9419-472b-b2c7-81f6ec9dc71c' class='xr-var-data-in' type='checkbox'><label for='data-32bfd44a-9419-472b-b2c7-81f6ec9dc71c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-4beb7185-2a4d-4b03-8d72-4e86566325e4' class='xr-section-summary-in' type='checkbox'  ><label for='section-4beb7185-2a4d-4b03-8d72-4e86566325e4' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-f90a6189-a924-40f9-b46e-5ca0959e01dc' class='xr-index-data-in' type='checkbox'/><label for='index-f90a6189-a924-40f9-b46e-5ca0959e01dc' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([140, 500, 520, 570, 580, 590, 600, 610, 5470, 5480, 5520], dtype=&#x27;int16&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-1038b852-ed65-4f80-9a7c-48c77af174d2' class='xr-index-data-in' type='checkbox'/><label for='index-1038b852-ed65-4f80-9a7c-48c77af174d2' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 20.78 20.03</div><input id='attrs-567373c8-4da2-4862-9c0f-62afbe85ea74' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-567373c8-4da2-4862-9c0f-62afbe85ea74' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0ac5a3f0-807b-41ba-8cb5-742beec77cd0' class='xr-var-data-in' type='checkbox'><label for='data-0ac5a3f0-807b-41ba-8cb5-742beec77cd0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 21.322,
+       20.783, 20.033], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 203.0 204.2</div><input id='attrs-bd8a3b74-7ffc-4558-8787-381349ee2dc4' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-bd8a3b74-7ffc-4558-8787-381349ee2dc4' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e6e8adf-7a81-4e91-be11-efe0e26d5479' class='xr-var-data-in' type='checkbox'><label for='data-7e6e8adf-7a81-4e91-be11-efe0e26d5479' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
+       201.88 , 203.   , 204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ae23acda-4829-4da6-b23b-12715a5a4960' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ae23acda-4829-4da6-b23b-12715a5a4960' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5a2a565e-420e-478b-a089-962aa3f1aabb' class='xr-var-data-in' type='checkbox'><label for='data-5a2a565e-420e-478b-a089-962aa3f1aabb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c236eb98-5460-4793-a3a8-d0d2f325219a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c236eb98-5460-4793-a3a8-d0d2f325219a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8b65f816-2b9b-4499-aec3-f1ad1d66418e' class='xr-var-data-in' type='checkbox'><label for='data-8b65f816-2b9b-4499-aec3-f1ad1d66418e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-a97f9910-a6d7-4b7c-ada9-2dc5c5daef00' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a97f9910-a6d7-4b7c-ada9-2dc5c5daef00' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-b3f072cc-9f12-4542-842d-ef3fac78da92' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b3f072cc-9f12-4542-842d-ef3fac78da92' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-08c8d8a9-0419-4409-8996-af083075dc2e' class='xr-var-data-in' type='checkbox'><label for='data-08c8d8a9-0419-4409-8996-af083075dc2e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a19bf17f-eb25-4565-a724-babc939da5b3' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-a19bf17f-eb25-4565-a724-babc939da5b3' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3e77431b-f9ee-4b2c-ba10-ad44d152003f' class='xr-var-data-in' type='checkbox'><label for='data-3e77431b-f9ee-4b2c-ba10-ad44d152003f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8b2fff77-30d5-4cc3-b828-fcc09b104758' class='xr-section-summary-in' type='checkbox'  ><label for='section-8b2fff77-30d5-4cc3-b828-fcc09b104758' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c4df30c1-b4fb-409c-a34d-3fad7840245b' class='xr-index-data-in' type='checkbox'/><label for='index-c4df30c1-b4fb-409c-a34d-3fad7840245b' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 57, 58, 59, 60, 61, 547, 548, 552], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-7e51ae9a-541a-49ee-bf7f-10c8c9032fd4' class='xr-index-data-in' type='checkbox'/><label for='index-7e51ae9a-541a-49ee-bf7f-10c8c9032fd4' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
                &#x27;1993-01-05&#x27;, &#x27;1993-01-06&#x27;, &#x27;1993-01-07&#x27;, &#x27;1993-01-08&#x27;,
                &#x27;1993-01-09&#x27;, &#x27;1993-01-10&#x27;,
                ...
                &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
                &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
                &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-8b0f5c48-c534-4b13-a615-174522673554' class='xr-section-summary-in' type='checkbox'  checked><label for='section-8b0f5c48-c534-4b13-a615-174522673554' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0572ccfe-4c02-4163-8f09-a3490a758250' class='xr-section-summary-in' type='checkbox'  checked><label for='section-0572ccfe-4c02-4163-8f09-a3490a758250' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2248,10 +1940,14 @@ The trend rate for the tide gauge is 0.27 cm/year.
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/groupby.py:668: FutureWarning: &#39;M&#39; is deprecated and will be removed in a future version, please use &#39;ME&#39; instead.
+  index_grouper = pd.Grouper(
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 8.09 cm, Trend: 0.27 cm/year&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/050703aa4ea395961c8a37b15796f2814a2c977b6eafa67b0632652b5e6fd627.png" src="../../_images/050703aa4ea395961c8a37b15796f2814a2c977b6eafa67b0632652b5e6fd627.png" />
+<img alt="../../_images/42f2c6a95b28624d44066b36dce4db322375415e7909fe634392d3a07b6e6919.png" src="../../_images/42f2c6a95b28624d44066b36dce4db322375415e7909fe634392d3a07b6e6919.png" />
 </div>
 </div>
 </section>
@@ -2343,7 +2039,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>0</th>
       <td>French Frigate</td>
-      <td>14</td>
+      <td>1</td>
       <td>1.871329</td>
       <td>NaN</td>
       <td>5.674700</td>
@@ -2359,7 +2055,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>1</th>
       <td>Midway</td>
-      <td>50</td>
+      <td>5</td>
       <td>4.215143</td>
       <td>3.780650</td>
       <td>12.782183</td>
@@ -2375,7 +2071,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>2</th>
       <td>Johnston</td>
-      <td>52</td>
+      <td>5</td>
       <td>2.292586</td>
       <td>1.802460</td>
       <td>6.952137</td>
@@ -2391,7 +2087,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>3</th>
       <td>Honolulu, Hawaii</td>
-      <td>57</td>
+      <td>5</td>
       <td>2.103058</td>
       <td>2.696540</td>
       <td>6.377406</td>
@@ -2407,11 +2103,11 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>4</th>
       <td>Nawiliwili</td>
-      <td>58</td>
+      <td>5</td>
       <td>2.263410</td>
-      <td>3.062466</td>
+      <td>3.062467</td>
       <td>6.863662</td>
-      <td>9.186140</td>
+      <td>9.186142</td>
       <td>21.875</td>
       <td>21.966999</td>
       <td>-159.375000</td>
@@ -2423,7 +2119,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>5</th>
       <td>Kahului</td>
-      <td>59</td>
+      <td>5</td>
       <td>2.105416</td>
       <td>2.527900</td>
       <td>6.384556</td>
@@ -2439,7 +2135,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>6</th>
       <td>Hilo, Hawaii</td>
-      <td>60</td>
+      <td>6</td>
       <td>1.975387</td>
       <td>3.298495</td>
       <td>5.990249</td>
@@ -2455,7 +2151,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>7</th>
       <td>Mokuoloe</td>
-      <td>61</td>
+      <td>6</td>
       <td>2.103058</td>
       <td>2.933727</td>
       <td>6.377406</td>
@@ -2471,7 +2167,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>8</th>
       <td>Barbers Point, HI</td>
-      <td>547</td>
+      <td>54</td>
       <td>2.228920</td>
       <td>NaN</td>
       <td>6.759073</td>
@@ -2487,7 +2183,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>9</th>
       <td>Kaumalapau, HI</td>
-      <td>548</td>
+      <td>54</td>
       <td>2.183053</td>
       <td>NaN</td>
       <td>6.619986</td>
@@ -2503,7 +2199,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
     <tr>
       <th>10</th>
       <td>Kawaihae</td>
-      <td>552</td>
+      <td>55</td>
       <td>2.750707</td>
       <td>NaN</td>
       <td>8.341365</td>
@@ -2541,51 +2237,51 @@ The trend rate for the tide gauge is 0.27 cm/year.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="zdwwusjfdz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="output text_html"><div id="nhezctzeqn" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#zdwwusjfdz table {
+#nhezctzeqn table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#zdwwusjfdz thead, tbody, tfoot, tr, td, th { border-style: none !important; }
- tr { background-color: transparent !important; }
-#zdwwusjfdz p { margin: 0 !important; padding: 0 !important; }
- #zdwwusjfdz .gt_table { display: table !important; border-collapse: collapse !important; line-height: normal !important; margin-left: auto !important; margin-right: auto !important; color: #333333 !important; font-size: small !important; font-weight: normal !important; font-style: normal !important; background-color: #FFFFFF !important; width: auto !important; border-top-style: solid !important; border-top-width: 2px !important; border-top-color: #A8A8A8 !important; border-right-style: none !important; border-right-width: 2px !important; border-right-color: #D3D3D3 !important; border-bottom-style: solid !important; border-bottom-width: 2px !important; border-bottom-color: #A8A8A8 !important; border-left-style: none !important; border-left-width: 2px !important; border-left-color: #D3D3D3 !important; }
- #zdwwusjfdz .gt_caption { padding-top: 4px !important; padding-bottom: 4px !important; }
- #zdwwusjfdz .gt_title { color: #333333 !important; font-size: 125% !important; font-weight: initial !important; padding-top: 4px !important; padding-bottom: 4px !important; padding-left: 5px !important; padding-right: 5px !important; border-bottom-color: #FFFFFF !important; border-bottom-width: 0 !important; }
- #zdwwusjfdz .gt_subtitle { color: #333333 !important; font-size: 85% !important; font-weight: initial !important; padding-top: 3px !important; padding-bottom: 5px !important; padding-left: 5px !important; padding-right: 5px !important; border-top-color: #FFFFFF !important; border-top-width: 0 !important; }
- #zdwwusjfdz .gt_heading { background-color: #FFFFFF !important; text-align: center !important; border-bottom-color: #FFFFFF !important; border-left-style: none !important; border-left-width: 1px !important; border-left-color: #D3D3D3 !important; border-right-style: none !important; border-right-width: 1px !important; border-right-color: #D3D3D3 !important; }
- #zdwwusjfdz .gt_bottom_border { border-bottom-style: solid !important; border-bottom-width: 2px !important; border-bottom-color: #D3D3D3 !important; }
- #zdwwusjfdz .gt_col_headings { border-top-style: solid !important; border-top-width: 2px !important; border-top-color: #D3D3D3 !important; border-bottom-style: solid !important; border-bottom-width: 2px !important; border-bottom-color: #D3D3D3 !important; border-left-style: none !important; border-left-width: 1px !important; border-left-color: #D3D3D3 !important; border-right-style: none !important; border-right-width: 1px !important; border-right-color: #D3D3D3 !important; }
- #zdwwusjfdz .gt_col_heading { color: #333333 !important; background-color: #FFFFFF !important; font-size: 100% !important; font-weight: normal !important; text-transform: inherit !important; border-left-style: none !important; border-left-width: 1px !important; border-left-color: #D3D3D3 !important; border-right-style: none !important; border-right-width: 1px !important; border-right-color: #D3D3D3 !important; vertical-align: bottom !important; padding-top: 5px !important; padding-bottom: 5px !important; padding-left: 5px !important; padding-right: 5px !important; overflow-x: hidden !important; }
- #zdwwusjfdz .gt_column_spanner_outer { color: #333333 !important; background-color: #FFFFFF !important; font-size: 100% !important; font-weight: normal !important; text-transform: inherit !important; padding-top: 0 !important; padding-bottom: 0 !important; padding-left: 4px !important; padding-right: 4px !important; }
- #zdwwusjfdz .gt_column_spanner_outer:first-child { padding-left: 0 !important; }
- #zdwwusjfdz .gt_column_spanner_outer:last-child { padding-right: 0 !important; }
- #zdwwusjfdz .gt_column_spanner { border-bottom-style: solid !important; border-bottom-width: 2px !important; border-bottom-color: #D3D3D3 !important; vertical-align: bottom !important; padding-top: 5px !important; padding-bottom: 5px !important; overflow-x: hidden !important; display: inline-block !important; width: 100% !important; }
- #zdwwusjfdz .gt_spanner_row { border-bottom-style: hidden !important; }
- #zdwwusjfdz .gt_group_heading { padding-top: 8px !important; padding-bottom: 8px !important; padding-left: 5px !important; padding-right: 5px !important; color: #333333 !important; background-color: #FFFFFF !important; font-size: 100% !important; font-weight: initial !important; text-transform: inherit !important; border-top-style: solid !important; border-top-width: 2px !important; border-top-color: #D3D3D3 !important; border-bottom-style: solid !important; border-bottom-width: 2px !important; border-bottom-color: #D3D3D3 !important; border-left-style: none !important; border-left-width: 1px !important; border-left-color: #D3D3D3 !important; border-right-style: none !important; border-right-width: 1px !important; border-right-color: #D3D3D3 !important; vertical-align: middle !important; text-align: left !important; }
- #zdwwusjfdz .gt_empty_group_heading { padding: 0.5px !important; color: #333333 !important; background-color: #FFFFFF !important; font-size: 100% !important; font-weight: initial !important; border-top-style: solid !important; border-top-width: 2px !important; border-top-color: #D3D3D3 !important; border-bottom-style: solid !important; border-bottom-width: 2px !important; border-bottom-color: #D3D3D3 !important; vertical-align: middle !important; }
- #zdwwusjfdz .gt_from_md> :first-child { margin-top: 0 !important; }
- #zdwwusjfdz .gt_from_md> :last-child { margin-bottom: 0 !important; }
- #zdwwusjfdz .gt_row { padding-top: 8px !important; padding-bottom: 8px !important; padding-left: 5px !important; padding-right: 5px !important; margin: 10px !important; border-top-style: solid !important; border-top-width: 1px !important; border-top-color: #D3D3D3 !important; border-left-style: none !important; border-left-width: 1px !important; border-left-color: #D3D3D3 !important; border-right-style: none !important; border-right-width: 1px !important; border-right-color: #D3D3D3 !important; vertical-align: middle !important; overflow-x: hidden !important; }
- #zdwwusjfdz .gt_stub { color: #333333 !important; background-color: #FFFFFF !important; font-size: 100% !important; font-weight: initial !important; text-transform: inherit !important; border-right-style: solid !important; border-right-width: 2px !important; border-right-color: #D3D3D3 !important; padding-left: 5px !important; padding-right: 5px !important; }
- #zdwwusjfdz .gt_stub_row_group { color: #333333 !important; background-color: #FFFFFF !important; font-size: 100% !important; font-weight: initial !important; text-transform: inherit !important; border-right-style: solid !important; border-right-width: 2px !important; border-right-color: #D3D3D3 !important; padding-left: 5px !important; padding-right: 5px !important; vertical-align: top !important; }
- #zdwwusjfdz .gt_row_group_first td { border-top-width: 2px !important; }
- #zdwwusjfdz .gt_row_group_first th { border-top-width: 2px !important; }
- #zdwwusjfdz .gt_table_body { border-top-style: solid !important; border-top-width: 2px !important; border-top-color: #D3D3D3 !important; border-bottom-style: solid !important; border-bottom-width: 2px !important; border-bottom-color: #D3D3D3 !important; }
- #zdwwusjfdz .gt_sourcenotes { color: #333333 !important; background-color: #FFFFFF !important; border-bottom-style: none !important; border-bottom-width: 2px !important; border-bottom-color: #D3D3D3 !important; border-left-style: none !important; border-left-width: 2px !important; border-left-color: #D3D3D3 !important; border-right-style: none !important; border-right-width: 2px !important; border-right-color: #D3D3D3 !important; }
- #zdwwusjfdz .gt_sourcenote { font-size: 90% !important; padding-top: 4px !important; padding-bottom: 4px !important; padding-left: 5px !important; padding-right: 5px !important; text-align: left !important; }
- #zdwwusjfdz .gt_left { text-align: left !important; }
- #zdwwusjfdz .gt_center { text-align: center !important; }
- #zdwwusjfdz .gt_right { text-align: right !important; font-variant-numeric: tabular-nums !important; }
- #zdwwusjfdz .gt_font_normal { font-weight: normal !important; }
- #zdwwusjfdz .gt_font_bold { font-weight: bold !important; }
- #zdwwusjfdz .gt_font_italic { font-style: italic !important; }
- #zdwwusjfdz .gt_super { font-size: 65% !important; }
- #zdwwusjfdz .gt_footnote_marks { font-size: 75% !important; vertical-align: 0.4em !important; position: initial !important; }
- #zdwwusjfdz .gt_asterisk { font-size: 100% !important; vertical-align: 0 !important; }
+#nhezctzeqn thead, tbody, tfoot, tr, td, th { border-style: none; }
+ tr { background-color: transparent; }
+#nhezctzeqn p { margin: 0; padding: 0; }
+ #nhezctzeqn .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: small; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #nhezctzeqn .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #nhezctzeqn .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #nhezctzeqn .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #nhezctzeqn .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #nhezctzeqn .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #nhezctzeqn .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #nhezctzeqn .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #nhezctzeqn .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #nhezctzeqn .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #nhezctzeqn .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #nhezctzeqn .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #nhezctzeqn .gt_spanner_row { border-bottom-style: hidden; }
+ #nhezctzeqn .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #nhezctzeqn .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #nhezctzeqn .gt_from_md> :first-child { margin-top: 0; }
+ #nhezctzeqn .gt_from_md> :last-child { margin-bottom: 0; }
+ #nhezctzeqn .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #nhezctzeqn .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #nhezctzeqn .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #nhezctzeqn .gt_row_group_first td { border-top-width: 2px; }
+ #nhezctzeqn .gt_row_group_first th { border-top-width: 2px; }
+ #nhezctzeqn .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #nhezctzeqn .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #nhezctzeqn .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #nhezctzeqn .gt_left { text-align: left; }
+ #nhezctzeqn .gt_center { text-align: center; }
+ #nhezctzeqn .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #nhezctzeqn .gt_font_normal { font-weight: normal; }
+ #nhezctzeqn .gt_font_bold { font-weight: bold; }
+ #nhezctzeqn .gt_font_italic { font-style: italic; }
+ #nhezctzeqn .gt_super { font-size: 65%; }
+ #nhezctzeqn .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #nhezctzeqn .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
@@ -2780,7 +2476,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
                          <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
                          <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Δ Sea Level (cm, 1993-2022)&#39;</span><span class="p">},</span>
 <span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">rsl</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;lon&#39;</span><span class="p">],</span> <span class="n">rsl_daily</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">],</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
               <span class="n">c</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span><span class="n">zorder</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1">#remove nan values from trend_mag_rsl</span>
@@ -2808,12 +2504,12 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/66245c091cd7610b991c75dfe4da124297120629ad7512e8a733502e6d6df1c5.png" src="../../_images/66245c091cd7610b991c75dfe4da124297120629ad7512e8a733502e6d6df1c5.png" />
+<img alt="../../_images/e37b9d70b5833c663c670c5647c87c24386d639a8737aa6510af2d68a055c14d.png" src="../../_images/e37b9d70b5833c663c670c5647c87c24386d639a8737aa6510af2d68a055c14d.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="fig-mag">
-<img alt="../../_images/66245c091cd7610b991c75dfe4da124297120629ad7512e8a733502e6d6df1c5.png" src="../../_images/66245c091cd7610b991c75dfe4da124297120629ad7512e8a733502e6d6df1c5.png" />
+<img alt="../../_images/e37b9d70b5833c663c670c5647c87c24386d639a8737aa6510af2d68a055c14d.png" src="../../_images/e37b9d70b5833c663c670c5647c87c24386d639a8737aa6510af2d68a055c14d.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Map of absolute and relative sea level change from the altimetry and tide gauge record near the <span class="pasted-text">Hawaiian Islands</span> stations from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2022-12-31</span>.</span><a class="headerlink" href="#fig-mag" title="Permalink to this image">#</a></p>
 <div class="legend">
@@ -2887,12 +2583,12 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/86c78c74ac6941df6525d02b1fd21e4209c4704a533f66eeb6e7f8cca4297b5c.png" src="../../_images/86c78c74ac6941df6525d02b1fd21e4209c4704a533f66eeb6e7f8cca4297b5c.png" />
+<img alt="../../_images/d1dbe8b3cf3f29a861cc60f4f74f5f1d29433ac295db83015b73413c07f2ab26.png" src="../../_images/d1dbe8b3cf3f29a861cc60f4f74f5f1d29433ac295db83015b73413c07f2ab26.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="trend-fig-station">
-<img alt="../../_images/86c78c74ac6941df6525d02b1fd21e4209c4704a533f66eeb6e7f8cca4297b5c.png" src="../../_images/86c78c74ac6941df6525d02b1fd21e4209c4704a533f66eeb6e7f8cca4297b5c.png" />
+<img alt="../../_images/d1dbe8b3cf3f29a861cc60f4f74f5f1d29433ac295db83015b73413c07f2ab26.png" src="../../_images/d1dbe8b3cf3f29a861cc60f4f74f5f1d29433ac295db83015b73413c07f2ab26.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 2 </span><span class="caption-text">Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the <span class="pasted-text">Midway</span> tide gauge station from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2022-12-31</span>.</span><a class="headerlink" href="#trend-fig-station" title="Permalink to this image">#</a></p>
 </figcaption>
@@ -2974,12 +2670,12 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" src="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" />
+<img alt="../../_images/9c952b1d1e7576a067e374202b1bb3f5ff5bfff8cbe93cf9790db81ad136d790.png" src="../../_images/9c952b1d1e7576a067e374202b1bb3f5ff5bfff8cbe93cf9790db81ad136d790.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="trend-fig">
-<img alt="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" src="../../_images/8934626d424e91075c0e50625f6f3b0ff0afaa4349d0b07e52fa8f663ea6e7af.png" />
+<img alt="../../_images/9c952b1d1e7576a067e374202b1bb3f5ff5bfff8cbe93cf9790db81ad136d790.png" src="../../_images/9c952b1d1e7576a067e374202b1bb3f5ff5bfff8cbe93cf9790db81ad136d790.png" />
 <figcaption>
 <p><span class="caption-number">Fig. 3 </span><span class="caption-text">Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the <span class="pasted-text">Hawaiian Islands</span> stations from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2022-12-31</span>.</span><a class="headerlink" href="#trend-fig" title="Permalink to this image">#</a></p>
 </figcaption>

@@ -518,16 +518,17 @@ document.write(`
 <span class="kn">import</span> <span class="nn">json</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">chi2</span>
 <span class="kn">import</span> <span class="nn">sys</span>
-
 <span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
 <span class="n">base_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cwd</span><span class="p">,</span> <span class="s2">&quot;../&quot;</span><span class="p">))</span>  <span class="c1"># For interactive mode (Jupyter/IPython)</span>
 <span class="n">pythonPath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;nonstationaryGEV&#39;</span><span class="p">)</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pythonPath</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">base_dir</span><span class="p">,</span> <span class="s1">&#39;python&#39;</span><span class="p">))</span>
 
 <span class="kn">from</span> <span class="nn">imports</span> <span class="kn">import</span> <span class="n">make_directoryDict</span>
 <span class="kn">from</span> <span class="nn">plotting</span> <span class="kn">import</span> <span class="n">plotTimeDependentReturnValue</span>
 <span class="kn">from</span> <span class="nn">helpers</span> <span class="kn">import</span> <span class="n">adjust_w_for_plotting</span>
-<span class="kn">from</span> <span class="nn">maps</span> <span class="kn">import</span> <span class="n">plot_thin_map_hawaii</span><span class="p">,</span> <span class="n">get_stationinfo</span><span class="p">,</span> <span class="n">plot_station_labels</span>
+<span class="kn">from</span> <span class="nn">maps</span> <span class="kn">import</span> <span class="n">plot_thin_map_hawaii</span><span class="p">,</span> <span class="n">get_stationinfo</span>
+
 
 <span class="c1"># set up directories to read from</span>
 <span class="n">dirs</span> <span class="o">=</span> <span class="n">make_directoryDict</span><span class="p">(</span><span class="n">base_dir</span><span class="p">)</span>
@@ -1053,12 +1054,9 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load rsl data</span>
-<span class="n">rsl</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dirs</span><span class="p">[</span><span class="s1">&#39;data_dir&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span>
-
-<span class="c1"># Select the relevant variables and convert them to a pandas DataFrame</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">rsl</span><span class="p">[[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;station_name&#39;</span><span class="p">,</span> <span class="s1">&#39;record_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span> <span class="c1">## THIS NEEDS TO BE FIXED IN THE DATA FILE</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">dirs</span><span class="p">[</span><span class="s1">&#39;data_dir&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">rsl</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">rsl</span><span class="p">[[</span><span class="s1">&#39;lat&#39;</span><span class="p">,</span> <span class="s1">&#39;lon&#39;</span><span class="p">,</span> <span class="s1">&#39;station_name&#39;</span><span class="p">,</span> <span class="s1">&#39;record_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="k">pass</span>
 
 <span class="c1"># Initialize ampCI as a vector of zeros</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ampCI&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1314,7 +1312,7 @@ FileNotFoundError: No model found for recordID: 548
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/33e25381db708aefde1224d0d693bb3c5a1c9a78e1218b67c14890d4e2558ac5.png" src="../_images/33e25381db708aefde1224d0d693bb3c5a1c9a78e1218b67c14890d4e2558ac5.png" />
+<img alt="../_images/f57bf2080237b687275c93fbedfd02af0b72d7dbbd2d01e81b42e090f840553c.png" src="../_images/f57bf2080237b687275c93fbedfd02af0b72d7dbbd2d01e81b42e090f840553c.png" />
 </div>
 </div>
 </section>

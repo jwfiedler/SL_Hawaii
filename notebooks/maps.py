@@ -4,6 +4,7 @@ import xarray as xr
 import matplotlib.pyplot as plt
 import cartopy.crs as ccrs
 import cartopy.feature as cfeature
+import numpy as np
 
 def get_stationinfo(data_dir):
     # Use a context manager to ensure the dataset is closed properly
@@ -65,3 +66,75 @@ def plot_station_labels(ax, station_info):# Add labels to the stations
 
     
     return station_label
+
+
+def get_top_ten(rsl, rid, mode='max'):
+    # Convert data to a pandas Series
+    sea_level_series = rsl.sea_level.isel(record_id=rid).to_series()
+
+
+   # Select top 100 values based on the mode
+    if mode == 'max':
+        top_values = sea_level_series.nlargest(100)
+    elif mode == 'min':
+        top_values = sea_level_series.nsmallest(100)
+    else:
+        raise ValueError('mode must be either "max" or "min"')
+
+    # Filter to find unique events spaced by at least 3 days
+    filtered_dates = []
+    top_10_values = pd.Series()
+
+    for date, value in top_values.items():
+        if all(abs((date - pd.to_datetime(added_date)).days) > 3 for added_date in filtered_dates):
+            filtered_dates.append(date)
+            top_10_values[date] = value
+        if len(filtered_dates) == 10:
+            break
+    rank = np.arange(1,11)
+
+    station_name = str(rsl['station_name'].isel(record_id=rid).values)
+    record_id = str(rsl['record_id'].isel(record_id=rid).values)  
+
+    top_10_values = pd.DataFrame({'rank': rank, 'date': top_10_values.index, 'sea level (m)': top_10_values.values})  
+    top_10_values['station_name'] = station_name
+    top_10_values['record_id'] = record_id
+    top_10_values['type'] = mode
+
+    #round the date to the nearest hour
+    top_10_values['date'] = top_10_values['date'].dt.round('h')
+
+    return top_10_values
+
+
+def get_top_10_table(rsl,rid,ONI_dir):
+    # make a table of the top 10 values, sorted by size and with date
+    top_10_values_max = get_top_ten(rsl, rid, mode='max')
+    top_10_values_min = get_top_ten(rsl, rid, mode='min')
+
+    top_10_table = pd.concat([top_10_values_max,top_10_values_min])
+
+    # cross reference the dates with the oni data to see if they are during an El Nino or La Nina event
+    oni = pd.read_csv(ONI_dir / 'oni.csv', index_col='time', parse_dates=True)
+
+    # El Nino is true when ONI > 0.5 for 5 consecutive periods 
+    oni['El Nino'] = (oni['ONI'] > 0.5).rolling(window=5).sum() == 5
+
+    # La Nina is true when ONI < -0.5 for 5 consecutive periods 
+    oni['La Nina'] = (oni['ONI'] < -0.5).rolling(window=5).sum() == 5
+
+    # add a new column to oni_min called mode, where mode is either 'El Nino', 'La Nina', or 'Neutral'
+    oni['ONI Mode'] = 'Neutral'
+    oni.loc[oni['La Nina'] ==True, 'ONI Mode'] = 'La Nina'
+    oni.loc[oni['El Nino'] ==True, 'ONI Mode'] = 'El Nino'
+
+    #drop the La Nina and El Nino columns
+    oni = oni.drop(columns=['La Nina', 'El Nino'])
+
+    #Extract ONI values for the corresponding dates of top_10_table
+    oni_val = oni.reindex(top_10_table['date'], method='nearest')
+    
+    # add the oni values to the top_10_table
+    top_10_table = pd.merge(top_10_table, oni_val, left_on='date', right_index=True)
+
+    return top_10_table
