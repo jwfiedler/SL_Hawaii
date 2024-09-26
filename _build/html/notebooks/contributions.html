@@ -1276,7 +1276,7 @@ FileNotFoundError: No model found for recordID: 548
            <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">ccrs</span><span class="o">.</span><span class="n">PlateCarree</span><span class="p">())</span>
 
 <span class="n">dfInfo</span> <span class="o">=</span> <span class="n">get_stationinfo</span><span class="p">(</span><span class="n">dirs</span><span class="p">[</span><span class="s1">&#39;data_dir&#39;</span><span class="p">])</span>
-<span class="n">dfInfo</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfInfo</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">10</span>
+<span class="n">dfInfo</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dfInfo</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span>
 
 <span class="c1">#change the font color to black if the station is in the df_filtered</span>
 <span class="n">dfInfo</span><span class="p">[</span><span class="s1">&#39;fontcolor&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">dfInfo</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df_filtered</span><span class="p">[</span><span class="s1">&#39;record_id&#39;</span><span class="p">]),</span> <span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="s1">&#39;gray&#39;</span><span class="p">)</span>
@@ -1312,7 +1312,7 @@ FileNotFoundError: No model found for recordID: 548
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/f57bf2080237b687275c93fbedfd02af0b72d7dbbd2d01e81b42e090f840553c.png" src="../_images/f57bf2080237b687275c93fbedfd02af0b72d7dbbd2d01e81b42e090f840553c.png" />
+<img alt="../_images/33e25381db708aefde1224d0d693bb3c5a1c9a78e1218b67c14890d4e2558ac5.png" src="../_images/33e25381db708aefde1224d0d693bb3c5a1c9a78e1218b67c14890d4e2558ac5.png" />
 </div>
 </div>
 </section>
