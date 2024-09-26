@@ -18,3 +18,5 @@ notebooks/nonstationaryGEV/*.dat
 notebooks/nonstationaryGEV/model_output/57/seasonal_params.json
 /notebooks/nonstationaryGEV/model_output
 /output/extremes
+*.pyc
+*.pyc
