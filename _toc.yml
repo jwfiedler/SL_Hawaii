@@ -32,7 +32,7 @@ parts:
       - file: notebooks/regional_and_local/SL_anomaly_intra-annual.ipynb
       - file: notebooks/regional_and_local/SL_Rankings_intra-annual.md
       - file: notebooks/regional_and_local/SL_Extremes_intra-annual.ipynb
-      - file: notebooks/regional_and_local/SL_Components_intra-annual.ipynb
+      - file: notebooks/contributions.ipynb
     - file: notebooks/Flood_intra-annual.md
       sections:
       - file: notebooks/FloodFrequency_intra-annual.ipynb
