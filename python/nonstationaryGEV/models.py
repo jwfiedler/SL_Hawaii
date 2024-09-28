@@ -14,7 +14,7 @@ def prep_model_input_data(rsl_xr,recordID,dirs, CIname):
     mm['monthly_max'].to_csv(run_dir / 'Y.txt', header=False, index=False)
 
     if CIname != 'None' and CIname != None and CIname != 'O':
-        mm['CI'] = get_covariate(mm['t_monthly_max'], CI_dir, CIname)
+        mm['CI'] = get_covariate(mm['t_monthly_max'], CI_dir, CIname, recordID)
         mm['CI'].to_csv(run_dir / 'CI.txt', header=False, index=False)
 
 

@@ -38,7 +38,7 @@ print(f"Base directory: {base_dir}")
 dirs = make_directoryDict(base_dir)
 
 
-recordID =59
+recordID =57
 runWithoutModel = False
 returnPeriod = [2,10,50,100]
 year0plot = 1993
