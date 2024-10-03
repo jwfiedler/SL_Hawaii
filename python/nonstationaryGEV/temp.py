@@ -62,7 +62,7 @@ for recordID in rsl_hourly.record_id.values:  # Ensure recordID is a value
     # Get dataset of monthly max sea level data
     mm, STNDtoMHHW, station_name, year0 = get_monthly_max_time_series(recordID, rsl_hourly)
     mmax = mm['monthly_max'].to_numpy()
-    CIcorr = np.zeros((len(climateIndex), 20))
+    CIcorr = np.zeros((len(climateIndex), 30))
 
     # Arrays to store peak correlation and lag for each climate index
     CIcorr_max_peaks = np.zeros(len(climateIndex))
@@ -73,7 +73,7 @@ for recordID in rsl_hourly.record_id.values:  # Ensure recordID is a value
         CI = get_covariate(mm['t_monthly_max'], CI_dir, CIname=climateIndex[indCI])
 
         # Define the number of lags
-        lag = 20
+        lag = 30
         corr = np.zeros(lag)
 
         # Calculate lagged correlation
@@ -83,9 +83,9 @@ for recordID in rsl_hourly.record_id.values:  # Ensure recordID is a value
         CIcorr[indCI,:] = corr
 
         # Find peaks in correlation
-        peaks, _ = find_peaks(np.abs(CIcorr[indCI,:]), width=3)
+        peaks, _ = find_peaks(np.abs(CIcorr[indCI,:]), width=2)
         
-        if len(peaks) > 0:
+        if len(peaks) > 1:
             CIcorr_max_peaks[indCI] = CIcorr[indCI,peaks[0]]
             CIcorr_max_lag[indCI] = peaks[0]
         else:
@@ -96,15 +96,15 @@ for recordID in rsl_hourly.record_id.values:  # Ensure recordID is a value
             CIcorr_max_peaks[indCI] = CIcorr[indCI,0]
             CIcorr_max_lag[indCI] = 0
 
-        if np.abs(np.abs(CIcorr_max_peaks[indCI])-np.abs(CIcorr[indCI,0]))<np.std(CIcorr[indCI,:]):
-            CIcorr_max_peaks[indCI] = CIcorr[indCI,0]
-            CIcorr_max_lag[indCI] = 0
+        # if np.abs(np.abs(CIcorr_max_peaks[indCI])-np.abs(CIcorr[indCI,0]))<0.5*np.std(CIcorr[indCI,:]):
+        #     CIcorr_max_peaks[indCI] = CIcorr[indCI,0]
+        #     CIcorr_max_lag[indCI] = 0
 
         
 
     #% Plot correlation for each climate index
     fig, ax = plt.subplots()
-    ax.plot(np.arange(1, 21), CIcorr.T)
+    ax.plot(np.arange(1, 31), CIcorr.T)
 
     for indCI in range(len(climateIndex)):
         if CIcorr_max_lag[indCI] is not None:
@@ -164,3 +164,10 @@ print(master_df)
 #%%
 # Save master DataFrame to CSV
 master_df.to_csv(dirs['CI_dir'] / 'CI_correlation_results.csv', index=False)
+
+#%%
+# look at PMM for all stations
+pmm_df = master_df[master_df['climateIndex'] == 'PMM']
+
+# get pmm_df for Honolulu
+honolulu_pmm = pmm_df[pmm_df['station'] == 'Honolulu, Hawaii']
