@@ -82,23 +82,27 @@ for recordID in rsl_hourly.record_id.values:  # Ensure recordID is a value
 
         CIcorr[indCI,:] = corr
 
-        # Find peaks in correlation
-        peaks, _ = find_peaks(np.abs(CIcorr[indCI,:]), width=2)
+        # # Find peaks in correlation
+        # peaks, _ = find_peaks(np.abs(CIcorr[indCI,:]), width=2)
         
-        if len(peaks) > 1:
-            CIcorr_max_peaks[indCI] = CIcorr[indCI,peaks[0]]
-            CIcorr_max_lag[indCI] = peaks[0]
-        else:
-            CIcorr_max_peaks[indCI] = CIcorr[indCI,-1]
-            CIcorr_max_lag[indCI] = lag-1
+        # if len(peaks) > 1:
+        #     CIcorr_max_peaks[indCI] = CIcorr[indCI,peaks[0]]
+        #     CIcorr_max_lag[indCI] = peaks[0]
+        # else:
+        #     CIcorr_max_peaks[indCI] = CIcorr[indCI,-1]
+        #     CIcorr_max_lag[indCI] = lag-1
 
-        if CIcorr_max_peaks[indCI] < CIcorr[indCI,0]:
-            CIcorr_max_peaks[indCI] = CIcorr[indCI,0]
-            CIcorr_max_lag[indCI] = 0
+        # if CIcorr_max_peaks[indCI] < CIcorr[indCI,0]:
+        #     CIcorr_max_peaks[indCI] = CIcorr[indCI,0]
+        #     CIcorr_max_lag[indCI] = 0
 
         # if np.abs(np.abs(CIcorr_max_peaks[indCI])-np.abs(CIcorr[indCI,0]))<0.5*np.std(CIcorr[indCI,:]):
         #     CIcorr_max_peaks[indCI] = CIcorr[indCI,0]
         #     CIcorr_max_lag[indCI] = 0
+
+        # get max correlation and lag
+        CIcorr_max_peaks[indCI] = np.max(CIcorr[indCI,:])
+        CIcorr_max_lag[indCI] = np.argmax(CIcorr[indCI,:])
 
         
 
