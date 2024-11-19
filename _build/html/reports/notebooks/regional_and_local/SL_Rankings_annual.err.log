@@ -15,192 +15,52 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-%run ../setup.ipynb
-%run ../plotting_functions.ipynb
-data_dir = Path('../../data' )
-output_dir = Path('../../output') 
+#import rsl_daily
+with xr.open_dataset(data_dir/ 'rsl_hawaii.nc') as ds:
+    rsl_daily = ds.sel(time=slice('1993','2023'))
 
-# We're going to use plotly here, so we need to import it
-import plotly.io as pio
-import plotly.express as px
-import plotly.offline as py
-import plotly.graph_objects as go
+    data_coverage = rsl_daily['sea_level'].count(dim='time')/len(rsl_daily.time)
 
-# check to make sure that data_dir/rsl_daily_hawaii.nc exists, if not, make warning to run datawrangling notebook
-if not (data_dir / 'rsl_hawaii.nc').exists():
-    print('rsl_hawaii.nc not found in '+ str(data_dir) +  '. Please run the data wrangling notebook first')
-else:
-    print('rsl_hawaii.nc found in '+ str(data_dir) +  '. Proceed.')
+    data_coverage
+    #drop all locations with data_coverage less than 80%
+    rsl_subset = rsl_daily.where(data_coverage>0.80,drop=True)
+
+# make sea level relative to MHHW, and convert to m
+rsl_subset['sea_level'] = rsl_subset['sea_level'] - rsl_subset['MHHW']
+rsl_subset['sea_level'] = rsl_subset['sea_level']/1000
+
+# rename variable long name to sea level relative to MHHW
+rsl_subset['sea_level'].attrs['long_name'] = 'sea level, MHHW'
+rsl_subset['sea_level'].attrs['units'] = 'm'
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211[0m, in [0;36mCachingFileManager._acquire_with_cache_info[0;34m(self, needs_lock)[0m
-[1;32m    210[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 211[0m     file [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_key[49m[43m][49m
-[1;32m    212[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+[0;31mValueError[0m                                Traceback (most recent call last)
+Cell [0;32mIn[2], line 2[0m
+[1;32m      1[0m [38;5;66;03m#import rsl_daily[39;00m
+[0;32m----> 2[0m [38;5;28;01mwith[39;00m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m[43mdata_dir[49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m [38;5;28;01mas[39;00m ds:
+[1;32m      3[0m     rsl_daily [38;5;241m=[39m ds[38;5;241m.[39msel(time[38;5;241m=[39m[38;5;28mslice[39m([38;5;124m'[39m[38;5;124m1993[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124m2023[39m[38;5;124m'[39m))
+[1;32m      5[0m     data_coverage [38;5;241m=[39m rsl_daily[[38;5;124m'[39m[38;5;124msea_level[39m[38;5;124m'[39m][38;5;241m.[39mcount(dim[38;5;241m=[39m[38;5;124m'[39m[38;5;124mtime[39m[38;5;124m'[39m)[38;5;241m/[39m[38;5;28mlen[39m(rsl_daily[38;5;241m.[39mtime)
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56[0m, in [0;36mLRUCache.__getitem__[0;34m(self, key)[0m
-[1;32m     55[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39m_lock:
-[0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
-[1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554[0m, in [0;36mopen_dataset[0;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
+[1;32m    551[0m     kwargs[38;5;241m.[39mupdate(backend_kwargs)
+[1;32m    553[0m [38;5;28;01mif[39;00m engine [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[0;32m--> 554[0m     engine [38;5;241m=[39m [43mplugins[49m[38;5;241;43m.[39;49m[43mguess_engine[49m[43m([49m[43mfilename_or_obj[49m[43m)[49m
+[1;32m    556[0m [38;5;28;01mif[39;00m from_array_kwargs [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
+[1;32m    557[0m     from_array_kwargs [38;5;241m=[39m {}
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'e5603ad3-d5df-458f-adda-dcccd3fc3235']
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197[0m, in [0;36mguess_engine[0;34m(store_spec)[0m
+[1;32m    189[0m [38;5;28;01melse[39;00m:
+[1;32m    190[0m     error_msg [38;5;241m=[39m (
+[1;32m    191[0m         [38;5;124m"[39m[38;5;124mfound the following matches with the input file in xarray[39m[38;5;124m'[39m[38;5;124ms IO [39m[38;5;124m"[39m
+[1;32m    192[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mbackends: [39m[38;5;132;01m{[39;00mcompatible_engines[38;5;132;01m}[39;00m[38;5;124m. But their dependencies may not be installed, see:[39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[1;32m    193[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/user-guide/io.html [39m[38;5;130;01m\n[39;00m[38;5;124m"[39m
+[1;32m    194[0m         [38;5;124m"[39m[38;5;124mhttps://docs.xarray.dev/en/stable/getting-started-guide/installing.html[39m[38;5;124m"[39m
+[1;32m    195[0m     )
+[0;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
 
-During handling of the above exception, another exception occurred:
-
-[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-Cell [0;32mIn[1], line 2[0m
-[1;32m      1[0m get_ipython()[38;5;241m.[39mrun_line_magic([38;5;124m'[39m[38;5;124mrun[39m[38;5;124m'[39m, [38;5;124m'[39m[38;5;124m../setup.ipynb[39m[38;5;124m'[39m)
-[0;32m----> 2[0m [43mget_ipython[49m[43m([49m[43m)[49m[38;5;241;43m.[39;49m[43mrun_line_magic[49m[43m([49m[38;5;124;43m'[39;49m[38;5;124;43mrun[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43m../plotting_functions.ipynb[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[1;32m      3[0m data_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m../../data[39m[38;5;124m'[39m )
-[1;32m      4[0m output_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m../../output[39m[38;5;124m'[39m) 
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2456[0m, in [0;36mInteractiveShell.run_line_magic[0;34m(self, magic_name, line, _stack_depth)[0m
-[1;32m   2454[0m     kwargs[[38;5;124m'[39m[38;5;124mlocal_ns[39m[38;5;124m'[39m] [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mget_local_scope(stack_depth)
-[1;32m   2455[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39mbuiltin_trap:
-[0;32m-> 2456[0m     result [38;5;241m=[39m [43mfn[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m   2458[0m [38;5;66;03m# The code below prevents the output from being displayed[39;00m
-[1;32m   2459[0m [38;5;66;03m# when using magics with decorator @output_can_be_silenced[39;00m
-[1;32m   2460[0m [38;5;66;03m# when the last Python token in the expression is a ';'.[39;00m
-[1;32m   2461[0m [38;5;28;01mif[39;00m [38;5;28mgetattr[39m(fn, magic[38;5;241m.[39mMAGIC_OUTPUT_CAN_BE_SILENCED, [38;5;28;01mFalse[39;00m):
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/magics/execution.py:737[0m, in [0;36mExecutionMagics.run[0;34m(self, parameter_s, runner, file_finder)[0m
-[1;32m    735[0m     [38;5;28;01mwith[39;00m preserve_keys([38;5;28mself[39m[38;5;241m.[39mshell[38;5;241m.[39muser_ns, [38;5;124m'[39m[38;5;124m__file__[39m[38;5;124m'[39m):
-[1;32m    736[0m         [38;5;28mself[39m[38;5;241m.[39mshell[38;5;241m.[39muser_ns[[38;5;124m'[39m[38;5;124m__file__[39m[38;5;124m'[39m] [38;5;241m=[39m filename
-[0;32m--> 737[0m         [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mshell[49m[38;5;241;43m.[39;49m[43msafe_execfile_ipy[49m[43m([49m[43mfilename[49m[43m,[49m[43m [49m[43mraise_exceptions[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
-[1;32m    738[0m     [38;5;28;01mreturn[39;00m
-[1;32m    740[0m [38;5;66;03m# Control the response to exit() calls made by the script being run[39;00m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:2978[0m, in [0;36mInteractiveShell.safe_execfile_ipy[0;34m(self, fname, shell_futures, raise_exceptions)[0m
-[1;32m   2976[0m result [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mrun_cell(cell, silent[38;5;241m=[39m[38;5;28;01mTrue[39;00m, shell_futures[38;5;241m=[39mshell_futures)
-[1;32m   2977[0m [38;5;28;01mif[39;00m raise_exceptions:
-[0;32m-> 2978[0m     [43mresult[49m[38;5;241;43m.[39;49m[43mraise_error[49m[43m([49m[43m)[49m
-[1;32m   2979[0m [38;5;28;01melif[39;00m [38;5;129;01mnot[39;00m result[38;5;241m.[39msuccess:
-[1;32m   2980[0m     [38;5;28;01mbreak[39;00m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/IPython/core/interactiveshell.py:294[0m, in [0;36mExecutionResult.raise_error[0;34m(self)[0m
-[1;32m    292[0m     [38;5;28;01mraise[39;00m [38;5;28mself[39m[38;5;241m.[39merror_before_exec
-[1;32m    293[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39merror_in_exec [38;5;129;01mis[39;00m [38;5;129;01mnot[39;00m [38;5;28;01mNone[39;00m:
-[0;32m--> 294[0m     [38;5;28;01mraise[39;00m [38;5;28mself[39m[38;5;241m.[39merror_in_exec
-
-    [0;31m[... skipping hidden 1 frame][0m
-
-File [0;32m/var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_17782/3071482840.py:1[0m
-[0;32m----> 1[0m station_info [38;5;241m=[39m [43mget_stationinfo[49m[43m([49m[43m)[49m
-[1;32m      2[0m station_info
-
-File [0;32m/var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_17782/4101372056.py:9[0m, in [0;36mget_stationinfo[0;34m()[0m
-[1;32m      6[0m data_dir [38;5;241m=[39m Path([38;5;124m'[39m[38;5;124m../data[39m[38;5;124m'[39m)
-[1;32m      8[0m [38;5;66;03m# def get_stationInfo():[39;00m
-[0;32m----> 9[0m rsl [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mload_dataset[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[1;32m     11[0m [38;5;66;03m# Create a list to store rows as dictionaries[39;00m
-[1;32m     12[0m data [38;5;241m=[39m []
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:279[0m, in [0;36mload_dataset[0;34m(filename_or_obj, **kwargs)[0m
-[1;32m    276[0m [38;5;28;01mif[39;00m [38;5;124m"[39m[38;5;124mcache[39m[38;5;124m"[39m [38;5;129;01min[39;00m kwargs:
-[1;32m    277[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m"[39m[38;5;124mcache has no effect in this context[39m[38;5;124m"[39m)
-[0;32m--> 279[0m [38;5;28;01mwith[39;00m [43mopen_dataset[49m[43m([49m[43mfilename_or_obj[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m [38;5;28;01mas[39;00m ds:
-[1;32m    280[0m     [38;5;28;01mreturn[39;00m ds[38;5;241m.[39mload()
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573[0m, in [0;36mopen_dataset[0;34m(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)[0m
-[1;32m    561[0m decoders [38;5;241m=[39m _resolve_decoders_kwargs(
-[1;32m    562[0m     decode_cf,
-[1;32m    563[0m     open_backend_dataset_parameters[38;5;241m=[39mbackend[38;5;241m.[39mopen_dataset_parameters,
-[0;32m   (...)[0m
-[1;32m    569[0m     decode_coords[38;5;241m=[39mdecode_coords,
-[1;32m    570[0m )
-[1;32m    572[0m overwrite_encoded_chunks [38;5;241m=[39m kwargs[38;5;241m.[39mpop([38;5;124m"[39m[38;5;124moverwrite_encoded_chunks[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)
-[0;32m--> 573[0m backend_ds [38;5;241m=[39m [43mbackend[49m[38;5;241;43m.[39;49m[43mopen_dataset[49m[43m([49m
-[1;32m    574[0m [43m    [49m[43mfilename_or_obj[49m[43m,[49m
-[1;32m    575[0m [43m    [49m[43mdrop_variables[49m[38;5;241;43m=[39;49m[43mdrop_variables[49m[43m,[49m
-[1;32m    576[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mdecoders[49m[43m,[49m
-[1;32m    577[0m [43m    [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m,[49m
-[1;32m    578[0m [43m[49m[43m)[49m
-[1;32m    579[0m ds [38;5;241m=[39m _dataset_from_backend_dataset(
-[1;32m    580[0m     backend_ds,
-[1;32m    581[0m     filename_or_obj,
-[0;32m   (...)[0m
-[1;32m    591[0m     [38;5;241m*[39m[38;5;241m*[39mkwargs,
-[1;32m    592[0m )
-[1;32m    593[0m [38;5;28;01mreturn[39;00m ds
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646[0m, in [0;36mNetCDF4BackendEntrypoint.open_dataset[0;34m(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)[0m
-[1;32m    625[0m [38;5;28;01mdef[39;00m [38;5;21mopen_dataset[39m(  [38;5;66;03m# type: ignore[override]  # allow LSP violation, not supporting **kwargs[39;00m
-[1;32m    626[0m     [38;5;28mself[39m,
-[1;32m    627[0m     filename_or_obj: [38;5;28mstr[39m [38;5;241m|[39m os[38;5;241m.[39mPathLike[Any] [38;5;241m|[39m BufferedIOBase [38;5;241m|[39m AbstractDataStore,
-[0;32m   (...)[0m
-[1;32m    643[0m     autoclose[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
-[1;32m    644[0m ) [38;5;241m-[39m[38;5;241m>[39m Dataset:
-[1;32m    645[0m     filename_or_obj [38;5;241m=[39m _normalize_path(filename_or_obj)
-[0;32m--> 646[0m     store [38;5;241m=[39m [43mNetCDF4DataStore[49m[38;5;241;43m.[39;49m[43mopen[49m[43m([49m
-[1;32m    647[0m [43m        [49m[43mfilename_or_obj[49m[43m,[49m
-[1;32m    648[0m [43m        [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
-[1;32m    649[0m [43m        [49m[38;5;28;43mformat[39;49m[38;5;241;43m=[39;49m[38;5;28;43mformat[39;49m[43m,[49m
-[1;32m    650[0m [43m        [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m
-[1;32m    651[0m [43m        [49m[43mclobber[49m[38;5;241;43m=[39;49m[43mclobber[49m[43m,[49m
-[1;32m    652[0m [43m        [49m[43mdiskless[49m[38;5;241;43m=[39;49m[43mdiskless[49m[43m,[49m
-[1;32m    653[0m [43m        [49m[43mpersist[49m[38;5;241;43m=[39;49m[43mpersist[49m[43m,[49m
-[1;32m    654[0m [43m        [49m[43mlock[49m[38;5;241;43m=[39;49m[43mlock[49m[43m,[49m
-[1;32m    655[0m [43m        [49m[43mautoclose[49m[38;5;241;43m=[39;49m[43mautoclose[49m[43m,[49m
-[1;32m    656[0m [43m    [49m[43m)[49m
-[1;32m    658[0m     store_entrypoint [38;5;241m=[39m StoreBackendEntrypoint()
-[1;32m    659[0m     [38;5;28;01mwith[39;00m close_on_error(store):
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409[0m, in [0;36mNetCDF4DataStore.open[0;34m(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)[0m
-[1;32m    403[0m kwargs [38;5;241m=[39m [38;5;28mdict[39m(
-[1;32m    404[0m     clobber[38;5;241m=[39mclobber, diskless[38;5;241m=[39mdiskless, persist[38;5;241m=[39mpersist, [38;5;28mformat[39m[38;5;241m=[39m[38;5;28mformat[39m
-[1;32m    405[0m )
-[1;32m    406[0m manager [38;5;241m=[39m CachingFileManager(
-[1;32m    407[0m     netCDF4[38;5;241m.[39mDataset, filename, mode[38;5;241m=[39mmode, kwargs[38;5;241m=[39mkwargs
-[1;32m    408[0m )
-[0;32m--> 409[0m [38;5;28;01mreturn[39;00m [38;5;28;43mcls[39;49m[43m([49m[43mmanager[49m[43m,[49m[43m [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m[43m [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m[43m [49m[43mlock[49m[38;5;241;43m=[39;49m[43mlock[49m[43m,[49m[43m [49m[43mautoclose[49m[38;5;241;43m=[39;49m[43mautoclose[49m[43m)[49m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356[0m, in [0;36mNetCDF4DataStore.__init__[0;34m(self, manager, group, mode, lock, autoclose)[0m
-[1;32m    354[0m [38;5;28mself[39m[38;5;241m.[39m_group [38;5;241m=[39m group
-[1;32m    355[0m [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m=[39m mode
-[0;32m--> 356[0m [38;5;28mself[39m[38;5;241m.[39mformat [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mds[49m[38;5;241m.[39mdata_model
-[1;32m    357[0m [38;5;28mself[39m[38;5;241m.[39m_filename [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mds[38;5;241m.[39mfilepath()
-[1;32m    358[0m [38;5;28mself[39m[38;5;241m.[39mis_remote [38;5;241m=[39m is_remote_uri([38;5;28mself[39m[38;5;241m.[39m_filename)
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418[0m, in [0;36mNetCDF4DataStore.ds[0;34m(self)[0m
-[1;32m    416[0m [38;5;129m@property[39m
-[1;32m    417[0m [38;5;28;01mdef[39;00m [38;5;21mds[39m([38;5;28mself[39m):
-[0;32m--> 418[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_acquire[49m[43m([49m[43m)[49m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412[0m, in [0;36mNetCDF4DataStore._acquire[0;34m(self, needs_lock)[0m
-[1;32m    411[0m [38;5;28;01mdef[39;00m [38;5;21m_acquire[39m([38;5;28mself[39m, needs_lock[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
-[0;32m--> 412[0m     [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39m_manager[38;5;241m.[39macquire_context(needs_lock) [38;5;28;01mas[39;00m root:
-[1;32m    413[0m         ds [38;5;241m=[39m _nc4_require_group(root, [38;5;28mself[39m[38;5;241m.[39m_group, [38;5;28mself[39m[38;5;241m.[39m_mode)
-[1;32m    414[0m     [38;5;28;01mreturn[39;00m ds
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119[0m, in [0;36m_GeneratorContextManager.__enter__[0;34m(self)[0m
-[1;32m    117[0m [38;5;28;01mdel[39;00m [38;5;28mself[39m[38;5;241m.[39margs, [38;5;28mself[39m[38;5;241m.[39mkwds, [38;5;28mself[39m[38;5;241m.[39mfunc
-[1;32m    118[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 119[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mnext[39;49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mgen[49m[43m)[49m
-[1;32m    120[0m [38;5;28;01mexcept[39;00m [38;5;167;01mStopIteration[39;00m:
-[1;32m    121[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m"[39m[38;5;124mgenerator didn[39m[38;5;124m'[39m[38;5;124mt yield[39m[38;5;124m"[39m) [38;5;28;01mfrom[39;00m [38;5;28;01mNone[39;00m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199[0m, in [0;36mCachingFileManager.acquire_context[0;34m(self, needs_lock)[0m
-[1;32m    196[0m [38;5;129m@contextlib[39m[38;5;241m.[39mcontextmanager
-[1;32m    197[0m [38;5;28;01mdef[39;00m [38;5;21macquire_context[39m([38;5;28mself[39m, needs_lock[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
-[1;32m    198[0m [38;5;250m    [39m[38;5;124;03m"""Context manager for acquiring a file."""[39;00m
-[0;32m--> 199[0m     file, cached [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_acquire_with_cache_info[49m[43m([49m[43mneeds_lock[49m[43m)[49m
-[1;32m    200[0m     [38;5;28;01mtry[39;00m:
-[1;32m    201[0m         [38;5;28;01myield[39;00m file
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217[0m, in [0;36mCachingFileManager._acquire_with_cache_info[0;34m(self, needs_lock)[0m
-[1;32m    215[0m     kwargs [38;5;241m=[39m kwargs[38;5;241m.[39mcopy()
-[1;32m    216[0m     kwargs[[38;5;124m"[39m[38;5;124mmode[39m[38;5;124m"[39m] [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_mode
-[0;32m--> 217[0m file [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_opener[49m[43m([49m[38;5;241;43m*[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_args[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m    218[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m==[39m [38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m:
-[1;32m    219[0m     [38;5;66;03m# ensure file doesn't get overridden when opened again[39;00m
-[1;32m    220[0m     [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m=[39m [38;5;124m"[39m[38;5;124ma[39m[38;5;124m"[39m
-
-File [0;32msrc/netCDF4/_netCDF4.pyx:2469[0m, in [0;36mnetCDF4._netCDF4.Dataset.__init__[0;34m()[0m
-
-File [0;32msrc/netCDF4/_netCDF4.pyx:2028[0m, in [0;36mnetCDF4._netCDF4._ensure_nc_success[0;34m()[0m
-
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/notebooks/data/rsl_hawaii.nc'
+[0;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
+https://docs.xarray.dev/en/stable/user-guide/io.html
 

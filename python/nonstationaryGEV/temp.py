@@ -119,8 +119,10 @@ for recordID in rsl_hourly.record_id.values:  # Ensure recordID is a value
     ax.set_title(f'Correlation between climate index and sea level monthly max for {station_name}')
     ax.legend(climateIndex)
 
-    # Save plot
-    fig.savefig(f'{station_name}_correlation_plot.png')
+    # Save plot in output/CI directory
+    savedir = dirs['output_dir'] / 'CI'
+    savedir.mkdir(parents=True, exist_ok=True)
+    fig.savefig(savedir / f'{station_name}_correlation_plot.png')
 
     #% Create DataFrame for current station
     CI_lags_df = pd.DataFrame({
@@ -162,16 +164,31 @@ for recordID in rsl_hourly.record_id.values:  # Ensure recordID is a value
 # After the loop, concatenate all DataFrames into a master DataFrame
 master_df = pd.concat(dataframes_list, ignore_index=True)
 
+# Enforce 18-month lag for ONI, BEST
+# This is based on Long et al 2020
+master_df.loc[master_df['climateIndex'].isin(['ONI', 'BEST']), 'lag'] = 19
+
+# Enforce 16-month lag for PDO
+# average lag from bulk of HI stations
+master_df.loc[master_df['climateIndex'] == 'PDO', 'lag'] = 16
+
+# Enforce 10-month lag for PMM
+# Long et al 2020 uses 8-month lag for upper 100m 
+master_df.loc[master_df['climateIndex'] == 'PMM', 'lag'] = 10
+
+
 # Now `master_df` contains all the results across stations
 print(master_df)
 
 #%%
 # Save master DataFrame to CSV
-master_df.to_csv(dirs['CI_dir'] / 'CI_correlation_results.csv', index=False)
+master_df.to_csv(dirs['CI_dir'] / 'CI_correlation_results_v2.csv', index=False)
 
 #%%
 # look at PMM for all stations
-pmm_df = master_df[master_df['climateIndex'] == 'PMM']
+CI_df = master_df[master_df['climateIndex'] == 'PMM']
 
-# get pmm_df for Honolulu
-honolulu_pmm = pmm_df[pmm_df['station'] == 'Honolulu, Hawaii']
+# get CI_df for Honolulu
+honolulu_CI = CI_df[CI_df['station'] == 'Honolulu, Hawaii']
+
+# %%

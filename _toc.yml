@@ -6,6 +6,8 @@ root: intro.md
 parts:
   - caption: Getting started
     chapters:
+    - url: https://uhslc.soest.hawaii.edu/jfiedler/SeaLevelIndicators/
+      title: Indicator Matrix
     - file: gettingStarted.md
       sections:
       - file: notebooks/setup.ipynb
