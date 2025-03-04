@@ -1,4 +1,6 @@
 from imports import *
+from test_sceua import run_GEVt_model
+import contextlib
 
 def remove_files(dirs):
     # remove best.txt and mio.txt if they exist
@@ -14,8 +16,7 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
 
     cont = 0
 
-    x = np.array([x_inisol]) 
-    # x = x_inisol # Start with initial solution
+    x = np.array([x_inisol]) # Start with initial solution
     f, pa = fitness(x[cont], dirs, modelType)  # Compute fitness for initial solution
     f = np.array([f])
     pa = np.array([pa])
@@ -35,6 +36,8 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
             for i in range(len(dum)):
                 x_temp[i, dum[i]] = 1
                 f_temp[i], pa_temp[i] = fitness(x_temp[i], dirs, modelType)
+            # print(f'x_temp: {x_temp}')
+            # print(f'f_temp: {f_temp}')
             best, indi = np.max(f_temp), np.argmax(f_temp)
             # Check if the improvement is significant with chi2 test
             if (best - f[cont]) >= (0.5 * chi2.ppf(prob, df=(pa_temp[indi] - pa[cont]))):
@@ -42,6 +45,7 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
                 x = np.vstack((x, [x_temp[indi]]))
                 f = np.vstack((f, [best]))
                 pa = np.vstack((pa, [pa_temp[indi]]))
+                # print(f'x: {x}')
                 f[cont], pa[cont] = fitness(x[cont], dirs, modelType)
             else:
                 better = False
@@ -50,7 +54,7 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
 
     return x, f
 
-def fitness(x, dirs, modelType='GEV_SeasonalMu'):
+def fitness_withFortran(x, dirs, modelType='GEV_SeasonalMu'):
 
     run_dir = dirs['run_dir']  
 
@@ -180,6 +184,61 @@ def fitness(x, dirs, modelType='GEV_SeasonalMu'):
     
     return bestf, n
 
+def fitness(x, dirs, modelType='GEV_SeasonalMu', nproc = 8):
+
+    run_dir = dirs['run_dir']  
+
+    remove_files(dirs)
+
+    if nproc == 1:
+        bestf, n = run_GEVt_model(x, run_dir, parallel = False)
+
+    else:
+        x_list = x.tolist() if isinstance(x, np.ndarray) else x
+
+        # pass parameters to the MPI script with a JSON file
+        param_file = Path(run_dir) / "params.json"
+        with open(param_file, 'w') as f:
+            json.dump({"x": x_list, "run_dir": str(run_dir)}, f)
+
+        #get path to run_GEVt_mpi.py
+        run_GEVt_mpi = str(Path(__file__).parent / 'run_GEVt_mpi.py')
+
+        seed = 955
+        
+        # Run the MPI command using subprocess
+        mpirun_command = ["mpirun", "-np", f'{nproc}', "python", run_GEVt_mpi, str(param_file), str(seed)]
+
+        max_retries = 10
+        retries = 0
+        while retries < max_retries:
+            with open(os.devnull, 'w') as devnull:
+                with contextlib.redirect_stdout(devnull), contextlib.redirect_stderr(devnull):
+                    result = subprocess.run(mpirun_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+            # Check if the subprocess ran successfully
+            if result.returncode != 0:
+                print(f"Error in mpirun execution: {result.stderr.decode()}")
+                raise RuntimeError("MPI execution failed.")
+            
+            # Try loading the mio matrix
+            mio = np.loadtxt(run_dir / 'mio.txt')
+            best = np.loadtxt(run_dir / 'best.txt')
+            # Check if mio is singular (determinant is 0)
+            if np.linalg.det(mio) == 0 or best[0] < 0:
+                retries += 1
+            else:
+                break
+
+    
+    # Read the output
+    bestf = best[0]
+    best_params = best[1:]
+    n = len(best_params)
+    
+
+    return bestf, n
+
 def get_monthly_max_time_series(recordID,rsl_hourly):
 
     ridIndex = np.where(rsl_hourly.record_id == recordID)[0]
@@ -237,10 +296,11 @@ def get_covariate(t_monthly_max, CI_dir, CIname='PMM', recordID=None):
     df = pd.read_csv(CI_dir / 'climate_indices_norm.csv', parse_dates=['time'])
     
     if recordID:
-        dfLags = pd.read_csv(CI_dir / 'CI_correlation_results.csv')
+        dfLags = pd.read_csv(CI_dir / 'CI_correlation_results_v2.csv')
         # Filter the DataFrame to the specific recordID and climate index
         lags = dfLags[(dfLags['recordID'] == recordID) & (dfLags['climateIndex'] == CIname)]
         lag = lags['lag'].values[0]
+        # lag = 0
     else:
         lag = 0
 
@@ -410,8 +470,13 @@ def Quantilentime(x0, w, x, t00, t11, return_period, T, serieCV):
     dt = 0.001
     ti = np.arange(t00, t11 + dt, dt)
 
+    # if serieCV is dtype('0') then serieCV2 is zeros of the same length as ti
+    if serieCV.dtype == 'O':
+        serieCV2 = np.zeros(len(ti))
+    else:
     # Interpolate serieCV at ti points
-    serieCV2 = np.interp(ti, T, serieCV)
+        serieCV2 = np.interp(ti, T, serieCV)
+
     # Replace NaNs with zero (np.interp does this by default if outside the bounds)
     serieCV2[np.isnan(serieCV2)] = 0
 
@@ -442,7 +507,8 @@ def Quantilentime(x0, w, x, t00, t11, return_period, T, serieCV):
     h = np.maximum(1 + (xit * (x0 - mut) / psi), 0.0001) ** (-1 / xit)
     factor = np.sum(h)    
 
-    prob = 1 - (1 / return_period)
+    prob = np.exp(-1/return_period)
+    # 1 - (1 / return_period)
 
     y = -prob + np.exp(-km * factor * dt)
 
@@ -453,9 +519,12 @@ def derivative_first_order(k, w, x, t00, t11, return_period, T, covariate):
     x0_initial = w[1]  # Initial value for the root-finding function
 
     wbest = adjust_w_for_plotting(x, w)
+
+
     # Step 1: Calculate the baseline value with the current parameters
+    valAdjust = 2
     baseline_func = lambda x0: Quantilentime(x0, wbest, x, t00, t11, return_period, T, covariate)
-    baseline_value = brentq(baseline_func, x0_initial - 1, x0_initial + 1)
+    baseline_value = brentq(baseline_func, x0_initial - valAdjust, x0_initial + valAdjust)
 
     # Perturb the k-th parameter
     perturbed_w = np.copy(w)
@@ -464,7 +533,7 @@ def derivative_first_order(k, w, x, t00, t11, return_period, T, covariate):
 
     # Step 2: Calculate the function value with the perturbed parameter
     perturbed_func = lambda x0: Quantilentime(x0, wbest_perturbed, x, t00, t11, return_period, T, covariate)
-    perturbed_value = brentq(perturbed_func, x0_initial - 1, x0_initial + 1)
+    perturbed_value = brentq(perturbed_func, x0_initial - valAdjust, x0_initial + valAdjust)
 
     # Step 3: Numerical derivative
     derivative = (perturbed_value - baseline_value) / h
@@ -480,6 +549,7 @@ def calculate_std(w, x, t00,t11, T,serieCV, mio, r):
         cov_params = np.eye(len(mio)) # if the Hessian is singular, we'll use the identity matrix as a placeholder
     else:
         cov_params = np.linalg.inv(mio) # the covariance matrix of the parameters is the inverse of the Hessian
+    
     n = len(w)
     Zp1 = np.zeros(n)
 
@@ -539,6 +609,7 @@ def getTimeDependentReturnValue(T0, serieCV, w, x, ReturnPeriod, mio):
             upper_confidence[idx, i] = YR[idx,i] + 1.96*ic_sqrt[idx,i]
             lower_confidence[idx, i] = YR[idx,i] - 1.96*ic_sqrt[idx,i]
 
+    print('Time-dependent return values calculated')
     return years, YR, upper_confidence, lower_confidence
 
 def save_model_to_netcdf(x,w,mio,modelName,savepath, modelInfo):
