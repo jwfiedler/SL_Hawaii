@@ -534,6 +534,27 @@ document.write(`
 
 <span class="c1"># Miscellaneous</span>
 <span class="kn">from</span> <span class="nn">myst_nb</span> <span class="kn">import</span> <span class="n">glue</span>  <span class="c1"># used for figure numbering when exporting to LaTeX</span>
+
+<span class="c1"># import custom functions</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">notebooks_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="k">if</span> <span class="n">notebooks_dir</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">:</span>
+    <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">notebooks_dir</span><span class="o">.</span><span class="n">parent</span><span class="p">))</span>
+    
+<span class="kn">import</span> <span class="nn">tseries_functions</span> <span class="k">as</span> <span class="nn">tsf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#set up directories as environment variables</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DATA_DIR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;~/Documents/SL_Hawaii_data/data&quot;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OUTPUT_DIR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;~/Documents/SL_Hawaii_data/output&quot;</span>
+
+<span class="c1">#set up directories as Path objects</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;DATA_DIR&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s2">&quot;OUTPUT_DIR&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">expanduser</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

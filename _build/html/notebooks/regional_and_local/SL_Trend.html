@@ -518,9 +518,9 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="sea-level-trend">
 <h1>Sea Level Trend<a class="headerlink" href="#sea-level-trend" title="Permalink to this heading">#</a></h1>
 <figure class="align-right">
-<a class="reference internal image-reference" href="../../_images/089b0bdbe3baeba00a44de4f6eaa11ab13d1c14ba0623593549f1628496f67ca.png"><img alt="../../_images/089b0bdbe3baeba00a44de4f6eaa11ab13d1c14ba0623593549f1628496f67ca.png" src="../../_images/089b0bdbe3baeba00a44de4f6eaa11ab13d1c14ba0623593549f1628496f67ca.png" style="width: 556.5px; height: 535.0px;" /></a>
+<a class="reference internal image-reference" href="../../_images/da417d1a7d54ea5a6e8041f9454bb2a2e99bbd3406fc692b4c95b79da1e1123b.png"><img alt="../../_images/da417d1a7d54ea5a6e8041f9454bb2a2e99bbd3406fc692b4c95b79da1e1123b.png" src="../../_images/da417d1a7d54ea5a6e8041f9454bb2a2e99bbd3406fc692b4c95b79da1e1123b.png" style="width: 556.5px; height: 535.0px;" /></a>
 </figure>
-<p>In this notebook, we’ll be creating a <a class="reference internal" href="#create-a-table"><span class="std std-ref">table</span></a>, a <a class="reference internal" href="#fig-mag"><span class="std std-ref">map</span></a>, and a time series <a class="reference internal" href="#trend-fig"><span class="std std-ref">plot</span></a> of absolute and regional sea level change at Hawaiian Islands tide gauge stations from 1993-2022. Absolute sea level, typically measured by satellite altimetry, refers to the height of the sea surface relative to a reference ellipsoid. Here, we’ll use the global ocean gridded L4 Sea Level Anomalies (SLA) available from Copernicus <span id="id1"></span>, which is the sea surface height (SSH) minus the mean sea surface (MSS), where the MSS is the temporal mean of SSH over a given period. Relative sea level is measured by a tide gauge, and is the sea level relative to land at that location. Differences between the two measurements can arise from vertical land motion, regional oceanographic conditions like currents, and changes to the gravitational field (affecting the geoid).</p>
+<p>In this notebook, we’ll be creating a <a class="reference internal" href="#create-a-table"><span class="std std-ref">table</span></a>, a <a class="reference internal" href="#fig-mag"><span class="std std-ref">map</span></a>, and a time series <a class="reference internal" href="#trend-fig"><span class="std std-ref">plot</span></a> of absolute and regional sea level change at Hawaiian Islands tide gauge stations from 1993-2024. Absolute sea level, typically measured by satellite altimetry, refers to the height of the sea surface relative to a reference ellipsoid. Here, we’ll use the global ocean gridded L4 Sea Level Anomalies (SLA) available from Copernicus <span id="id1"></span>, which is the sea surface height (SSH) minus the mean sea surface (MSS), where the MSS is the temporal mean of SSH over a given period. Relative sea level is measured by a tide gauge, and is the sea level relative to land at that location. Differences between the two measurements can arise from vertical land motion, regional oceanographic conditions like currents, and changes to the gravitational field (affecting the geoid).</p>
 <p>Download Files:
 <a class="reference download internal" download="" href="../../_downloads/e431ce7d8c76aff29ecaadb5eb65af7e/SL_magnitude_map.png"><span class="xref download myst">Map</span></a> |
 <a class="reference download internal" download="" href="../../_downloads/edda07cc955e4329e79bb17a5c3e9404/SL_magnitude_timeseries.png"><span class="xref download myst">Time Series Plot</span></a> |
@@ -532,8 +532,6 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> ../setup.ipynb  
 <span class="o">%</span><span class="k">run</span> ../plotting_functions.ipynb
-<span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../data&#39;</span> <span class="p">)</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../../output&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -544,10 +542,10 @@ document.write(`
 <p>Please see the Data Wrangling notebook, where we source everything from UHSLC and CMEMS. In this notebook, we saved three xarray datasets: a sea level altimetry product for the area around the Hawaiian Islands (asl_hawaii.nc), an hourly tide gauge record for the stations in that region (rsl_hawaii.nc), and a de-meaned daily average tide gauge record (rsl_daily_hawaii.nc).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Next, let&#39;s establish a period of record from 1993-2022.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Next, let&#39;s establish a period of record from 1993-2024.</span>
 <span class="c1"># establish the time period of interest</span>
 <span class="n">start_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">1993</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">end_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2022</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
+<span class="n">end_date</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">31</span><span class="p">)</span>
 
 <span class="c1"># Normalize the data relative to the 1993-2012 epoch</span>
 <span class="n">epoch_start</span><span class="p">,</span> <span class="n">epoch_end</span> <span class="o">=</span> <span class="n">start_date</span><span class="p">,</span> <span class="s1">&#39;2012-01-01&#39;</span>
@@ -569,13 +567,13 @@ document.write(`
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(1993, 1, 1, 0, 0)
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2022, 12, 31, 0, 0)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>datetime.datetime(2023, 12, 31, 0, 0)
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1993-01-01&#39;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2022-12-31&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2023-12-31&#39;
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;Hawaiian Islands&#39;
@@ -589,7 +587,7 @@ document.write(`
 <span class="n">rsl_daily</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_daily_hawaii.nc&#39;</span><span class="p">)</span>
 <span class="c1"># rsl = xr.open_dataset(data_dir / &#39;rsl_hawaii.nc&#39;)</span>
 <span class="n">sla_tg</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;asl_hawaii.nc&#39;</span><span class="p">)</span>
-<span class="n">sla</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;cmems_L4_SSH_0.25deg_1993_2023.nc&#39;</span><span class="p">)</span>
+<span class="n">sla</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;cmems_L4_SSH_0.125deg_1993_2024.nc&#39;</span><span class="p">)</span>
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">sla_tg</span><span class="o">.</span><span class="n">sla</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="s1">&#39;record_id&#39;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 
@@ -605,7 +603,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/eb19462b5127311589745ee7d648a974a4516892d8ecb39e4520781a65eddb1d.png" src="../../_images/eb19462b5127311589745ee7d648a974a4516892d8ecb39e4520781a65eddb1d.png" />
+<img alt="../../_images/8bf8c35aa431490fcfa04118cb4d8f90de1a8f8305b3e9a9121455a528aac5da.png" src="../../_images/8bf8c35aa431490fcfa04118cb4d8f90de1a8f8305b3e9a9121455a528aac5da.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -979,33 +977,33 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 2MB
-Dimensions:       (record_id: 11, time: 10957)
+Dimensions:       (record_id: 11, time: 11688)
 Coordinates:
   * record_id     (record_id) int64 88B 14 50 52 57 58 59 60 61 547 548 552
-  * time          (time) datetime64[ns] 88kB 1993-01-01 ... 2022-12-31
+  * time          (time) datetime64[ns] 94kB 1993-01-01 ... 2024-12-31
     lat           (record_id) float32 44B ...
     lon           (record_id) float32 44B ...
     station_name  (record_id) &lt;U17 748B ...
-    storm_time    (time) datetime64[ns] 88kB ...
+    storm_time    (time) datetime64[ns] 94kB ...
 Data variables:
-    rsl_anomaly   (record_id, time) float32 482kB ...
-    rsl_mhhw      (record_id, time) float64 964kB ...
+    rsl_anomaly   (record_id, time) float32 514kB ...
+    rsl_mhhw      (record_id, time) float64 1MB ...
 Attributes:
     long_name:  Sea Level Anomaly
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-3068a13b-0568-4f25-9d83-388e70258ea9' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-3068a13b-0568-4f25-9d83-388e70258ea9' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-37a20c19-b4a3-47da-811a-749c612ce46d' class='xr-section-summary-in' type='checkbox'  checked><label for='section-37a20c19-b4a3-47da-811a-749c612ce46d' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 57 58 59 60 61 547 548 552</div><input id='attrs-d833b912-bef8-4769-ac4b-0e2df6c7064c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d833b912-bef8-4769-ac4b-0e2df6c7064c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-34055e39-ac94-4363-8b82-cefe02968510' class='xr-var-data-in' type='checkbox'><label for='data-34055e39-ac94-4363-8b82-cefe02968510' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52,  57,  58,  59,  60,  61, 547, 548, 552])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-c234dbcf-19ca-476e-b7ce-86b5d55cbffc' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-c234dbcf-19ca-476e-b7ce-86b5d55cbffc' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ffbd1b6d-25a4-4f86-8415-826b140c4731' class='xr-var-data-in' type='checkbox'><label for='data-ffbd1b6d-25a4-4f86-8415-826b140c4731' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
-       &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
-       &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-1e6c6871-3ec0-4c46-9b2a-9711cd445486' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1e6c6871-3ec0-4c46-9b2a-9711cd445486' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f9933a6-5448-4bfe-bb80-e55dba21d13b' class='xr-var-data-in' type='checkbox'><label for='data-5f9933a6-5448-4bfe-bb80-e55dba21d13b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-21e3b4fb-1084-43ee-aedd-39a32b7fef9a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-21e3b4fb-1084-43ee-aedd-39a32b7fef9a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b579d780-435a-49f2-8dcc-9e5279be2044' class='xr-var-data-in' type='checkbox'><label for='data-b579d780-435a-49f2-8dcc-9e5279be2044' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-96dbcb57-362a-4dae-8b4a-c221c89e48a6' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-96dbcb57-362a-4dae-8b4a-c221c89e48a6' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5b84d93b-397b-487a-b3c0-378cbe863655' class='xr-var-data-in' type='checkbox'><label for='data-5b84d93b-397b-487a-b3c0-378cbe863655' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-d24e28c9-4e29-4e11-80c0-4112dc4f1a1c' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-d24e28c9-4e29-4e11-80c0-4112dc4f1a1c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-19888efe-29c0-4a91-984a-33c99ed49371' class='xr-var-data-in' type='checkbox'><label for='data-19888efe-29c0-4a91-984a-33c99ed49371' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-9126cf21-7711-4100-bbcc-2eefffbf691a' class='xr-section-summary-in' type='checkbox'  checked><label for='section-9126cf21-7711-4100-bbcc-2eefffbf691a' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-4bf28466-a310-4c52-a75f-ecf6bc174d7c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4bf28466-a310-4c52-a75f-ecf6bc174d7c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d76f6383-59fe-4f7b-87cf-e377bf5f7d72' class='xr-var-data-in' type='checkbox'><label for='data-d76f6383-59fe-4f7b-87cf-e377bf5f7d72' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-8b026a96-3e2f-4512-8e83-f6d6a873bc97' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8b026a96-3e2f-4512-8e83-f6d6a873bc97' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a018d235-97dc-4fc1-911e-9874fb65bc59' class='xr-var-data-in' type='checkbox'><label for='data-a018d235-97dc-4fc1-911e-9874fb65bc59' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-d1fd60ea-0b90-4d76-ac9f-bb3a26e3e71c' class='xr-section-summary-in' type='checkbox'  ><label for='section-d1fd60ea-0b90-4d76-ac9f-bb3a26e3e71c' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-56cbc0fe-f613-45fa-ad79-1b5b035d1ca3' class='xr-index-data-in' type='checkbox'/><label for='index-56cbc0fe-f613-45fa-ad79-1b5b035d1ca3' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 57, 58, 59, 60, 61, 547, 548, 552], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-09f3f078-a97f-4f22-92ca-7995c4f35d36' class='xr-index-data-in' type='checkbox'/><label for='index-09f3f078-a97f-4f22-92ca-7995c4f35d36' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-48eb8019-5979-421f-bcea-fd9d1650db82' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-48eb8019-5979-421f-bcea-fd9d1650db82' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 11688</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7e43c9d4-1407-44e8-be51-be86b5898ff2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7e43c9d4-1407-44e8-be51-be86b5898ff2' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 57 58 59 60 61 547 548 552</div><input id='attrs-626c5976-133a-4c2a-84f7-555b16cd9438' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-626c5976-133a-4c2a-84f7-555b16cd9438' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-b3531c82-d8a9-45a4-bdda-bd1f1a14a47e' class='xr-var-data-in' type='checkbox'><label for='data-b3531c82-d8a9-45a4-bdda-bd1f1a14a47e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52,  57,  58,  59,  60,  61, 547, 548, 552])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2024-12-31</div><input id='attrs-2aa0d313-430d-47ea-9d2c-3acd77d3f821' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-2aa0d313-430d-47ea-9d2c-3acd77d3f821' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9fb2f71c-8d21-4dd6-99f5-fcc15bb28534' class='xr-var-data-in' type='checkbox'><label for='data-9fb2f71c-8d21-4dd6-99f5-fcc15bb28534' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
+       &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2024-12-29T00:00:00.000000000&#x27;,
+       &#x27;2024-12-30T00:00:00.000000000&#x27;, &#x27;2024-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-c6cb97cf-4e6e-4496-9ddd-42b81a73c4f8' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c6cb97cf-4e6e-4496-9ddd-42b81a73c4f8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f6f57b29-752e-42f7-ba40-19567af307f5' class='xr-var-data-in' type='checkbox'><label for='data-f6f57b29-752e-42f7-ba40-19567af307f5' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-2a9ef9c2-7390-41ba-b9cb-974098e356d0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2a9ef9c2-7390-41ba-b9cb-974098e356d0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6361d8bb-1ada-4d59-8f5e-8c81703e9d5e' class='xr-var-data-in' type='checkbox'><label for='data-6361d8bb-1ada-4d59-8f5e-8c81703e9d5e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-802cb38f-555b-463b-8a79-49ddff6d692a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-802cb38f-555b-463b-8a79-49ddff6d692a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f9e88d80-2c2d-4ffc-8d98-8b856574c2c2' class='xr-var-data-in' type='checkbox'><label for='data-f9e88d80-2c2d-4ffc-8d98-8b856574c2c2' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a9972c0b-5cf8-43c8-ad3d-56817d50bbe8' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a9972c0b-5cf8-43c8-ad3d-56817d50bbe8' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-490f7ac3-fee0-48e8-ad21-373d9d55b84f' class='xr-var-data-in' type='checkbox'><label for='data-490f7ac3-fee0-48e8-ad21-373d9d55b84f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[11688 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c5ad3ea2-1bb8-4fef-b9c4-cab673c34a8e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c5ad3ea2-1bb8-4fef-b9c4-cab673c34a8e' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9e3d9fec-3eeb-4454-902a-6630b282dd3e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9e3d9fec-3eeb-4454-902a-6630b282dd3e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5a8afc24-83f4-4bfb-9bd4-e84507efbe91' class='xr-var-data-in' type='checkbox'><label for='data-5a8afc24-83f4-4bfb-9bd4-e84507efbe91' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[128568 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-f631d477-fcc3-46b7-92c1-fcfaab8b3bf0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-f631d477-fcc3-46b7-92c1-fcfaab8b3bf0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-241fb3c2-22bc-40c1-a551-598bf6e44720' class='xr-var-data-in' type='checkbox'><label for='data-241fb3c2-22bc-40c1-a551-598bf6e44720' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[128568 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-0b3ef10a-c89f-44b4-97ef-262fa23a69f5' class='xr-section-summary-in' type='checkbox'  ><label for='section-0b3ef10a-c89f-44b4-97ef-262fa23a69f5' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-ea78f72f-eb2c-49f6-9ea3-08057d32e894' class='xr-index-data-in' type='checkbox'/><label for='index-ea78f72f-eb2c-49f6-9ea3-08057d32e894' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 57, 58, 59, 60, 61, 547, 548, 552], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c93d1ded-ff81-4107-81e5-59634cf4e10f' class='xr-index-data-in' type='checkbox'/><label for='index-c93d1ded-ff81-4107-81e5-59634cf4e10f' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
                &#x27;1993-01-05&#x27;, &#x27;1993-01-06&#x27;, &#x27;1993-01-07&#x27;, &#x27;1993-01-08&#x27;,
                &#x27;1993-01-09&#x27;, &#x27;1993-01-10&#x27;,
                ...
-               &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
-               &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
-               &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-b78a969f-b57e-4e40-946b-cb6943a79ac6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-b78a969f-b57e-4e40-946b-cb6943a79ac6' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+               &#x27;2024-12-22&#x27;, &#x27;2024-12-23&#x27;, &#x27;2024-12-24&#x27;, &#x27;2024-12-25&#x27;,
+               &#x27;2024-12-26&#x27;, &#x27;2024-12-27&#x27;, &#x27;2024-12-28&#x27;, &#x27;2024-12-29&#x27;,
+               &#x27;2024-12-30&#x27;, &#x27;2024-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=11688, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-592230d3-3786-4e62-be11-beeb83741792' class='xr-section-summary-in' type='checkbox'  checked><label for='section-592230d3-3786-4e62-be11-beeb83741792' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1023,7 +1021,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b886b8aa7d7d6b83fb5e53e9cb212008b1c68c15b65d1ab9cc32f292f98e6f96.png" src="../../_images/b886b8aa7d7d6b83fb5e53e9cb212008b1c68c15b65d1ab9cc32f292f98e6f96.png" />
+<img alt="../../_images/eb2acbfac6534ffb1fe31f7b3275d6e102e41c98a7903c1213224ef17a1a87f0.png" src="../../_images/eb2acbfac6534ffb1fe31f7b3275d6e102e41c98a7903c1213224ef17a1a87f0.png" />
 </div>
 </div>
 <p>How many nan values are there in rsl[‘sea_level’]?</p>
@@ -1041,8 +1039,8 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean for the [1993,2012] epoch of the SLA is [0.02338939 0.02242252 0.02665729 0.02673529 0.02434594 0.02427523
- 0.02620254 0.02673529 0.02515467 0.02468215 0.02189661] m. Re-check source data to make sure this is correct.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The mean for the [1993,2012] epoch of the SLA is [0.02203509 0.02111831 0.02643411 0.02445565 0.02575095 0.02403514
+ 0.02849699 0.02442902 0.0241772  0.02350484 0.02431713] m. Re-check source data to make sure this is correct.
 </pre></div>
 </div>
 </div>
@@ -1164,7 +1162,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d72cf3875db930358c38268f0a1f02e8d34080014c7ac2e8de940c6eb87b7e03.png" src="../../_images/d72cf3875db930358c38268f0a1f02e8d34080014c7ac2e8de940c6eb87b7e03.png" />
+<img alt="../../_images/8b8de45364b7af17da190a889e6cf223043e11f11a19ce0873858e93c4cf7e0f.png" src="../../_images/8b8de45364b7af17da190a889e6cf223043e11f11a19ce0873858e93c4cf7e0f.png" />
 </div>
 </div>
 <section id="plot-the-timeseries">
@@ -1188,15 +1186,15 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 <span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">([</span><span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">])</span>
 
 <span class="c1"># set title </span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Altimetry (1993-2023)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Altimetry (1993-2024)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Altimetry (1993-2023)&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Altimetry (1993-2024)&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/d569f5a966dced3a0a4d3fc737fb8fc5b31753523ef1206540bec0d2bce07990.png" src="../../_images/d569f5a966dced3a0a4d3fc737fb8fc5b31753523ef1206540bec0d2bce07990.png" />
+<img alt="../../_images/ed3f1d09dfa9e4ad5276a9ae2677b832877ec2b0a7b129ffe5cff8c6380ef9a3.png" src="../../_images/ed3f1d09dfa9e4ad5276a9ae2677b832877ec2b0a7b129ffe5cff8c6380ef9a3.png" />
 </div>
 </div>
 </section>
@@ -1280,7 +1278,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The regional magnitude of sea level change is 7.39 cm for the time period bounded by 1993-01-01 and 2022-12-31.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The regional magnitude of sea level change is 7.99 cm for the time period bounded by 1993-01-01 and 2023-12-31.
 </pre></div>
 </div>
 </div>
@@ -1310,7 +1308,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 <span class="c1"># plot a map of the magnitude of SL change in centimeters</span>
 <span class="n">trend_mag_cmems_cm</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">crs</span><span class="p">,</span>
                          <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span> <span class="n">add_colorbar</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
-                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Δ Sea Level (cm, 1993-2022)&#39;</span><span class="p">},</span>
+                         <span class="n">cbar_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;label&#39;</span><span class="p">:</span> <span class="s1">&#39;Δ Sea Level (cm, 1993-2024)&#39;</span><span class="p">},</span>
 <span class="p">)</span>
 
 <span class="c1"># Call the function to add the zebra frame</span>
@@ -1319,7 +1317,7 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/bd6a0cde2178e47c614f9af17ade559b5f5eefcf8ba51166810d5f704fe9de02.png" src="../../_images/bd6a0cde2178e47c614f9af17ade559b5f5eefcf8ba51166810d5f704fe9de02.png" />
+<img alt="../../_images/0197a26fc8bb1e05200febbf2ebbb75dece3eba51cfd37e5f8321c7dbd964a64.png" src="../../_images/0197a26fc8bb1e05200febbf2ebbb75dece3eba51cfd37e5f8321c7dbd964a64.png" />
 </div>
 </div>
 </section>
@@ -1466,10 +1464,10 @@ It should be noted that the coordinates from https://ccar.colorado.edu/altimetry
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 6.38 cm, Trend: 0.21 cm/year&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 7.44 cm, Trend: 0.24 cm/year&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/172a420832b9ec560e99bf13cecc8ab5bd34f4ec989604405d7a4a1e5d7415ca.png" src="../../_images/172a420832b9ec560e99bf13cecc8ab5bd34f4ec989604405d7a4a1e5d7415ca.png" />
+<img alt="../../_images/9bcddcf61cb0a723b5bdd16813673ca755d7c83c51eb438e42741309f1117624.png" src="../../_images/9bcddcf61cb0a723b5bdd16813673ca755d7c83c51eb438e42741309f1117624.png" />
 </div>
 </div>
 </section>
@@ -1847,35 +1845,35 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt; Size: 2MB
-Dimensions:       (record_id: 11, time: 10957)
+Dimensions:       (record_id: 11, time: 11688)
 Coordinates:
   * record_id     (record_id) int64 88B 14 50 52 57 58 59 60 61 547 548 552
-  * time          (time) datetime64[ns] 88kB 1993-01-01 ... 2022-12-31
+  * time          (time) datetime64[ns] 94kB 1993-01-01 ... 2024-12-31
     lat           (record_id) float32 44B 23.87 28.22 16.75 ... 20.78 20.03
     lon           (record_id) float32 44B 193.7 182.6 190.5 ... 203.0 204.2
     station_name  (record_id) &lt;U17 748B ...
-    storm_time    (time) datetime64[ns] 88kB ...
+    storm_time    (time) datetime64[ns] 94kB ...
 Data variables:
-    rsl_anomaly   (record_id, time) float32 482kB ...
-    rsl_mhhw      (record_id, time) float64 964kB ...
+    rsl_anomaly   (record_id, time) float32 514kB ...
+    rsl_mhhw      (record_id, time) float64 1MB ...
 Attributes:
     long_name:  Sea Level Anomaly
     units:      m
     source:     in situ tide gauge water level observations
     platform:   station_name, station_country, station_country_code, uhslc_id...
-    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-51072f36-de59-4186-9704-53161325a3ef' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-51072f36-de59-4186-9704-53161325a3ef' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 10957</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-4335d72e-17e2-4f07-92c3-ce8b8265b979' class='xr-section-summary-in' type='checkbox'  checked><label for='section-4335d72e-17e2-4f07-92c3-ce8b8265b979' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 57 58 59 60 61 547 548 552</div><input id='attrs-b67a6be0-455a-4811-aa96-97e559f032d1' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-b67a6be0-455a-4811-aa96-97e559f032d1' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5f66adf2-6c24-4f62-8a13-ad21c889a810' class='xr-var-data-in' type='checkbox'><label for='data-5f66adf2-6c24-4f62-8a13-ad21c889a810' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52,  57,  58,  59,  60,  61, 547, 548, 552])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2022-12-31</div><input id='attrs-376d3449-f275-4409-8315-fd328e123dd7' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-376d3449-f275-4409-8315-fd328e123dd7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c3ed3ddd-b39e-4a4c-8c9c-d65546621ea0' class='xr-var-data-in' type='checkbox'><label for='data-c3ed3ddd-b39e-4a4c-8c9c-d65546621ea0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
-       &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2022-12-29T00:00:00.000000000&#x27;,
-       &#x27;2022-12-30T00:00:00.000000000&#x27;, &#x27;2022-12-31T00:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 20.78 20.03</div><input id='attrs-1808ce20-063d-4c3f-ba13-548c7c6bd71a' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1808ce20-063d-4c3f-ba13-548c7c6bd71a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-9a65db11-8aff-4850-94b8-ae4dbb8871cb' class='xr-var-data-in' type='checkbox'><label for='data-9a65db11-8aff-4850-94b8-ae4dbb8871cb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 21.322,
-       20.783, 20.033], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 203.0 204.2</div><input id='attrs-de37d26a-42c1-4ee4-ae40-d21a541d9154' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-de37d26a-42c1-4ee4-ae40-d21a541d9154' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4021fbd7-4833-443f-b1cf-73041160d57d' class='xr-var-data-in' type='checkbox'><label for='data-4021fbd7-4833-443f-b1cf-73041160d57d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
-       201.88 , 203.   , 204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-34f8ce04-720b-43d9-bdcc-426fa8f3812c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-34f8ce04-720b-43d9-bdcc-426fa8f3812c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-17afd32c-2c86-4158-8b6f-b22a7a51470b' class='xr-var-data-in' type='checkbox'><label for='data-17afd32c-2c86-4158-8b6f-b22a7a51470b' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-a234b9fa-4e79-4db4-9ed1-7f4630676510' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a234b9fa-4e79-4db4-9ed1-7f4630676510' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-aabbeaad-0711-4884-827d-84d2256036f9' class='xr-var-data-in' type='checkbox'><label for='data-aabbeaad-0711-4884-827d-84d2256036f9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[10957 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-e7998dd2-0a51-4746-a13c-13cfc4c57f86' class='xr-section-summary-in' type='checkbox'  checked><label for='section-e7998dd2-0a51-4746-a13c-13cfc4c57f86' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-92be3e7b-7cc6-424d-8928-2e3ed576cb02' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-92be3e7b-7cc6-424d-8928-2e3ed576cb02' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8f4129f9-77d2-475e-80bc-636bee7a6fcd' class='xr-var-data-in' type='checkbox'><label for='data-8f4129f9-77d2-475e-80bc-636bee7a6fcd' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-ac2da211-05a1-4da0-8b76-9578ca0d3648' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-ac2da211-05a1-4da0-8b76-9578ca0d3648' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-77d5e621-4a92-4ed2-b713-5b5a4df7bb8a' class='xr-var-data-in' type='checkbox'><label for='data-77d5e621-4a92-4ed2-b713-5b5a4df7bb8a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[120527 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c82a273d-e2e0-40e9-bd71-dc3bae07a7ae' class='xr-section-summary-in' type='checkbox'  ><label for='section-c82a273d-e2e0-40e9-bd71-dc3bae07a7ae' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-c345be03-b224-4555-ae88-fc7c97dab79d' class='xr-index-data-in' type='checkbox'/><label for='index-c345be03-b224-4555-ae88-fc7c97dab79d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 57, 58, 59, 60, 61, 547, 548, 552], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-48749776-f873-46a0-9c7c-ce609e9d9f0d' class='xr-index-data-in' type='checkbox'/><label for='index-48749776-f873-46a0-9c7c-ce609e9d9f0d' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
+    epoch:      1993-2001</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-f37e314b-2de6-48c1-a97e-842f84a4f9f8' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-f37e314b-2de6-48c1-a97e-842f84a4f9f8' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>record_id</span>: 11</li><li><span class='xr-has-index'>time</span>: 11688</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-451277c9-3b3d-49a2-b33c-4f1010f87130' class='xr-section-summary-in' type='checkbox'  checked><label for='section-451277c9-3b3d-49a2-b33c-4f1010f87130' class='xr-section-summary' >Coordinates: <span>(6)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>record_id</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>int64</div><div class='xr-var-preview xr-preview'>14 50 52 57 58 59 60 61 547 548 552</div><input id='attrs-ace5088c-9430-45bb-bd05-11b29950c400' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-ace5088c-9430-45bb-bd05-11b29950c400' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cad61f13-9e39-46df-ba36-2b0b55863c0d' class='xr-var-data-in' type='checkbox'><label for='data-cad61f13-9e39-46df-ba36-2b0b55863c0d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([ 14,  50,  52,  57,  58,  59,  60,  61, 547, 548, 552])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>1993-01-01 ... 2024-12-31</div><input id='attrs-57f746f4-8724-40ed-9043-f75c7431111a' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-57f746f4-8724-40ed-9043-f75c7431111a' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-94e74d95-e53c-4bae-8972-d8468851cb3c' class='xr-var-data-in' type='checkbox'><label for='data-94e74d95-e53c-4bae-8972-d8468851cb3c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;1993-01-01T00:00:00.000000000&#x27;, &#x27;1993-01-02T00:00:00.000000000&#x27;,
+       &#x27;1993-01-03T00:00:00.000000000&#x27;, ..., &#x27;2024-12-29T00:00:00.000000000&#x27;,
+       &#x27;2024-12-30T00:00:00.000000000&#x27;, &#x27;2024-12-31T00:00:00.000000000&#x27;],
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>23.87 28.22 16.75 ... 20.78 20.03</div><input id='attrs-e42f9027-5ecf-4be3-a703-40cde1f0eba7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-e42f9027-5ecf-4be3-a703-40cde1f0eba7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2533c3d7-f59b-4635-8f0f-7de695a9db10' class='xr-var-data-in' type='checkbox'><label for='data-2533c3d7-f59b-4635-8f0f-7de695a9db10' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>axis :</span></dt><dd>Y</dd><dt><span>valid_min :</span></dt><dd>-90</dd><dt><span>valid_max :</span></dt><dd>90</dd></dl></div><div class='xr-var-data'><pre>array([23.867, 28.217, 16.75 , 21.307, 21.967, 20.9  , 19.733, 21.433, 21.322,
+       20.783, 20.033], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>193.7 182.6 190.5 ... 203.0 204.2</div><input id='attrs-527e8871-8fb8-40a8-825d-b1e1c78ae232' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-527e8871-8fb8-40a8-825d-b1e1c78ae232' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f13d0380-05b0-4232-ac5c-434166b27b5d' class='xr-var-data-in' type='checkbox'><label for='data-f13d0380-05b0-4232-ac5c-434166b27b5d' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>axis :</span></dt><dd>X</dd><dt><span>valid_min :</span></dt><dd>0</dd><dt><span>valid_max :</span></dt><dd>360</dd></dl></div><div class='xr-var-data'><pre>array([193.71 , 182.633, 190.483, 202.133, 200.65 , 203.533, 204.933, 202.2  ,
+       201.88 , 203.   , 204.167], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>station_name</span></div><div class='xr-var-dims'>(record_id)</div><div class='xr-var-dtype'>&lt;U17</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-90b6a554-a792-4413-933f-f734ca3f9f3d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-90b6a554-a792-4413-933f-f734ca3f9f3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d74f70dc-b93c-4eca-8103-d633b835d86f' class='xr-var-data-in' type='checkbox'><label for='data-d74f70dc-b93c-4eca-8103-d633b835d86f' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>station name</dd></dl></div><div class='xr-var-data'><pre>[11 values with dtype=&lt;U17]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>storm_time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-cad3bb27-3e9a-41cf-9c40-114cd7fae899' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-cad3bb27-3e9a-41cf-9c40-114cd7fae899' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7e29ede6-281d-4048-8173-6589f5b61a82' class='xr-var-data-in' type='checkbox'><label for='data-7e29ede6-281d-4048-8173-6589f5b61a82' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>[11688 values with dtype=datetime64[ns]]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-991dd599-888e-4e13-ab3e-608f1f16f58c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-991dd599-888e-4e13-ab3e-608f1f16f58c' class='xr-section-summary' >Data variables: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>rsl_anomaly</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-9e0ac9c7-f0c0-4aea-9295-652061f85627' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-9e0ac9c7-f0c0-4aea-9295-652061f85627' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-01b48563-2ef0-4c06-af20-4a307373aa14' class='xr-var-data-in' type='checkbox'><label for='data-01b48563-2ef0-4c06-af20-4a307373aa14' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div><div class='xr-var-data'><pre>[128568 values with dtype=float32]</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>rsl_mhhw</span></div><div class='xr-var-dims'>(record_id, time)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>...</div><input id='attrs-5c915964-3de5-4bf3-b259-ad0d93c4b4fa' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5c915964-3de5-4bf3-b259-ad0d93c4b4fa' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-949d5c60-6af0-4dc6-bf96-c3f51f9f7ba8' class='xr-var-data-in' type='checkbox'><label for='data-949d5c60-6af0-4dc6-bf96-c3f51f9f7ba8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>water level above MHHW</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd></dl></div><div class='xr-var-data'><pre>[128568 values with dtype=float64]</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-c6767efa-aa48-46e5-9ebf-77a08a224f34' class='xr-section-summary-in' type='checkbox'  ><label for='section-c6767efa-aa48-46e5-9ebf-77a08a224f34' class='xr-section-summary' >Indexes: <span>(2)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-index-name'><div>record_id</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-a4f79064-43ba-43c6-adfc-af81b088e854' class='xr-index-data-in' type='checkbox'/><label for='index-a4f79064-43ba-43c6-adfc-af81b088e854' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(Index([14, 50, 52, 57, 58, 59, 60, 61, 547, 548, 552], dtype=&#x27;int64&#x27;, name=&#x27;record_id&#x27;))</pre></div></li><li class='xr-var-item'><div class='xr-index-name'><div>time</div></div><div class='xr-index-preview'>PandasIndex</div><div></div><input id='index-13d6654d-651e-45df-ae0d-2e32c068c647' class='xr-index-data-in' type='checkbox'/><label for='index-13d6654d-651e-45df-ae0d-2e32c068c647' title='Show/Hide index repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-index-data'><pre>PandasIndex(DatetimeIndex([&#x27;1993-01-01&#x27;, &#x27;1993-01-02&#x27;, &#x27;1993-01-03&#x27;, &#x27;1993-01-04&#x27;,
                &#x27;1993-01-05&#x27;, &#x27;1993-01-06&#x27;, &#x27;1993-01-07&#x27;, &#x27;1993-01-08&#x27;,
                &#x27;1993-01-09&#x27;, &#x27;1993-01-10&#x27;,
                ...
-               &#x27;2022-12-22&#x27;, &#x27;2022-12-23&#x27;, &#x27;2022-12-24&#x27;, &#x27;2022-12-25&#x27;,
-               &#x27;2022-12-26&#x27;, &#x27;2022-12-27&#x27;, &#x27;2022-12-28&#x27;, &#x27;2022-12-29&#x27;,
-               &#x27;2022-12-30&#x27;, &#x27;2022-12-31&#x27;],
-              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=10957, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f3748b84-8d19-4602-875d-02da1057557c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f3748b84-8d19-4602-875d-02da1057557c' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
+               &#x27;2024-12-22&#x27;, &#x27;2024-12-23&#x27;, &#x27;2024-12-24&#x27;, &#x27;2024-12-25&#x27;,
+               &#x27;2024-12-26&#x27;, &#x27;2024-12-27&#x27;, &#x27;2024-12-28&#x27;, &#x27;2024-12-29&#x27;,
+               &#x27;2024-12-30&#x27;, &#x27;2024-12-31&#x27;],
+              dtype=&#x27;datetime64[ns]&#x27;, name=&#x27;time&#x27;, length=11688, freq=None))</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-f49afa66-9141-405b-bcd3-2be0730b304c' class='xr-section-summary-in' type='checkbox'  checked><label for='section-f49afa66-9141-405b-bcd3-2be0730b304c' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Sea Level Anomaly</dd><dt><span>units :</span></dt><dd>m</dd><dt><span>source :</span></dt><dd>in situ tide gauge water level observations</dd><dt><span>platform :</span></dt><dd>station_name, station_country, station_country_code, uhslc_id, gloss_id, ssc_id</dd><dt><span>epoch :</span></dt><dd>1993-2001</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1888,7 +1886,7 @@ Attributes:
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend magnitude for the tide gauge is 8.09 cm.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The trend magnitude for the tide gauge is 8.64 cm.
 The trend rate for the tide gauge is 0.27 cm/year.
 </pre></div>
 </div>
@@ -1946,10 +1944,10 @@ The trend rate for the tide gauge is 0.27 cm/year.
   index_grouper = pd.Grouper(
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 8.09 cm, Trend: 0.27 cm/year&#39;)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.95, 0.05, &#39;Δ Sea Level: 8.64 cm, Trend: 0.27 cm/year&#39;)
 </pre></div>
 </div>
-<img alt="../../_images/bd117b4252580db80239c4bfcba2fb44eaa643bc64ca952e714fc6cfc5335a53.png" src="../../_images/bd117b4252580db80239c4bfcba2fb44eaa643bc64ca952e714fc6cfc5335a53.png" />
+<img alt="../../_images/6a7cac510473158c9a6758f9faeb82f3a768f874890ee1808f163eba8dcd8364.png" src="../../_images/6a7cac510473158c9a6758f9faeb82f3a768f874890ee1808f163eba8dcd8364.png" />
 </div>
 </div>
 </section>
@@ -1962,7 +1960,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Constants</span>
-<span class="n">DATA_SOURCE_ALTIMETRY</span> <span class="o">=</span> <span class="s1">&#39;CMEMS SSH L4 0.25 deg (SLA)&#39;</span>
+<span class="n">DATA_SOURCE_ALTIMETRY</span> <span class="o">=</span> <span class="s1">&#39;CMEMS SSH L4 0.125 deg (SLA)&#39;</span>
 <span class="n">DATA_SOURCE_TIDE_GAUGE</span> <span class="o">=</span> <span class="s1">&#39;UHSLC RQDS&#39;</span>
 <span class="n">TIME_PERIOD</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">start_date_str</span><span class="si">}</span><span class="s1"> to </span><span class="si">{</span><span class="n">end_date_str</span><span class="si">}</span><span class="s1">&#39;</span>
 
@@ -2042,176 +2040,176 @@ The trend rate for the tide gauge is 0.27 cm/year.
       <th>0</th>
       <td>French Frigate</td>
       <td>1</td>
-      <td>1.871329</td>
+      <td>1.997779</td>
       <td>NaN</td>
-      <td>5.674700</td>
+      <td>6.192158</td>
       <td>NaN</td>
-      <td>23.875</td>
+      <td>23.8125</td>
       <td>23.867001</td>
-      <td>-166.375000</td>
+      <td>-166.3125</td>
       <td>-166.289993</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>1</th>
       <td>Midway</td>
       <td>5</td>
-      <td>4.215143</td>
-      <td>3.780650</td>
-      <td>12.782183</td>
-      <td>11.340399</td>
-      <td>28.125</td>
+      <td>4.481040</td>
+      <td>3.587854</td>
+      <td>13.889076</td>
+      <td>11.480150</td>
+      <td>28.1875</td>
       <td>28.216999</td>
-      <td>-177.375000</td>
+      <td>-177.3125</td>
       <td>-177.367004</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Johnston</td>
       <td>5</td>
-      <td>2.292586</td>
-      <td>1.802460</td>
-      <td>6.952137</td>
-      <td>5.406640</td>
-      <td>16.875</td>
+      <td>2.431989</td>
+      <td>1.944655</td>
+      <td>7.538001</td>
+      <td>6.222365</td>
+      <td>16.8125</td>
       <td>16.750000</td>
-      <td>-169.625000</td>
+      <td>-169.5625</td>
       <td>-169.516998</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Honolulu, Hawaii</td>
       <td>5</td>
-      <td>2.103058</td>
-      <td>2.696540</td>
-      <td>6.377406</td>
-      <td>8.088512</td>
-      <td>21.375</td>
+      <td>2.398869</td>
+      <td>2.700065</td>
+      <td>7.435346</td>
+      <td>8.639470</td>
+      <td>21.3125</td>
       <td>21.306999</td>
-      <td>-157.875000</td>
+      <td>-157.8125</td>
       <td>-157.867004</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>4</th>
       <td>Nawiliwili</td>
       <td>5</td>
-      <td>2.263410</td>
-      <td>3.062467</td>
-      <td>6.863662</td>
-      <td>9.186142</td>
-      <td>21.875</td>
+      <td>2.421937</td>
+      <td>3.213384</td>
+      <td>7.506845</td>
+      <td>10.281950</td>
+      <td>21.9375</td>
       <td>21.966999</td>
-      <td>-159.375000</td>
+      <td>-159.3125</td>
       <td>-159.350006</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Kahului</td>
       <td>5</td>
-      <td>2.105416</td>
-      <td>2.527900</td>
-      <td>6.384556</td>
-      <td>7.582662</td>
-      <td>20.875</td>
+      <td>2.497344</td>
+      <td>2.704715</td>
+      <td>7.740571</td>
+      <td>8.654349</td>
+      <td>20.9375</td>
       <td>20.900000</td>
-      <td>-156.375000</td>
+      <td>-156.4375</td>
       <td>-156.466995</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>6</th>
       <td>Hilo, Hawaii</td>
       <td>6</td>
-      <td>1.975387</td>
-      <td>3.298495</td>
-      <td>5.990249</td>
-      <td>9.894130</td>
-      <td>19.733</td>
+      <td>2.584149</td>
+      <td>3.319189</td>
+      <td>8.009623</td>
+      <td>10.620496</td>
+      <td>19.6875</td>
       <td>19.733000</td>
+      <td>-155.0625</td>
       <td>-155.067001</td>
-      <td>-155.067001</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>7</th>
       <td>Mokuoloe</td>
       <td>6</td>
-      <td>2.103058</td>
-      <td>2.933727</td>
-      <td>6.377406</td>
-      <td>8.799976</td>
-      <td>21.375</td>
+      <td>2.426993</td>
+      <td>3.035182</td>
+      <td>7.522514</td>
+      <td>9.711753</td>
+      <td>21.4375</td>
       <td>21.433001</td>
-      <td>-157.875000</td>
+      <td>-157.8125</td>
       <td>-157.800003</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>8</th>
       <td>Barbers Point, HI</td>
       <td>54</td>
-      <td>2.228920</td>
+      <td>2.535980</td>
       <td>NaN</td>
-      <td>6.759073</td>
+      <td>7.860322</td>
       <td>NaN</td>
-      <td>21.375</td>
+      <td>21.3125</td>
       <td>21.322001</td>
-      <td>-158.125000</td>
+      <td>-158.0625</td>
       <td>-158.119995</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>9</th>
       <td>Kaumalapau, HI</td>
       <td>54</td>
-      <td>2.183053</td>
+      <td>2.436929</td>
       <td>NaN</td>
-      <td>6.619986</td>
+      <td>7.553312</td>
       <td>NaN</td>
-      <td>20.875</td>
+      <td>20.8125</td>
       <td>20.783001</td>
-      <td>-156.875000</td>
+      <td>-156.9375</td>
       <td>-157.000000</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
     <tr>
       <th>10</th>
       <td>Kawaihae</td>
       <td>55</td>
-      <td>2.750707</td>
+      <td>2.715561</td>
       <td>NaN</td>
-      <td>8.341365</td>
+      <td>8.416939</td>
       <td>NaN</td>
-      <td>20.125</td>
+      <td>20.0625</td>
       <td>20.033001</td>
-      <td>-155.875000</td>
+      <td>-155.8125</td>
       <td>-155.832993</td>
-      <td>1993-01-01 to 2022-12-31</td>
-      <td>CMEMS SSH L4 0.25 deg (SLA)</td>
+      <td>1993-01-01 to 2023-12-31</td>
+      <td>CMEMS SSH L4 0.125 deg (SLA)</td>
       <td>UHSLC RQDS</td>
     </tr>
   </tbody>
@@ -2230,7 +2228,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
                                                                        <span class="s1">&#39;TIDE GAUGE&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Trend RSL (mm/yr)&#39;</span><span class="p">,</span> <span class="s1">&#39;Δ Sea Level RSL (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Latitude RSL&#39;</span><span class="p">,</span> <span class="s1">&#39;Longitude RSL&#39;</span><span class="p">,</span> <span class="s1">&#39;Data_Source RSL&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">fmt_number</span><span class="p">(</span>
     <span class="n">decimals</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Trend ASL (mm/yr)&#39;</span><span class="p">,</span> <span class="s1">&#39;Trend RSL (mm/yr)&#39;</span><span class="p">,</span> <span class="s1">&#39;Δ Sea Level ASL (cm)&#39;</span><span class="p">,</span> <span class="s1">&#39;Δ Sea Level RSL (cm)&#39;</span><span class="p">,</span> 
                          <span class="s1">&#39;Latitude ASL&#39;</span><span class="p">,</span> <span class="s1">&#39;Latitude RSL&#39;</span><span class="p">,</span> <span class="s1">&#39;Longitude ASL&#39;</span><span class="p">,</span> <span class="s1">&#39;Longitude RSL&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">tab_source_note</span><span class="p">(</span>
-                             <span class="n">source_note</span><span class="o">=</span><span class="s2">&quot;Data sources: Altimetry, CMEMS SSH L4 0.25 deg (SLA); Tide Gauges, UHSLC RQDS from Jan 1993 to Dec 2022&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cols_hide</span><span class="p">(</span>
+                             <span class="n">source_note</span><span class="o">=</span><span class="s2">&quot;Data sources: Altimetry, CMEMS SSH L4 0.125 deg (SLA); Tide Gauges, UHSLC RQDS from Jan 1993 to Dec 2018, FQDS thru 2024&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">cols_hide</span><span class="p">(</span>
                                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Data_Source ASL&#39;</span><span class="p">,</span> <span class="s1">&#39;Data_Source RSL&#39;</span><span class="p">,</span><span class="s1">&#39;Time_Period&#39;</span><span class="p">,</span><span class="s1">&#39;UHSLC_ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">cols_label</span><span class="p">(</span>
                                         <span class="n">Station_Name</span><span class="o">=</span><span class="s1">&#39;Station&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">tab_options</span><span class="p">(</span><span class="n">table_font_size</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
 
@@ -2239,52 +2237,52 @@ The trend rate for the tide gauge is 0.27 cm/year.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div id="aycpzyenlw" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<div class="output text_html"><div id="drrhuvrzrz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
 <style>
-#aycpzyenlw table {
+#drrhuvrzrz table {
           font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
           -webkit-font-smoothing: antialiased;
           -moz-osx-font-smoothing: grayscale;
         }
 
-#aycpzyenlw thead, tbody, tfoot, tr, td, th { border-style: none; }
+#drrhuvrzrz thead, tbody, tfoot, tr, td, th { border-style: none; }
  tr { background-color: transparent; }
-#aycpzyenlw p { margin: 0; padding: 0; }
- #aycpzyenlw .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: small; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
- #aycpzyenlw .gt_caption { padding-top: 4px; padding-bottom: 4px; }
- #aycpzyenlw .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
- #aycpzyenlw .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
- #aycpzyenlw .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #aycpzyenlw .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #aycpzyenlw .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
- #aycpzyenlw .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
- #aycpzyenlw .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
- #aycpzyenlw .gt_column_spanner_outer:first-child { padding-left: 0; }
- #aycpzyenlw .gt_column_spanner_outer:last-child { padding-right: 0; }
- #aycpzyenlw .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
- #aycpzyenlw .gt_spanner_row { border-bottom-style: hidden; }
- #aycpzyenlw .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
- #aycpzyenlw .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
- #aycpzyenlw .gt_from_md> :first-child { margin-top: 0; }
- #aycpzyenlw .gt_from_md> :last-child { margin-bottom: 0; }
- #aycpzyenlw .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
- #aycpzyenlw .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
- #aycpzyenlw .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
- #aycpzyenlw .gt_row_group_first td { border-top-width: 2px; }
- #aycpzyenlw .gt_row_group_first th { border-top-width: 2px; }
- #aycpzyenlw .gt_striped { background-color: rgba(128,128,128,0.05); }
- #aycpzyenlw .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
- #aycpzyenlw .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
- #aycpzyenlw .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
- #aycpzyenlw .gt_left { text-align: left; }
- #aycpzyenlw .gt_center { text-align: center; }
- #aycpzyenlw .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
- #aycpzyenlw .gt_font_normal { font-weight: normal; }
- #aycpzyenlw .gt_font_bold { font-weight: bold; }
- #aycpzyenlw .gt_font_italic { font-style: italic; }
- #aycpzyenlw .gt_super { font-size: 65%; }
- #aycpzyenlw .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
- #aycpzyenlw .gt_asterisk { font-size: 100%; vertical-align: 0; }
+#drrhuvrzrz p { margin: 0; padding: 0; }
+ #drrhuvrzrz .gt_table { display: table; border-collapse: collapse; line-height: normal; margin-left: auto; margin-right: auto; color: #333333; font-size: small; font-weight: normal; font-style: normal; background-color: #FFFFFF; width: auto; border-top-style: solid; border-top-width: 2px; border-top-color: #A8A8A8; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #A8A8A8; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; }
+ #drrhuvrzrz .gt_caption { padding-top: 4px; padding-bottom: 4px; }
+ #drrhuvrzrz .gt_title { color: #333333; font-size: 125%; font-weight: initial; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; border-bottom-color: #FFFFFF; border-bottom-width: 0; }
+ #drrhuvrzrz .gt_subtitle { color: #333333; font-size: 85%; font-weight: initial; padding-top: 3px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; border-top-color: #FFFFFF; border-top-width: 0; }
+ #drrhuvrzrz .gt_heading { background-color: #FFFFFF; text-align: center; border-bottom-color: #FFFFFF; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #drrhuvrzrz .gt_bottom_border { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #drrhuvrzrz .gt_col_headings { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; }
+ #drrhuvrzrz .gt_col_heading { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; padding-left: 5px; padding-right: 5px; overflow-x: hidden; }
+ #drrhuvrzrz .gt_column_spanner_outer { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: normal; text-transform: inherit; padding-top: 0; padding-bottom: 0; padding-left: 4px; padding-right: 4px; }
+ #drrhuvrzrz .gt_column_spanner_outer:first-child { padding-left: 0; }
+ #drrhuvrzrz .gt_column_spanner_outer:last-child { padding-right: 0; }
+ #drrhuvrzrz .gt_column_spanner { border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: bottom; padding-top: 5px; padding-bottom: 5px; overflow-x: hidden; display: inline-block; width: 100%; }
+ #drrhuvrzrz .gt_spanner_row { border-bottom-style: hidden; }
+ #drrhuvrzrz .gt_group_heading { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; text-align: left; }
+ #drrhuvrzrz .gt_empty_group_heading { padding: 0.5px; color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; vertical-align: middle; }
+ #drrhuvrzrz .gt_from_md> :first-child { margin-top: 0; }
+ #drrhuvrzrz .gt_from_md> :last-child { margin-bottom: 0; }
+ #drrhuvrzrz .gt_row { padding-top: 8px; padding-bottom: 8px; padding-left: 5px; padding-right: 5px; margin: 10px; border-top-style: solid; border-top-width: 1px; border-top-color: #D3D3D3; border-left-style: none; border-left-width: 1px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 1px; border-right-color: #D3D3D3; vertical-align: middle; overflow-x: hidden; }
+ #drrhuvrzrz .gt_stub { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; }
+ #drrhuvrzrz .gt_stub_row_group { color: #333333; background-color: #FFFFFF; font-size: 100%; font-weight: initial; text-transform: inherit; border-right-style: solid; border-right-width: 2px; border-right-color: #D3D3D3; padding-left: 5px; padding-right: 5px; vertical-align: top; }
+ #drrhuvrzrz .gt_row_group_first td { border-top-width: 2px; }
+ #drrhuvrzrz .gt_row_group_first th { border-top-width: 2px; }
+ #drrhuvrzrz .gt_striped { background-color: rgba(128,128,128,0.05); }
+ #drrhuvrzrz .gt_table_body { border-top-style: solid; border-top-width: 2px; border-top-color: #D3D3D3; border-bottom-style: solid; border-bottom-width: 2px; border-bottom-color: #D3D3D3; }
+ #drrhuvrzrz .gt_sourcenotes { color: #333333; background-color: #FFFFFF; border-bottom-style: none; border-bottom-width: 2px; border-bottom-color: #D3D3D3; border-left-style: none; border-left-width: 2px; border-left-color: #D3D3D3; border-right-style: none; border-right-width: 2px; border-right-color: #D3D3D3; }
+ #drrhuvrzrz .gt_sourcenote { font-size: 90%; padding-top: 4px; padding-bottom: 4px; padding-left: 5px; padding-right: 5px; text-align: left; }
+ #drrhuvrzrz .gt_left { text-align: left; }
+ #drrhuvrzrz .gt_center { text-align: center; }
+ #drrhuvrzrz .gt_right { text-align: right; font-variant-numeric: tabular-nums; }
+ #drrhuvrzrz .gt_font_normal { font-weight: normal; }
+ #drrhuvrzrz .gt_font_bold { font-weight: bold; }
+ #drrhuvrzrz .gt_font_italic { font-style: italic; }
+ #drrhuvrzrz .gt_super { font-size: 65%; }
+ #drrhuvrzrz .gt_footnote_marks { font-size: 75%; vertical-align: 0.4em; position: initial; }
+ #drrhuvrzrz .gt_asterisk { font-size: 100%; vertical-align: 0; }
  
 </style>
 <table class="gt_table" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
@@ -2313,10 +2311,10 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <tbody class="gt_table_body">
   <tr>
     <td class="gt_row gt_left">French Frigate</td>
-    <td class="gt_row gt_right">1.87</td>
-    <td class="gt_row gt_right">5.67</td>
-    <td class="gt_row gt_right">23.88</td>
-    <td class="gt_row gt_right">−166.38</td>
+    <td class="gt_row gt_right">2.00</td>
+    <td class="gt_row gt_right">6.19</td>
+    <td class="gt_row gt_right">23.81</td>
+    <td class="gt_row gt_right">−166.31</td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right">23.87</td>
@@ -2324,87 +2322,87 @@ The trend rate for the tide gauge is 0.27 cm/year.
   </tr>
   <tr>
     <td class="gt_row gt_left">Midway</td>
-    <td class="gt_row gt_right">4.22</td>
-    <td class="gt_row gt_right">12.78</td>
-    <td class="gt_row gt_right">28.12</td>
-    <td class="gt_row gt_right">−177.38</td>
-    <td class="gt_row gt_right">3.78</td>
-    <td class="gt_row gt_right">11.34</td>
+    <td class="gt_row gt_right">4.48</td>
+    <td class="gt_row gt_right">13.89</td>
+    <td class="gt_row gt_right">28.19</td>
+    <td class="gt_row gt_right">−177.31</td>
+    <td class="gt_row gt_right">3.59</td>
+    <td class="gt_row gt_right">11.48</td>
     <td class="gt_row gt_right">28.22</td>
     <td class="gt_row gt_right">−177.37</td>
   </tr>
   <tr>
     <td class="gt_row gt_left">Johnston</td>
-    <td class="gt_row gt_right">2.29</td>
-    <td class="gt_row gt_right">6.95</td>
-    <td class="gt_row gt_right">16.88</td>
-    <td class="gt_row gt_right">−169.62</td>
-    <td class="gt_row gt_right">1.80</td>
-    <td class="gt_row gt_right">5.41</td>
+    <td class="gt_row gt_right">2.43</td>
+    <td class="gt_row gt_right">7.54</td>
+    <td class="gt_row gt_right">16.81</td>
+    <td class="gt_row gt_right">−169.56</td>
+    <td class="gt_row gt_right">1.94</td>
+    <td class="gt_row gt_right">6.22</td>
     <td class="gt_row gt_right">16.75</td>
     <td class="gt_row gt_right">−169.52</td>
   </tr>
   <tr>
     <td class="gt_row gt_left">Honolulu, Hawaii</td>
-    <td class="gt_row gt_right">2.10</td>
-    <td class="gt_row gt_right">6.38</td>
-    <td class="gt_row gt_right">21.38</td>
-    <td class="gt_row gt_right">−157.88</td>
+    <td class="gt_row gt_right">2.40</td>
+    <td class="gt_row gt_right">7.44</td>
+    <td class="gt_row gt_right">21.31</td>
+    <td class="gt_row gt_right">−157.81</td>
     <td class="gt_row gt_right">2.70</td>
-    <td class="gt_row gt_right">8.09</td>
+    <td class="gt_row gt_right">8.64</td>
     <td class="gt_row gt_right">21.31</td>
     <td class="gt_row gt_right">−157.87</td>
   </tr>
   <tr>
     <td class="gt_row gt_left">Nawiliwili</td>
-    <td class="gt_row gt_right">2.26</td>
-    <td class="gt_row gt_right">6.86</td>
-    <td class="gt_row gt_right">21.88</td>
-    <td class="gt_row gt_right">−159.38</td>
-    <td class="gt_row gt_right">3.06</td>
-    <td class="gt_row gt_right">9.19</td>
+    <td class="gt_row gt_right">2.42</td>
+    <td class="gt_row gt_right">7.51</td>
+    <td class="gt_row gt_right">21.94</td>
+    <td class="gt_row gt_right">−159.31</td>
+    <td class="gt_row gt_right">3.21</td>
+    <td class="gt_row gt_right">10.28</td>
     <td class="gt_row gt_right">21.97</td>
     <td class="gt_row gt_right">−159.35</td>
   </tr>
   <tr>
     <td class="gt_row gt_left">Kahului</td>
-    <td class="gt_row gt_right">2.11</td>
-    <td class="gt_row gt_right">6.38</td>
-    <td class="gt_row gt_right">20.88</td>
-    <td class="gt_row gt_right">−156.38</td>
-    <td class="gt_row gt_right">2.53</td>
-    <td class="gt_row gt_right">7.58</td>
+    <td class="gt_row gt_right">2.50</td>
+    <td class="gt_row gt_right">7.74</td>
+    <td class="gt_row gt_right">20.94</td>
+    <td class="gt_row gt_right">−156.44</td>
+    <td class="gt_row gt_right">2.70</td>
+    <td class="gt_row gt_right">8.65</td>
     <td class="gt_row gt_right">20.90</td>
     <td class="gt_row gt_right">−156.47</td>
   </tr>
   <tr>
     <td class="gt_row gt_left">Hilo, Hawaii</td>
-    <td class="gt_row gt_right">1.98</td>
-    <td class="gt_row gt_right">5.99</td>
-    <td class="gt_row gt_right">19.73</td>
-    <td class="gt_row gt_right">−155.07</td>
-    <td class="gt_row gt_right">3.30</td>
-    <td class="gt_row gt_right">9.89</td>
+    <td class="gt_row gt_right">2.58</td>
+    <td class="gt_row gt_right">8.01</td>
+    <td class="gt_row gt_right">19.69</td>
+    <td class="gt_row gt_right">−155.06</td>
+    <td class="gt_row gt_right">3.32</td>
+    <td class="gt_row gt_right">10.62</td>
     <td class="gt_row gt_right">19.73</td>
     <td class="gt_row gt_right">−155.07</td>
   </tr>
   <tr>
     <td class="gt_row gt_left">Mokuoloe</td>
-    <td class="gt_row gt_right">2.10</td>
-    <td class="gt_row gt_right">6.38</td>
-    <td class="gt_row gt_right">21.38</td>
-    <td class="gt_row gt_right">−157.88</td>
-    <td class="gt_row gt_right">2.93</td>
-    <td class="gt_row gt_right">8.80</td>
+    <td class="gt_row gt_right">2.43</td>
+    <td class="gt_row gt_right">7.52</td>
+    <td class="gt_row gt_right">21.44</td>
+    <td class="gt_row gt_right">−157.81</td>
+    <td class="gt_row gt_right">3.04</td>
+    <td class="gt_row gt_right">9.71</td>
     <td class="gt_row gt_right">21.43</td>
     <td class="gt_row gt_right">−157.80</td>
   </tr>
   <tr>
     <td class="gt_row gt_left">Barbers Point, HI</td>
-    <td class="gt_row gt_right">2.23</td>
-    <td class="gt_row gt_right">6.76</td>
-    <td class="gt_row gt_right">21.38</td>
-    <td class="gt_row gt_right">−158.12</td>
+    <td class="gt_row gt_right">2.54</td>
+    <td class="gt_row gt_right">7.86</td>
+    <td class="gt_row gt_right">21.31</td>
+    <td class="gt_row gt_right">−158.06</td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right">21.32</td>
@@ -2412,10 +2410,10 @@ The trend rate for the tide gauge is 0.27 cm/year.
   </tr>
   <tr>
     <td class="gt_row gt_left">Kaumalapau, HI</td>
-    <td class="gt_row gt_right">2.18</td>
-    <td class="gt_row gt_right">6.62</td>
-    <td class="gt_row gt_right">20.88</td>
-    <td class="gt_row gt_right">−156.88</td>
+    <td class="gt_row gt_right">2.44</td>
+    <td class="gt_row gt_right">7.55</td>
+    <td class="gt_row gt_right">20.81</td>
+    <td class="gt_row gt_right">−156.94</td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right">20.78</td>
@@ -2423,10 +2421,10 @@ The trend rate for the tide gauge is 0.27 cm/year.
   </tr>
   <tr>
     <td class="gt_row gt_left">Kawaihae</td>
-    <td class="gt_row gt_right">2.75</td>
-    <td class="gt_row gt_right">8.34</td>
-    <td class="gt_row gt_right">20.12</td>
-    <td class="gt_row gt_right">−155.88</td>
+    <td class="gt_row gt_right">2.72</td>
+    <td class="gt_row gt_right">8.42</td>
+    <td class="gt_row gt_right">20.06</td>
+    <td class="gt_row gt_right">−155.81</td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right"><NA></td>
     <td class="gt_row gt_right">20.03</td>
@@ -2436,7 +2434,7 @@ The trend rate for the tide gauge is 0.27 cm/year.
   <tfoot class="gt_sourcenotes">
   
   <tr>
-    <td class="gt_sourcenote" colspan="9">Data sources: Altimetry, CMEMS SSH L4 0.25 deg (SLA); Tide Gauges, UHSLC RQDS from Jan 1993 to Dec 2022</td>
+    <td class="gt_sourcenote" colspan="9">Data sources: Altimetry, CMEMS SSH L4 0.125 deg (SLA); Tide Gauges, UHSLC RQDS from Jan 1993 to Dec 2018, FQDS thru 2024</td>
   </tr>
 
 </tfoot>
@@ -2509,14 +2507,14 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/455074bd225e2d3369b7e2de6fe4ff9d5e3dda5c1454b8c2deb50357b08829f1.png" src="../../_images/455074bd225e2d3369b7e2de6fe4ff9d5e3dda5c1454b8c2deb50357b08829f1.png" />
+<img alt="../../_images/349bf7d9b2f4580a7fb1218ac83f12d92c055217fef9511e81662d2c04384f7c.png" src="../../_images/349bf7d9b2f4580a7fb1218ac83f12d92c055217fef9511e81662d2c04384f7c.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="fig-mag">
-<img alt="../../_images/455074bd225e2d3369b7e2de6fe4ff9d5e3dda5c1454b8c2deb50357b08829f1.png" src="../../_images/455074bd225e2d3369b7e2de6fe4ff9d5e3dda5c1454b8c2deb50357b08829f1.png" />
+<img alt="../../_images/349bf7d9b2f4580a7fb1218ac83f12d92c055217fef9511e81662d2c04384f7c.png" src="../../_images/349bf7d9b2f4580a7fb1218ac83f12d92c055217fef9511e81662d2c04384f7c.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Map of absolute and relative sea level change from the altimetry and tide gauge record near the <span class="pasted-text">Hawaiian Islands</span> stations from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2022-12-31</span>.</span><a class="headerlink" href="#fig-mag" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Map of absolute and relative sea level change from the altimetry and tide gauge record near the <span class="pasted-text">Hawaiian Islands</span> stations from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2023-12-31</span>.</span><a class="headerlink" href="#fig-mag" title="Permalink to this image">#</a></p>
 <div class="legend">
 <p><a class="reference download internal" download="" href="../../_downloads/e431ce7d8c76aff29ecaadb5eb65af7e/SL_magnitude_map.png"><span class="xref download myst">Download Image</span></a></p>
 </div>
@@ -2588,14 +2586,14 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/23e26547f859446770ef10a90abada73782357796a7b8cea1a9365e16a0b8277.png" src="../../_images/23e26547f859446770ef10a90abada73782357796a7b8cea1a9365e16a0b8277.png" />
+<img alt="../../_images/fa1b6c4c9b8bb7ba404d6387bcce06d0d4f72745848d38f2b622cb5d7b53703a.png" src="../../_images/fa1b6c4c9b8bb7ba404d6387bcce06d0d4f72745848d38f2b622cb5d7b53703a.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="trend-fig-station">
-<img alt="../../_images/23e26547f859446770ef10a90abada73782357796a7b8cea1a9365e16a0b8277.png" src="../../_images/23e26547f859446770ef10a90abada73782357796a7b8cea1a9365e16a0b8277.png" />
+<img alt="../../_images/fa1b6c4c9b8bb7ba404d6387bcce06d0d4f72745848d38f2b622cb5d7b53703a.png" src="../../_images/fa1b6c4c9b8bb7ba404d6387bcce06d0d4f72745848d38f2b622cb5d7b53703a.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the <span class="pasted-text">Midway</span> tide gauge station from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2022-12-31</span>.</span><a class="headerlink" href="#trend-fig-station" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the <span class="pasted-text">Midway</span> tide gauge station from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2023-12-31</span>.</span><a class="headerlink" href="#trend-fig-station" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="cell tag_hide-output docutils container">
@@ -2675,14 +2673,14 @@ The trend rate for the tide gauge is 0.27 cm/year.
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/089b0bdbe3baeba00a44de4f6eaa11ab13d1c14ba0623593549f1628496f67ca.png" src="../../_images/089b0bdbe3baeba00a44de4f6eaa11ab13d1c14ba0623593549f1628496f67ca.png" />
+<img alt="../../_images/da417d1a7d54ea5a6e8041f9454bb2a2e99bbd3406fc692b4c95b79da1e1123b.png" src="../../_images/da417d1a7d54ea5a6e8041f9454bb2a2e99bbd3406fc692b4c95b79da1e1123b.png" />
 </div>
 </details>
 </div>
 <figure class="align-default" id="trend-fig">
-<img alt="../../_images/089b0bdbe3baeba00a44de4f6eaa11ab13d1c14ba0623593549f1628496f67ca.png" src="../../_images/089b0bdbe3baeba00a44de4f6eaa11ab13d1c14ba0623593549f1628496f67ca.png" />
+<img alt="../../_images/da417d1a7d54ea5a6e8041f9454bb2a2e99bbd3406fc692b4c95b79da1e1123b.png" src="../../_images/da417d1a7d54ea5a6e8041f9454bb2a2e99bbd3406fc692b4c95b79da1e1123b.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the <span class="pasted-text">Hawaiian Islands</span> stations from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2022-12-31</span>.</span><a class="headerlink" href="#trend-fig" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Absolute sea level trend (red) from altimetry, and relative sea level trend (blue) from the tide gauge record at the <span class="pasted-text">Hawaiian Islands</span> stations from <span class="pasted-text">1993-01-01</span> to <span class="pasted-text">2023-12-31</span>.</span><a class="headerlink" href="#trend-fig" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

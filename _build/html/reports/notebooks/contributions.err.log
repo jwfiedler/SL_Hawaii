@@ -15,92 +15,40 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-# Separate the "None" entries from the rest of the data
-df_none = df[df['modelCI'] == 'None']  # Entries where modelCI is 'None'
-df_filtered = df[df['modelCI'] != 'None']  # All other entries
+climateIndex = ['AO','AAO','BEST','DMI','ONI','PDO','PMM','PNA','TNA']
 
-# Use tab10 colormap for colors (excluding 'None')
-cmap = plt.get_cmap('Set1')
-color_dict = {index: cmap(i) for i, index in enumerate(np.unique(df_filtered['modelCI']))}
+# get list of all directories in dirs['model_output_dir']
+dirs_list = os.listdir(dirs['model_output_dir'])
 
-# Map the climate indices to numerical values for the colorbar
-index_mapping = {index: i for i, index in enumerate(np.unique(df_filtered['modelCI']))}
-mapped_indices = [index_mapping[ci] for ci in df_filtered['modelCI']]
+# only keep the directories that are numbers
+recordIDs = [int(d) for d in dirs_list if d.isdigit()]
 
-# Create a colormap without "None"
-norm = colors.BoundaryNorm(boundaries=np.arange(len(np.unique(df_filtered['modelCI'])) + 1) - 0.5, 
-                               ncolors=len(np.unique(df_filtered['modelCI'])))
+# remove 57
+# recordIDs.remove(57)
 
-fig, ax = plt.subplots(1, 1, figsize=(10, 10), subplot_kw={'projection': ccrs.PlateCarree()})
+# get station names from the best_params.json files
+station_names = {}
+for recordID in recordIDs:
+    jsonpath = Path(dirs['model_output_dir']) / str(recordID) / 'best_params.json'
+    with open(jsonpath, 'r') as f:
+        output = json.load(f)
+        station_names[recordID] = output['modelInfo']['station_name']
 
-# # Call plot_thin_map_hawaii to create the figure and axis
-plot_thin_map_hawaii(ax)
+# sort the station names by the recordID
+station_names = {k: v for k, v in sorted(station_names.items(), key=lambda item: item[0])}
 
-# Plot each station with varying color (based on climate index) and size (based on amplitude)
-scatter = ax.scatter(df_filtered['lon'], df_filtered['lat'], 
-                     c=mapped_indices, cmap=cmap, 
-                     norm=norm, s=50 * df_filtered['ampCI'],
-                     edgecolor='black', linewidth=0.5, transform=ccrs.PlateCarree())
-
-# Plot the "None" stations in gray (fixed color)
-ax.scatter(df_none['lon'], df_none['lat'], 
-           color='gray', s=50 * df_none['ampCI'], 
-           edgecolor='black', linewidth=0.5, transform=ccrs.PlateCarree())
-
-dfInfo = get_stationinfo(dirs['data_dir'])
-dfInfo['record_id'] = dfInfo['record_id']/10
-
-#change the font color to black if the station is in the df_filtered
-dfInfo['fontcolor'] = np.where(dfInfo['record_id'].isin(df_filtered['record_id']), 'black', 'gray')
-
-# Add an axes for the colorbar
-cax = fig.add_axes([0.13, 0.21, 0.76, 0.02])  
-
-# dfInfo
-# Add text labels with adjusted offsets and horizontal alignment
-for i, name in enumerate(dfInfo['station_name']):
-    ax.text(dfInfo['lon'][i] + dfInfo['offsetlon'][i], dfInfo['lat'][i] + dfInfo['offsetlat'][i], name, 
-            ha=dfInfo['ha'][i], fontsize=10, transform=ccrs.PlateCarree(),rotation=0, color = dfInfo['fontcolor'][i])
-
-# Add a colorbar for the climate index
-cbar = plt.colorbar(cm.ScalarMappable(norm=norm, cmap=cmap), cax=cax, orientation='horizontal')
-cbar.set_ticks(np.arange(len(np.unique(df_filtered['modelCI']))))
-cbar.set_ticklabels(np.unique(df_filtered['modelCI']))
-cbar.set_label('Climate Index')
-
-
-# Amplitude size legend
-sizes = [50, 100, 150]
-size_labels = ["0.5 cm", "1.5 cm", "3.0 cm"]  
-size_legend_elements = [Line2D([0], [0], marker='o', color='none', label=label, 
-                               markerfacecolor='gray', markersize=size / 10) 
-                        for size, label in zip(sizes, size_labels)]
-ax.legend(handles=size_legend_elements, title="Amplitude Size", loc="lower left")
-
-# save the figure
-savename = Path(dirs['output_dir']) / 'SL_contributions_map.png'
-plt.savefig(savename, dpi=300, bbox_inches='tight')
-
+station_names
 ------------------
 
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mValueError[0m                                Traceback (most recent call last)
-Cell [0;32mIn[16], line 14[0m
-[1;32m     11[0m mapped_indices [38;5;241m=[39m [index_mapping[ci] [38;5;28;01mfor[39;00m ci [38;5;129;01min[39;00m df_filtered[[38;5;124m'[39m[38;5;124mmodelCI[39m[38;5;124m'[39m]]
-[1;32m     13[0m [38;5;66;03m# Create a colormap without "None"[39;00m
-[0;32m---> 14[0m norm [38;5;241m=[39m [43mcolors[49m[38;5;241;43m.[39;49m[43mBoundaryNorm[49m[43m([49m[43mboundaries[49m[38;5;241;43m=[39;49m[43mnp[49m[38;5;241;43m.[39;49m[43marange[49m[43m([49m[38;5;28;43mlen[39;49m[43m([49m[43mnp[49m[38;5;241;43m.[39;49m[43munique[49m[43m([49m[43mdf_filtered[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mmodelCI[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m[43m)[49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[38;5;241;43m1[39;49m[43m)[49m[43m [49m[38;5;241;43m-[39;49m[43m [49m[38;5;241;43m0.5[39;49m[43m,[49m[43m [49m
-[1;32m     15[0m [43m                               [49m[43mncolors[49m[38;5;241;43m=[39;49m[38;5;28;43mlen[39;49m[43m([49m[43mnp[49m[38;5;241;43m.[39;49m[43munique[49m[43m([49m[43mdf_filtered[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mmodelCI[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m[43m)[49m[43m)[49m
-[1;32m     17[0m fig, ax [38;5;241m=[39m plt[38;5;241m.[39msubplots([38;5;241m1[39m, [38;5;241m1[39m, figsize[38;5;241m=[39m([38;5;241m10[39m, [38;5;241m10[39m), subplot_kw[38;5;241m=[39m{[38;5;124m'[39m[38;5;124mprojection[39m[38;5;124m'[39m: ccrs[38;5;241m.[39mPlateCarree()})
-[1;32m     19[0m [38;5;66;03m# # Call plot_thin_map_hawaii to create the figure and axis[39;00m
+[0;31mFileNotFoundError[0m                         Traceback (most recent call last)
+Cell [0;32mIn[2], line 4[0m
+[1;32m      1[0m climateIndex [38;5;241m=[39m [[38;5;124m'[39m[38;5;124mAO[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mAAO[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mBEST[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mDMI[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mONI[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mPDO[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mPMM[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mPNA[39m[38;5;124m'[39m,[38;5;124m'[39m[38;5;124mTNA[39m[38;5;124m'[39m]
+[1;32m      3[0m [38;5;66;03m# get list of all directories in dirs['model_output_dir'][39;00m
+[0;32m----> 4[0m dirs_list [38;5;241m=[39m [43mos[49m[38;5;241;43m.[39;49m[43mlistdir[49m[43m([49m[43mdirs[49m[43m[[49m[38;5;124;43m'[39;49m[38;5;124;43mmodel_output_dir[39;49m[38;5;124;43m'[39;49m[43m][49m[43m)[49m
+[1;32m      6[0m [38;5;66;03m# only keep the directories that are numbers[39;00m
+[1;32m      7[0m recordIDs [38;5;241m=[39m [[38;5;28mint[39m(d) [38;5;28;01mfor[39;00m d [38;5;129;01min[39;00m dirs_list [38;5;28;01mif[39;00m d[38;5;241m.[39misdigit()]
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/matplotlib/colors.py:2046[0m, in [0;36mBoundaryNorm.__init__[0;34m(self, boundaries, ncolors, clip, extend)[0m
-[1;32m   2044[0m [38;5;28mself[39m[38;5;241m.[39mN [38;5;241m=[39m [38;5;28mlen[39m([38;5;28mself[39m[38;5;241m.[39mboundaries)
-[1;32m   2045[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39mN [38;5;241m<[39m [38;5;241m2[39m:
-[0;32m-> 2046[0m     [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m([38;5;124m"[39m[38;5;124mYou must provide at least 2 boundaries [39m[38;5;124m"[39m
-[1;32m   2047[0m                      [38;5;124mf[39m[38;5;124m"[39m[38;5;124m(1 region) but you passed in [39m[38;5;132;01m{[39;00mboundaries[38;5;132;01m!r}[39;00m[38;5;124m"[39m)
-[1;32m   2048[0m [38;5;28mself[39m[38;5;241m.[39mNcmap [38;5;241m=[39m ncolors
-[1;32m   2049[0m [38;5;28mself[39m[38;5;241m.[39mextend [38;5;241m=[39m extend
-
-[0;31mValueError[0m: You must provide at least 2 boundaries (1 region) but you passed in array([-0.5])
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/GEV_model_output'
 

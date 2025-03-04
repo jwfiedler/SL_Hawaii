@@ -15,114 +15,138 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-#ensure rsl is netcdf4 format
-rsl.to_netcdf(data_dir / 'rsl_hawaii.nc',engine='netcdf4',mode='w')
-rsl.close()
+import copernicusmarine
+copernicusmarine.login()
 
+# check if the file exists, if not, download it
+if not os.path.exists(data_dir / fname_cmems):
+    print('You will need to download the CMEMS data in a separate script')
+    get_CMEMS_data(minlat, maxlat, minlon, maxlon, data_dir) #<<--- COMMENT OUT TO AVOID ACCIDENTAL DATA DOWNLOADS.
+else:
+    print('CMEMS data already downloaded, good to go!')
 ------------------
 
+----- stderr -----
+INFO - 2025-03-04T21:54:12Z - Downloading Copernicus Marine data requires a Copernicus Marine username and password, sign up for free at: https://data.marine.copernicus.eu/register
+----- stdout -----
+Copernicus Marine username:
+------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mKeyError[0m                                  Traceback (most recent call last)
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211[0m, in [0;36mCachingFileManager._acquire_with_cache_info[0;34m(self, needs_lock)[0m
-[1;32m    210[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 211[0m     file [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_key[49m[43m][49m
-[1;32m    212[0m [38;5;28;01mexcept[39;00m [38;5;167;01mKeyError[39;00m:
+[0;31mStdinNotImplementedError[0m                  Traceback (most recent call last)
+Cell [0;32mIn[21], line 2[0m
+[1;32m      1[0m [38;5;28;01mimport[39;00m [38;5;21;01mcopernicusmarine[39;00m
+[0;32m----> 2[0m [43mcopernicusmarine[49m[38;5;241;43m.[39;49m[43mlogin[49m[43m([49m[43m)[49m
+[1;32m      4[0m [38;5;66;03m# check if the file exists, if not, download it[39;00m
+[1;32m      5[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m os[38;5;241m.[39mpath[38;5;241m.[39mexists(data_dir [38;5;241m/[39m fname_cmems):
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56[0m, in [0;36mLRUCache.__getitem__[0;34m(self, key)[0m
-[1;32m     55[0m [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39m_lock:
-[0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
-[1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/copernicusmarine/python_interface/login.py:45[0m, in [0;36mlogin[0;34m(username, password, configuration_file_directory, force_overwrite, check_credentials_valid, credentials_file)[0m
+[1;32m     10[0m [38;5;28;01mdef[39;00m [38;5;21mlogin[39m(
+[1;32m     11[0m     username: Optional[[38;5;28mstr[39m] [38;5;241m=[39m [38;5;28;01mNone[39;00m,
+[1;32m     12[0m     password: Optional[[38;5;28mstr[39m] [38;5;241m=[39m [38;5;28;01mNone[39;00m,
+[0;32m   (...)[0m
+[1;32m     16[0m     credentials_file: Optional[pathlib[38;5;241m.[39mPath] [38;5;241m=[39m [38;5;28;01mNone[39;00m,
+[1;32m     17[0m ) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mbool[39m:
+[1;32m     18[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m     19[0m [38;5;124;03m    Create a configuration file with your Copernicus Marine credentials under the ``$HOME/.copernicusmarine`` directory (overwritable with the ``force_overwrite`` option).[39;00m
+[1;32m     20[0m 
+[0;32m   (...)[0m
+[1;32m     43[0m [38;5;124;03m        True value if the login was successfully completed, False otherwise.[39;00m
+[1;32m     44[0m [38;5;124;03m    """[39;00m  [38;5;66;03m# noqa[39;00m
+[0;32m---> 45[0m     [38;5;28;01mreturn[39;00m [43mlogin_function[49m[43m([49m
+[1;32m     46[0m [43m        [49m[43musername[49m[38;5;241;43m=[39;49m[43musername[49m[43m,[49m
+[1;32m     47[0m [43m        [49m[43mpassword[49m[38;5;241;43m=[39;49m[43mpassword[49m[43m,[49m
+[1;32m     48[0m [43m        [49m[43mconfiguration_file_directory[49m[38;5;241;43m=[39;49m[43mconfiguration_file_directory[49m[43m,[49m
+[1;32m     49[0m [43m        [49m[43mforce_overwrite[49m[38;5;241;43m=[39;49m[43mforce_overwrite[49m[43m,[49m
+[1;32m     50[0m [43m        [49m[43mcheck_credentials_valid[49m[38;5;241;43m=[39;49m[43mcheck_credentials_valid[49m[43m,[49m
+[1;32m     51[0m [43m        [49m[43mconfiguration_file[49m[38;5;241;43m=[39;49m[43mcredentials_file[49m[43m,[49m
+[1;32m     52[0m [43m    [49m[43m)[49m
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc',), 'a', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'e841b464-729c-4c94-953f-4c8103352227']
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/copernicusmarine/core_functions/login.py:30[0m, in [0;36mlogin_function[0;34m(username, password, configuration_file_directory, force_overwrite, check_credentials_valid, configuration_file)[0m
+[1;32m     28[0m     [38;5;28;01melse[39;00m:
+[1;32m     29[0m         [38;5;28;01mreturn[39;00m [38;5;28;01mFalse[39;00m
+[0;32m---> 30[0m credentials_file, has_been_aborted [38;5;241m=[39m [43mcredentials_file_builder[49m[43m([49m
+[1;32m     31[0m [43m    [49m[43musername[49m[38;5;241;43m=[39;49m[43musername[49m[43m,[49m
+[1;32m     32[0m [43m    [49m[43mpassword[49m[38;5;241;43m=[39;49m[43mpassword[49m[43m,[49m
+[1;32m     33[0m [43m    [49m[43mconfiguration_file_directory[49m[38;5;241;43m=[39;49m[43mconfiguration_file_directory[49m[43m,[49m
+[1;32m     34[0m [43m    [49m[43mforce_overwrite[49m[38;5;241;43m=[39;49m[43mforce_overwrite[49m[43m,[49m
+[1;32m     35[0m [43m[49m[43m)[49m
+[1;32m     36[0m [38;5;28;01mif[39;00m has_been_aborted:
+[1;32m     37[0m     logger[38;5;241m.[39minfo([38;5;124m"[39m[38;5;124mNo configuration file have been modified.[39m[38;5;124m"[39m)
 
-During handling of the above exception, another exception occurred:
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/copernicusmarine/core_functions/credentials_utils.py:616[0m, in [0;36mcredentials_file_builder[0;34m(username, password, configuration_file_directory, force_overwrite)[0m
+[1;32m    603[0m [38;5;28;01mdef[39;00m [38;5;21mcredentials_file_builder[39m(
+[1;32m    604[0m     username: Optional[[38;5;28mstr[39m],
+[1;32m    605[0m     password: Optional[[38;5;28mstr[39m],
+[1;32m    606[0m     configuration_file_directory: pathlib[38;5;241m.[39mPath,
+[1;32m    607[0m     force_overwrite: [38;5;28mbool[39m,
+[1;32m    608[0m ) [38;5;241m-[39m[38;5;241m>[39m [38;5;28mtuple[39m[Optional[pathlib[38;5;241m.[39mPath], [38;5;28mbool[39m]:
+[1;32m    609[0m [38;5;250m    [39m[38;5;124;03m"""[39;00m
+[1;32m    610[0m [38;5;124;03m    Returns:[39;00m
+[1;32m    611[0m [38;5;124;03m        a path to the configuration file: if none, the credentials are not valid[39;00m
+[0;32m   (...)[0m
+[1;32m    614[0m [38;5;124;03m        if the user aborted the creation of the configuration file[39;00m
+[1;32m    615[0m [38;5;124;03m    """[39;00m
+[0;32m--> 616[0m     username [38;5;241m=[39m [43m_get_credential_from_environment_variable_or_prompt[49m[43m([49m
+[1;32m    617[0m [43m        [49m[43musername[49m[43m,[49m[43m [49m[38;5;124;43m"[39;49m[38;5;124;43musername[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[38;5;28;43;01mFalse[39;49;00m
+[1;32m    618[0m [43m    [49m[43m)[49m
+[1;32m    619[0m     password [38;5;241m=[39m _get_credential_from_environment_variable_or_prompt(
+[1;32m    620[0m         password, [38;5;124m"[39m[38;5;124mpassword[39m[38;5;124m"[39m, [38;5;28;01mTrue[39;00m
+[1;32m    621[0m     )
+[1;32m    622[0m     copernicus_marine_credentials_are_valid [38;5;241m=[39m (
+[1;32m    623[0m         _are_copernicus_marine_credentials_valid(username, password)
+[1;32m    624[0m     )
 
-[0;31mPermissionError[0m                           Traceback (most recent call last)
-Cell [0;32mIn[9], line 2[0m
-[1;32m      1[0m [38;5;66;03m#ensure rsl is netcdf4 format[39;00m
-[0;32m----> 2[0m [43mrsl[49m[38;5;241;43m.[39;49m[43mto_netcdf[49m[43m([49m[43mdata_dir[49m[43m [49m[38;5;241;43m/[39;49m[43m [49m[38;5;124;43m'[39;49m[38;5;124;43mrsl_hawaii.nc[39;49m[38;5;124;43m'[39;49m[43m,[49m[43mengine[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mnetcdf4[39;49m[38;5;124;43m'[39;49m[43m,[49m[43mmode[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mw[39;49m[38;5;124;43m'[39;49m[43m)[49m
-[1;32m      3[0m rsl[38;5;241m.[39mclose()
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/copernicusmarine/core_functions/credentials_utils.py:595[0m, in [0;36m_get_credential_from_environment_variable_or_prompt[0;34m(credential, credential_type, hide_input)[0m
+[1;32m    591[0m credential [38;5;241m=[39m _retrieve_credential_from_environment_variable(
+[1;32m    592[0m     credential_type
+[1;32m    593[0m )
+[1;32m    594[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m credential:
+[0;32m--> 595[0m     credential [38;5;241m=[39m [43m_retrieve_credential_from_prompt[49m[43m([49m
+[1;32m    596[0m [43m        [49m[43mcredential_type[49m[43m,[49m[43m [49m[43mhide_input[49m
+[1;32m    597[0m [43m    [49m[43m)[49m
+[1;32m    598[0m     [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m credential:
+[1;32m    599[0m         [38;5;28;01mraise[39;00m CredentialsCannotBeNone(credential_type)
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/core/dataset.py:2298[0m, in [0;36mDataset.to_netcdf[0;34m(self, path, mode, format, group, engine, encoding, unlimited_dims, compute, invalid_netcdf)[0m
-[1;32m   2295[0m     encoding [38;5;241m=[39m {}
-[1;32m   2296[0m [38;5;28;01mfrom[39;00m [38;5;21;01mxarray[39;00m[38;5;21;01m.[39;00m[38;5;21;01mbackends[39;00m[38;5;21;01m.[39;00m[38;5;21;01mapi[39;00m [38;5;28;01mimport[39;00m to_netcdf
-[0;32m-> 2298[0m [38;5;28;01mreturn[39;00m [43mto_netcdf[49m[43m([49m[43m  [49m[38;5;66;43;03m# type: ignore  # mypy cannot resolve the overloads:([39;49;00m
-[1;32m   2299[0m [43m    [49m[38;5;28;43mself[39;49m[43m,[49m
-[1;32m   2300[0m [43m    [49m[43mpath[49m[43m,[49m
-[1;32m   2301[0m [43m    [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m
-[1;32m   2302[0m [43m    [49m[38;5;28;43mformat[39;49m[38;5;241;43m=[39;49m[38;5;28;43mformat[39;49m[43m,[49m
-[1;32m   2303[0m [43m    [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m
-[1;32m   2304[0m [43m    [49m[43mengine[49m[38;5;241;43m=[39;49m[43mengine[49m[43m,[49m
-[1;32m   2305[0m [43m    [49m[43mencoding[49m[38;5;241;43m=[39;49m[43mencoding[49m[43m,[49m
-[1;32m   2306[0m [43m    [49m[43munlimited_dims[49m[38;5;241;43m=[39;49m[43munlimited_dims[49m[43m,[49m
-[1;32m   2307[0m [43m    [49m[43mcompute[49m[38;5;241;43m=[39;49m[43mcompute[49m[43m,[49m
-[1;32m   2308[0m [43m    [49m[43mmultifile[49m[38;5;241;43m=[39;49m[38;5;28;43;01mFalse[39;49;00m[43m,[49m
-[1;32m   2309[0m [43m    [49m[43minvalid_netcdf[49m[38;5;241;43m=[39;49m[43minvalid_netcdf[49m[43m,[49m
-[1;32m   2310[0m [43m[49m[43m)[49m
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/copernicusmarine/core_functions/credentials_utils.py:192[0m, in [0;36m_retrieve_credential_from_prompt[0;34m(credential_type, hide_input)[0m
+[1;32m    186[0m [38;5;28;01mif[39;00m credential_type [38;5;241m==[39m [38;5;124m"[39m[38;5;124musername[39m[38;5;124m"[39m:
+[1;32m    187[0m     logger[38;5;241m.[39minfo(
+[1;32m    188[0m         [38;5;124m"[39m[38;5;124mDownloading Copernicus Marine data requires a Copernicus Marine username [39m[38;5;124m"[39m
+[1;32m    189[0m         [38;5;124m"[39m[38;5;124mand password, sign up for free at:[39m[38;5;124m"[39m
+[1;32m    190[0m         [38;5;124m"[39m[38;5;124m https://data.marine.copernicus.eu/register[39m[38;5;124m"[39m
+[1;32m    191[0m     )
+[0;32m--> 192[0m [38;5;28;01mreturn[39;00m [43mclick[49m[38;5;241;43m.[39;49m[43mprompt[49m[43m([49m
+[1;32m    193[0m [43m    [49m[38;5;124;43m"[39;49m[38;5;124;43mCopernicus Marine [39;49m[38;5;124;43m"[39;49m[43m [49m[38;5;241;43m+[39;49m[43m [49m[43mcredential_type[49m[43m,[49m[43m [49m[43mhide_input[49m[38;5;241;43m=[39;49m[43mhide_input[49m
+[1;32m    194[0m [43m[49m[43m)[49m
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:1322[0m, in [0;36mto_netcdf[0;34m(dataset, path_or_file, mode, format, group, engine, encoding, unlimited_dims, compute, multifile, invalid_netcdf)[0m
-[1;32m   1318[0m     [38;5;28;01melse[39;00m:
-[1;32m   1319[0m         [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(
-[1;32m   1320[0m             [38;5;124mf[39m[38;5;124m"[39m[38;5;124munrecognized option [39m[38;5;124m'[39m[38;5;124minvalid_netcdf[39m[38;5;124m'[39m[38;5;124m for engine [39m[38;5;132;01m{[39;00mengine[38;5;132;01m}[39;00m[38;5;124m"[39m
-[1;32m   1321[0m         )
-[0;32m-> 1322[0m store [38;5;241m=[39m [43mstore_open[49m[43m([49m[43mtarget[49m[43m,[49m[43m [49m[43mmode[49m[43m,[49m[43m [49m[38;5;28;43mformat[39;49m[43m,[49m[43m [49m[43mgroup[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m   1324[0m [38;5;28;01mif[39;00m unlimited_dims [38;5;129;01mis[39;00m [38;5;28;01mNone[39;00m:
-[1;32m   1325[0m     unlimited_dims [38;5;241m=[39m dataset[38;5;241m.[39mencoding[38;5;241m.[39mget([38;5;124m"[39m[38;5;124munlimited_dims[39m[38;5;124m"[39m, [38;5;28;01mNone[39;00m)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/click/termui.py:164[0m, in [0;36mprompt[0;34m(text, default, hide_input, confirmation_prompt, type, value_proc, prompt_suffix, show_default, err, show_choices)[0m
+[1;32m    162[0m [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[1;32m    163[0m     [38;5;28;01mwhile[39;00m [38;5;28;01mTrue[39;00m:
+[0;32m--> 164[0m         value [38;5;241m=[39m [43mprompt_func[49m[43m([49m[43mprompt[49m[43m)[49m
+[1;32m    165[0m         [38;5;28;01mif[39;00m value:
+[1;32m    166[0m             [38;5;28;01mbreak[39;00m
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409[0m, in [0;36mNetCDF4DataStore.open[0;34m(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)[0m
-[1;32m    403[0m kwargs [38;5;241m=[39m [38;5;28mdict[39m(
-[1;32m    404[0m     clobber[38;5;241m=[39mclobber, diskless[38;5;241m=[39mdiskless, persist[38;5;241m=[39mpersist, [38;5;28mformat[39m[38;5;241m=[39m[38;5;28mformat[39m
-[1;32m    405[0m )
-[1;32m    406[0m manager [38;5;241m=[39m CachingFileManager(
-[1;32m    407[0m     netCDF4[38;5;241m.[39mDataset, filename, mode[38;5;241m=[39mmode, kwargs[38;5;241m=[39mkwargs
-[1;32m    408[0m )
-[0;32m--> 409[0m [38;5;28;01mreturn[39;00m [38;5;28;43mcls[39;49m[43m([49m[43mmanager[49m[43m,[49m[43m [49m[43mgroup[49m[38;5;241;43m=[39;49m[43mgroup[49m[43m,[49m[43m [49m[43mmode[49m[38;5;241;43m=[39;49m[43mmode[49m[43m,[49m[43m [49m[43mlock[49m[38;5;241;43m=[39;49m[43mlock[49m[43m,[49m[43m [49m[43mautoclose[49m[38;5;241;43m=[39;49m[43mautoclose[49m[43m)[49m
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/click/termui.py:140[0m, in [0;36mprompt.<locals>.prompt_func[0;34m(text)[0m
+[1;32m    137[0m     echo(text[38;5;241m.[39mrstrip([38;5;124m"[39m[38;5;124m [39m[38;5;124m"[39m), nl[38;5;241m=[39m[38;5;28;01mFalse[39;00m, err[38;5;241m=[39merr)
+[1;32m    138[0m     [38;5;66;03m# Echo a space to stdout to work around an issue where[39;00m
+[1;32m    139[0m     [38;5;66;03m# readline causes backspace to clear the whole line.[39;00m
+[0;32m--> 140[0m     [38;5;28;01mreturn[39;00m [43mf[49m[43m([49m[38;5;124;43m"[39;49m[38;5;124;43m [39;49m[38;5;124;43m"[39;49m[43m)[49m
+[1;32m    141[0m [38;5;28;01mexcept[39;00m ([38;5;167;01mKeyboardInterrupt[39;00m, [38;5;167;01mEOFError[39;00m):
+[1;32m    142[0m     [38;5;66;03m# getpass doesn't print a newline if the user aborts input with ^C.[39;00m
+[1;32m    143[0m     [38;5;66;03m# Allegedly this behavior is inherited from getpass(3).[39;00m
+[1;32m    144[0m     [38;5;66;03m# A doc bug has been filed at https://bugs.python.org/issue24711[39;00m
+[1;32m    145[0m     [38;5;28;01mif[39;00m hide_input:
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356[0m, in [0;36mNetCDF4DataStore.__init__[0;34m(self, manager, group, mode, lock, autoclose)[0m
-[1;32m    354[0m [38;5;28mself[39m[38;5;241m.[39m_group [38;5;241m=[39m group
-[1;32m    355[0m [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m=[39m mode
-[0;32m--> 356[0m [38;5;28mself[39m[38;5;241m.[39mformat [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mds[49m[38;5;241m.[39mdata_model
-[1;32m    357[0m [38;5;28mself[39m[38;5;241m.[39m_filename [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39mds[38;5;241m.[39mfilepath()
-[1;32m    358[0m [38;5;28mself[39m[38;5;241m.[39mis_remote [38;5;241m=[39m is_remote_uri([38;5;28mself[39m[38;5;241m.[39m_filename)
+File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/ipykernel/kernelbase.py:1281[0m, in [0;36mKernel.raw_input[0;34m(self, prompt)[0m
+[1;32m   1279[0m [38;5;28;01mif[39;00m [38;5;129;01mnot[39;00m [38;5;28mself[39m[38;5;241m.[39m_allow_stdin:
+[1;32m   1280[0m     msg [38;5;241m=[39m [38;5;124m"[39m[38;5;124mraw_input was called, but this frontend does not support input requests.[39m[38;5;124m"[39m
+[0;32m-> 1281[0m     [38;5;28;01mraise[39;00m StdinNotImplementedError(msg)
+[1;32m   1282[0m [38;5;28;01mreturn[39;00m [38;5;28mself[39m[38;5;241m.[39m_input_request(
+[1;32m   1283[0m     [38;5;28mstr[39m(prompt),
+[1;32m   1284[0m     [38;5;28mself[39m[38;5;241m.[39m_parent_ident[[38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m],
+[1;32m   1285[0m     [38;5;28mself[39m[38;5;241m.[39mget_parent([38;5;124m"[39m[38;5;124mshell[39m[38;5;124m"[39m),
+[1;32m   1286[0m     password[38;5;241m=[39m[38;5;28;01mFalse[39;00m,
+[1;32m   1287[0m )
 
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418[0m, in [0;36mNetCDF4DataStore.ds[0;34m(self)[0m
-[1;32m    416[0m [38;5;129m@property[39m
-[1;32m    417[0m [38;5;28;01mdef[39;00m [38;5;21mds[39m([38;5;28mself[39m):
-[0;32m--> 418[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_acquire[49m[43m([49m[43m)[49m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412[0m, in [0;36mNetCDF4DataStore._acquire[0;34m(self, needs_lock)[0m
-[1;32m    411[0m [38;5;28;01mdef[39;00m [38;5;21m_acquire[39m([38;5;28mself[39m, needs_lock[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
-[0;32m--> 412[0m     [38;5;28;01mwith[39;00m [38;5;28mself[39m[38;5;241m.[39m_manager[38;5;241m.[39macquire_context(needs_lock) [38;5;28;01mas[39;00m root:
-[1;32m    413[0m         ds [38;5;241m=[39m _nc4_require_group(root, [38;5;28mself[39m[38;5;241m.[39m_group, [38;5;28mself[39m[38;5;241m.[39m_mode)
-[1;32m    414[0m     [38;5;28;01mreturn[39;00m ds
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119[0m, in [0;36m_GeneratorContextManager.__enter__[0;34m(self)[0m
-[1;32m    117[0m [38;5;28;01mdel[39;00m [38;5;28mself[39m[38;5;241m.[39margs, [38;5;28mself[39m[38;5;241m.[39mkwds, [38;5;28mself[39m[38;5;241m.[39mfunc
-[1;32m    118[0m [38;5;28;01mtry[39;00m:
-[0;32m--> 119[0m     [38;5;28;01mreturn[39;00m [38;5;28;43mnext[39;49m[43m([49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43mgen[49m[43m)[49m
-[1;32m    120[0m [38;5;28;01mexcept[39;00m [38;5;167;01mStopIteration[39;00m:
-[1;32m    121[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m([38;5;124m"[39m[38;5;124mgenerator didn[39m[38;5;124m'[39m[38;5;124mt yield[39m[38;5;124m"[39m) [38;5;28;01mfrom[39;00m [38;5;28;01mNone[39;00m
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199[0m, in [0;36mCachingFileManager.acquire_context[0;34m(self, needs_lock)[0m
-[1;32m    196[0m [38;5;129m@contextlib[39m[38;5;241m.[39mcontextmanager
-[1;32m    197[0m [38;5;28;01mdef[39;00m [38;5;21macquire_context[39m([38;5;28mself[39m, needs_lock[38;5;241m=[39m[38;5;28;01mTrue[39;00m):
-[1;32m    198[0m [38;5;250m    [39m[38;5;124;03m"""Context manager for acquiring a file."""[39;00m
-[0;32m--> 199[0m     file, cached [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_acquire_with_cache_info[49m[43m([49m[43mneeds_lock[49m[43m)[49m
-[1;32m    200[0m     [38;5;28;01mtry[39;00m:
-[1;32m    201[0m         [38;5;28;01myield[39;00m file
-
-File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217[0m, in [0;36mCachingFileManager._acquire_with_cache_info[0;34m(self, needs_lock)[0m
-[1;32m    215[0m     kwargs [38;5;241m=[39m kwargs[38;5;241m.[39mcopy()
-[1;32m    216[0m     kwargs[[38;5;124m"[39m[38;5;124mmode[39m[38;5;124m"[39m] [38;5;241m=[39m [38;5;28mself[39m[38;5;241m.[39m_mode
-[0;32m--> 217[0m file [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_opener[49m[43m([49m[38;5;241;43m*[39;49m[38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_args[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
-[1;32m    218[0m [38;5;28;01mif[39;00m [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m==[39m [38;5;124m"[39m[38;5;124mw[39m[38;5;124m"[39m:
-[1;32m    219[0m     [38;5;66;03m# ensure file doesn't get overridden when opened again[39;00m
-[1;32m    220[0m     [38;5;28mself[39m[38;5;241m.[39m_mode [38;5;241m=[39m [38;5;124m"[39m[38;5;124ma[39m[38;5;124m"[39m
-
-File [0;32msrc/netCDF4/_netCDF4.pyx:2469[0m, in [0;36mnetCDF4._netCDF4.Dataset.__init__[0;34m()[0m
-
-File [0;32msrc/netCDF4/_netCDF4.pyx:2028[0m, in [0;36mnetCDF4._netCDF4._ensure_nc_success[0;34m()[0m
-
-[0;31mPermissionError[0m: [Errno 13] Permission denied: '/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc'
+[0;31mStdinNotImplementedError[0m: raw_input was called, but this frontend does not support input requests.
 
