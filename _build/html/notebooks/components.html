@@ -1,0 +1,2432 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Components &#8212; Hawaii Sea Level Indicators</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'notebooks/components';</script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Nonstationary Extremes" href="nonstationaryGEV/monthly_extremes_non-stationaryGEV.html" />
+    <link rel="prev" title="Annual Extremes" href="regional_and_local/SL_Extremes_annual.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+
+  <div class="bd-header-announcement container-fluid bd-header-announcement">
+    <div class="bd-header-announcement__content">In development! Please post issues and suggestions to github.</div>
+  </div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/trend_map.png" class="logo__image only-light" alt="Hawaii Sea Level Indicators - Home"/>
+    <script>document.write(`<img src="../_static/trend_map.png" class="logo__image only-dark" alt="Hawaii Sea Level Indicators - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://uhslc.soest.hawaii.edu/jfiedler/SeaLevelIndicators/">Indicator Matrix</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../gettingStarted.html">Getting Started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="SL_Data_Wrangling.html">Data Wrangling</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">ANNUAL</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="SL_annual.html">Sea Level Magnitude</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Trend.html">Sea Level Trend</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Rankings_annual.html">Annual Sea Level Rankings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Extremes_annual.html">Annual Extremes</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Components</a></li>
+<li class="toctree-l2"><a class="reference internal" href="nonstationaryGEV/monthly_extremes_non-stationaryGEV.html">Nonstationary Extremes</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Flood.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="FloodFrequency.html">Minor Flood Frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FloodDuration.html">Flood Duration</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">INTRA-ANNUAL</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="SL_intra-annual.html">Sea Level Magnitude</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_anomaly_intra-annual.html">Intra-Annual Sea Level Anomalies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="regional_and_local/SL_Extremes_intra-annual.html">Intra-Annual Extremes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contributions.html">Contributions</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="Flood_intra-annual.html">Minor Flood Frequency and Duration</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="FloodFrequency_intra-annual.html">Minor Flood Frequency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="FloodDuration_intra-annual.html">Flood Duration</a></li>
+</ul>
+</li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/jwfiedler/SL_Hawaii/main?urlpath=tree/notebooks/components.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onBinder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/jwfiedler/SL_Hawaii" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jwfiedler/SL_Hawaii/edit/main/notebooks/components.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/jwfiedler/SL_Hawaii/issues/new?title=Issue%20on%20page%20%2Fnotebooks/components.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/notebooks/components.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Components</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-components">Plot components</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="components">
+<h1>Components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h1>
+<figure class="align-right">
+<a class="reference internal image-reference" href="../_images/1854a69b0483381cafa6549cb2fd70fb08bc84d91d621ab8faa6c95ebfb44fc5.png"><img alt="../_images/1854a69b0483381cafa6549cb2fd70fb08bc84d91d621ab8faa6c95ebfb44fc5.png" src="../_images/1854a69b0483381cafa6549cb2fd70fb08bc84d91d621ab8faa6c95ebfb44fc5.png" style="width: 232.5px; height: 423.5px;" /></a>
+</figure>
+<p>In this notebook we’ll explore the various contributions to high and low water levels. At the moment this is exploratory - we are using this to take broad stroke looks. We’ll do this by breaking down the time series of hourly water levels at a tide gauge into different frequency bands, with the idea that certain processes fall within these timescales. For example, we know that ENSO timescales are roughly 4-7 years. We know that PDO timescales are closer to decadal, and mesoscale eddies are weeks-months.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> setup.ipynb
+<span class="o">%</span><span class="k">run</span> plotting_functions.ipynb
+<span class="o">%</span><span class="k">run</span> tseries_functions.py
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span> <span class="p">)</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../output&#39;</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">utide</span> <span class="kn">import</span> <span class="n">solve</span><span class="p">,</span> <span class="n">reconstruct</span>
+<span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/utide/harmonics.py:16: RuntimeWarning: invalid value encountered in cast
+  nshallow = np.ma.masked_invalid(const.nshallow).astype(int)
+/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/utide/harmonics.py:17: RuntimeWarning: invalid value encountered in cast
+  ishallow = np.ma.masked_invalid(const.ishallow).astype(int) - 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>For right now, we’ll do Kahului.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epoch_start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;1983-01-01&#39;</span><span class="p">)</span>
+<span class="n">epoch_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="s1">&#39;2001-01-01&#39;</span><span class="p">)</span>
+<span class="n">ds_epoch</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="nb">slice</span><span class="p">(</span><span class="n">epoch_start</span><span class="p">,</span> <span class="n">epoch_end</span><span class="p">))</span>
+
+<span class="c1">#extract time and sea level values for HNL station</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">ds_epoch</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span>
+<span class="n">time_days</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span> <span class="o">-</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">timedelta64</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">)</span>
+
+<span class="c1">#select only station 59</span>
+<span class="n">station</span> <span class="o">=</span> <span class="mi">59</span>
+<span class="n">sea_level</span> <span class="o">=</span> <span class="n">ds_epoch</span><span class="o">.</span><span class="n">sea_level</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station</span>
+                       <span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">station_name</span> <span class="o">=</span> <span class="n">ds_epoch</span><span class="o">.</span><span class="n">station_name</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station</span><span class="p">)</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Working on station: </span><span class="si">{</span><span class="n">station_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Working on station: Kahului
+</pre></div>
+</div>
+</div>
+</div>
+<p>Estimate the astronomical tides at this location using the selected epoch.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coef</span> <span class="o">=</span> <span class="n">solve</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">sea_level</span><span class="p">,</span> <span class="n">nodal</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">trend</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;robust&#39;</span><span class="p">,</span><span class="n">lat</span><span class="o">=</span><span class="n">ds</span><span class="p">[</span><span class="s1">&#39;lat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solve: matrix prep ... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solution ... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_ALL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span>
+<span class="n">sea_level_ALL</span> <span class="o">=</span> <span class="n">ds</span><span class="o">.</span><span class="n">sea_level</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># find beginning of data in timeseries</span>
+<span class="n">start</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">sea_level_ALL</span><span class="p">))[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">time_ALL</span> <span class="o">=</span> <span class="n">time_ALL</span><span class="p">[</span><span class="n">start</span><span class="p">:]</span>
+<span class="n">sea_level_ALL</span> <span class="o">=</span> <span class="n">sea_level_ALL</span><span class="p">[</span><span class="n">start</span><span class="p">:]</span>
+
+<span class="n">tide_ALL</span> <span class="o">=</span> <span class="n">reconstruct</span><span class="p">(</span><span class="n">time_ALL</span><span class="p">,</span> <span class="n">coef</span><span class="p">)</span>
+<span class="n">ntr</span> <span class="o">=</span> <span class="n">sea_level_ALL</span> <span class="o">-</span> <span class="n">tide_ALL</span><span class="o">.</span><span class="n">h</span>
+<span class="n">ntr_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">time_ALL</span><span class="p">,</span> <span class="s1">&#39;ntr&#39;</span><span class="p">:</span> <span class="n">ntr</span><span class="p">,</span> <span class="s1">&#39;sea_level&#39;</span><span class="p">:</span> <span class="n">sea_level_ALL</span><span class="p">,</span> <span class="s1">&#39;tide&#39;</span><span class="p">:</span> <span class="n">tide_ALL</span><span class="o">.</span><span class="n">h</span><span class="p">})</span>
+<span class="c1"># ntr_data.to_csv(&#39;data/ntr_057b.csv&#39;, index=False)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prep/calcs ... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ntr_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>ntr</th>
+      <th>sea_level</th>
+      <th>tide</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1950-10-19 02:00:00</td>
+      <td>29.099293</td>
+      <td>1006.0</td>
+      <td>976.900707</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1950-10-19 03:00:00</td>
+      <td>1.204955</td>
+      <td>945.0</td>
+      <td>943.795045</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1950-10-19 04:00:00</td>
+      <td>-20.873711</td>
+      <td>914.0</td>
+      <td>934.873711</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1950-10-19 05:00:00</td>
+      <td>-29.960820</td>
+      <td>914.0</td>
+      <td>943.960820</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1950-10-19 06:00:00</td>
+      <td>-49.354150</td>
+      <td>914.0</td>
+      <td>963.354150</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>651209</th>
+      <td>2025-01-31 19:00:00</td>
+      <td>224.128854</td>
+      <td>1203.0</td>
+      <td>978.871146</td>
+    </tr>
+    <tr>
+      <th>651210</th>
+      <td>2025-01-31 20:00:00</td>
+      <td>212.863482</td>
+      <td>1116.0</td>
+      <td>903.136518</td>
+    </tr>
+    <tr>
+      <th>651211</th>
+      <td>2025-01-31 21:00:00</td>
+      <td>194.204832</td>
+      <td>1093.0</td>
+      <td>898.795168</td>
+    </tr>
+    <tr>
+      <th>651212</th>
+      <td>2025-01-31 22:00:00</td>
+      <td>160.193279</td>
+      <td>1119.0</td>
+      <td>958.806721</td>
+    </tr>
+    <tr>
+      <th>651213</th>
+      <td>2025-01-31 23:00:00</td>
+      <td>132.209752</td>
+      <td>1188.0</td>
+      <td>1055.790248</td>
+    </tr>
+  </tbody>
+</table>
+<p>651214 rows × 4 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#plot time series</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NTR&#39;</span><span class="p">)</span>
+
+<span class="c1"># add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Non-tidal residuals: &#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Non-tidal residuals&#39;</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Non-tidal residuals (millimeters)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/45d7af22730ea4127f6df5acaa50fd464a3e5c365859ecd1acf3c3634723f08f.png" src="../_images/45d7af22730ea4127f6df5acaa50fd464a3e5c365859ecd1acf3c3634723f08f.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Annualfreq_cpd</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">365.25</span>
+<span class="n">SemiAnnualfreq_cpd</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">182.625</span>
+<span class="n">QtrAnnualfreq_cpd</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mf">91.3125</span>
+<span class="n">highFreq_cpd</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="mi">7</span> <span class="c1"># anything higher than a week</span>
+<span class="n">monthlyFreq_cpd</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">365.25</span><span class="o">/</span><span class="mi">12</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#detrend the ntr and fill with zeros</span>
+
+<span class="k">def</span> <span class="nf">process_trend_with_nan</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">,</span> <span class="n">time_column</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">weighted</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Compute trends for sea level anomaly data, handling NaNs.</span>
+<span class="sd">    </span>
+<span class="sd">    Supports both pandas.DataFrame and xarray.DataArray.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    - sea_level_data: pandas.DataFrame or xarray.DataArray</span>
+<span class="sd">    - time_column: str, column name for time in a DataFrame (ignored for xarray)</span>
+<span class="sd">    - weighted: bool, whether to apply cosine weighting (only applies to gridded xarray data)</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    - trend_mag: Trend magnitude over time</span>
+<span class="sd">    - sea_level_trend: Trend values</span>
+<span class="sd">    - trend_rate: Rate of change per year</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+
+    <span class="c1"># Handle xarray input</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">,</span> <span class="n">xr</span><span class="o">.</span><span class="n">DataArray</span><span class="p">):</span>
+        <span class="n">sea_level_data</span> <span class="o">=</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;time&#39;</span> <span class="ow">in</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">dims</span> <span class="k">else</span> <span class="n">sea_level_data</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">to_julian_date</span><span class="p">()</span>
+
+        <span class="c1"># If it&#39;s a single time series</span>
+        <span class="k">if</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+                <span class="n">time_masked</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+                <span class="n">y_masked</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+                <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">time_masked</span><span class="p">,</span> <span class="n">y_masked</span><span class="p">)</span>
+                <span class="n">trend</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">time_index</span> <span class="o">+</span> <span class="n">intercept</span>
+                <span class="n">detrended</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">trend</span>
+
+                <span class="n">trend_mag</span> <span class="o">=</span> <span class="n">trend</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">trend</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">time_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_data</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">values</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">days</span> <span class="o">/</span> <span class="mf">365.25</span>
+                <span class="n">trend_rate</span> <span class="o">=</span> <span class="n">trend_mag</span> <span class="o">/</span> <span class="n">time_mag</span>
+
+                <span class="k">return</span> <span class="n">trend_mag</span><span class="p">,</span> <span class="n">trend</span><span class="p">,</span> <span class="n">trend_rate</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="c1"># For multidimensional xarray data</span>
+        <span class="n">sla_flat</span> <span class="o">=</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sea_level_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">detrended_flat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="n">sla_flat</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">sla_flat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">sla_flat</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+                <span class="n">time_masked</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+                <span class="n">y_masked</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+                <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">time_masked</span><span class="p">,</span> <span class="n">y_masked</span><span class="p">)</span>
+                <span class="n">trend</span> <span class="o">=</span> <span class="n">slope</span> <span class="o">*</span> <span class="n">time_index</span> <span class="o">+</span> <span class="n">intercept</span>
+
+                <span class="n">detrended_flat</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">trend</span>
+
+        <span class="n">detrended</span> <span class="o">=</span> <span class="n">detrended_flat</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">sea_level_data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="n">sea_level_trend</span> <span class="o">=</span> <span class="n">sea_level_data</span> <span class="o">-</span> <span class="n">detrended</span>
+        <span class="n">trend_mag</span> <span class="o">=</span> <span class="n">sea_level_trend</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">sea_level_trend</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">times</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+        <span class="n">time_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">times</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">days</span> <span class="o">/</span> <span class="mf">365.25</span>
+        <span class="n">trend_rate</span> <span class="o">=</span> <span class="n">trend_mag</span> <span class="o">/</span> <span class="n">time_mag</span>
+
+        <span class="k">if</span> <span class="n">weighted</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;latitude&#39;</span> <span class="ow">in</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">dims</span><span class="p">:</span>
+                <span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">sea_level_data</span><span class="o">.</span><span class="n">latitude</span><span class="p">))</span>
+                <span class="n">weights</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;weights&#39;</span>
+
+                <span class="n">trend_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">trend_mag</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="n">trend_rate</span> <span class="o">=</span> <span class="p">(</span><span class="n">trend_rate</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+                <span class="n">sea_level_trend</span> <span class="o">=</span> <span class="p">(</span><span class="n">sea_level_trend</span> <span class="o">*</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Weighted trend calculation requires latitude coordinate.&quot;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">trend_mag</span><span class="p">,</span> <span class="n">sea_level_trend</span><span class="p">,</span> <span class="n">trend_rate</span>
+
+    <span class="c1"># Handle DataFrame input</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">time_column</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time column &#39;</span><span class="si">{</span><span class="n">time_column</span><span class="si">}</span><span class="s2">&#39; not found in DataFrame.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Convert time to Julian date</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">[</span><span class="n">time_column</span><span class="p">])</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">toordinal</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1721424.5</span><span class="p">)</span>
+
+
+
+        <span class="c1"># Exclude the time column from analysis</span>
+        <span class="n">data_columns</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sea_level_data</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="n">time_column</span><span class="p">]</span>
+        
+        <span class="n">trend_magnitudes</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">trend_series</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">trend_rates</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">data_columns</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">sea_level_data</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">mask</span><span class="p">):</span>
+                <span class="n">time_masked</span> <span class="o">=</span> <span class="n">time_index</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+                <span class="n">y_masked</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+
+                <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stats</span><span class="o">.</span><span class="n">linregress</span><span class="p">(</span><span class="n">time_masked</span><span class="p">,</span> <span class="n">y_masked</span><span class="p">)</span>
+                <span class="n">trend</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">slope</span> <span class="o">*</span> <span class="n">time_index</span> <span class="o">+</span> <span class="n">intercept</span><span class="p">)</span>
+                <span class="n">detrended</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">trend</span>
+
+                
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">trend</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="n">trend_mag</span> <span class="o">=</span> <span class="n">trend</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">trend</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">time_mag</span> <span class="o">=</span> <span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">[</span><span class="n">time_column</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">sea_level_data</span><span class="p">[</span><span class="n">time_column</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">days</span> <span class="o">/</span> <span class="mf">365.25</span>
+                    <span class="n">trend_rate</span> <span class="o">=</span> <span class="n">trend_mag</span> <span class="o">/</span> <span class="n">time_mag</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">trend_mag</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                    <span class="n">trend_rate</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+                <span class="n">trend_magnitudes</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">trend_mag</span>
+                <span class="n">trend_series</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">trend</span>
+                <span class="n">trend_rates</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">trend_rate</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">trend_magnitudes</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="n">trend_series</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="n">trend_rates</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="k">return</span> <span class="n">trend_magnitudes</span><span class="p">,</span> <span class="n">trend_series</span><span class="p">,</span> <span class="n">trend_rates</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Input must be an xarray.DataArray or pandas.DataFrame.&quot;</span><span class="p">)</span>
+
+
+
+<span class="n">ntr_data_mags</span><span class="p">,</span><span class="n">ntr_trend_series</span><span class="p">,</span><span class="n">ntr_trend_rates</span> <span class="o">=</span> <span class="n">process_trend_with_nan</span><span class="p">(</span><span class="n">ntr_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NTR&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_trend_series</span><span class="p">[</span><span class="s1">&#39;ntr&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Trend&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># add title</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Detrended non-tidal residuals: &#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Non-tidal residuals&#39;</span> <span class="o">+</span> <span class="s1">&#39; (&#39;</span> <span class="o">+</span> <span class="n">ds</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">attrs</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Non-tidal residuals (millimeters)&#39;)
+</pre></div>
+</div>
+<img alt="../_images/8e6550ff20e2e4e6a82e9e041f07472c401a99b5138b29ec4a5829d83556b9d9.png" src="../_images/8e6550ff20e2e4e6a82e9e041f07472c401a99b5138b29ec4a5829d83556b9d9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr_detrended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">ntr_trend_series</span><span class="p">[</span><span class="s1">&#39;ntr&#39;</span><span class="p">]</span>
+<span class="n">ntr_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>ntr</th>
+      <th>sea_level</th>
+      <th>tide</th>
+      <th>ntr_detrended</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1950-10-19 02:00:00</td>
+      <td>29.099293</td>
+      <td>1006.0</td>
+      <td>976.900707</td>
+      <td>64.221333</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1950-10-19 03:00:00</td>
+      <td>1.204955</td>
+      <td>945.0</td>
+      <td>943.795045</td>
+      <td>36.326995</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1950-10-19 04:00:00</td>
+      <td>-20.873711</td>
+      <td>914.0</td>
+      <td>934.873711</td>
+      <td>14.248329</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1950-10-19 05:00:00</td>
+      <td>-29.960820</td>
+      <td>914.0</td>
+      <td>943.960820</td>
+      <td>5.161220</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1950-10-19 06:00:00</td>
+      <td>-49.354150</td>
+      <td>914.0</td>
+      <td>963.354150</td>
+      <td>-14.232110</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>651209</th>
+      <td>2025-01-31 19:00:00</td>
+      <td>224.128854</td>
+      <td>1203.0</td>
+      <td>978.871146</td>
+      <td>185.483860</td>
+    </tr>
+    <tr>
+      <th>651210</th>
+      <td>2025-01-31 20:00:00</td>
+      <td>212.863482</td>
+      <td>1116.0</td>
+      <td>903.136518</td>
+      <td>174.218488</td>
+    </tr>
+    <tr>
+      <th>651211</th>
+      <td>2025-01-31 21:00:00</td>
+      <td>194.204832</td>
+      <td>1093.0</td>
+      <td>898.795168</td>
+      <td>155.559838</td>
+    </tr>
+    <tr>
+      <th>651212</th>
+      <td>2025-01-31 22:00:00</td>
+      <td>160.193279</td>
+      <td>1119.0</td>
+      <td>958.806721</td>
+      <td>121.548285</td>
+    </tr>
+    <tr>
+      <th>651213</th>
+      <td>2025-01-31 23:00:00</td>
+      <td>132.209752</td>
+      <td>1188.0</td>
+      <td>1055.790248</td>
+      <td>93.564758</td>
+    </tr>
+  </tbody>
+</table>
+<p>651214 rows × 5 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#replace all nans with zeros and plot</span>
+<span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr_detrended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr_detrended&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">#if there are time </span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr_detrended&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;NTR Detrended&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x3e5853e20&gt;]
+</pre></div>
+</div>
+<img alt="../_images/f75327af57063b831b8fa6053618835354f3dd66369325b90b2e43ad5cf5f130.png" src="../_images/f75327af57063b831b8fa6053618835354f3dd66369325b90b2e43ad5cf5f130.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Now start to filter for each frequency band we want</span>
+
+<span class="c1"># make time_diffs in hours</span>
+<span class="n">time_diffs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;timedelta64[h]&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+
+<span class="c1"># Remove the lowest frequencies first (decadal and multi-year)</span>
+<span class="c1"># Filter out Nodal Component</span>
+<span class="n">ntr_noNodal</span><span class="p">,</span> <span class="n">ntr_nodal</span> <span class="o">=</span> <span class="n">filter_known_frequency_components</span><span class="p">(</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr_detrended&#39;</span><span class="p">],</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">365.25</span><span class="o">*</span><span class="mf">18.61</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.00001</span><span class="p">)</span>
+
+
+<span class="c1">#&gt;20 years</span>
+<span class="n">ntr_lowFreq</span><span class="p">,</span> <span class="n">ntr_highFreq</span> <span class="o">=</span> <span class="n">butterworth_lowpass</span><span class="p">(</span><span class="n">ntr_noNodal</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">365.25</span><span class="o">*</span><span class="mi">20</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">padtype</span><span class="o">=</span><span class="s1">&#39;even&#39;</span><span class="p">,</span> <span class="n">padlen</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1">#10-20 years</span>
+<span class="n">ntr_decadal</span><span class="p">,</span> <span class="n">ntr_highFreq</span> <span class="o">=</span> <span class="n">butterworth_lowpass</span><span class="p">(</span><span class="n">ntr_highFreq</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">365.25</span><span class="o">*</span><span class="mi">10</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> 
+
+<span class="c1">#1-10 years</span>
+<span class="n">ntr_multiyear</span><span class="p">,</span> <span class="n">ntr_highFreq</span> <span class="o">=</span> <span class="n">butterworth_lowpass</span><span class="p">(</span><span class="n">ntr_highFreq</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mf">365.25</span><span class="o">*</span><span class="mi">1</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Filter out annual, semi-annual, and quarter-annual components</span>
+<span class="n">ntr_noAnnual</span><span class="p">,</span> <span class="n">ntr_Annual</span> <span class="o">=</span> <span class="n">filter_known_frequency_components</span><span class="p">(</span><span class="n">ntr_highFreq</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="n">Annualfreq_cpd</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.002</span><span class="p">)</span>
+<span class="n">ntr_noSemiAnnual</span><span class="p">,</span> <span class="n">ntr_SemiAnnual</span> <span class="o">=</span> <span class="n">filter_known_frequency_components</span><span class="p">(</span><span class="n">ntr_noAnnual</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="n">SemiAnnualfreq_cpd</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.002</span><span class="p">)</span>
+<span class="n">ntr_noQtrAnnual</span><span class="p">,</span> <span class="n">ntr_QtrAnnual</span> <span class="o">=</span> <span class="n">filter_known_frequency_components</span><span class="p">(</span><span class="n">ntr_noSemiAnnual</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="n">QtrAnnualfreq_cpd</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.002</span><span class="p">)</span>
+
+
+<span class="c1"># 1 month-1 year</span>
+<span class="n">ntr_subAnnual</span><span class="p">,</span> <span class="n">ntr_highFreq</span> <span class="o">=</span> <span class="n">butterworth_lowpass</span><span class="p">(</span><span class="n">ntr_noQtrAnnual</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="n">monthlyFreq_cpd</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Remove high frequencies (weekly to hourly)</span>
+<span class="c1"># ntr_weekly is timescales longer than 7 days but less than 1 month</span>
+<span class="n">ntr_Weekly</span><span class="p">,</span> <span class="n">ntr_subWeekly</span> <span class="o">=</span> <span class="n">butterworth_lowpass</span><span class="p">(</span><span class="n">ntr_highFreq</span><span class="p">,</span> <span class="n">time_diffs</span><span class="p">,</span> <span class="n">highFreq_cpd</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">ntr_Seasonal</span> <span class="o">=</span> <span class="n">ntr_Annual</span> <span class="o">+</span> <span class="n">ntr_SemiAnnual</span> <span class="o">+</span> <span class="n">ntr_QtrAnnual</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make dataframe of filtered data</span>
+<span class="n">ntr_filtered</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> 
+                             <span class="s1">&#39;ntr&#39;</span><span class="p">:</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;ntr_detrended&#39;</span><span class="p">],</span> 
+                             <span class="s1">&#39;sea_level&#39;</span><span class="p">:</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">],</span>
+                             <span class="s1">&#39;tide&#39;</span><span class="p">:</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">],</span>
+                             <span class="s1">&#39;Nodal&#39;</span><span class="p">:</span> <span class="n">ntr_nodal</span><span class="p">,</span> 
+                             <span class="s1">&#39;&gt; 20 years&#39;</span><span class="p">:</span> <span class="n">ntr_lowFreq</span><span class="p">,</span> 
+                             <span class="s1">&#39;10-20 year&#39;</span><span class="p">:</span> <span class="n">ntr_decadal</span><span class="p">,</span> 
+                             <span class="s1">&#39;1-10 year&#39;</span><span class="p">:</span> <span class="n">ntr_multiyear</span><span class="p">,</span> 
+                             <span class="s1">&#39;Seasonal&#39;</span><span class="p">:</span> <span class="n">ntr_Seasonal</span><span class="p">,</span> 
+                             <span class="s1">&#39;1 month - 1 year&#39;</span><span class="p">:</span> <span class="n">ntr_subAnnual</span><span class="p">,</span> 
+                             <span class="s1">&#39;1 week - 1 month&#39;</span><span class="p">:</span> <span class="n">ntr_Weekly</span><span class="p">,</span> 
+                             <span class="s1">&#39;&lt; 1 week&#39;</span><span class="p">:</span> <span class="n">ntr_subWeekly</span><span class="p">})</span>
+<span class="n">ntr_filtered</span>
+
+<span class="c1"># get std of each component</span>
+<span class="n">ntr_component_stds</span> <span class="o">=</span> <span class="n">ntr_filtered</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="c1"># remove time from ntr)component_stds</span>
+<span class="n">ntr_component_stds</span> <span class="o">=</span> <span class="n">ntr_component_stds</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get cumulative sums of Nodal, &gt; 20 years, 10-20 years, 1-10 years, Seasonal, 1 month - 1 year, 1 week - 1 month, and &lt; 1 week columns</span>
+<span class="c1"># do the cumsum of ntr_filtered columns Nodal, &gt; 20 years, 10-20 year, 1-10 year, Seasonal, 1 month - 1 year, 1 week - 1 month, and &lt; 1 week by column (horizontal)</span>
+<span class="n">ntr_cumsum</span> <span class="o">=</span> <span class="n">ntr_filtered</span><span class="p">[[</span><span class="s1">&#39;Nodal&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt; 20 years&#39;</span><span class="p">,</span> <span class="s1">&#39;10-20 year&#39;</span><span class="p">,</span> <span class="s1">&#39;1-10 year&#39;</span><span class="p">,</span> <span class="s1">&#39;Seasonal&#39;</span><span class="p">,</span> <span class="s1">&#39;1 month - 1 year&#39;</span><span class="p">,</span> <span class="s1">&#39;1 week - 1 month&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt; 1 week&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ntr_cumsum_stds</span> <span class="o">=</span> <span class="n">ntr_cumsum</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">ntr_cumsum_stds</span>
+<span class="c1"># make a plot of ntr_filtered and ntr_cumsum</span>
+<span class="c1"># fig, ax = plt.subplots(figsize=(12, 6))</span>
+<span class="c1"># ntr_filtered.plot(x=&#39;time&#39;, y=[&#39;ntr&#39;], ax=ax, color=[&#39;black&#39;], linewidth=1)</span>
+<span class="c1"># ntr_filtered_sums.plot(x=&#39;time&#39;, y=[&#39;Nodal&#39;] +[&#39;&gt; 20 years&#39;], ax=ax, color=&#39;yellow&#39;,linewidth=1, linestyle=&#39;--&#39;)</span>
+<span class="c1"># ntr_cumsum.plot(x=&#39;time&#39;, y=[&#39;Nodal&#39;, &#39;&gt; 20 years&#39;], ax=ax, linewidth=1, linestyle=&#39;--&#39;)</span>
+<span class="c1"># ntr_cumsum.plot(x=&#39;time&#39;, y=[&#39;Nodal&#39;, &#39;&gt; 20 years&#39;, &#39;10-20 year&#39;, &#39;1-10 year&#39;, &#39;Seasonal&#39;, &#39;1 month - 1 year&#39;, &#39;1 week - 1 month&#39;, &#39;&lt; 1 week&#39;], ax=ax, linewidth=1, linestyle=&#39;--&#39;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Nodal               10.521659
+&gt; 20 years          11.828244
+10-20 year          18.564831
+1-10 year           38.494348
+Seasonal            44.539908
+1 month - 1 year    48.881356
+1 week - 1 month    51.971852
+&lt; 1 week            62.918573
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ntr_filtered</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>ntr</th>
+      <th>sea_level</th>
+      <th>tide</th>
+      <th>Nodal</th>
+      <th>&gt; 20 years</th>
+      <th>10-20 year</th>
+      <th>1-10 year</th>
+      <th>Seasonal</th>
+      <th>1 month - 1 year</th>
+      <th>1 week - 1 month</th>
+      <th>&lt; 1 week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1950-10-19 02:00:00</td>
+      <td>64.221333</td>
+      <td>1006.0</td>
+      <td>976.900707</td>
+      <td>-7.823615</td>
+      <td>2.863659</td>
+      <td>75.430760</td>
+      <td>0.089835</td>
+      <td>-30.521086</td>
+      <td>31.464460</td>
+      <td>4.838363</td>
+      <td>-12.121042</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1950-10-19 03:00:00</td>
+      <td>36.326995</td>
+      <td>945.0</td>
+      <td>943.795045</td>
+      <td>-7.824104</td>
+      <td>2.863678</td>
+      <td>75.427311</td>
+      <td>0.056854</td>
+      <td>-30.570800</td>
+      <td>31.103047</td>
+      <td>3.510025</td>
+      <td>-38.239017</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1950-10-19 04:00:00</td>
+      <td>14.248329</td>
+      <td>914.0</td>
+      <td>934.873711</td>
+      <td>-7.824592</td>
+      <td>2.863696</td>
+      <td>75.423863</td>
+      <td>0.023872</td>
+      <td>-30.620419</td>
+      <td>30.741897</td>
+      <td>2.189654</td>
+      <td>-58.549643</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1950-10-19 05:00:00</td>
+      <td>5.161220</td>
+      <td>914.0</td>
+      <td>943.960820</td>
+      <td>-7.825080</td>
+      <td>2.863714</td>
+      <td>75.420415</td>
+      <td>-0.009110</td>
+      <td>-30.669943</td>
+      <td>30.381039</td>
+      <td>0.879189</td>
+      <td>-65.879005</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1950-10-19 06:00:00</td>
+      <td>-14.232110</td>
+      <td>914.0</td>
+      <td>963.354150</td>
+      <td>-7.825569</td>
+      <td>2.863733</td>
+      <td>75.416966</td>
+      <td>-0.042092</td>
+      <td>-30.719372</td>
+      <td>30.020502</td>
+      <td>-0.419537</td>
+      <td>-83.526742</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>651209</th>
+      <td>2025-01-31 19:00:00</td>
+      <td>185.483860</td>
+      <td>1203.0</td>
+      <td>978.871146</td>
+      <td>-7.821172</td>
+      <td>4.990545</td>
+      <td>-9.339025</td>
+      <td>69.973478</td>
+      <td>-30.271116</td>
+      <td>10.353686</td>
+      <td>46.514370</td>
+      <td>101.083094</td>
+    </tr>
+    <tr>
+      <th>651210</th>
+      <td>2025-01-31 20:00:00</td>
+      <td>174.218488</td>
+      <td>1116.0</td>
+      <td>903.136518</td>
+      <td>-7.821661</td>
+      <td>4.990545</td>
+      <td>-9.339025</td>
+      <td>69.973478</td>
+      <td>-30.321296</td>
+      <td>10.355003</td>
+      <td>46.610881</td>
+      <td>89.770563</td>
+    </tr>
+    <tr>
+      <th>651211</th>
+      <td>2025-01-31 21:00:00</td>
+      <td>155.559838</td>
+      <td>1093.0</td>
+      <td>898.795168</td>
+      <td>-7.822150</td>
+      <td>4.990545</td>
+      <td>-9.339025</td>
+      <td>69.973477</td>
+      <td>-30.371383</td>
+      <td>10.356117</td>
+      <td>46.690595</td>
+      <td>71.081661</td>
+    </tr>
+    <tr>
+      <th>651212</th>
+      <td>2025-01-31 22:00:00</td>
+      <td>121.548285</td>
+      <td>1119.0</td>
+      <td>958.806721</td>
+      <td>-7.822638</td>
+      <td>4.990545</td>
+      <td>-9.339025</td>
+      <td>69.973477</td>
+      <td>-30.421378</td>
+      <td>10.357045</td>
+      <td>46.755063</td>
+      <td>37.055195</td>
+    </tr>
+    <tr>
+      <th>651213</th>
+      <td>2025-01-31 23:00:00</td>
+      <td>93.564758</td>
+      <td>1188.0</td>
+      <td>1055.790248</td>
+      <td>-7.823127</td>
+      <td>4.990545</td>
+      <td>-9.339025</td>
+      <td>69.973477</td>
+      <td>-30.471279</td>
+      <td>10.357804</td>
+      <td>46.805966</td>
+      <td>9.070396</td>
+    </tr>
+  </tbody>
+</table>
+<p>651214 rows × 12 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot original vs. filtered signal</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;ntr&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Original Non-Tidal Residuals&#39;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;&gt; 20 years&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$NTR - NTR_</span><span class="si">{hf}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># ntr_summed = ntr_Annual + ntr_SemiAnnual + ntr_QtrAnnual + ntr_subAnnual + ntr_multiyear + ntr_decadal + ntr_lowFreq + ntr_monthly</span>
+<span class="c1"># ntr_summed = ntr_filtered[&#39;Nodal&#39;]+ ntr_filtered[&#39;&gt; 20 years&#39;] + ntr_filtered[&#39;10-20 year&#39;] + ntr_filtered[&#39;1-10 year&#39;] + ntr_filtered[&#39;Seasonal&#39;] + ntr_filtered[&#39;1 month - 1 year&#39;] + ntr_filtered[&#39;1 week - 1 month&#39;] + ntr_filtered[&#39;&lt; 1 week&#39;]</span>
+
+<span class="c1"># plt.plot(ntr_filtered[&#39;time&#39;], ntr_summed, label=&#39;Sum of Filtered Components&#39;, color=&#39;red&#39;, linewidth=1)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;Nodal&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Nodal&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># plt.plot(ntr_filtered[&#39;time&#39;], ntr_filtered[&#39;&gt; 20 years&#39;], label=&#39;&gt; 20 years&#39;, color=&#39;orange&#39;, linewidth=1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;10-20 year&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;10-20 year&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># plt.plot(ntr_filtered[&#39;time&#39;], ntr_filtered[&#39;1-10 year&#39;], label=&#39;1-10 year&#39;, color=&#39;brown&#39;, linewidth=1)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;Seasonal&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Seasonal&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;cyan&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># plt.plot(ntr_filtered[&#39;time&#39;], ntr_filtered[&#39;1 month - 1 year&#39;], label=&#39;1 month - 1 year&#39;, color=&#39;black&#39;, linewidth=1)</span>
+<span class="c1"># plt.plot(ntr_filtered[&#39;time&#39;], ntr_filtered[&#39;1 week - 1 month&#39;], label=&#39;1 week - 1 month&#39;, color=&#39;pink&#39;, linewidth=1)</span>
+<span class="c1"># plt.plot(ntr_filtered[&#39;time&#39;], ntr_filtered[&#39;&lt; 1 week&#39;], label=&#39;&lt; 1 week&#39;, color=&#39;grey&#39;, linewidth=1)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Non-Tidal Residuals (mm)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Filtered Non-Tidal Residuals (Removing High-Frequency (&gt;7 day) Components): &#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># change xlim to zoom in</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2005-01-01&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2020-02-01&#39;</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/ddd5fc50fe4aacb5cf50717fd74b753b3e2dbf3285be5de5369e89a2ad4700a9.png" src="../_images/ddd5fc50fe4aacb5cf50717fd74b753b3e2dbf3285be5de5369e89a2ad4700a9.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ntr_component_stds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ntr                  62.918573
+sea_level           225.369461
+tide                211.019346
+Nodal                10.521659
+&gt; 20 years            5.177692
+10-20 year           13.947941
+1-10 year            31.964988
+Seasonal             18.172923
+1 month - 1 year     15.659635
+1 week - 1 month     13.987612
+&lt; 1 week             34.386957
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#make a bar plot of the std of each component</span>
+<span class="kn">import</span> <span class="nn">textwrap</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span class="n">component_names</span> <span class="o">=</span> <span class="n">ntr_component_stds</span><span class="o">.</span><span class="n">index</span>
+<span class="n">component_stds</span> <span class="o">=</span> <span class="n">ntr_component_stds</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="n">component_names</span><span class="p">,</span> <span class="n">component_stds</span><span class="p">)</span>
+<span class="n">wrapped_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">10</span><span class="p">))</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">component_names</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">component_names</span><span class="p">)),</span> <span class="n">wrapped_labels</span><span class="p">)</span>
+<span class="c1"># plt.xticks(rotation=45)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Non-Tidal Residual Components&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Standard Deviation (mm)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Standard Deviation of Non-Tidal Residual Components: &#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/5ba1c4fc88b4c5278c99f6ae9250a095098b09bddfb49f1d1f8f107c8d6f3b40.png" src="../_images/5ba1c4fc88b4c5278c99f6ae9250a095098b09bddfb49f1d1f8f107c8d6f3b40.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">component_stds</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ntr                  62.918573
+sea_level           225.369461
+tide                211.019346
+Nodal                10.521659
+&gt; 20 years            5.177692
+10-20 year           13.947941
+1-10 year            31.964988
+Seasonal             18.172923
+1 month - 1 year     15.659635
+1 week - 1 month     13.987612
+&lt; 1 week             34.386957
+dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<section id="plot-components">
+<h2>Plot components<a class="headerlink" href="#plot-components" title="Permalink to this heading">#</a></h2>
+<p>Make a bar plot of average contributions to water levels.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create figure</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+<span class="c1"># Plot stacked bars</span>
+<span class="n">bottom</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ntr_cumsum_stds</span><span class="o">.</span><span class="n">index</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="s1">&#39;Components&#39;</span><span class="p">,</span> <span class="mf">0.4</span><span class="o">*</span><span class="n">ntr_cumsum_stds</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">ntr_cumsum_stds</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">))</span>
+
+<span class="c1"># ax.bar(&#39;Total NTR&#39;, np.std(ntr_filled), color=&#39;white&#39;, edgecolor=&#39;black&#39;, linewidth=1)</span>
+
+<span class="c1"># Labels and title</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Height (4$\sigma$, cm)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Non-Tidal Residual </span><span class="se">\n</span><span class="s1">Components by Frequency </span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower left&#39;</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="c1"># plt.xticks(rotation=45)</span>
+<span class="c1"># plt.grid(axis=&#39;y&#39;, linestyle=&#39;--&#39;, alpha=0.7)</span>
+
+<span class="c1"># no box</span>
+<span class="k">for</span> <span class="n">spine</span> <span class="ow">in</span> <span class="n">ax</span><span class="o">.</span><span class="n">spines</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+    <span class="n">spine</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">figName</span> <span class="o">=</span> <span class="s1">&#39;NTR_components_stds&#39;</span> <span class="o">+</span> <span class="n">station_name</span>
+<span class="n">glue</span><span class="p">(</span><span class="s1">&#39;NTR_components_stds&#39;</span><span class="p">,</span><span class="n">fig</span><span class="p">,</span><span class="n">display</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_95978/3394451137.py:7: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+  ax.bar(&#39;Components&#39;, 0.4*ntr_cumsum_stds[i], bottom=0, label=ntr_cumsum_stds.index[i].replace(&#39;\n&#39;, &#39; &#39;))
+</pre></div>
+</div>
+<img alt="../_images/1854a69b0483381cafa6549cb2fd70fb08bc84d91d621ab8faa6c95ebfb44fc5.png" src="../_images/1854a69b0483381cafa6549cb2fd70fb08bc84d91d621ab8faa6c95ebfb44fc5.png" />
+</div>
+</div>
+<p>It’s important to note that in the plot above, we’re looking at the <span class="math notranslate nohighlight">\(4\sigma\)</span>, which is akin to ‘significant wave height.’ Nor do we consider each <span class="math notranslate nohighlight">\(\sigma\)</span> independently in this plot, but instead we compute the standard deviation of the combined signals, as we work our way up to higher and higher frequencies. For example, the purple line above shows the contributions of any cycles that occur on timescales longer than 1 year. Each individual componenent has its own standard deviation but none are indepedent signals and therefore the standard deviations cannot be added together to represent the total standard deviations of the whole signal.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get dates of extreme events</span>
+<span class="n">top10tableName</span> <span class="o">=</span> <span class="s1">&#39;SL_top_10_table_&#39;</span> <span class="o">+</span> <span class="n">station_name</span> <span class="o">+</span> <span class="s1">&#39;.csv&#39;</span>
+<span class="n">extremes_csv</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">top10tableName</span><span class="p">)</span>
+<span class="n">extremes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">extremes_csv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">extremes_highest</span> <span class="o">=</span> <span class="n">extremes</span><span class="p">[</span><span class="s1">&#39;Highest Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">extremes_lowest</span> <span class="o">=</span> <span class="n">extremes</span><span class="p">[</span><span class="s1">&#39;Lowest Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">extremes_highest</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">extremes_highest</span><span class="p">)</span>
+<span class="n">extremes_lowest</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">extremes_lowest</span><span class="p">)</span>
+
+<span class="n">extremes_highest</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>DatetimeIndex([&#39;2015-09-17 15:00:00&#39;, &#39;1994-10-04 23:00:00&#39;,
+               &#39;1995-11-24 14:00:00&#39;, &#39;2020-12-15 14:00:00&#39;,
+               &#39;2017-08-21 00:00:00&#39;, &#39;2021-12-05 14:00:00&#39;,
+               &#39;2019-12-26 13:00:00&#39;, &#39;2023-08-02 01:00:00&#39;,
+               &#39;2020-07-21 01:00:00&#39;, &#39;2020-07-06 02:00:00&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=None)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># extract these dates from the ntr filtered data</span>
+<span class="n">ntr_filtered_extremes_high</span> <span class="o">=</span> <span class="n">ntr_filtered</span><span class="p">[</span><span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">extremes_highest</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ntr_filtered_extremes_low</span> <span class="o">=</span> <span class="n">ntr_filtered</span><span class="p">[</span><span class="n">ntr_filtered</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">extremes_lowest</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># get tide data for these dates from ntr_data</span>
+<span class="n">tide_data</span> <span class="o">=</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span>
+<span class="n">ntr_data_extremes_high</span> <span class="o">=</span> <span class="n">ntr_data</span><span class="p">[</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">extremes_highest</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">ntr_data_extremes_low</span> <span class="o">=</span> <span class="n">ntr_data</span><span class="p">[</span><span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">extremes_lowest</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># add tide and sea level data to ntr_filtered_extremes_high</span>
+<span class="n">ntr_filtered_extremes_high</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data_extremes_high</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ntr_filtered_extremes_high</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;sea_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data_extremes_high</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ntr_filtered_extremes_low</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data_extremes_low</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">ntr_filtered_extremes_low</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;sea_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data_extremes_low</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">ntr_filtered_extremes_high</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>ntr</th>
+      <th>sea_level</th>
+      <th>tide</th>
+      <th>Nodal</th>
+      <th>&gt; 20 years</th>
+      <th>10-20 year</th>
+      <th>1-10 year</th>
+      <th>Seasonal</th>
+      <th>1 month - 1 year</th>
+      <th>1 week - 1 month</th>
+      <th>&lt; 1 week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>385365</th>
+      <td>1994-10-04 23:00:00</td>
+      <td>386.149224</td>
+      <td>1841.0</td>
+      <td>1446.321045</td>
+      <td>-4.136056</td>
+      <td>0.345184</td>
+      <td>16.405355</td>
+      <td>-9.586521</td>
+      <td>15.424459</td>
+      <td>10.741552</td>
+      <td>15.122387</td>
+      <td>341.832866</td>
+    </tr>
+    <tr>
+      <th>395340</th>
+      <td>1995-11-24 14:00:00</td>
+      <td>193.710335</td>
+      <td>1838.0</td>
+      <td>1634.628946</td>
+      <td>1.534330</td>
+      <td>-2.284839</td>
+      <td>13.241555</td>
+      <td>31.118238</td>
+      <td>11.593531</td>
+      <td>28.311686</td>
+      <td>22.812835</td>
+      <td>87.382999</td>
+    </tr>
+    <tr>
+      <th>569029</th>
+      <td>2015-09-17 15:00:00</td>
+      <td>441.165019</td>
+      <td>1860.0</td>
+      <td>1389.498885</td>
+      <td>7.437487</td>
+      <td>-1.557116</td>
+      <td>7.210707</td>
+      <td>-17.710939</td>
+      <td>-7.675426</td>
+      <td>-2.948057</td>
+      <td>-18.307311</td>
+      <td>474.715673</td>
+    </tr>
+    <tr>
+      <th>585910</th>
+      <td>2017-08-21 00:00:00</td>
+      <td>146.321696</td>
+      <td>1822.0</td>
+      <td>1644.428229</td>
+      <td>13.728980</td>
+      <td>1.821722</td>
+      <td>15.684743</td>
+      <td>55.135866</td>
+      <td>17.840255</td>
+      <td>41.382958</td>
+      <td>13.422740</td>
+      <td>-12.695568</td>
+    </tr>
+    <tr>
+      <th>606491</th>
+      <td>2019-12-26 13:00:00</td>
+      <td>158.977680</td>
+      <td>1807.0</td>
+      <td>1614.442302</td>
+      <td>13.714470</td>
+      <td>4.260900</td>
+      <td>6.749408</td>
+      <td>22.938592</td>
+      <td>27.639290</td>
+      <td>21.098664</td>
+      <td>35.879808</td>
+      <td>26.696547</td>
+    </tr>
+    <tr>
+      <th>611112</th>
+      <td>2020-07-06 02:00:00</td>
+      <td>155.994066</td>
+      <td>1796.0</td>
+      <td>1605.901203</td>
+      <td>12.472890</td>
+      <td>4.533203</td>
+      <td>3.701020</td>
+      <td>72.589983</td>
+      <td>44.413413</td>
+      <td>1.346283</td>
+      <td>7.678332</td>
+      <td>9.258941</td>
+    </tr>
+    <tr>
+      <th>611471</th>
+      <td>2020-07-21 01:00:00</td>
+      <td>142.159702</td>
+      <td>1797.0</td>
+      <td>1620.694786</td>
+      <td>12.359276</td>
+      <td>4.550745</td>
+      <td>3.430305</td>
+      <td>75.874852</td>
+      <td>27.422758</td>
+      <td>14.882802</td>
+      <td>2.835263</td>
+      <td>0.803703</td>
+    </tr>
+    <tr>
+      <th>615012</th>
+      <td>2020-12-15 14:00:00</td>
+      <td>131.815752</td>
+      <td>1825.0</td>
+      <td>1658.639084</td>
+      <td>11.115191</td>
+      <td>4.698623</td>
+      <td>0.513048</td>
+      <td>52.838862</td>
+      <td>1.180163</td>
+      <td>19.864943</td>
+      <td>9.523414</td>
+      <td>32.081509</td>
+    </tr>
+    <tr>
+      <th>623532</th>
+      <td>2021-12-05 14:00:00</td>
+      <td>94.062016</td>
+      <td>1817.0</td>
+      <td>1687.427674</td>
+      <td>7.325133</td>
+      <td>4.902272</td>
+      <td>-6.701762</td>
+      <td>-40.224651</td>
+      <td>16.252029</td>
+      <td>19.830490</td>
+      <td>50.252924</td>
+      <td>42.425582</td>
+    </tr>
+    <tr>
+      <th>638039</th>
+      <td>2023-08-02 01:00:00</td>
+      <td>71.145567</td>
+      <td>1800.0</td>
+      <td>1691.699298</td>
+      <td>-0.671836</td>
+      <td>4.986810</td>
+      <td>-10.465720</td>
+      <td>6.370453</td>
+      <td>46.028489</td>
+      <td>1.474529</td>
+      <td>0.721574</td>
+      <td>22.701267</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ntr_filtered_extremes_low</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>ntr</th>
+      <th>sea_level</th>
+      <th>tide</th>
+      <th>Nodal</th>
+      <th>&gt; 20 years</th>
+      <th>10-20 year</th>
+      <th>1-10 year</th>
+      <th>Seasonal</th>
+      <th>1 month - 1 year</th>
+      <th>1 week - 1 month</th>
+      <th>&lt; 1 week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>417976</th>
+      <td>1998-06-24 18:00:00</td>
+      <td>-151.464438</td>
+      <td>421.0</td>
+      <td>560.239966</td>
+      <td>12.331957</td>
+      <td>-8.396550</td>
+      <td>-18.784632</td>
+      <td>-40.211108</td>
+      <td>-36.983758</td>
+      <td>-29.178525</td>
+      <td>-0.656810</td>
+      <td>-29.585012</td>
+    </tr>
+    <tr>
+      <th>422572</th>
+      <td>1999-01-02 06:00:00</td>
+      <td>-125.146783</td>
+      <td>431.0</td>
+      <td>543.400317</td>
+      <td>13.607684</td>
+      <td>-9.327270</td>
+      <td>-24.531543</td>
+      <td>-40.798976</td>
+      <td>-12.165074</td>
+      <td>44.854170</td>
+      <td>-4.400335</td>
+      <td>-92.385438</td>
+    </tr>
+    <tr>
+      <th>444283</th>
+      <td>2001-06-24 21:00:00</td>
+      <td>-253.101445</td>
+      <td>441.0</td>
+      <td>678.897256</td>
+      <td>13.578167</td>
+      <td>-11.048217</td>
+      <td>-20.065497</td>
+      <td>11.121663</td>
+      <td>27.107216</td>
+      <td>7.044733</td>
+      <td>9.140113</td>
+      <td>-289.979624</td>
+    </tr>
+    <tr>
+      <th>510435</th>
+      <td>2009-01-10 05:00:00</td>
+      <td>-109.491647</td>
+      <td>454.0</td>
+      <td>540.791946</td>
+      <td>-14.672469</td>
+      <td>-8.266415</td>
+      <td>-3.746463</td>
+      <td>-24.776992</td>
+      <td>-6.899598</td>
+      <td>-0.049359</td>
+      <td>-4.867489</td>
+      <td>-46.212861</td>
+    </tr>
+    <tr>
+      <th>513689</th>
+      <td>2009-05-25 19:00:00</td>
+      <td>-114.879332</td>
+      <td>443.0</td>
+      <td>534.812604</td>
+      <td>-14.867003</td>
+      <td>-8.320450</td>
+      <td>-7.526862</td>
+      <td>-36.488324</td>
+      <td>0.894068</td>
+      <td>-9.756053</td>
+      <td>-18.895640</td>
+      <td>-19.919069</td>
+    </tr>
+    <tr>
+      <th>514384</th>
+      <td>2009-06-23 18:00:00</td>
+      <td>-104.145169</td>
+      <td>453.0</td>
+      <td>533.999599</td>
+      <td>-14.878239</td>
+      <td>-8.328882</td>
+      <td>-8.269055</td>
+      <td>-30.123336</td>
+      <td>0.886531</td>
+      <td>-17.141733</td>
+      <td>-5.711338</td>
+      <td>-20.579116</td>
+    </tr>
+    <tr>
+      <th>518981</th>
+      <td>2010-01-01 07:00:00</td>
+      <td>-133.819476</td>
+      <td>461.0</td>
+      <td>571.151911</td>
+      <td>-14.683422</td>
+      <td>-8.346871</td>
+      <td>-12.533706</td>
+      <td>-28.359931</td>
+      <td>1.812074</td>
+      <td>-2.772914</td>
+      <td>-1.515818</td>
+      <td>-67.418887</td>
+    </tr>
+    <tr>
+      <th>520369</th>
+      <td>2010-02-28 03:00:00</td>
+      <td>-615.083248</td>
+      <td>340.0</td>
+      <td>931.257997</td>
+      <td>-14.533332</td>
+      <td>-8.336865</td>
+      <td>-13.594236</td>
+      <td>-27.899490</td>
+      <td>-13.421069</td>
+      <td>-0.155292</td>
+      <td>31.725260</td>
+      <td>-568.868224</td>
+    </tr>
+    <tr>
+      <th>529405</th>
+      <td>2011-03-11 15:00:00</td>
+      <td>-1839.486167</td>
+      <td>-652.0</td>
+      <td>1162.638677</td>
+      <td>-12.567602</td>
+      <td>-8.042266</td>
+      <td>-18.264356</td>
+      <td>26.865804</td>
+      <td>-35.940653</td>
+      <td>-27.816794</td>
+      <td>-65.169711</td>
+      <td>-1698.550589</td>
+    </tr>
+    <tr>
+      <th>536332</th>
+      <td>2011-12-25 06:00:00</td>
+      <td>-181.519550</td>
+      <td>412.0</td>
+      <td>567.886351</td>
+      <td>-10.016689</td>
+      <td>-7.496058</td>
+      <td>-19.498083</td>
+      <td>-21.958197</td>
+      <td>-31.766742</td>
+      <td>-31.373778</td>
+      <td>-27.213317</td>
+      <td>-32.196687</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We need to treat the tide component differently here to get a better comparison</span>
+<span class="c1"># get the daily high tides</span>
+<span class="n">tide_data</span> <span class="o">=</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span>
+<span class="n">tide_data</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">ntr_data</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span>
+<span class="n">tide_max_daily</span> <span class="o">=</span> <span class="n">tide_data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="n">tide_max_daily_std</span> <span class="o">=</span> <span class="n">tide_max_daily</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+
+<span class="n">tide_min_daily</span> <span class="o">=</span> <span class="n">tide_data</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">tide_min_daily_std</span> <span class="o">=</span> <span class="n">tide_min_daily</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#get MHHW from ds</span>
+<span class="n">mhhw</span> <span class="o">=</span> <span class="n">ds_epoch</span><span class="p">[</span><span class="s1">&#39;MHHW&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sel</span><span class="p">(</span><span class="n">record_id</span><span class="o">=</span><span class="n">station</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+<span class="n">mhhw</span>
+
+<span class="c1"># get mllw from ds (except we don&#39;t have that yet so we&#39;ll just manually calculate it)</span>
+<span class="n">mllw</span> <span class="o">=</span> <span class="n">tide_min_daily</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mllw</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>740.3573933245341
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ntr_filtered_extremes_high</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>time</th>
+      <th>ntr</th>
+      <th>sea_level</th>
+      <th>tide</th>
+      <th>Nodal</th>
+      <th>&gt; 20 years</th>
+      <th>10-20 year</th>
+      <th>1-10 year</th>
+      <th>Seasonal</th>
+      <th>1 month - 1 year</th>
+      <th>1 week - 1 month</th>
+      <th>&lt; 1 week</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>385365</th>
+      <td>1994-10-04 23:00:00</td>
+      <td>386.149224</td>
+      <td>1841.0</td>
+      <td>1446.321045</td>
+      <td>-4.136056</td>
+      <td>0.345184</td>
+      <td>16.405355</td>
+      <td>-9.586521</td>
+      <td>15.424459</td>
+      <td>10.741552</td>
+      <td>15.122387</td>
+      <td>341.832866</td>
+    </tr>
+    <tr>
+      <th>395340</th>
+      <td>1995-11-24 14:00:00</td>
+      <td>193.710335</td>
+      <td>1838.0</td>
+      <td>1634.628946</td>
+      <td>1.534330</td>
+      <td>-2.284839</td>
+      <td>13.241555</td>
+      <td>31.118238</td>
+      <td>11.593531</td>
+      <td>28.311686</td>
+      <td>22.812835</td>
+      <td>87.382999</td>
+    </tr>
+    <tr>
+      <th>569029</th>
+      <td>2015-09-17 15:00:00</td>
+      <td>441.165019</td>
+      <td>1860.0</td>
+      <td>1389.498885</td>
+      <td>7.437487</td>
+      <td>-1.557116</td>
+      <td>7.210707</td>
+      <td>-17.710939</td>
+      <td>-7.675426</td>
+      <td>-2.948057</td>
+      <td>-18.307311</td>
+      <td>474.715673</td>
+    </tr>
+    <tr>
+      <th>585910</th>
+      <td>2017-08-21 00:00:00</td>
+      <td>146.321696</td>
+      <td>1822.0</td>
+      <td>1644.428229</td>
+      <td>13.728980</td>
+      <td>1.821722</td>
+      <td>15.684743</td>
+      <td>55.135866</td>
+      <td>17.840255</td>
+      <td>41.382958</td>
+      <td>13.422740</td>
+      <td>-12.695568</td>
+    </tr>
+    <tr>
+      <th>606491</th>
+      <td>2019-12-26 13:00:00</td>
+      <td>158.977680</td>
+      <td>1807.0</td>
+      <td>1614.442302</td>
+      <td>13.714470</td>
+      <td>4.260900</td>
+      <td>6.749408</td>
+      <td>22.938592</td>
+      <td>27.639290</td>
+      <td>21.098664</td>
+      <td>35.879808</td>
+      <td>26.696547</td>
+    </tr>
+    <tr>
+      <th>611112</th>
+      <td>2020-07-06 02:00:00</td>
+      <td>155.994066</td>
+      <td>1796.0</td>
+      <td>1605.901203</td>
+      <td>12.472890</td>
+      <td>4.533203</td>
+      <td>3.701020</td>
+      <td>72.589983</td>
+      <td>44.413413</td>
+      <td>1.346283</td>
+      <td>7.678332</td>
+      <td>9.258941</td>
+    </tr>
+    <tr>
+      <th>611471</th>
+      <td>2020-07-21 01:00:00</td>
+      <td>142.159702</td>
+      <td>1797.0</td>
+      <td>1620.694786</td>
+      <td>12.359276</td>
+      <td>4.550745</td>
+      <td>3.430305</td>
+      <td>75.874852</td>
+      <td>27.422758</td>
+      <td>14.882802</td>
+      <td>2.835263</td>
+      <td>0.803703</td>
+    </tr>
+    <tr>
+      <th>615012</th>
+      <td>2020-12-15 14:00:00</td>
+      <td>131.815752</td>
+      <td>1825.0</td>
+      <td>1658.639084</td>
+      <td>11.115191</td>
+      <td>4.698623</td>
+      <td>0.513048</td>
+      <td>52.838862</td>
+      <td>1.180163</td>
+      <td>19.864943</td>
+      <td>9.523414</td>
+      <td>32.081509</td>
+    </tr>
+    <tr>
+      <th>623532</th>
+      <td>2021-12-05 14:00:00</td>
+      <td>94.062016</td>
+      <td>1817.0</td>
+      <td>1687.427674</td>
+      <td>7.325133</td>
+      <td>4.902272</td>
+      <td>-6.701762</td>
+      <td>-40.224651</td>
+      <td>16.252029</td>
+      <td>19.830490</td>
+      <td>50.252924</td>
+      <td>42.425582</td>
+    </tr>
+    <tr>
+      <th>638039</th>
+      <td>2023-08-02 01:00:00</td>
+      <td>71.145567</td>
+      <td>1800.0</td>
+      <td>1691.699298</td>
+      <td>-0.671836</td>
+      <td>4.986810</td>
+      <td>-10.465720</td>
+      <td>6.370453</td>
+      <td>46.028489</td>
+      <td>1.474529</td>
+      <td>0.721574</td>
+      <td>22.701267</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_relative_component_amps</span><span class="p">(</span><span class="n">ntr_filtered_extremes_high</span><span class="p">,</span> <span class="n">ntr_component_stds</span><span class="p">,</span> <span class="n">mhhw</span><span class="p">,</span> <span class="n">tide_max_daily_std</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the relative amplitude of each component in the non-tidal residuals.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters:</span>
+<span class="sd">    - ntr_filtered_extremes_high: pd.DataFrame, filtered non-tidal residuals for extreme high sea level events</span>
+<span class="sd">    - ntr_component_stds: pd.Series, standard deviations of each component</span>
+<span class="sd">    - mhhw: float, mean higher high water value</span>
+<span class="sd">    - tide_max_daily_std: float, standard deviation of daily high tides</span>
+<span class="sd">    </span>
+<span class="sd">    Returns:</span>
+<span class="sd">    - ntr_filtered_extremes_high_relative_to_std: pd.DataFrame, relative amplitudes of each component</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># make a copy of the filtered extremes</span>
+    <span class="n">extremes_high_relative_to_std</span> <span class="o">=</span> <span class="n">ntr_filtered_extremes_high</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="c1"># get the relative amplitude of the tide component</span>
+    <span class="n">extremes_high_relative_to_std</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">ntr_filtered_extremes_high</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">mhhw</span><span class="p">)</span><span class="o">/</span><span class="n">tide_max_daily_std</span> 
+    <span class="n">extremes_high_relative_to_std</span> <span class="o">=</span> <span class="n">extremes_high_relative_to_std</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ntr&#39;</span><span class="p">])</span>
+
+    <span class="c1"># for each component, divide by the std</span>
+    <span class="k">for</span> <span class="n">component</span> <span class="ow">in</span> <span class="n">extremes_high_relative_to_std</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">3</span><span class="p">:]:</span>
+        <span class="n">extremes_high_relative_to_std</span><span class="p">[</span><span class="n">component</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_filtered_extremes_high</span><span class="p">[</span><span class="n">component</span><span class="p">]</span> <span class="o">/</span> <span class="n">ntr_component_stds</span><span class="p">[</span><span class="n">component</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">extremes_high_relative_to_std</span>
+
+<span class="n">extremes_high_relative_to_std</span> <span class="o">=</span> <span class="n">get_relative_component_amps</span><span class="p">(</span><span class="n">ntr_filtered_extremes_high</span><span class="p">,</span> <span class="n">ntr_component_stds</span><span class="p">,</span> <span class="n">mhhw</span><span class="p">,</span> <span class="n">tide_max_daily_std</span><span class="p">)</span>
+<span class="n">extremes_low_relative_to_std</span> <span class="o">=</span> <span class="n">get_relative_component_amps</span><span class="p">(</span><span class="n">ntr_filtered_extremes_low</span><span class="p">,</span> <span class="n">ntr_component_stds</span><span class="p">,</span> <span class="n">mllw</span><span class="p">,</span> <span class="n">tide_min_daily_std</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_component_amps</span><span class="p">(</span><span class="n">extremes_low_relative_to_std</span><span class="p">,</span> <span class="n">high_or_low</span> <span class="o">=</span> <span class="s1">&#39;high&#39;</span><span class="p">,</span> <span class="n">station_name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">):</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">mcolors</span>
+
+    <span class="c1"># Create heatmap figure</span>
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+
+    <span class="c1">#drop the time column and turn it into the index</span>
+    <span class="n">extremes_high_relative_to_std_subset</span> <span class="o">=</span> <span class="n">extremes_low_relative_to_std</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+    
+
+    <span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">[(</span><span class="n">cmap</span><span class="p">(</span><span class="mf">0.0</span><span class="p">)),</span>  <span class="c1"># Dark blue at -3</span>
+              <span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mf">0.45</span><span class="p">)),</span> <span class="c1"># Light blue at -1</span>
+              <span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)),</span>  <span class="c1"># White at 0</span>
+              <span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mf">0.55</span><span class="p">)),</span> <span class="c1"># Light red at 1</span>
+              <span class="p">(</span><span class="n">cmap</span><span class="p">(</span><span class="mf">1.0</span><span class="p">))]</span>  <span class="c1"># Dark red at 3</span>
+    <span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># Assigning key points in data range</span>
+
+    <span class="c1"># Create a new colormap</span>
+    <span class="n">new_cmap</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;modified_coolwarm&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">colors</span><span class="p">)),</span> <span class="n">colors</span><span class="p">)))</span>
+
+    <span class="c1"># Keep a **linear scale** but use the modified colormap</span>
+    <span class="n">norm</span> <span class="o">=</span> <span class="n">mcolors</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">vmin</span><span class="o">=-</span><span class="mi">3</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># Plot heatmap</span>
+    <span class="k">if</span> <span class="n">high_or_low</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span>
+        <span class="c1">#order by highest to lowest sea level</span>
+        <span class="n">extremes_high_relative_to_std_subset</span> <span class="o">=</span> <span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;sea_level&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">high_or_low</span> <span class="o">==</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span>
+        <span class="n">extremes_high_relative_to_std_subset</span> <span class="o">=</span> <span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;sea_level&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># drop sea level column</span>
+    <span class="n">extremes_high_relative_to_std_subset</span> <span class="o">=</span> <span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">])</span>
+
+    <span class="n">heatmap</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">new_cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+
+    <span class="c1"># label rows and columns</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+
+    <span class="c1"># add colorbar, should be same height as heatmap</span>
+    <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">heatmap</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
+    <span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="s1">&#39;Relative Amplitude</span><span class="se">\n</span><span class="s1"> (Standard Deviations)&#39;</span><span class="p">)</span>
+
+    <span class="c1"># if high_or_low is high, then &quot;Highest&quot;</span>
+    <span class="k">if</span> <span class="n">high_or_low</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Extreme High Sea Level Events:</span><span class="se">\n</span><span class="s1">Relative Amplitudes of Non-Tidal Residual Components</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">high_or_low</span> <span class="o">==</span> <span class="s1">&#39;low&#39;</span><span class="p">:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Extreme Low Sea Level Events:</span><span class="se">\n</span><span class="s1">Relative Amplitudes of Non-Tidal Residual Components</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">+</span> <span class="n">station_name</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plot_component_amps</span><span class="p">(</span><span class="n">extremes_low_relative_to_std</span><span class="p">,</span> <span class="n">high_or_low</span> <span class="o">=</span> <span class="s1">&#39;low&#39;</span><span class="p">,</span><span class="n">station_name</span> <span class="o">=</span> <span class="n">station_name</span><span class="p">)</span>
+
+<span class="c1"># save to output</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">&#39;SL_rankings_NTR_relative_amplitudes_top10_</span><span class="si">{</span><span class="n">station_name</span><span class="si">}</span><span class="s1">_low.png&#39;</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/0853aa732ebc776b18385661e1ffb1c3b80a7dca7b11db10ff133e9763c69bf1.png" src="../_images/0853aa732ebc776b18385661e1ffb1c3b80a7dca7b11db10ff133e9763c69bf1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plot_component_amps</span><span class="p">(</span><span class="n">extremes_high_relative_to_std</span><span class="p">,</span> <span class="n">high_or_low</span> <span class="o">=</span> <span class="s1">&#39;high&#39;</span><span class="p">,</span><span class="n">station_name</span> <span class="o">=</span> <span class="n">station_name</span><span class="p">)</span>
+<span class="c1"># save to output</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="n">output_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s1">&#39;SL_rankings_NTR_relative_amplitudes_top10_</span><span class="si">{</span><span class="n">station_name</span><span class="si">}</span><span class="s1">_high.png&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../output/SL_rankings_NTR_relative_amplitudes_top10_Kahului_high.png
+</pre></div>
+</div>
+<img alt="../_images/6a0e8ad9434317d13de634d397ae364654ed79709eb03a8ca646a336135c3559.png" src="../_images/6a0e8ad9434317d13de634d397ae364654ed79709eb03a8ca646a336135c3559.png" />
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "jwfiedler/SL_Hawaii",
+            ref: "main",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="regional_and_local/SL_Extremes_annual.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Annual Extremes</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="nonstationaryGEV/monthly_extremes_non-stationaryGEV.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Nonstationary Extremes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plot-components">Plot components</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Playground Coordinator
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

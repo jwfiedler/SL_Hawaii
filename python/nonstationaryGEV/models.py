@@ -24,23 +24,28 @@ def prep_model_input_data(rsl_xr,recordID,dirs, CIname):
 def assess_std_error(mio):
     if np.linalg.det(mio) != 0:
         J = np.linalg.inv(mio)
-        standard_error = np.sqrt(np.diag(J))
+        # if all np.diag(J) are positive, then take the square root
+        if np.all(np.diag(J) > 0):
+            standard_error = np.sqrt(np.diag(J))
+        else:
+            standard_error = np.zeros_like(np.diag(J))
+            standard_error[np.diag(J) > 0] = np.sqrt(np.diag(J)[np.diag(J) > 0])             
     else:
         print('Determinant of MIO is zero. Cannot compute standard error.')
         standard_error = np.zeros_like(np.diag(mio))
     return standard_error
 
-def run_fitness(x, dirs, modelType):
+def run_fitness(x, dirs, modelType, nproc):
     remove_files(dirs)
 
-    fitness(x, dirs, modelType)
+    fitness(x, dirs, modelType, nproc)
     w = np.loadtxt(dirs['run_dir'] / 'best.txt', dtype=float)
     mio = np.loadtxt(dirs['run_dir'] / 'mio.txt',dtype=float)
     standard_error = assess_std_error(mio)
     return w, mio, standard_error
 
 ## Seasonal model
-def run_seasonal_model(ridString, dirs,runWithoutModel=False, modelType='GEV_SeasonalMu'):
+def run_seasonal_model(ridString, dirs,runWithoutModel=False, modelType='GEV_SeasonalMu', nproc=1):
     # Initial chromosome setup
     x_0 = np.array([0,0,0])
     model_output_dir = Path(dirs['model_output_dir'])
@@ -52,7 +57,8 @@ def run_seasonal_model(ridString, dirs,runWithoutModel=False, modelType='GEV_Sea
             w_s, x_s, mio, standard_error = (np.array(output[key]) for key in ['w', 'x', 'mio', 'standard_error'])
     else:
         x_s, f = stepwise(x_0, dirs, modelType)
-        w_s, mio, standard_error = run_fitness(x_s[-1], dirs, modelType)
+        w_s, mio, standard_error = run_fitness(x_s[-1], dirs, modelType, nproc)
+        print("w_s is:", np.array2string(w_s, formatter={'float_kind':lambda x: f"{x:.2E}"}))
         x_s = x_s[-1]
     
     output = {'w': w_s.tolist(), 'mio': mio.tolist(), 'standard_error': standard_error.tolist(), 'x': x_s.tolist()}
@@ -63,7 +69,7 @@ def run_seasonal_model(ridString, dirs,runWithoutModel=False, modelType='GEV_Sea
     return x_s,w_s
 
 ## Long-term trend model
-def run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv'):
+def run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv', nproc=1):
     x_T = np.concatenate((x_s, [1, 0, 0]))  # Long-term Trend
 
     model_output_dir = Path(dirs['model_output_dir'])
@@ -74,7 +80,7 @@ def run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutMo
             output = json.load(f)
             w_T, x_T, mio, standard_error = (np.array(output[key]) for key in ['w', 'x', 'mio', 'standard_error'])
     else:
-        w_T, mio, standard_error = run_fitness(x_T, dirs, modelType)
+        w_T, mio, standard_error = run_fitness(x_T, dirs, modelType, nproc)
 
     aux = np.loadtxt(run_dir / 'limits.txt')
     # check to see if within limits
@@ -89,7 +95,8 @@ def run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutMo
     SignifTrend = chi2.cdf(2 * diffe, p)
 
     print(f'Statistical Significance of Linear Trend: {SignifTrend*100:.2f}%')
-    print(f'Estimated Trend on monthly Maxima values is: {w_T[1]*w_T[-1]*1000:.2f} mm/year')
+    #TODO: check this
+    print(f'Estimated Trend on monthly Maxima values is: {w_T[1]*w_T[-1]*1000:.2f} +/- {np.abs(w_T[1]*standard_error[-1]*1000):.2f} mm/year')
     # print(f'x_T is: {x_T}')
     # print(f'x_T is: {x_T}')
     # print(f'w_T is: {w_T}')
@@ -110,7 +117,7 @@ def run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutMo
     return x_T, w_T, SignifTrend
 
 ## Nodal cycle model
-def run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv_Nodal'):
+def run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv_Nodal', nproc=1):
     
     model_output_dir = Path(dirs['model_output_dir'])
     run_dir = Path(dirs['run_dir'])
@@ -132,8 +139,7 @@ def run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo,
             w_N, mio, standard_error,x_N = (np.array(output[key]) for key in ['w', 'mio', 'standard_error','x'])
     else:
         print('Running Nodal cycle model...')
-        w_N, mio, standard_error = run_fitness(x_N, dirs, modelType)
-
+        w_N, mio, standard_error = run_fitness(x_N, dirs, modelType, nproc)
 
     wN = w_N[1:]
     aux = np.loadtxt(run_dir / 'limits.txt')
@@ -148,11 +154,12 @@ def run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo,
 
     print(f'Statistical Significance of adding Nodal cycle: {SignifN*100:.2f}%')
 
-    # if SignifN<0.95:
-    #     x_N[-1] = 0 # set the nodal component to zero
-    #     w_N = wcomp.copy() # use the previous model
-    #     w_N = np.append(w_N, [0, 0]) # add zeros for the nodal cycle
-    #     print('Nodal cycle is not significant! \nUse previous model without nodal cycle.\n New x_N is: ', x_N)
+    if SignifN<0.95:
+        x_N[-1] = 0 # set the nodal component to zero
+        # w_N = wcomp.copy() # use the previous model
+        w_N, mio, standard_error = run_fitness(x_N, dirs, modelType, nproc)
+        # w_N = np.append(w_N, [0, 0]) # add zeros for the nodal cycle
+        print('Nodal cycle is not significant! \nUse previous model without nodal cycle.\n New x_N is: ', x_N)
 
 
 
@@ -172,9 +179,8 @@ def run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo,
 
     return x_N, w_N, wcomp, SignifN
 
-
 ## Covariate in location model
-def run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv',saveModel=True):
+def run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv',saveModel=True, nproc=1):
     
     model_output_dir = Path(dirs['model_output_dir'])
     run_dir = Path(dirs['run_dir'])
@@ -203,11 +209,11 @@ def run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, m
             output = json.load(f)
             w_cvte1, mio, standard_error = (np.array(output[key]) for key in ['w', 'mio', 'standard_error'])
     else:
-        w_cvte1, mio, standard_error = run_fitness(x_cvte1, dirs, modelType)
+        w_cvte1, mio, standard_error = run_fitness(x_cvte1, dirs, modelType, nproc)
 
 
     diffe = w_cvte1[0] - wcomp[0]
-    p = 1
+    p = 2
     SignifCvte1 = chi2.cdf(2 * diffe, p)
     print(f"Statistical Significance of {modelInfo['covariateName']} in location param: {SignifCvte1*100:.2f}%")
     # print(f'x_cvte1 is: {x_cvte1}')
@@ -227,13 +233,13 @@ def run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, m
 
     if os.path.exists(savepath) and runWithoutModel==True:
         print('Model already saved to netcdf file.')
-    elif saveModel:
+    elif saveModel and w_cvte1[0] >0:
         save_model_to_netcdf(x_cvte1,w_cvte1,mio, modelName=modelType,savepath=savepath, modelInfo=modelInfo)
 
     return x_cvte1, w_cvte1, wcomp, SignifCvte1
 
 ## Covariate in scale model
-def run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString, SignifCvte1, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv',saveModel=True):
+def run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString, SignifCvte1, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv',saveModel=True, nproc=1):
     
     model_output_dir = Path(dirs['model_output_dir'])
     run_dir = Path(dirs['run_dir'])
@@ -255,7 +261,7 @@ def run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString, SignifCvte1
             output = json.load(f)
             w_cvte2, mio, standard_error = (np.array(output[key]) for key in ['w', 'mio', 'standard_error'])
     else:
-        w_cvte2, mio, standard_error = run_fitness(x_cvte2, dirs, modelType)
+        w_cvte2, mio, standard_error = run_fitness(x_cvte2, dirs, modelType, nproc)
 
 
     diffe = w_cvte2[0] - wcomp[0]
@@ -263,8 +269,16 @@ def run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString, SignifCvte1
     SignifCvte2 = chi2.cdf(2 * diffe, p)
 
 
+
+
     print(f"Statistical Significance of {modelInfo['covariateName']} in scale param.: {SignifCvte2*100:.2f}%")
     # print(f'x_cvte2 is: {x_cvte2}')
+
+    if SignifCvte2<0.95:
+        x_cvte2[5] = 0 # set the covariate in scale component to zero
+        print('Covariate in scale is not significant! \nUse previous model without no covariate in scale.\n New x_cvte2 is: ', x_cvte2)
+        w_cvte2, mio, standard_error = run_fitness(x_cvte2, dirs, modelType, nproc)
+
 
     output = {'w': w_cvte2.tolist(), 'mio': mio.tolist(), 'standard_error': standard_error.tolist(), 'x': x_cvte2.tolist()}
     
@@ -282,14 +296,13 @@ def run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString, SignifCvte1
 
     if os.path.exists(savepath) and runWithoutModel==True:
         print('Model already saved to netcdf file.')
-    elif saveModel:
+    elif saveModel and SignifCvte2>0.95:
         save_model_to_netcdf(x_cvte2,w_cvte2,mio,modelName='Model_GEV_S_T_Cv.exe',savepath=savepath, modelInfo=modelInfo)
 
     return x_cvte2, w_cvte2, wcomp, SignifCvte2
 
-
 ## Best model
-def run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv_Nodal'):
+def run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelInfo, runWithoutModel=False, modelType='GEV_S_T_Cv_Nodal', nproc=1):
 ## FIX THIS, NEEDS TO TAKE IN BEST CVTE INFO ###
     model_output_dir = Path(dirs['model_output_dir'])
     run_dir = Path(dirs['run_dir'])
@@ -309,10 +322,12 @@ def run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelI
         with open(model_output_dir / ridString / 'best_params.json', 'r') as f:
             output = json.load(f)
             w_N, mio, standard_error = (np.array(output[key]) for key in ['w', 'mio', 'standard_error'])    
+        w_best = wcomp.copy()
     else:
-        print('Running "best" cycle model...')
+        print('')
+        print('*******Running best CI model...*******')
         print(f'x_best is: {x_best}')
-        w_best, mio, standard_error = run_fitness(x_best, dirs, modelType)
+        w_best, mio, standard_error = run_fitness(x_best, dirs, modelType, nproc)
 
 
     aux = np.loadtxt(run_dir / 'limits.txt')
@@ -323,10 +338,21 @@ def run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelI
 
 
     diffe = w_best[0] - wcomp[0]
-    p = 2
+    p = 1
     SignifB = chi2.cdf(2 * diffe, p)
 
-    print(f'This should be zero: {SignifB*100:.2f}%')
+    print(f'This should be 0% if Best Model is Best: {SignifB*100:.0f}%')
+
+    #if SignifB is not 0:
+    if SignifB>0.05: # give it wiggle room (numerical precision??)
+        # re-run the model
+        w_best, mio, standard_error = run_fitness(x_best, dirs, modelType, nproc)
+        diffe = w_best[0] - wcomp[0]
+        SignifB = chi2.cdf(2 * diffe, p)
+        print(f'This should be 0% if Best Model is Best: {SignifB*100:.0f}%')
+        if SignifB>0.05:
+            raise ValueError('SignifB is not zero. There might be an issue with the model.')
+    
 
     # if SignifN<0.95:
     #     x_N[-1] = 0 # set the nodal component to zero
@@ -365,12 +391,27 @@ def run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelI
 
 
 ## Run All Models
-def run_noClimateIndex_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CIname='None'):
+def run_noClimateIndex_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CIname='None', nproc=1):
+    print('')
+    print('******Running models without climate index...******')
+
     ridString = str(recordID)
     model_output_dir = dirs['model_output_dir']
     CI_dir = dirs['CI_dir']
     remove_files(dirs)
+
+      
+
     STNDtoMHHW, station_name, year0, mm = prep_model_input_data(rsl_xr,recordID,dirs, CIname)
+
+    #make empty CI.txt file
+    run_dir = dirs['run_dir']
+    # write zeros length of t as CI.txt
+    with open(run_dir / 'CI.txt', 'w') as f:
+        np.savetxt(f, np.zeros(len(mm['t'])), fmt='%d')
+      
+
+
 
     # make dictionary of STNDtoMHHW, station_name, year0, mm,t,monthly_max,covariate
     #make dictionary of stuff that goes into xarray: t,covariate,standard_error,ReturnPeriod,modelName='Model_GEV_S_T_Cv_N.exe',ridString=ridString,savepath=savepath, station_name=station_name,year0=year0)
@@ -386,13 +427,15 @@ def run_noClimateIndex_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod
                  'datum':'STND'}
 
     # Run the basic models for seasonal, trend and nodal cycle
-    x_s, w_s = run_seasonal_model(ridString, dirs,runWithoutModel=runWithoutModel, modelType='GEV_SeasonalMu')
-    x_T, w_T, SignifTrend = run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv')
-    x_N, w_N, wcomp, SignifN = run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal')
+    x_s, w_s = run_seasonal_model(ridString, dirs,runWithoutModel=runWithoutModel, modelType='GEV_SeasonalMu', nproc=nproc)
+    x_T, w_T, SignifTrend = run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv', nproc=nproc)
+    x_N, w_N, wcomp, SignifN = run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal', nproc=nproc)
 
     return STNDtoMHHW, station_name, year0, mm, x_s, w_s, x_N, w_N, wcomp, SignifN
 
-def run_CI_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CI_list,x_N, w_N, wcomp, SignifN):
+def run_CI_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CI_list,x_N, w_N, wcomp, SignifN, nproc=1):
+    print('')
+    print('****Running models with climate index...****')
     ridString = str(recordID)
     model_output_dir = dirs['model_output_dir']
     CI_dir = dirs['CI_dir']
@@ -419,7 +462,7 @@ def run_CI_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CI_list,x_
         
         
         wcomptemp = wcomp.copy()
-        x_cvte1, w_cvte1, wcomptemp, SignifCvte1[i] = run_covariate_in_location_model(x_N, w_N, wcomptemp, ridString, SignifN, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal',saveModel=False)
+        x_cvte1, w_cvte1, wcomptemp, SignifCvte1[i] = run_covariate_in_location_model(x_N, w_N, wcomptemp, ridString, SignifN, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal',saveModel=False, nproc=nproc)
         magCvte1[i] = w_cvte1[-1]
     
     # Find the model with the best fit in location
@@ -439,22 +482,23 @@ def run_CI_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CI_list,x_
     
     wcomp_noN = wcomp.copy()
     
-    x_cvte1, w_cvte1, wcomp, SignifCvte1_best = run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal',saveModel=True)  
-    x_cvte2, w_cvte2, wcomp, SignifCvte2 = run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString,SignifCvte1_best, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal',saveModel=True)
-    run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal')
+    x_cvte1, w_cvte1, wcomp, SignifCvte1_best = run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal',saveModel=True, nproc=nproc)  
+    x_cvte2, w_cvte2, wcomp, SignifCvte2 = run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString,SignifCvte1_best, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal',saveModel=True, nproc=nproc)
+    run_best_model(x_cvte2, w_cvte2, wcomp, SignifCvte2, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal', nproc=nproc)
 
     # now run CI models without nodal component
-    x_s, w_s = run_seasonal_model(ridString, dirs,runWithoutModel=True, modelType='GEV_SeasonalMu')
-    x_T, w_T, SignifTrend = run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=True, modelType='GEV_S_T_Cv')
-    x_cvte1, w_cvte1, wcomp, Sig = run_covariate_in_location_model(x_T, w_T, w_T, ridString, SignifTrend, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv',saveModel=True)
-    run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString,Sig, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv',saveModel=True)
+    print('Running models with climate index without nodal component...')
+    x_s, w_s = run_seasonal_model(ridString, dirs,runWithoutModel=True, modelType='GEV_SeasonalMu',nproc=nproc)
+    x_T, w_T, SignifTrend = run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=True, modelType='GEV_S_T_Cv',nproc=nproc)
+    x_cvte1, w_cvte1, wcomp, Sig = run_covariate_in_location_model(x_T, w_T, w_T, ridString, SignifTrend, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv',saveModel=True,nproc=nproc)
+    run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString,Sig, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv',saveModel=True,nproc=nproc)
 
     print('All models run successfully! Results save to ', model_output_dir)
     return STNDtoMHHW, station_name, year0, mm, magCvte1, SignifCvte1
 
 
 ## Run All Models
-def run_all_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CIname='PMM'):
+def run_all_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CIname='PMM', nproc=1):
     ridString = str(recordID)
     model_output_dir = dirs['model_output_dir']
     CI_dir = dirs['CI_dir']
@@ -467,11 +511,11 @@ def run_all_models(rsl_xr,recordID,runWithoutModel,dirs, ReturnPeriod, CIname='P
 
     # Run the basic models for seasonal, trend and nodal cycle
     x_s, w_s = run_seasonal_model(ridString, dirs,runWithoutModel=True, modelType='GEV_SeasonalMu')
-    x_T, w_T, SignifTrend = run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=True, modelType='GEV_S_T_Cv')
-    x_N, w_N, wcomp, SignifN = run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo, runWithoutModel=True, modelType='GEV_S_T_Cv_Nodal')
-    x_cvte1, w_cvte1, wcomp, SignifCvte1 = run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal')
-    x_cvte2, w_cvte2, wcomp, SignifCvte2 = run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString,SignifCvte1, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal')
-    run_best_model(x_cvte2, w_cvte2, w_s, wcomp, SignifCvte2, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal')
+    x_T, w_T, SignifTrend = run_long_term_trend_model(x_s, w_s, ridString, dirs, modelInfo, runWithoutModel=True, modelType='GEV_S_T_Cv', nproc=nproc)
+    x_N, w_N, wcomp, SignifN = run_nodal_model(x_T, w_T, x_s, w_s, SignifTrend, ridString, dirs, modelInfo, runWithoutModel=True, modelType='GEV_S_T_Cv_Nodal', nproc=nproc)
+    x_cvte1, w_cvte1, wcomp, SignifCvte1 = run_covariate_in_location_model(x_N, w_N, wcomp, ridString, SignifN, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal', nproc=nproc)
+    x_cvte2, w_cvte2, wcomp, SignifCvte2 = run_covariate_in_scale_model(x_cvte1, w_cvte1, wcomp, ridString,SignifCvte1, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal', nproc=nproc)
+    run_best_model(x_cvte2, w_cvte2, w_s, wcomp, SignifCvte2, ridString, dirs, modelInfo, runWithoutModel=runWithoutModel, modelType='GEV_S_T_Cv_Nodal', nproc=nproc)
 
     print('All models run successfully! Results save to ', model_output_dir)
     return STNDtoMHHW, station_name, year0, mm, x_s, w_s, w_cvte1, w_cvte2, w_T

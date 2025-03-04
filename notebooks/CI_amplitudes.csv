@@ -1,0 +1,12 @@
+,lats,lons,station_names,recordID,ampCI,modelCI
+0,23.867,193.71,French Frigate,14,0.3,None
+1,28.217,182.633,Midway,50,0.3,AO
+2,16.75,190.483,Johnston,52,0.95,ONI
+3,21.307,202.133,"Honolulu, Hawaii",57,2.02,PMM
+4,21.967,200.65,Nawiliwili,58,1.56,PDO
+5,20.9,203.533,Kahului,59,1.73,PDO
+6,19.733,204.933,"Hilo, Hawaii",60,3.39,PDO
+7,21.433,202.2,Mokuoloe,61,2.49,PMM
+8,21.322,201.88,"Barbers Point, HI",547,0.3,None
+9,20.783,203.0,"Kaumalapau, HI",548,0.3,None
+10,20.033,204.167,Kawaihae,552,2.54,PDO
