@@ -1,20 +1,29 @@
-name: SLHawaii
+name: SLI39
 channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.9
-  - xarray
-  - ipykernel
   - cartopy
-  - seaborn
-  - scipy
-  - jupyter-book
-  - docutils=0.17.1
-  - netcdf4
   - dask
-  - plotly
+  - docutils=0.17.1
+  - ipykernel
+  - jupyter-book
+  - netcdf4
+  - python=3.9
+  - scipy
+  - seaborn
+  - xarray
+  - ipywidgets
+  - lxml
+  - nbformat
   - utide
   - pyextremes
+  - joblib
   - great_tables
-  - selenium
+  - flox
+  - notebook
+  - spotpy
+  - copernicusmarine
+  - geopandas
+  - polars
+prefix: /opt/anaconda3/envs/SLI39

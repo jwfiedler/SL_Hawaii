@@ -33,7 +33,7 @@ File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backend
 [0;32m---> 56[0m     value [38;5;241m=[39m [38;5;28;43mself[39;49m[38;5;241;43m.[39;49m[43m_cache[49m[43m[[49m[43mkey[49m[43m][49m
 [1;32m     57[0m     [38;5;28mself[39m[38;5;241m.[39m_cache[38;5;241m.[39mmove_to_end(key)
 
-[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/SL_daily_max.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'e312b6ab-a1e7-4ec2-91e2-bc6be4d85cc7']
+[0;31mKeyError[0m: [<class 'netCDF4._netCDF4.Dataset'>, ('/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/SL_daily_max.nc',), 'r', (('clobber', True), ('diskless', False), ('format', 'NETCDF4'), ('persist', False)), 'a68801db-1685-432f-89b6-a0d9690be0bf']
 
 During handling of the above exception, another exception occurred:
 

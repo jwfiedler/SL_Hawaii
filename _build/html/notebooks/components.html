@@ -512,8 +512,6 @@ document.write(`
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">run</span> setup.ipynb
 <span class="o">%</span><span class="k">run</span> plotting_functions.ipynb
 <span class="o">%</span><span class="k">run</span> tseries_functions.py
-<span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../data&#39;</span> <span class="p">)</span>
-<span class="n">output_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">&#39;../output&#39;</span><span class="p">)</span> 
 </pre></div>
 </div>
 </div>
@@ -537,129 +535,6 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:211,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">210</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">211</span>     <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_key</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">212</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/lru_cache.py:56,</span> in <span class="ni">LRUCache.__getitem__</span><span class="nt">(self, key)</span>
-<span class="g g-Whitespace">     </span><span class="mi">55</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_lock</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">56</span>     <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">57</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span><span class="o">.</span><span class="n">move_to_end</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-
-<span class="ne">KeyError</span>: [&lt;class &#39;netCDF4._netCDF4.Dataset&#39;&gt;, (&#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc&#39;,), &#39;r&#39;, ((&#39;clobber&#39;, True), (&#39;diskless&#39;, False), (&#39;format&#39;, &#39;NETCDF4&#39;), (&#39;persist&#39;, False)), &#39;d9364c98-ff73-43a8-8355-dffc2234772c&#39;]
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">FileNotFoundError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:573,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">561</span> <span class="n">decoders</span> <span class="o">=</span> <span class="n">_resolve_decoders_kwargs</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">562</span>     <span class="n">decode_cf</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">563</span>     <span class="n">open_backend_dataset_parameters</span><span class="o">=</span><span class="n">backend</span><span class="o">.</span><span class="n">open_dataset_parameters</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">569</span>     <span class="n">decode_coords</span><span class="o">=</span><span class="n">decode_coords</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">570</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">572</span> <span class="n">overwrite_encoded_chunks</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;overwrite_encoded_chunks&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">573</span> <span class="n">backend_ds</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">574</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">575</span>     <span class="n">drop_variables</span><span class="o">=</span><span class="n">drop_variables</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">576</span>     <span class="o">**</span><span class="n">decoders</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">577</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">578</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">579</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">_dataset_from_backend_dataset</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">580</span>     <span class="n">backend_ds</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">581</span>     <span class="n">filename_or_obj</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">591</span>     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">592</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">593</span> <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:646,</span> in <span class="ni">NetCDF4BackendEntrypoint.open_dataset</span><span class="nt">(self, filename_or_obj, mask_and_scale, decode_times, concat_characters, decode_coords, drop_variables, use_cftime, decode_timedelta, group, mode, format, clobber, diskless, persist, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">625</span> <span class="k">def</span> <span class="nf">open_dataset</span><span class="p">(</span>  <span class="c1"># type: ignore[override]  # allow LSP violation, not supporting **kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">626</span>     <span class="bp">self</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">627</span>     <span class="n">filename_or_obj</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="n">BufferedIOBase</span> <span class="o">|</span> <span class="n">AbstractDataStore</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">643</span>     <span class="n">autoclose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">644</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dataset</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">645</span>     <span class="n">filename_or_obj</span> <span class="o">=</span> <span class="n">_normalize_path</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">646</span>     <span class="n">store</span> <span class="o">=</span> <span class="n">NetCDF4DataStore</span><span class="o">.</span><span class="n">open</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">647</span>         <span class="n">filename_or_obj</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">648</span>         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">649</span>         <span class="nb">format</span><span class="o">=</span><span class="nb">format</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">650</span>         <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">651</span>         <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">652</span>         <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">653</span>         <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">655</span>         <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">656</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">658</span>     <span class="n">store_entrypoint</span> <span class="o">=</span> <span class="n">StoreBackendEntrypoint</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">659</span>     <span class="k">with</span> <span class="n">close_on_error</span><span class="p">(</span><span class="n">store</span><span class="p">):</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:409,</span> in <span class="ni">NetCDF4DataStore.open</span><span class="nt">(cls, filename, mode, format, group, clobber, diskless, persist, lock, lock_maker, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">403</span> <span class="n">kwargs</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">404</span>     <span class="n">clobber</span><span class="o">=</span><span class="n">clobber</span><span class="p">,</span> <span class="n">diskless</span><span class="o">=</span><span class="n">diskless</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="n">persist</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="nb">format</span>
-<span class="g g-Whitespace">    </span><span class="mi">405</span> <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">CachingFileManager</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="n">netCDF4</span><span class="o">.</span><span class="n">Dataset</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">409</span> <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">manager</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">lock</span><span class="o">=</span><span class="n">lock</span><span class="p">,</span> <span class="n">autoclose</span><span class="o">=</span><span class="n">autoclose</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:356,</span> in <span class="ni">NetCDF4DataStore.__init__</span><span class="nt">(self, manager, group, mode, lock, autoclose)</span>
-<span class="g g-Whitespace">    </span><span class="mi">354</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span> <span class="o">=</span> <span class="n">group</span>
-<span class="g g-Whitespace">    </span><span class="mi">355</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="n">mode</span>
-<span class="ne">--&gt; </span><span class="mi">356</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">data_model</span>
-<span class="g g-Whitespace">    </span><span class="mi">357</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ds</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">358</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_remote</span> <span class="o">=</span> <span class="n">is_remote_uri</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_filename</span><span class="p">)</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:418,</span> in <span class="ni">NetCDF4DataStore.ds</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">416</span> <span class="nd">@property</span>
-<span class="g g-Whitespace">    </span><span class="mi">417</span> <span class="k">def</span> <span class="nf">ds</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">418</span>     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire</span><span class="p">()</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/netCDF4_.py:412,</span> in <span class="ni">NetCDF4DataStore._acquire</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">411</span> <span class="k">def</span> <span class="nf">_acquire</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">412</span>     <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_manager</span><span class="o">.</span><span class="n">acquire_context</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span> <span class="k">as</span> <span class="n">root</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">413</span>         <span class="n">ds</span> <span class="o">=</span> <span class="n">_nc4_require_group</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_group</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">414</span>     <span class="k">return</span> <span class="n">ds</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/contextlib.py:119,</span> in <span class="ni">_GeneratorContextManager.__enter__</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">117</span> <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kwds</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">func</span>
-<span class="g g-Whitespace">    </span><span class="mi">118</span> <span class="k">try</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">119</span>     <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gen</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;generator didn&#39;t yield&quot;</span><span class="p">)</span> <span class="kn">from</span> <span class="kc">None</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:199,</span> in <span class="ni">CachingFileManager.acquire_context</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">196</span> <span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
-<span class="g g-Whitespace">    </span><span class="mi">197</span> <span class="k">def</span> <span class="nf">acquire_context</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">needs_lock</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">198</span><span class="w">     </span><span class="sd">&quot;&quot;&quot;Context manager for acquiring a file.&quot;&quot;&quot;</span>
-<span class="ne">--&gt; </span><span class="mi">199</span>     <span class="n">file</span><span class="p">,</span> <span class="n">cached</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_acquire_with_cache_info</span><span class="p">(</span><span class="n">needs_lock</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">200</span>     <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">201</span>         <span class="k">yield</span> <span class="n">file</span>
-
-<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/file_manager.py:217,</span> in <span class="ni">CachingFileManager._acquire_with_cache_info</span><span class="nt">(self, needs_lock)</span>
-<span class="g g-Whitespace">    </span><span class="mi">215</span>     <span class="n">kwargs</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">216</span>     <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;mode&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span>
-<span class="ne">--&gt; </span><span class="mi">217</span> <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_opener</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">218</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">==</span> <span class="s2">&quot;w&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">219</span>     <span class="c1"># ensure file doesn&#39;t get overridden when opened again</span>
-<span class="g g-Whitespace">    </span><span class="mi">220</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_mode</span> <span class="o">=</span> <span class="s2">&quot;a&quot;</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2469,</span> in <span class="ni">netCDF4._netCDF4.Dataset.__init__</span><span class="nt">()</span>
-
-<span class="nn">File src/netCDF4/_netCDF4.pyx:2028,</span> in <span class="ni">netCDF4._netCDF4._ensure_nc_success</span><span class="nt">()</span>
-
-<span class="ne">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;/Users/jfiedler/Documents/Repositories/SL_Hawaii/SL_Hawaii/data/rsl_hawaii.nc&#39;
 </pre></div>
 </div>
 </div>
@@ -698,7 +573,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solve: matrix prep ... solution ... done.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solve: matrix prep ... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solution ... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 </pre></div>
 </div>
 </div>
@@ -721,7 +602,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prep/calcs ... done.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prep/calcs ... 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
 </pre></div>
 </div>
 </div>
@@ -1174,7 +1058,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x440b28850&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x16c75b520&gt;]
 </pre></div>
 </div>
 <img alt="../_images/f75327af57063b831b8fa6053618835354f3dd66369325b90b2e43ad5cf5f130.png" src="../_images/f75327af57063b831b8fa6053618835354f3dd66369325b90b2e43ad5cf5f130.png" />
@@ -1624,7 +1508,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_91732/3394451137.py:7: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_25944/3394451137.py:7: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
   ax.bar(&#39;Components&#39;, 0.4*ntr_cumsum_stds[i], bottom=0, label=ntr_cumsum_stds.index[i].replace(&#39;\n&#39;, &#39; &#39;))
 </pre></div>
 </div>
@@ -1682,6 +1566,11 @@ dtype: object
 <span class="n">ntr_filtered_extremes_low</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;tide&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data_extremes_low</span><span class="p">[</span><span class="s1">&#39;tide&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 <span class="n">ntr_filtered_extremes_low</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;sea_level&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ntr_data_extremes_low</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
 
+
+<span class="c1"># arrange columns</span>
+<span class="n">ntr_filtered_extremes_high</span> <span class="o">=</span> <span class="n">ntr_filtered_extremes_high</span><span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;ntr&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_level&#39;</span><span class="p">,</span> <span class="s1">&#39;tide&#39;</span><span class="p">,</span><span class="s1">&#39;&lt; 1 week&#39;</span><span class="p">,</span> <span class="s1">&#39;1 week - 1 month&#39;</span><span class="p">,</span> <span class="s1">&#39;1 month - 1 year&#39;</span><span class="p">,</span> <span class="s1">&#39;Seasonal&#39;</span><span class="p">,</span> <span class="s1">&#39;1-10 year&#39;</span><span class="p">,</span> <span class="s1">&#39;10-20 year&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt; 20 years&#39;</span><span class="p">,</span> <span class="s1">&#39;Nodal&#39;</span><span class="p">]]</span>
+<span class="n">ntr_filtered_extremes_low</span> <span class="o">=</span> <span class="n">ntr_filtered_extremes_low</span><span class="p">[[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;ntr&#39;</span><span class="p">,</span> <span class="s1">&#39;sea_level&#39;</span><span class="p">,</span> <span class="s1">&#39;tide&#39;</span><span class="p">,</span><span class="s1">&#39;&lt; 1 week&#39;</span><span class="p">,</span> <span class="s1">&#39;1 week - 1 month&#39;</span><span class="p">,</span> <span class="s1">&#39;1 month - 1 year&#39;</span><span class="p">,</span> <span class="s1">&#39;Seasonal&#39;</span><span class="p">,</span> <span class="s1">&#39;1-10 year&#39;</span><span class="p">,</span> <span class="s1">&#39;10-20 year&#39;</span><span class="p">,</span> <span class="s1">&#39;&gt; 20 years&#39;</span><span class="p">,</span> <span class="s1">&#39;Nodal&#39;</span><span class="p">]]</span>
+
 <span class="n">ntr_filtered_extremes_high</span>
 </pre></div>
 </div>
@@ -1709,14 +1598,14 @@ dtype: object
       <th>ntr</th>
       <th>sea_level</th>
       <th>tide</th>
-      <th>Nodal</th>
-      <th>&gt; 20 years</th>
-      <th>10-20 year</th>
-      <th>1-10 year</th>
-      <th>Seasonal</th>
-      <th>1 month - 1 year</th>
-      <th>1 week - 1 month</th>
       <th>&lt; 1 week</th>
+      <th>1 week - 1 month</th>
+      <th>1 month - 1 year</th>
+      <th>Seasonal</th>
+      <th>1-10 year</th>
+      <th>10-20 year</th>
+      <th>&gt; 20 years</th>
+      <th>Nodal</th>
     </tr>
   </thead>
   <tbody>
@@ -1726,14 +1615,14 @@ dtype: object
       <td>386.149224</td>
       <td>1841.0</td>
       <td>1446.321045</td>
-      <td>-4.136056</td>
-      <td>0.345184</td>
-      <td>16.405355</td>
-      <td>-9.586521</td>
-      <td>15.424459</td>
-      <td>10.741552</td>
-      <td>15.122387</td>
       <td>341.832866</td>
+      <td>15.122387</td>
+      <td>10.741552</td>
+      <td>15.424459</td>
+      <td>-9.586521</td>
+      <td>16.405355</td>
+      <td>0.345184</td>
+      <td>-4.136056</td>
     </tr>
     <tr>
       <th>395340</th>
@@ -1741,14 +1630,14 @@ dtype: object
       <td>193.710335</td>
       <td>1838.0</td>
       <td>1634.628946</td>
-      <td>1.534330</td>
-      <td>-2.284839</td>
-      <td>13.241555</td>
-      <td>31.118238</td>
-      <td>11.593531</td>
-      <td>28.311686</td>
-      <td>22.812835</td>
       <td>87.382999</td>
+      <td>22.812835</td>
+      <td>28.311686</td>
+      <td>11.593531</td>
+      <td>31.118238</td>
+      <td>13.241555</td>
+      <td>-2.284839</td>
+      <td>1.534330</td>
     </tr>
     <tr>
       <th>569029</th>
@@ -1756,14 +1645,14 @@ dtype: object
       <td>441.165019</td>
       <td>1860.0</td>
       <td>1389.498885</td>
-      <td>7.437487</td>
-      <td>-1.557116</td>
-      <td>7.210707</td>
-      <td>-17.710939</td>
-      <td>-7.675426</td>
-      <td>-2.948057</td>
-      <td>-18.307311</td>
       <td>474.715673</td>
+      <td>-18.307311</td>
+      <td>-2.948057</td>
+      <td>-7.675426</td>
+      <td>-17.710939</td>
+      <td>7.210707</td>
+      <td>-1.557116</td>
+      <td>7.437487</td>
     </tr>
     <tr>
       <th>585910</th>
@@ -1771,14 +1660,14 @@ dtype: object
       <td>146.321696</td>
       <td>1822.0</td>
       <td>1644.428229</td>
-      <td>13.728980</td>
-      <td>1.821722</td>
-      <td>15.684743</td>
-      <td>55.135866</td>
-      <td>17.840255</td>
-      <td>41.382958</td>
-      <td>13.422740</td>
       <td>-12.695568</td>
+      <td>13.422740</td>
+      <td>41.382958</td>
+      <td>17.840255</td>
+      <td>55.135866</td>
+      <td>15.684743</td>
+      <td>1.821722</td>
+      <td>13.728980</td>
     </tr>
     <tr>
       <th>606491</th>
@@ -1786,14 +1675,14 @@ dtype: object
       <td>158.977680</td>
       <td>1807.0</td>
       <td>1614.442302</td>
-      <td>13.714470</td>
-      <td>4.260900</td>
-      <td>6.749408</td>
-      <td>22.938592</td>
-      <td>27.639290</td>
-      <td>21.098664</td>
-      <td>35.879808</td>
       <td>26.696547</td>
+      <td>35.879808</td>
+      <td>21.098664</td>
+      <td>27.639290</td>
+      <td>22.938592</td>
+      <td>6.749408</td>
+      <td>4.260900</td>
+      <td>13.714470</td>
     </tr>
     <tr>
       <th>611112</th>
@@ -1801,14 +1690,14 @@ dtype: object
       <td>155.994066</td>
       <td>1796.0</td>
       <td>1605.901203</td>
-      <td>12.472890</td>
-      <td>4.533203</td>
-      <td>3.701020</td>
-      <td>72.589983</td>
-      <td>44.413413</td>
-      <td>1.346283</td>
-      <td>7.678332</td>
       <td>9.258941</td>
+      <td>7.678332</td>
+      <td>1.346283</td>
+      <td>44.413413</td>
+      <td>72.589983</td>
+      <td>3.701020</td>
+      <td>4.533203</td>
+      <td>12.472890</td>
     </tr>
     <tr>
       <th>611471</th>
@@ -1816,14 +1705,14 @@ dtype: object
       <td>142.159702</td>
       <td>1797.0</td>
       <td>1620.694786</td>
-      <td>12.359276</td>
-      <td>4.550745</td>
-      <td>3.430305</td>
-      <td>75.874852</td>
-      <td>27.422758</td>
-      <td>14.882802</td>
-      <td>2.835263</td>
       <td>0.803703</td>
+      <td>2.835263</td>
+      <td>14.882802</td>
+      <td>27.422758</td>
+      <td>75.874852</td>
+      <td>3.430305</td>
+      <td>4.550745</td>
+      <td>12.359276</td>
     </tr>
     <tr>
       <th>615012</th>
@@ -1831,14 +1720,14 @@ dtype: object
       <td>131.815752</td>
       <td>1825.0</td>
       <td>1658.639084</td>
-      <td>11.115191</td>
-      <td>4.698623</td>
-      <td>0.513048</td>
-      <td>52.838862</td>
-      <td>1.180163</td>
-      <td>19.864943</td>
-      <td>9.523414</td>
       <td>32.081509</td>
+      <td>9.523414</td>
+      <td>19.864943</td>
+      <td>1.180163</td>
+      <td>52.838862</td>
+      <td>0.513048</td>
+      <td>4.698623</td>
+      <td>11.115191</td>
     </tr>
     <tr>
       <th>623532</th>
@@ -1846,14 +1735,14 @@ dtype: object
       <td>94.062016</td>
       <td>1817.0</td>
       <td>1687.427674</td>
-      <td>7.325133</td>
-      <td>4.902272</td>
-      <td>-6.701762</td>
-      <td>-40.224651</td>
-      <td>16.252029</td>
-      <td>19.830490</td>
-      <td>50.252924</td>
       <td>42.425582</td>
+      <td>50.252924</td>
+      <td>19.830490</td>
+      <td>16.252029</td>
+      <td>-40.224651</td>
+      <td>-6.701762</td>
+      <td>4.902272</td>
+      <td>7.325133</td>
     </tr>
     <tr>
       <th>638039</th>
@@ -1861,14 +1750,14 @@ dtype: object
       <td>71.145567</td>
       <td>1800.0</td>
       <td>1691.699298</td>
-      <td>-0.671836</td>
-      <td>4.986810</td>
-      <td>-10.465720</td>
-      <td>6.370453</td>
-      <td>46.028489</td>
-      <td>1.474529</td>
-      <td>0.721574</td>
       <td>22.701267</td>
+      <td>0.721574</td>
+      <td>1.474529</td>
+      <td>46.028489</td>
+      <td>6.370453</td>
+      <td>-10.465720</td>
+      <td>4.986810</td>
+      <td>-0.671836</td>
     </tr>
   </tbody>
 </table>
@@ -1903,14 +1792,14 @@ dtype: object
       <th>ntr</th>
       <th>sea_level</th>
       <th>tide</th>
-      <th>Nodal</th>
-      <th>&gt; 20 years</th>
-      <th>10-20 year</th>
-      <th>1-10 year</th>
-      <th>Seasonal</th>
-      <th>1 month - 1 year</th>
-      <th>1 week - 1 month</th>
       <th>&lt; 1 week</th>
+      <th>1 week - 1 month</th>
+      <th>1 month - 1 year</th>
+      <th>Seasonal</th>
+      <th>1-10 year</th>
+      <th>10-20 year</th>
+      <th>&gt; 20 years</th>
+      <th>Nodal</th>
     </tr>
   </thead>
   <tbody>
@@ -1920,14 +1809,14 @@ dtype: object
       <td>-151.464438</td>
       <td>421.0</td>
       <td>560.239966</td>
-      <td>12.331957</td>
-      <td>-8.396550</td>
-      <td>-18.784632</td>
-      <td>-40.211108</td>
-      <td>-36.983758</td>
-      <td>-29.178525</td>
-      <td>-0.656810</td>
       <td>-29.585012</td>
+      <td>-0.656810</td>
+      <td>-29.178525</td>
+      <td>-36.983758</td>
+      <td>-40.211108</td>
+      <td>-18.784632</td>
+      <td>-8.396550</td>
+      <td>12.331957</td>
     </tr>
     <tr>
       <th>422572</th>
@@ -1935,14 +1824,14 @@ dtype: object
       <td>-125.146783</td>
       <td>431.0</td>
       <td>543.400317</td>
-      <td>13.607684</td>
-      <td>-9.327270</td>
-      <td>-24.531543</td>
-      <td>-40.798976</td>
-      <td>-12.165074</td>
-      <td>44.854170</td>
-      <td>-4.400335</td>
       <td>-92.385438</td>
+      <td>-4.400335</td>
+      <td>44.854170</td>
+      <td>-12.165074</td>
+      <td>-40.798976</td>
+      <td>-24.531543</td>
+      <td>-9.327270</td>
+      <td>13.607684</td>
     </tr>
     <tr>
       <th>444283</th>
@@ -1950,14 +1839,14 @@ dtype: object
       <td>-253.101445</td>
       <td>441.0</td>
       <td>678.897256</td>
-      <td>13.578167</td>
-      <td>-11.048217</td>
-      <td>-20.065497</td>
-      <td>11.121663</td>
-      <td>27.107216</td>
-      <td>7.044733</td>
-      <td>9.140113</td>
       <td>-289.979624</td>
+      <td>9.140113</td>
+      <td>7.044733</td>
+      <td>27.107216</td>
+      <td>11.121663</td>
+      <td>-20.065497</td>
+      <td>-11.048217</td>
+      <td>13.578167</td>
     </tr>
     <tr>
       <th>510435</th>
@@ -1965,14 +1854,14 @@ dtype: object
       <td>-109.491647</td>
       <td>454.0</td>
       <td>540.791946</td>
-      <td>-14.672469</td>
-      <td>-8.266415</td>
-      <td>-3.746463</td>
-      <td>-24.776992</td>
-      <td>-6.899598</td>
-      <td>-0.049359</td>
-      <td>-4.867489</td>
       <td>-46.212861</td>
+      <td>-4.867489</td>
+      <td>-0.049359</td>
+      <td>-6.899598</td>
+      <td>-24.776992</td>
+      <td>-3.746463</td>
+      <td>-8.266415</td>
+      <td>-14.672469</td>
     </tr>
     <tr>
       <th>513689</th>
@@ -1980,14 +1869,14 @@ dtype: object
       <td>-114.879332</td>
       <td>443.0</td>
       <td>534.812604</td>
-      <td>-14.867003</td>
-      <td>-8.320450</td>
-      <td>-7.526862</td>
-      <td>-36.488324</td>
-      <td>0.894068</td>
-      <td>-9.756053</td>
-      <td>-18.895640</td>
       <td>-19.919069</td>
+      <td>-18.895640</td>
+      <td>-9.756053</td>
+      <td>0.894068</td>
+      <td>-36.488324</td>
+      <td>-7.526862</td>
+      <td>-8.320450</td>
+      <td>-14.867003</td>
     </tr>
     <tr>
       <th>514384</th>
@@ -1995,14 +1884,14 @@ dtype: object
       <td>-104.145169</td>
       <td>453.0</td>
       <td>533.999599</td>
-      <td>-14.878239</td>
-      <td>-8.328882</td>
-      <td>-8.269055</td>
-      <td>-30.123336</td>
-      <td>0.886531</td>
-      <td>-17.141733</td>
-      <td>-5.711338</td>
       <td>-20.579116</td>
+      <td>-5.711338</td>
+      <td>-17.141733</td>
+      <td>0.886531</td>
+      <td>-30.123336</td>
+      <td>-8.269055</td>
+      <td>-8.328882</td>
+      <td>-14.878239</td>
     </tr>
     <tr>
       <th>518981</th>
@@ -2010,14 +1899,14 @@ dtype: object
       <td>-133.819476</td>
       <td>461.0</td>
       <td>571.151911</td>
-      <td>-14.683422</td>
-      <td>-8.346871</td>
-      <td>-12.533706</td>
-      <td>-28.359931</td>
-      <td>1.812074</td>
-      <td>-2.772914</td>
-      <td>-1.515818</td>
       <td>-67.418887</td>
+      <td>-1.515818</td>
+      <td>-2.772914</td>
+      <td>1.812074</td>
+      <td>-28.359931</td>
+      <td>-12.533706</td>
+      <td>-8.346871</td>
+      <td>-14.683422</td>
     </tr>
     <tr>
       <th>520369</th>
@@ -2025,14 +1914,14 @@ dtype: object
       <td>-615.083248</td>
       <td>340.0</td>
       <td>931.257997</td>
-      <td>-14.533332</td>
-      <td>-8.336865</td>
-      <td>-13.594236</td>
-      <td>-27.899490</td>
-      <td>-13.421069</td>
-      <td>-0.155292</td>
-      <td>31.725260</td>
       <td>-568.868224</td>
+      <td>31.725260</td>
+      <td>-0.155292</td>
+      <td>-13.421069</td>
+      <td>-27.899490</td>
+      <td>-13.594236</td>
+      <td>-8.336865</td>
+      <td>-14.533332</td>
     </tr>
     <tr>
       <th>529405</th>
@@ -2040,14 +1929,14 @@ dtype: object
       <td>-1839.486167</td>
       <td>-652.0</td>
       <td>1162.638677</td>
-      <td>-12.567602</td>
-      <td>-8.042266</td>
-      <td>-18.264356</td>
-      <td>26.865804</td>
-      <td>-35.940653</td>
-      <td>-27.816794</td>
-      <td>-65.169711</td>
       <td>-1698.550589</td>
+      <td>-65.169711</td>
+      <td>-27.816794</td>
+      <td>-35.940653</td>
+      <td>26.865804</td>
+      <td>-18.264356</td>
+      <td>-8.042266</td>
+      <td>-12.567602</td>
     </tr>
     <tr>
       <th>536332</th>
@@ -2055,14 +1944,14 @@ dtype: object
       <td>-181.519550</td>
       <td>412.0</td>
       <td>567.886351</td>
-      <td>-10.016689</td>
-      <td>-7.496058</td>
-      <td>-19.498083</td>
-      <td>-21.958197</td>
-      <td>-31.766742</td>
-      <td>-31.373778</td>
-      <td>-27.213317</td>
       <td>-32.196687</td>
+      <td>-27.213317</td>
+      <td>-31.373778</td>
+      <td>-31.766742</td>
+      <td>-21.958197</td>
+      <td>-19.498083</td>
+      <td>-7.496058</td>
+      <td>-10.016689</td>
     </tr>
   </tbody>
 </table>
@@ -2131,14 +2020,14 @@ dtype: object
       <th>ntr</th>
       <th>sea_level</th>
       <th>tide</th>
-      <th>Nodal</th>
-      <th>&gt; 20 years</th>
-      <th>10-20 year</th>
-      <th>1-10 year</th>
-      <th>Seasonal</th>
-      <th>1 month - 1 year</th>
-      <th>1 week - 1 month</th>
       <th>&lt; 1 week</th>
+      <th>1 week - 1 month</th>
+      <th>1 month - 1 year</th>
+      <th>Seasonal</th>
+      <th>1-10 year</th>
+      <th>10-20 year</th>
+      <th>&gt; 20 years</th>
+      <th>Nodal</th>
     </tr>
   </thead>
   <tbody>
@@ -2148,14 +2037,14 @@ dtype: object
       <td>386.149224</td>
       <td>1841.0</td>
       <td>1446.321045</td>
-      <td>-4.136056</td>
-      <td>0.345184</td>
-      <td>16.405355</td>
-      <td>-9.586521</td>
-      <td>15.424459</td>
-      <td>10.741552</td>
-      <td>15.122387</td>
       <td>341.832866</td>
+      <td>15.122387</td>
+      <td>10.741552</td>
+      <td>15.424459</td>
+      <td>-9.586521</td>
+      <td>16.405355</td>
+      <td>0.345184</td>
+      <td>-4.136056</td>
     </tr>
     <tr>
       <th>395340</th>
@@ -2163,14 +2052,14 @@ dtype: object
       <td>193.710335</td>
       <td>1838.0</td>
       <td>1634.628946</td>
-      <td>1.534330</td>
-      <td>-2.284839</td>
-      <td>13.241555</td>
-      <td>31.118238</td>
-      <td>11.593531</td>
-      <td>28.311686</td>
-      <td>22.812835</td>
       <td>87.382999</td>
+      <td>22.812835</td>
+      <td>28.311686</td>
+      <td>11.593531</td>
+      <td>31.118238</td>
+      <td>13.241555</td>
+      <td>-2.284839</td>
+      <td>1.534330</td>
     </tr>
     <tr>
       <th>569029</th>
@@ -2178,14 +2067,14 @@ dtype: object
       <td>441.165019</td>
       <td>1860.0</td>
       <td>1389.498885</td>
-      <td>7.437487</td>
-      <td>-1.557116</td>
-      <td>7.210707</td>
-      <td>-17.710939</td>
-      <td>-7.675426</td>
-      <td>-2.948057</td>
-      <td>-18.307311</td>
       <td>474.715673</td>
+      <td>-18.307311</td>
+      <td>-2.948057</td>
+      <td>-7.675426</td>
+      <td>-17.710939</td>
+      <td>7.210707</td>
+      <td>-1.557116</td>
+      <td>7.437487</td>
     </tr>
     <tr>
       <th>585910</th>
@@ -2193,14 +2082,14 @@ dtype: object
       <td>146.321696</td>
       <td>1822.0</td>
       <td>1644.428229</td>
-      <td>13.728980</td>
-      <td>1.821722</td>
-      <td>15.684743</td>
-      <td>55.135866</td>
-      <td>17.840255</td>
-      <td>41.382958</td>
-      <td>13.422740</td>
       <td>-12.695568</td>
+      <td>13.422740</td>
+      <td>41.382958</td>
+      <td>17.840255</td>
+      <td>55.135866</td>
+      <td>15.684743</td>
+      <td>1.821722</td>
+      <td>13.728980</td>
     </tr>
     <tr>
       <th>606491</th>
@@ -2208,14 +2097,14 @@ dtype: object
       <td>158.977680</td>
       <td>1807.0</td>
       <td>1614.442302</td>
-      <td>13.714470</td>
-      <td>4.260900</td>
-      <td>6.749408</td>
-      <td>22.938592</td>
-      <td>27.639290</td>
-      <td>21.098664</td>
-      <td>35.879808</td>
       <td>26.696547</td>
+      <td>35.879808</td>
+      <td>21.098664</td>
+      <td>27.639290</td>
+      <td>22.938592</td>
+      <td>6.749408</td>
+      <td>4.260900</td>
+      <td>13.714470</td>
     </tr>
     <tr>
       <th>611112</th>
@@ -2223,14 +2112,14 @@ dtype: object
       <td>155.994066</td>
       <td>1796.0</td>
       <td>1605.901203</td>
-      <td>12.472890</td>
-      <td>4.533203</td>
-      <td>3.701020</td>
-      <td>72.589983</td>
-      <td>44.413413</td>
-      <td>1.346283</td>
-      <td>7.678332</td>
       <td>9.258941</td>
+      <td>7.678332</td>
+      <td>1.346283</td>
+      <td>44.413413</td>
+      <td>72.589983</td>
+      <td>3.701020</td>
+      <td>4.533203</td>
+      <td>12.472890</td>
     </tr>
     <tr>
       <th>611471</th>
@@ -2238,14 +2127,14 @@ dtype: object
       <td>142.159702</td>
       <td>1797.0</td>
       <td>1620.694786</td>
-      <td>12.359276</td>
-      <td>4.550745</td>
-      <td>3.430305</td>
-      <td>75.874852</td>
-      <td>27.422758</td>
-      <td>14.882802</td>
-      <td>2.835263</td>
       <td>0.803703</td>
+      <td>2.835263</td>
+      <td>14.882802</td>
+      <td>27.422758</td>
+      <td>75.874852</td>
+      <td>3.430305</td>
+      <td>4.550745</td>
+      <td>12.359276</td>
     </tr>
     <tr>
       <th>615012</th>
@@ -2253,14 +2142,14 @@ dtype: object
       <td>131.815752</td>
       <td>1825.0</td>
       <td>1658.639084</td>
-      <td>11.115191</td>
-      <td>4.698623</td>
-      <td>0.513048</td>
-      <td>52.838862</td>
-      <td>1.180163</td>
-      <td>19.864943</td>
-      <td>9.523414</td>
       <td>32.081509</td>
+      <td>9.523414</td>
+      <td>19.864943</td>
+      <td>1.180163</td>
+      <td>52.838862</td>
+      <td>0.513048</td>
+      <td>4.698623</td>
+      <td>11.115191</td>
     </tr>
     <tr>
       <th>623532</th>
@@ -2268,14 +2157,14 @@ dtype: object
       <td>94.062016</td>
       <td>1817.0</td>
       <td>1687.427674</td>
-      <td>7.325133</td>
-      <td>4.902272</td>
-      <td>-6.701762</td>
-      <td>-40.224651</td>
-      <td>16.252029</td>
-      <td>19.830490</td>
-      <td>50.252924</td>
       <td>42.425582</td>
+      <td>50.252924</td>
+      <td>19.830490</td>
+      <td>16.252029</td>
+      <td>-40.224651</td>
+      <td>-6.701762</td>
+      <td>4.902272</td>
+      <td>7.325133</td>
     </tr>
     <tr>
       <th>638039</th>
@@ -2283,14 +2172,14 @@ dtype: object
       <td>71.145567</td>
       <td>1800.0</td>
       <td>1691.699298</td>
-      <td>-0.671836</td>
-      <td>4.986810</td>
-      <td>-10.465720</td>
-      <td>6.370453</td>
-      <td>46.028489</td>
-      <td>1.474529</td>
-      <td>0.721574</td>
       <td>22.701267</td>
+      <td>0.721574</td>
+      <td>1.474529</td>
+      <td>46.028489</td>
+      <td>6.370453</td>
+      <td>-10.465720</td>
+      <td>4.986810</td>
+      <td>-0.671836</td>
     </tr>
   </tbody>
 </table>
@@ -2366,13 +2255,13 @@ dtype: object
     <span class="c1"># drop sea level column</span>
     <span class="n">extremes_high_relative_to_std_subset</span> <span class="o">=</span> <span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sea_level&#39;</span><span class="p">])</span>
 
-    <span class="n">heatmap</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">new_cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
+    <span class="n">heatmap</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">new_cmap</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span><span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">)</span>
 
     <span class="c1"># label rows and columns</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="p">)))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">columns</span><span class="p">,</span><span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M&#39;</span><span class="p">),</span><span class="n">rotation</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">columns</span><span class="p">)))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">extremes_high_relative_to_std_subset</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 
     <span class="c1"># add colorbar, should be same height as heatmap</span>
     <span class="n">cbar</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">heatmap</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.04</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mf">0.04</span><span class="p">)</span>
@@ -2400,7 +2289,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/0853aa732ebc776b18385661e1ffb1c3b80a7dca7b11db10ff133e9763c69bf1.png" src="../_images/0853aa732ebc776b18385661e1ffb1c3b80a7dca7b11db10ff133e9763c69bf1.png" />
+<img alt="../_images/da1430f0d02628fa5efddc544f985dd27bc4039c34cb7e55d712db2cad62854a.png" src="../_images/da1430f0d02628fa5efddc544f985dd27bc4039c34cb7e55d712db2cad62854a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2415,10 +2304,10 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>../output/SL_rankings_NTR_relative_amplitudes_top10_Kahului_high.png
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/jfiedler/Documents/SL_Hawaii_data/output/SL_rankings_NTR_relative_amplitudes_top10_Kahului_high.png
 </pre></div>
 </div>
-<img alt="../_images/6a0e8ad9434317d13de634d397ae364654ed79709eb03a8ca646a336135c3559.png" src="../_images/6a0e8ad9434317d13de634d397ae364654ed79709eb03a8ca646a336135c3559.png" />
+<img alt="../_images/40da24206b77429776ea736a97151bcea0c3788286f6ee76c8c88029860f9305.png" src="../_images/40da24206b77429776ea736a97151bcea0c3788286f6ee76c8c88029860f9305.png" />
 </div>
 </div>
 </section>
