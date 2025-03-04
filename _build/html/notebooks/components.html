@@ -540,6 +540,35 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">ValueError</span><span class="g g-Whitespace">                                </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">ds</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_dataset</span><span class="p">(</span><span class="n">data_dir</span> <span class="o">/</span> <span class="s1">&#39;rsl_hawaii.nc&#39;</span><span class="p">)</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/api.py:554,</span> in <span class="ni">open_dataset</span><span class="nt">(filename_or_obj, engine, chunks, cache, decode_cf, mask_and_scale, decode_times, decode_timedelta, use_cftime, concat_characters, decode_coords, drop_variables, inline_array, chunked_array_type, from_array_kwargs, backend_kwargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">backend_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">553</span> <span class="k">if</span> <span class="n">engine</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">554</span>     <span class="n">engine</span> <span class="o">=</span> <span class="n">plugins</span><span class="o">.</span><span class="n">guess_engine</span><span class="p">(</span><span class="n">filename_or_obj</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">556</span> <span class="k">if</span> <span class="n">from_array_kwargs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">557</span>     <span class="n">from_array_kwargs</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="nn">File /opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backends/plugins.py:197,</span> in <span class="ni">guess_engine</span><span class="nt">(store_spec)</span>
+<span class="g g-Whitespace">    </span><span class="mi">189</span> <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">190</span>     <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">191</span>         <span class="s2">&quot;found the following matches with the input file in xarray&#39;s IO &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">192</span>         <span class="sa">f</span><span class="s2">&quot;backends: </span><span class="si">{</span><span class="n">compatible_engines</span><span class="si">}</span><span class="s2">. But their dependencies may not be installed, see:</span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">193</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/user-guide/io.html </span><span class="se">\n</span><span class="s2">&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">194</span>         <span class="s2">&quot;https://docs.xarray.dev/en/stable/getting-started-guide/installing.html&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
+
+<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;h5netcdf&#39;, &#39;scipy&#39;, &#39;zarr&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+<span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
+<span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
+</pre></div>
+</div>
+</div>
 </div>
 <p>For right now, we’ll do Kahului.</p>
 <div class="cell docutils container">
@@ -575,13 +604,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solve: matrix prep ... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solution ... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>solve: matrix prep ... solution ... done.
 </pre></div>
 </div>
 </div>
@@ -604,10 +627,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prep/calcs ... 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>prep/calcs ... done.
 </pre></div>
 </div>
 </div>
@@ -1060,7 +1080,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x3e5853e20&gt;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x440b28850&gt;]
 </pre></div>
 </div>
 <img alt="../_images/f75327af57063b831b8fa6053618835354f3dd66369325b90b2e43ad5cf5f130.png" src="../_images/f75327af57063b831b8fa6053618835354f3dd66369325b90b2e43ad5cf5f130.png" />
@@ -1510,7 +1530,7 @@ dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_95978/3394451137.py:7: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/qp/nn19rcjs5bdcdvxmff5bd3pr0000gn/T/ipykernel_91732/3394451137.py:7: FutureWarning: Series.__getitem__ treating keys as positions is deprecated. In a future version, integer keys will always be treated as labels (consistent with DataFrame behavior). To access a value by position, use `ser.iloc[pos]`
   ax.bar(&#39;Components&#39;, 0.4*ntr_cumsum_stds[i], bottom=0, label=ntr_cumsum_stds.index[i].replace(&#39;\n&#39;, &#39; &#39;))
 </pre></div>
 </div>
