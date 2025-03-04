@@ -53,7 +53,7 @@ File [0;32m/opt/anaconda3/envs/SLI39/lib/python3.9/site-packages/xarray/backend
 [1;32m    195[0m     )
 [0;32m--> 197[0m [38;5;28;01mraise[39;00m [38;5;167;01mValueError[39;00m(error_msg)
 
-[0;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'scipy']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+[0;31mValueError[0m: did not find a match in any of xarray's currently installed IO backends ['netcdf4', 'h5netcdf', 'scipy', 'zarr']. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
 https://docs.xarray.dev/en/stable/getting-started-guide/installing.html
 https://docs.xarray.dev/en/stable/user-guide/io.html
 

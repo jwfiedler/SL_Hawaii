@@ -67,7 +67,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Minor Flood Frequency and Duration" href="../Flood.html" />
-    <link rel="prev" title="Components of Sea Level" href="../regional_and_local/SL_Components_annual.html" />
+    <link rel="prev" title="Components" href="../components.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -204,7 +204,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_anomaly_annual.html">Annual Sea Level Anomalies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Rankings_annual.html">Annual Sea Level Rankings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Extremes_annual.html">Annual Extremes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../regional_and_local/SL_Components_annual.html">Components of Sea Level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../components.html">Components</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Nonstationary Extremes</a></li>
 </ul>
 </li>
@@ -546,8 +546,8 @@ document.write(`
 <section id="cumulative-distribution-function-cdf">
 <h2>Cumulative Distribution Function (CDF)<a class="headerlink" href="#cumulative-distribution-function-cdf" title="Permalink to this heading">#</a></h2>
 <p>The cumulative distribution function of the GEV, which is used to calculate return periods, is given by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0901b8a7-3dc7-4578-b230-6efe89b836a5">
-<span class="eqno">(1)<a class="headerlink" href="#equation-0901b8a7-3dc7-4578-b230-6efe89b836a5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-26175736-1d5e-4ad2-95e7-73859c629636">
+<span class="eqno">(1)<a class="headerlink" href="#equation-26175736-1d5e-4ad2-95e7-73859c629636" title="Permalink to this equation">#</a></span>\[\begin{align}
 F(x; \mu, \sigma, \xi) = \begin{cases} 
 \exp\left(-\left(1 + \xi \frac{x - \mu}{\psi}\right)^{-\frac{1}{\xi}}\right) &amp; \text{if } \xi \neq 0, \; 1 + \xi \frac{x - \mu}{\psi} &gt; 0 \\
 \exp\left(-\exp\left(-\frac{x - \mu}{\psi}\right)\right) &amp; \text{if } \xi = 0
@@ -561,8 +561,8 @@ F(x; \mu, \sigma, \xi) = \begin{cases}
 </ul>
 <p>Assuming we are not dealing with a random stationary process (as with our stationary annual extremes), each parameter in the above equation can be the combination of one or more time-dependent components. These effects could include annual variability (seasonality), sea level rise (long-term trend and possible acceleration), a long-term trend for the extreme values, long-term climate variability effects explained by climate indices or the 18.61-yr nodal cycle.</p>
 <p>The sum total of these covariates on each parameter are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a249e14b-ce05-4f90-8d78-dddf1e13d388">
-<span class="eqno">(2)<a class="headerlink" href="#equation-a249e14b-ce05-4f90-8d78-dddf1e13d388" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b0da5966-bba9-4dce-b133-d0b40e145aca">
+<span class="eqno">(2)<a class="headerlink" href="#equation-b0da5966-bba9-4dce-b133-d0b40e145aca" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \mu_{SLR}(t) + \mu_S(t)exp^{[\mu_{LT}(t)]} + \mu_N(t) + \mu_{CLI}(t),\\
 \psi_t(t) &amp;= \psi_S(t)exp^{[\psi_{LT}(t)]} + \psi_N(t) + \psi_{CLI},\\
 \xi_t(t) &amp;= \xi_S(t)exp^{[\xi_{LT}(t)]}
@@ -672,8 +672,8 @@ Méndez, F. J., M. Menéndez, A. Luceño, and I. J. Losada, 2007: Analyzing Mont
 f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) \right),
 \]</div>
 <p>For example, if we can describe our location, scale and shape parameters in the GEV as:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-962505d2-3c56-466c-861d-cdc75ae3f226">
-<span class="eqno">(3)<a class="headerlink" href="#equation-962505d2-3c56-466c-861d-cdc75ae3f226" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7b88af71-22e7-4616-8459-b18fe97c692c">
+<span class="eqno">(3)<a class="headerlink" href="#equation-7b88af71-22e7-4616-8459-b18fe97c692c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_{SLR}(t) + [\beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t)]e^{[\beta_{LT}(t)]}\\\
  &amp;+ \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N) + \beta_{PMM}PMM(t),\\
 \psi(t) &amp;= [\alpha_0 + \alpha_1 cos(2\pi t) + \alpha_2 sin(2\pi t)]e^{[\alpha_{LT}(t)]} \\
@@ -699,8 +699,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-in-location-model">
 <h4>Seasonality in Location Model<a class="headerlink" href="#seasonality-in-location-model" title="Permalink to this heading">#</a></h4>
 <p>Our first step is to look at seasonality only, using the GEV_SeasonalMu model, such that <span class="math notranslate nohighlight">\(\mu(t)\)</span>, <span class="math notranslate nohighlight">\(\psi(t)\)</span>, and <span class="math notranslate nohighlight">\(\xi(t)\)</span> are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6158c3f-a0b4-47a1-9bb0-21cb410d2721">
-<span class="eqno">(4)<a class="headerlink" href="#equation-e6158c3f-a0b4-47a1-9bb0-21cb410d2721" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4c1ef27f-090a-432e-8dfb-6724344131dd">
+<span class="eqno">(4)<a class="headerlink" href="#equation-4c1ef27f-090a-432e-8dfb-6724344131dd" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;=  \beta_0 + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \\
 &amp;\beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) + \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t),\\
 \psi &amp;= \alpha_0, \\
@@ -719,8 +719,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <p>Mathmematically, as <span class="math notranslate nohighlight">\(\beta_{LT}\)</span> goes to zero, <span class="math notranslate nohighlight">\(e^{\beta_{LT}·t}\)</span> goes to <span class="math notranslate nohighlight">\(1 + \beta_{LT}·t\)</span> and our expression (for the non-cyclical part of the location parameter) simplifies to <span class="math notranslate nohighlight">\(\beta_0 (1 +  \beta_{LT}·t)\)</span>.</p>
 <p>That is the equation of a line: <span class="math notranslate nohighlight">\(\beta_0 + \beta_0·\beta_{LT}·t\)</span>, where slope of the line is <span class="math notranslate nohighlight">\(\beta_0·\beta_{LT}\)</span>.</p>
 </aside>
-<div class="amsmath math notranslate nohighlight" id="equation-a23c0d48-abe5-4cda-ab79-d09268f8d313">
-<span class="eqno">(5)<a class="headerlink" href="#equation-a23c0d48-abe5-4cda-ab79-d09268f8d313" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-afc7a860-ab9d-4ccb-b6a9-529cbb64a706">
+<span class="eqno">(5)<a class="headerlink" href="#equation-afc7a860-ab9d-4ccb-b6a9-529cbb64a706" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0e^{\beta_{LT}(t)}  + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t)   + \beta_{PMM}PMM(t),\\
 \psi &amp;= \alpha_0 + \alpha_{PMM}PMM(t), \\
@@ -732,8 +732,8 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <section id="seasonality-trend-covariate-and-nodal-cycle-model">
 <h4>Seasonality, Trend, Covariate and Nodal cycle Model<a class="headerlink" href="#seasonality-trend-covariate-and-nodal-cycle-model" title="Permalink to this heading">#</a></h4>
 <p>For the GEV_S_T_Cv_N model , we’ll add in the nodal cycle:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-20170497-0068-4aa1-8fad-4c4aa3168c30">
-<span class="eqno">(6)<a class="headerlink" href="#equation-20170497-0068-4aa1-8fad-4c4aa3168c30" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-298e9534-d039-4913-a03b-acbb33851b73">
+<span class="eqno">(6)<a class="headerlink" href="#equation-298e9534-d039-4913-a03b-acbb33851b73" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mu(t) &amp;= \beta_0 e^{\beta_{LT}(t)} + \beta_1 cos(2\pi t) + \beta_2 sin(2\pi t) + \beta_3 cos(4\pi t) + \beta_4 sin(4\pi t) \\
 &amp;+ \beta_5 cos(8\pi t) + \beta_6 sin(8\pi t) + \beta_{PMM}PMM(t) + \beta_{N_1} cos(2\pi t/T_N) + \beta_{N_2} sin(2\pi t/T_N),\\
 \psi &amp;= \alpha_0 + \alpha_{PMM}PMM(t), \\
@@ -1069,7 +1069,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <span class="g g-Whitespace">    </span><span class="mi">195</span>     <span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">197</span> <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">error_msg</span><span class="p">)</span>
 
-<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;scipy&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
+<span class="ne">ValueError</span>: did not find a match in any of xarray&#39;s currently installed IO backends [&#39;netcdf4&#39;, &#39;h5netcdf&#39;, &#39;scipy&#39;, &#39;zarr&#39;]. Consider explicitly selecting one of the installed engines via the ``engine`` parameter, or installing additional IO dependencies, see:
 <span class="ne">https</span>://docs.xarray.dev/en/stable/getting-started-guide/installing.html
 <span class="ne">https</span>://docs.xarray.dev/en/stable/user-guide/io.html
 </pre></div>
@@ -1617,7 +1617,7 @@ f(t) = A_0 + \sum_{n=1}^{\infty} \left( A_n \cos(2n \pi t) + B_n \sin(2n \pi t) 
 <figure class="align-default" id="seasonal-extreme-variations">
 <img alt="../../_images/754d35cdb67c92653c849e10049198edefb3529c7819fc350095f2c583fa9c3a.png" src="../../_images/754d35cdb67c92653c849e10049198edefb3529c7819fc350095f2c583fa9c3a.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">A climatology of extreme sea levels at the <span class="pasted-text">Honolulu, Hawaii</span> tide gauge. Monthly maxima (+), determined from hourly sea level data, are shown from 1993-2023. The solid line corresponds to projected sea level return levels at 2,10,50 and 100 years, using this 30-year chunk of data. This line uses a nonstationary GEV to take the seasonal variations of sea level into account. The 2, 10, 50 and 100-year return levels are shown to vary throughout the year (dashed line), with the lowest extremes occuring in March, and highest extremes peaking in July. No long-term trend is used in this model, and the scale and location parameters are held constant.</span><a class="headerlink" href="#seasonal-extreme-variations" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">A climatology of extreme sea levels at the <span class="pasted-text">Honolulu, Hawaii</span> tide gauge. Monthly maxima (+), determined from hourly sea level data, are shown from 1993-2023. The solid line corresponds to projected sea level return levels at 2,10,50 and 100 years, using this 30-year chunk of data. This line uses a nonstationary GEV to take the seasonal variations of sea level into account. The 2, 10, 50 and 100-year return levels are shown to vary throughout the year (dashed line), with the lowest extremes occuring in March, and highest extremes peaking in July. No long-term trend is used in this model, and the scale and location parameters are held constant.</span><a class="headerlink" href="#seasonal-extreme-variations" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -2099,7 +2099,7 @@ Model exists:  ../../data/GEV_model_output/57/RL_muN.nc
 <figure class="align-default" id="timedependentreturnvalue">
 <img alt="../../_images/beee667f8ec62d61b6be98f178463784a533cdf601cb5d8a282b50c7d368595d.png" src="../../_images/beee667f8ec62d61b6be98f178463784a533cdf601cb5d8a282b50c7d368595d.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) also varies in time, and is shown only for the 2 and 10 year return levels. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Time series of the nonstationary GEV-based extreme water level return values for <span class="pasted-text">Honolulu, Hawaii</span>. The monthly maxima (+) are displayed spanning data from <span class="pasted-text">1993.0</span> to 2023. The return levels (at 2, 10, 50, and 100 year levels) are shown in solid lines. The 95% Confidence Interval (shaded area) also varies in time, and is shown only for the 2 and 10 year return levels. Years 2008 and 2020 are highlighted on these curves to show the differences in values when taking seasonality, a long-term trend, and the 18.6 nodal-cycle into account. This particular best-fit model for <span class="pasted-text">Honolulu, Hawaii</span> includes the <span class="pasted-text">Annual seasonal cycle, Semiannual seasonal cycle, Long-term Trend in Location, and Nodal Cycle</span>.</span><a class="headerlink" href="#timedependentreturnvalue" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <aside class="margin sidebar">
@@ -2932,7 +2932,7 @@ Attributes:
 <figure class="align-default" id="timedependentreturnvaluemap">
 <img alt="../../_images/400ecdfb16086cc599f2c971866420f43cd5e2637d1c68409a4dd03f3ba7c9ee.png" src="../../_images/400ecdfb16086cc599f2c971866420f43cd5e2637d1c68409a4dd03f3ba7c9ee.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Map of the nonstationary GEV-based extreme water level return values for Hawaiian Island region stations. Year 2020 is shown here. Each nonstationary model includes some combination of seasonality, a long-term trend, and the 18.6 nodal-cycle, provided each parameter improves the significance of the GEV fit. No covariates are used for these particular best-fit models.</span><a class="headerlink" href="#timedependentreturnvaluemap" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Map of the nonstationary GEV-based extreme water level return values for Hawaiian Island region stations. Year 2020 is shown here. Each nonstationary model includes some combination of seasonality, a long-term trend, and the 18.6 nodal-cycle, provided each parameter improves the significance of the GEV fit. No covariates are used for these particular best-fit models.</span><a class="headerlink" href="#timedependentreturnvaluemap" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="cell docutils container">
@@ -3034,12 +3034,12 @@ Attributes:
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../regional_and_local/SL_Components_annual.html"
+       href="../components.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Components of Sea Level</p>
+        <p class="prev-next-title">Components</p>
       </div>
     </a>
     <a class="right-next"
