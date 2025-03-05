@@ -4,10 +4,10 @@ pandas
 xarray
 cartopy
 dask
-docutils=0.17.1
+docutils==0.17.1
 ipykernel
 netcdf4
-python=3.9
+python==3.9
 scipy
 seaborn
 xarray
