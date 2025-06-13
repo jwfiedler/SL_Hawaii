@@ -10,14 +10,14 @@ def remove_files(dirs):
         os.remove(dirs['run_dir'] / 'mio.txt')
 
 
-def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
+def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu', nproc=8):
     N = len(x_inisol)
 
 
     cont = 0
 
     x = np.array([x_inisol]) # Start with initial solution
-    f, pa = fitness(x[cont], dirs, modelType)  # Compute fitness for initial solution
+    f, pa = fitness(x[cont], dirs, nproc)  # Compute fitness for initial solution
     f = np.array([f])
     pa = np.array([pa])
     
@@ -35,7 +35,7 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
             
             for i in range(len(dum)):
                 x_temp[i, dum[i]] = 1
-                f_temp[i], pa_temp[i] = fitness(x_temp[i], dirs, modelType)
+                f_temp[i], pa_temp[i] = fitness(x_temp[i], dirs, nproc=nproc)
             # print(f'x_temp: {x_temp}')
             # print(f'f_temp: {f_temp}')
             best, indi = np.max(f_temp), np.argmax(f_temp)
@@ -46,7 +46,7 @@ def stepwise(x_inisol, dirs, modelType='GEV_SeasonalMu'):
                 f = np.vstack((f, [best]))
                 pa = np.vstack((pa, [pa_temp[indi]]))
                 # print(f'x: {x}')
-                f[cont], pa[cont] = fitness(x[cont], dirs, modelType)
+                f[cont], pa[cont] = fitness(x[cont], dirs, nproc=nproc)
             else:
                 better = False
         else:
@@ -86,7 +86,7 @@ def fitness_withFortran(x, dirs, modelType='GEV_SeasonalMu'):
         xmax[cont:cont+2] = [aux[5, 1], aux[6, 1]]
         cont += 2
 
-    if modelType == 'GEV_S_T_Cv' or modelType == 'GEV_S_T_Cv_Nodal':
+    if modelType == 'GEV_S_T_Cv' or modelType == 'GEV_S_T_Cv_NP':
         if x[2] == 1:  # Frequency 4w, for some reason the limits change, so we'll replace them
             cont -= 2
             xmin[cont:cont+2] = [aux[7, 0], aux[8, 0]]  # 
@@ -108,12 +108,11 @@ def fitness_withFortran(x, dirs, modelType='GEV_SeasonalMu'):
             xmax[cont] = aux[11, 1]
             cont += 1
     
-    if modelType == 'GEV_S_T_Cv_Nodal':
-        if x[6] == 1: # Nodal component in location, beta_N1, beta_N2
-            xmin[cont:cont+2] = [aux[12, 0], aux[13, 0]]
-            xmax[cont:cont+2] = [aux[12, 1], aux[13, 1]]
-            cont += 2
-
+    if modelType == 'GEV_S_T_Cv_NP':
+        if x[6] == 1: # Nodal and Perigean component in location, beta_N1, beta_N2, beta_P1, beta_P2
+            xmin[cont:cont+4] = [aux[12, 0], aux[13, 0], aux[14, 0], aux[15, 0]]
+            xmax[cont:cont+4] = [aux[12, 1], aux[13, 1], aux[14, 1], aux[15, 1]]
+            cont += 4
 
     xmin = xmin[:cont]
     xmax = xmax[:cont]
@@ -184,7 +183,7 @@ def fitness_withFortran(x, dirs, modelType='GEV_SeasonalMu'):
     
     return bestf, n
 
-def fitness(x, dirs, modelType='GEV_SeasonalMu', nproc = 8):
+def fitness(x, dirs, nproc = 8):
 
     run_dir = dirs['run_dir']  
 
@@ -291,6 +290,34 @@ def get_monthly_max_time_series(recordID,rsl_hourly):
 
     return df, STNDtoMHHW, station_name, year0
 
+def get_covariate_MMA(t_monthly_max, CI_dir, recordID='recordID'):
+
+    df = pd.read_csv(CI_dir / 'MMA.csv', parse_dates=['time'])
+
+    # Set the Date as the index for easier slicing and access
+    df.set_index('time', inplace=True)
+
+    # Extract the MMA column
+    CI_df = df[str(recordID)]
+
+    # Reindex to include all necessary dates from t_monthly_max for interpolation
+    all_dates = CI_df.index.union(t_monthly_max)
+
+    # Reindex the DataFrame with the union of dates
+    CI_df = CI_df.reindex(all_dates)
+
+    # Now interpolate 
+    CI_interp_df = CI_df.interpolate()
+
+    # retrieve the MMA value for the monthly maxima
+    CI_interp = CI_interp_df.loc[t_monthly_max]
+
+    # Save CI_interp as 'covariate' as a 1D numpy array
+    covariate = CI_interp.squeeze().to_numpy()
+
+    return covariate
+
+
 def get_covariate(t_monthly_max, CI_dir, CIname='PMM', recordID=None):
 
     df = pd.read_csv(CI_dir / 'climate_indices_norm.csv', parse_dates=['time'])
@@ -380,17 +407,17 @@ def combine_datasets(model_output_dir):
 
 def adjust_w_for_plotting(x, w):
     """
-    Adjusts the w array based on the x conditions and returns an array with 14 elements.
+    Adjusts the w array based on the x conditions and returns an array with 16 elements.
 
     Parameters:
         x (list): A list representing the conditions that influence the adjustment of w.
         w (array-like): An array of values to be adjusted based on x.
 
     Returns:
-        np.ndarray: A 14-element array with adjusted values.
+        np.ndarray: A 16-element array with adjusted values.
     """
-    # Initialize the output array with 14 elements set to zero
-    w_s_plot = np.zeros(14)
+    # Initialize the output array with 16 elements set to zero
+    w_s_plot = np.zeros(16)
 
     # Ensure icromo is 7 elements long
     icromo = np.array(x)
@@ -430,10 +457,10 @@ def adjust_w_for_plotting(x, w):
         idx += 1
 
     if icromo[6] == 1: #nodal
-        w_s_plot[12:14] = w[idx:idx+2]
-        idx += 2
+        w_s_plot[12:16] = w[idx:idx+4]
+        idx += 4
 
-    # Return the adjusted array with 14 elements
+    # Return the adjusted array with 16 elements
     return w_s_plot
 
 def Quantilentime(x0, w, x, t00, t11, return_period, T, serieCV):
@@ -465,7 +492,7 @@ def Quantilentime(x0, w, x, t00, t11, return_period, T, serieCV):
     # ww = adjust_w_for_plotting(x, w)
     # Parameter unpacking
     b0, a0, xi, b1, b2, b3, b4, b5, b6 = w[:9] # basics + seasonal cycle
-    bLT, bCI, aCI, bN1, bN2 = w[9:]  # Initialize optional parameters
+    bLT, bCI, aCI, bN1, bN2, bP1, bP2 = w[9:]  # Initialize optional parameters
 
     dt = 0.001
     ti = np.arange(t00, t11 + dt, dt)
@@ -490,6 +517,7 @@ def Quantilentime(x0, w, x, t00, t11, return_period, T, serieCV):
            b3 * np.cos(4 * np.pi * ti) + b4 * np.sin(4 * np.pi * ti) +
            b5 * np.cos(8 * np.pi * ti) + b6 * np.sin(8 * np.pi * ti) +
            bN1 * np.cos((2 * np.pi / 18.61) * ti) + bN2 * np.sin((2 * np.pi / 18.61) * ti) +
+           bP1 * np.cos((2 * np.pi / 4.425) * ti) + bP2 * np.sin((2 * np.pi / 4.425) * ti) +
            (bCI * serieCV2))
     
     # scale(t)

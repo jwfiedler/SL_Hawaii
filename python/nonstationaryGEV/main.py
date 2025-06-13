@@ -36,18 +36,20 @@ print(f"Base directory: {base_dir}")
 dirs = make_directoryDict(base_dir)
 
 recordIDs = [50,52,57,58,59,60,61,552]
-# recordIDs = [52,57,58,59,60,61,552]
+recordIDs = [52,57,58,59,60,61,552]
+# recordIDs = [59,60,61,552]
 
-# recordIDs = [61,552]
+recordIDs = [61,552]
 # recordID = 60
 # recordID = recordIDs[7]
+# recordIDs = [552,552]
 runWithoutModel = True
 returnPeriod = [2,10,50,100]
 year0plot = 1993
 saveToFile = True
 numProcesses = 8 # number of processes to run in parallel, select 1 if you want to run in serial
-climateIndex = ['AO','BEST','ONI','PDO','PMM','PNA','TNA']
-# climateIndex = ['BEST']
+# climateIndex = ['AO','BEST','ONI','PDO','PMM','PNA','TNA']
+climateIndex = ['MMA']
 # climateIndex = ['AO','AAO','DMI','PDO','PMM','PNA','TNA']
 
 #%%
@@ -87,7 +89,7 @@ for recordID in recordIDs:
     _, _, _, _, _, _, x_N, w_N, wcomp, SignifN = run_noClimateIndex_models(rsl_hourly,recordID,runWithoutModel,dirs, returnPeriod, CIname='None', nproc=numProcesses)
     STNDtoMHHW, station_name, year0, mm, ampCvte1, SignifCvte1 = run_CI_models(rsl_hourly,recordID,False,dirs, returnPeriod, climateIndex,x_N, w_N, wcomp, SignifN, nproc=numProcesses)
 
-#%%
+#%% OLD STUFF, NOT SURE IF TO KEEP
 # Initialize an empty list to store results
 # results = []
 

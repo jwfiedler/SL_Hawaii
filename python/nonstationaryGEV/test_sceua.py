@@ -19,7 +19,7 @@ np.random.seed(seed)
 random.seed(seed)
 
 
-def GEV_S_T_Cv_Nodal(icromo, w, T_vector, Y, serieCV):
+def GEV_S_T_Cv_NP(icromo, w, T_vector, Y, serieCV):
     """
     Translated version of the Fortran functn function.
     
@@ -42,6 +42,7 @@ def GEV_S_T_Cv_Nodal(icromo, w, T_vector, Y, serieCV):
     api = np.pi # pi
     ak = 2 * api # 2pi
     ak18 = 2 * api / 18.61  # 18.61-year nodal cycle
+    ak4 = 2 * api / 4.425  # 4.425-year perigean cycle
 
     # Extract primary GEV parameters from x
     b0 = w['b0']  # Location parameter (base)
@@ -51,7 +52,7 @@ def GEV_S_T_Cv_Nodal(icromo, w, T_vector, Y, serieCV):
 
     # Initialize seasonal/trend/covariate parameters
     b1, b2, b3, b4, b5, b6 = 0, 0, 0, 0, 0, 0
-    bLT, bCI, aCI, bN1, bN2  = 0, 0, 0, 0 ,0
+    bLT, bCI, aCI, bN1, bN2, bP1, bP2  = 0, 0, 0, 0, 0, 0, 0
 
     # Annual cycle
     if icromo[0] == 1:
@@ -80,10 +81,12 @@ def GEV_S_T_Cv_Nodal(icromo, w, T_vector, Y, serieCV):
     if icromo[5] == 1:
         aCI = w['cCI']
 
-    # Nodal cycle
+    # Nodal & Perigean cycle
     if icromo[6] == 1:
         bN1 = w['bN1']
         bN2 = w['bN2']
+        bP1 = w['bP1']
+        bP2 = w['bP2']
 
     # Initialize arrays for location, scale, and shape parameters
     amut = np.zeros(ndata)
@@ -97,6 +100,7 @@ def GEV_S_T_Cv_Nodal(icromo, w, T_vector, Y, serieCV):
         b3 * np.cos(2 * ak * T) + b4 * np.sin(2 * ak * T) +
         b5 * np.cos(4 * ak * T) + b6 * np.sin(4 * ak * T) +
         bN1 * np.cos(ak18 * T) + bN2 * np.sin(ak18 * T) +
+        bP1 * np.cos(ak4 * T) + bP2 * np.sin(ak4 * T) +
         bCI * serieCV)
 
     eps = 1e-8
@@ -229,7 +233,9 @@ class gev_spot_setup:
         if self.icromo[6] == 1:
             param_list.extend([
                 Uniform('bN1', low=-0.2, high=0.2, optguess=0.001),
-                Uniform('bN2', low=-0.2, high=0.2, optguess=0.001)
+                Uniform('bN2', low=-0.2, high=0.2, optguess=0.001),
+                Uniform('bP1', low=-0.2, high=0.2, optguess=0.001),
+                Uniform('bP2', low=-0.2, high=0.2, optguess=0.001)
             ])
         return spotpy.parameter.generate(param_list)
 
@@ -288,10 +294,12 @@ class gev_spot_setup:
             if self.icromo[6] == 1:
                 param_values['bN1'] = w[k]
                 param_values['bN2'] = w[k+1]
+                param_values['bP1'] = w[k+2]
+                param_values['bP2'] = w[k+3]
                 k += 2
 
 
-        amut, apsit, xit =  GEV_S_T_Cv_Nodal(self.icromo, param_values, self.T_vector, self.Y, self.serieCV)
+        amut, apsit, xit =  GEV_S_T_Cv_NP(self.icromo, param_values, self.T_vector, self.Y, self.serieCV)
         
         if np.any(np.isnan(amut)) or np.any(np.isnan(apsit)) or np.any(np.isnan(xit)) or np.any(np.isinf(amut)) or np.any(np.isinf(apsit)) or np.any(np.isinf(xit)):
             return np.full(ndata, np.nan), np.full(ndata,np.nan), np.full(ndata,np.nan)  # Return a large value for invalid cases

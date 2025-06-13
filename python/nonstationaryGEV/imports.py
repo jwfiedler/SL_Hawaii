@@ -32,8 +32,8 @@ param_names = ['Annual seasonal cycle',
     'Long-term Trend in Location',
     'Covariate in Location',
     'Covariate in Scale',
-    'Nodal Cycle']
-
+    'Nodal Cycle',
+    'Perigean Cycle']
 
 
 def make_directoryDict(base_dir):
@@ -70,6 +70,8 @@ def define_limits(run_dir):
         (-0.2, 0.2),
         (-0.2, 0.2),
         (-0.2, 0.2),
+        (-0.2, 0.2),
+        (-0.2, 0.2)
     ]
 
     limitsPath = run_dir / 'limits.txt'
